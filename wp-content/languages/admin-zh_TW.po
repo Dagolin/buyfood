@@ -26,98 +26,98 @@ msgid "0"
 msgstr "Asia/Taipei"
 
 #. translators: 1: WP_Site_Query, 2: WP_Network_Query
-#: wp-admin/about.php:196
+#: wp-admin/about.php:188
 msgid "Cached and comprehensive site queries improve your network admin experience. The addition of %1$s and %2$s help craft advanced queries with less effort."
 msgstr "快取機制和全面的網站查詢，提高了你的網路管理員體驗。增加了 %1$s 和 %2$s 的協助使進階查詢事半功倍。"
 
-#: wp-admin/about.php:189
+#: wp-admin/about.php:181
 msgid "Settings now have an <a href=\"https://make.wordpress.org/core/2016/07/05/customizer-apis-in-4-6-for-setting-validation-and-notifications/\">API for enforcing validation constraints</a>. Likewise, customizer controls now support notifications, which are used to display validation errors instead of failing silently."
 msgstr "設定選項中現在有一個 <a href=\"https://make.wordpress.org/core/2016/07/05/customizer-apis-in-4-6-for-setting-validation-and-notifications/\">強制執行驗證的 API</a>。還有，自訂控制現在已支援通知，這是用來顯示驗證錯誤，而不是默默地失效的。"
 
-#: wp-admin/about.php:192
+#: wp-admin/about.php:184
 msgid "Multisite, now faster than ever"
 msgstr "多站台功能，現在比以前更快"
 
-#: wp-admin/about.php:178
+#: wp-admin/about.php:170
 msgid "WordPress will install and use the newest language packs for your plugins and themes as soon as they&#8217;re available from <a href=\"https://translate.wordpress.org/\">WordPress.org&#8217;s community of translators</a>."
 msgstr "只要語系從 <a href=\"https://translate.wordpress.org/\">WordPress.org 翻譯者社群</a>翻譯後，WordPress 將為你的外掛和佈景主題盡可能安裝及使用最新語系檔。"
 
-#: wp-admin/about.php:182
+#: wp-admin/about.php:174
 msgid "Masonry 3.3.2, imagesLoaded 3.2.0, MediaElement.js 2.22.0, TinyMCE 4.4.1, and Backbone.js 1.3.3 are bundled."
 msgstr "Masonry 3.3.2、imagesLoaded 3.2.0、MediaElement.js 2.22.0、TinyMCE 4.4.1 和 Backbone.js 1.3.3 已綑綁打包。"
 
-#: wp-admin/about.php:188
+#: wp-admin/about.php:180
 msgid "Customizer APIs for Setting Validation and Notifications"
 msgstr "為設定驗證及通知提醒客制化 APIs"
 
 #. translators: %s:
 #. https://make.wordpress.org/core/2016/07/08/enhancing-register_meta-in-4-6/
-#: wp-admin/about.php:171
+#: wp-admin/about.php:163
 msgid "The Meta Registration API <a href=\"%s\">has been expanded</a> to support types, descriptions, and REST API visibility."
 msgstr "Meta 註冊 API <a href=\"%s\">已擴充</a> 支援的類型，描述，和 REST API 能見度。"
 
-#: wp-admin/about.php:177
+#: wp-admin/about.php:169
 msgid "Translations On Demand"
 msgstr "隨選翻譯"
 
 #. translators: 1: WP_Term_Query, 2: WP_Post_Type
-#: wp-admin/about.php:157
+#: wp-admin/about.php:149
 msgid "A new %1$s class adds flexibility to query term information while a new %2$s object makes interacting with post types more predictable."
 msgstr "一個新的 %1$s 類別增加了查詢規則的靈活性，同時一個新的 %2$s 物件使得與文章類型的互動更能預測。"
 
-#: wp-admin/about.php:167
+#: wp-admin/about.php:159
 msgid "Meta Registration API"
 msgstr "Meta 註冊 API"
 
-#: wp-admin/about.php:147
+#: wp-admin/about.php:139
 msgid "The HTTP API now leverages the Requests library, improving HTTP standard support and adding case-insensitive headers, parallel HTTP requests, and support for Internationalized Domain Names."
 msgstr "HTTP API 現在利用 Requests 函式庫，改善 HTTP 標準支援和增加標頭區分大小寫，多重 HTTP 請求，以及支援國際化網域名稱（IDN）。"
 
 #. translators: 1: WP_Term_Query, 2: WP_Post_Type
-#: wp-admin/about.php:152
+#: wp-admin/about.php:144
 msgid "%1$s and %2$s"
 msgstr "%1$s 與 %2$s"
 
 #. translators: %s:
 #. https://make.wordpress.org/core/2016/07/06/resource-hints-in-4-6/
-#: wp-admin/about.php:140
+#: wp-admin/about.php:132
 msgid "<a href=\"%s\">Resource hints help browsers</a> decide which resources to fetch and preprocess. WordPress 4.6 adds them automatically for your styles and scripts making your site even faster."
 msgstr "<a href=\"%s\">資源提示幫助瀏覽器</a>決定獲取那些資源及預先處理。WordPress 4.6 為你的樣式和程式碼自動套用此功能，讓你的網站變得更快。"
 
-#: wp-admin/about.php:146
+#: wp-admin/about.php:138
 msgid "Robust Requests"
 msgstr "強大的請求"
 
-#: wp-admin/about.php:125
+#: wp-admin/about.php:117
 msgid "As you type, WordPress saves your content to the browser. Recovering saved content is even easier with WordPress 4.6."
 msgstr "在你輸入的同時，WordPress 會保存你的內容在瀏覽器裡面。在 WordPress 4.6 恢復儲存的內容變得更加容易。"
 
-#: wp-admin/about.php:136
+#: wp-admin/about.php:128
 msgid "Resource Hints"
 msgstr "資源提示"
 
 #. translators: %s: Home URL appended with 'wordpress.org'
-#: wp-admin/about.php:117
+#: wp-admin/about.php:109
 msgid "Ever accidentally made a link to %s? Now WordPress automatically checks to make sure you didn&#8217;t."
 msgstr "曾經不小心建立一個鏈結連到 %s？現在 WordPress 會自動檢查以確保你不會出錯。"
 
-#: wp-admin/about.php:124
+#: wp-admin/about.php:116
 msgid "Content Recovery"
 msgstr "內容還原"
 
-#: wp-admin/about.php:113
+#: wp-admin/about.php:105
 msgid "Inline Link Checker"
 msgstr "內嵌鏈結檢查工具"
 
-#: wp-admin/about.php:103
+#: wp-admin/about.php:95
 msgid "The WordPress dashboard now takes advantage of the fonts you already have, making it load faster and letting you feel more at home on whatever device you use."
 msgstr "WordPress 控制台現在會採用你裝置內建字型，讓載入速度更快且讓你感覺更貼近你在使用的裝置。"
 
-#: wp-admin/about.php:78
+#: wp-admin/about.php:70
 msgid "Don&#8217;t lose your place: stay on the same page while you update, install, and delete your plugins and themes."
 msgstr "別再暈頭轉向：當你更新、安裝和刪除你的外掛及佈景主題時會停留在原頁面。"
 
-#: wp-admin/about.php:102
+#: wp-admin/about.php:94
 msgid "Native Fonts"
 msgstr "原生字型"
 
@@ -125,7 +125,7 @@ msgstr "原生字型"
 msgid "Thank you for updating to the latest version. WordPress %s changes a lot behind the scenes to make your WordPress experience even better!"
 msgstr "感謝你更新至最新版本。WordPress %s 改善許多後端技術，讓你的 WordPress 體驗更美好！"
 
-#: wp-admin/about.php:77
+#: wp-admin/about.php:69
 msgid "Streamlined Updates"
 msgstr "簡化更新"
 
@@ -551,11 +551,11 @@ msgstr "發行設計主管"
 msgid "Release Deputy"
 msgstr "發行代表"
 
-#: wp-admin/about.php:181
+#: wp-admin/about.php:173
 msgid "JavaScript Library Updates"
 msgstr "JavaScript 函式庫更新"
 
-#: wp-admin/about.php:110
+#: wp-admin/about.php:102
 msgid "Editor Improvements"
 msgstr "編輯功能改善"
 
@@ -1024,7 +1024,7 @@ msgid "(Currently set to: %s)"
 msgstr "（目前設定為：%s）"
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:234
+#: wp-admin/about.php:226
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "<strong>版本 %s</strong> 解決一個安全性問題。"
 
@@ -1046,15 +1046,15 @@ msgstr "https://zh-tw.gravatar.com/"
 msgid "Profile Picture"
 msgstr "個人檔案圖像"
 
-#: wp-admin/about.php:225
+#: wp-admin/about.php:217
 msgid "Maintenance Releases"
 msgstr "維護更新"
 
-#: wp-admin/about.php:228
+#: wp-admin/about.php:220
 msgid "Security Releases"
 msgstr "安全性更新"
 
-#: wp-admin/about.php:231
+#: wp-admin/about.php:223
 msgid "Maintenance and Security Releases"
 msgstr "維護及安全性更新"
 
@@ -5209,25 +5209,25 @@ msgstr "觀看網站時顯示工具列"
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:243
+#: wp-admin/about.php:235
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "<strong>%1$s 版</strong> 解決了一個安全性議題，並且修正 %2$s 個臭蟲。"
 
 #. translators: %s: Codex URL
-#: wp-admin/about.php:65 wp-admin/about.php:251
+#: wp-admin/about.php:243
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "要知道更多資訊，參考 <a href=\"%s\">發行備註</a>。"
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:63 wp-admin/about.php:247
+#: wp-admin/about.php:239
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "<strong>版本 %1$s</strong> 更正了一些安全問題及 %2$s 個臭蟲。"
 
 #. translators: 1: WordPress version number, 2: plural number of bugs.
-#: wp-admin/about.php:239
+#: wp-admin/about.php:231
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "<strong>版本 %1$s</strong> 更正了 %2$s 個臭蟲。"
@@ -5236,7 +5236,7 @@ msgstr[0] "<strong>版本 %1$s</strong> 更正了 %2$s 個臭蟲。"
 msgid "Welcome to your WordPress Dashboard! This is the screen you will see when you log in to your site, and gives you access to all the site management features of WordPress. You can get help for any screen by clicking the Help tab above the screen title."
 msgstr "歡迎來到你的 WordPress 控制台！登入你的網站後，你就會看見這個畫面，並讓你存取所有 WordPress 網站管理功能。你可以在任何頁面點選頁面標題上方的「幫助」分頁來取得說明主題。"
 
-#: wp-admin/about.php:62 wp-admin/about.php:230
+#: wp-admin/about.php:222
 msgid "Maintenance and Security Release"
 msgstr "維護與安全性更新版本"
 
@@ -5244,16 +5244,16 @@ msgstr "維護與安全性更新版本"
 msgid "What&#8217;s New"
 msgstr "新鮮事"
 
-#: wp-admin/about.php:227
+#: wp-admin/about.php:219
 msgid "Security Release"
 msgstr "安全性更新版本"
 
-#: wp-admin/about.php:224
+#: wp-admin/about.php:216
 msgid "Maintenance Release"
 msgstr "維護更新版本"
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:236
+#: wp-admin/about.php:228
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "<strong>版本 %s</strong> 修正了一些安全性問題。"
 
@@ -5261,7 +5261,7 @@ msgstr "<strong>版本 %s</strong> 修正了一些安全性問題。"
 msgid "This screen allows you to choose your permalink structure. You can choose from common settings or create custom URL structures."
 msgstr "這個畫面可讓你選擇你的的固定網址結構。你可以選擇常見的設定或建立自訂網址結構。"
 
-#: wp-admin/about.php:210
+#: wp-admin/about.php:202
 msgid "Return to Updates"
 msgstr "返回更新"
 
@@ -5545,11 +5545,11 @@ msgstr "就好比為了使用 add_meta_box() 而直接引入 wp-admin/includes/t
 msgid "Welcome to WordPress %s"
 msgstr "歡迎來到 WordPress %s"
 
-#: wp-admin/about.php:213
+#: wp-admin/about.php:205
 msgid "Go to Dashboard &rarr; Home"
 msgstr "前往控制台 &rarr; 首頁"
 
-#: wp-admin/about.php:210
+#: wp-admin/about.php:202
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "返回控制台 &rarr; 更新"
 
@@ -5557,7 +5557,7 @@ msgstr "返回控制台 &rarr; 更新"
 msgid "WordPress is created by a worldwide team of passionate individuals."
 msgstr "WordPress 是由許多充滿熱情的個體所組成的全球性團隊所打造的。"
 
-#: wp-admin/about.php:132
+#: wp-admin/about.php:124
 msgid "Under the Hood"
 msgstr "藏在表面之下的機制"
 
@@ -7420,7 +7420,7 @@ msgid "Must-Use <span class=\"count\">(%s)</span>"
 msgid_plural "Must-Use <span class=\"count\">(%s)</span>"
 msgstr[0] "必用 <span class=\"count\">(%s)</span>"
 
-#: wp-admin/about.php:213
+#: wp-admin/about.php:205
 msgid "Go to Dashboard"
 msgstr "前往控制台"
 
@@ -9490,7 +9490,6 @@ msgstr "回到佈景主題頁面"
 
 #: wp-admin/includes/class-file-upload-upgrader.php:60
 #: wp-admin/includes/class-file-upload-upgrader.php:94
-#: wp-admin/includes/class-file-upload-upgrader.php:107
 msgid "Please select a file"
 msgstr "請選擇檔案"
 
