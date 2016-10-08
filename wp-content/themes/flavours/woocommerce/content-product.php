@@ -43,7 +43,8 @@ $woocommerce_loop['loop']++;
 // Extra post classes
 $classes = array();
 if ( 0 === ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 === $woocommerce_loop['columns'] ) {
-	$classes[] = 'item col-md-3 col-sm-6 col-xs-12';
+	//$classes[] = 'item col-md-3 col-sm-6 col-xs-12';
+	$classes[] = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
 }
 if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 	$classes[] = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';

@@ -9,4 +9,4 @@
 ?>
 
 <div class="products-grid">
-    <ul>
+    <ul class="infproducts">
