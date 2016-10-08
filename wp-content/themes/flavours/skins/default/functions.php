@@ -579,7 +579,7 @@ function tmFlavours_featured_products()
     }
 }
 }
-
+// TODO : add meat category
 if ( ! function_exists ( 'tmFlavours_bestseller_products' ) ) {
 function tmFlavours_bestseller_products()
 {

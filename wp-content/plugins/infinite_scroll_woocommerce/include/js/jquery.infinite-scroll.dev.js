@@ -174,8 +174,9 @@
 			}
 		},
 		addNextPage:function(stateObj){
-			if(!simple_ajax_method){
-				page_points.push([current_page++,stateObj]);
+			if(!simple_ajax_method)
+			{
+				page_points.push([current_page++, stateObj]);
 			}
 		},
 		/**
@@ -233,13 +234,13 @@
 									var $data = $(data);
 									var shop_loop = $data.find(settings.wrapper_products);
 									page_title = $data.filter('title').text();
-									
+
 									if(shop_loop.length>0){	
 											new_class="new_item"+ (i++);
 											if(settings.masonry_item_selector.length>0 && masonry_support==="on"){
 												shop_loop.find(settings.masonry_item_selector).addClass(new_class);
 											}
-									
+									console.log(shop_loop.html());
 											var $new_pagination = $data.find(pagination_selector);
 											if (!simple_ajax_method){
 												if(previous){

@@ -52,7 +52,7 @@ class TmFlavours {
     add_action('save_post',array($this, 'tmFlavours_save_post_layout_meta_box_values'));
 
       // Display 24 products per page. Goes in functions.php
-      add_filter('loop_shop_per_page', create_function('$cols', 'return 3;'), 20);
+      //add_filter('loop_shop_per_page', create_function('$cols', 'return 3;'), 20);
     }
 
 function tmFlavours_theme() {

@@ -42,59 +42,18 @@ $woocommerce_loop['loop']++;
 
 // Extra post classes
 $classes = array();
+$class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
 if ( 0 === ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 === $woocommerce_loop['columns'] ) {
-	//$classes[] = 'item col-md-3 col-sm-6 col-xs-12';
-	$classes[] = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
+    $class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
+    $classes[] = $class;
 }
 if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
-	$classes[] = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
+    $class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
+    $classes[] = $class;
 }
 ?>
-<!-- <li <?php post_class( $classes ); ?>>
 
-	<?php
-	/**
-	 * woocommerce_before_shop_loop_item hook.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item' );
-
-	/**
-	 * woocommerce_before_shop_loop_item_title hook.
-	 *
-	 * @hooked woocommerce_show_product_loop_sale_flash - 10
-	 * @hooked woocommerce_template_loop_product_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item_title' );
-
-	/**
-	 * woocommerce_shop_loop_item_title hook.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_item_title' );
-
-	/**
-	 * woocommerce_after_shop_loop_item_title hook.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item_title' );
-
-	/**
-	 * woocommerce_after_shop_loop_item hook.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 * @hooked woocommerce_template_loop_add_to_cart - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
-	?>
-
-</li> -->
-
-<li <?php post_class($classes); ?> class="item" >
+<li class="<?php echo $class; ?>" >
    <div class="item-inner">
       <div class="item-img">
          <div class="item-img-info">
