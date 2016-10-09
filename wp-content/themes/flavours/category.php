@@ -1,5 +1,6 @@
 <?php  get_header();
 
+
 if(isset($flavours_Options['blog-page-layout']))
 {
 $design = $flavours_Options['blog-page-layout'];

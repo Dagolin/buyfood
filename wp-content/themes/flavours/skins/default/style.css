@@ -14907,7 +14907,7 @@ body table.compare-list .add-to-cart td a {
 	display: inline-block;
 	font-weight: bold;
 }
-.product_meta .sku_wrapper .sku,, .product_meta .tagged_as a {
+.product_meta .sku_wrapper .sku .product_meta .tagged_as a {
 font-weight:normal;
 }
 .product-view .product-shop .product_meta {

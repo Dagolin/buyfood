@@ -41,6 +41,7 @@
 		page_points				=   [],
 	    page_title				=   $('title').text(),
 		currentUrl				= 	window.location.href ,
+		devIndexUrl				=	window.location.protocol + '//' + window.location.host + '/buyfood/',
 		flag_load_next_part		=	false,
 		history_support			= 	settings.enable_history==="on"?true:false,
 		t0,t1,
@@ -69,7 +70,7 @@
 					 _self.products_loop("",true);
 				 });		
 					
-				 $(_self.element).scroll( function ( event ) {	
+				 $(_self.element).scroll( function ( event ) {
 				   if($wrapper.length>0){
 						var inbottom= _self.isScrolledToBottom(settings.wrapper_products);
 						if(inbottom && !flag_load_next_part){ //if pagination is inview and the flag of load next part false
@@ -93,7 +94,12 @@
 								}
 								flag_load_next_part=true;
 							 }else{
-								_self.products_loop();
+							 	// if (devIndexUrl == currentUrl){
+							 	// 	var url = 'http://localhost/buyfood/product-category/salads/fruit-salads/';
+								// 	_self.products_loop(url, false, false);
+								// }
+								// else
+									_self.products_loop();
 							 }
 						}
 						if(history_support){
@@ -196,6 +202,7 @@
 		**/
 		products_loop: function (url,previous,change_hash){
 					 //t0 = performance.now();
+			console.log(url);
 
 					if (typeof previous === 'undefined') { previous=false; }
 					if (typeof change_hash === 'undefined') { change_hash=true; }
@@ -203,13 +210,15 @@
 					if (typeof url === 'undefined' || url==="") {
 						var url = previous?$(settings.selector_prev).attr("href"):$(settings.selector_next).attr("href"); 
 					}
+
+			console.log(url);
 					
 					if(previous){
 						flag_load_prev_part=true;
 					}else{
 						flag_load_next_part=true;//make it true in order to run only once this function on scroll
 					}
-					
+
 					if(typeof url != 'undefined'){//check if url has been set
 						if (typeof isw_before_ajax == 'function') {
 						  isw_before_ajax();
@@ -229,7 +238,8 @@
 								$(".isw_preloader").css({"position":"absolute","bottom":0,"left":"0"});
 							}
 						}	
-											
+											console.log('getting product from inv scroll');
+						console.log(url);
 						 jQuery.get(url , function(data) {
 									var $data = $(data);
 									var shop_loop = $data.find(settings.wrapper_products);
@@ -240,7 +250,7 @@
 											if(settings.masonry_item_selector.length>0 && masonry_support==="on"){
 												shop_loop.find(settings.masonry_item_selector).addClass(new_class);
 											}
-									console.log(shop_loop.html());
+
 											var $new_pagination = $data.find(pagination_selector);
 											if (!simple_ajax_method){
 												if(previous){
@@ -266,6 +276,7 @@
 											if($new_breadcrumb.length>0){
 												$(settings.wrapper_breadcrumb).html($new_breadcrumb.html());
 											}
+											console.log($new_results_count + 'result');
 									}
 									}).done(function() {
 										//history state

@@ -579,6 +579,39 @@ function tmFlavours_featured_products()
     }
 }
 }
+
+// Salad
+if ( ! function_exists ( 'tmFlavours_bestseller_products_salad' ) ) {
+    function tmFlavours_bestseller_products_salad()
+    {
+        global $flavours_Options;
+        ?>
+        <div class="best-pro slider-items-products container">
+            <div class="new_title">
+                <h2><?php esc_attr_e('Feature Products', 'flavours'); ?></h2>
+            </div>
+            <div class="category-products">
+                <div class="products-grid">
+                    <ul class="infproducts">
+
+
+                    </ul>
+
+                    <div class="woocommerce-pagination pager pages" style="display: none">
+                        <ul class="page-numbers">
+                            <li><span class="page-numbers current">0</span></li>
+                            <li><a class="next page-numbers" href="http://localhost/buyfood/product-category/salads/fruit-salads/page/1/from/1"><div class="page-separator-next">»</div></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+}
+
+
+
 // TODO : add meat category
 if ( ! function_exists ( 'tmFlavours_bestseller_products' ) ) {
 function tmFlavours_bestseller_products()

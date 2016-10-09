@@ -25,6 +25,26 @@
     add_filter('add_to_cart_fragments', 'tmFlavours_woocommerce_header_add_to_cart_fragment');
     add_filter('loop_shop_per_page', 'tmFlavours_loop_product_per_page');
 
+    // hook add_query_vars function into query_vars
+    add_filter('query_vars', 'add_query_vars');
+
+    // hook add_rewrite_rules function into rewrite_rules_array
+    add_filter('rewrite_rules_array', 'add_rewrite_rules');
+
+function add_query_vars($aVars)
+{
+    $aVars[] = 'from'; // represents the name of the product category as shown in the URL
+
+    return $aVars;
+}
+
+function add_rewrite_rules($aRules)
+{
+    $aNewRules = array('product-category/(.+?)/page/?([0-9]{1,})/from/?(.+?)/?$' => 'index.php?product_cat=$matches[1]&paged=$matches[2]&from=$matches[3]');
+    $aRules = $aNewRules + $aRules;
+    return $aRules;
+}
+
 function tmFlavours_related_upsell_products()
 {
     global $product;

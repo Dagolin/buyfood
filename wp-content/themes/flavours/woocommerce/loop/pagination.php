@@ -19,8 +19,22 @@ if ($wp_query->max_num_pages <= 1) {
 ?>
 <div class="woocommerce-pagination pager pages">
     <?php
+    $pageRowUrl = get_pagenum_link(999999999, false);
+    $varArray = explode('/', $pageRowUrl);
+
+    if (in_array('from', $varArray))
+    {
+        array_pop($varArray);
+        array_pop($varArray);
+        array_pop($varArray);
+
+        $varArray[count($varArray) - 3] = 999999999;
+
+        $pageRowUrl = implode('/', $varArray);
+    }
+
     echo paginate_links(apply_filters('woocommerce_pagination_args', array(
-        'base' => esc_url_raw(str_replace(999999999, '%#%', remove_query_arg('add-to-cart', get_pagenum_link(999999999, false)))),
+        'base' => esc_url_raw(str_replace(999999999, '%#%', remove_query_arg('add-to-cart', $pageRowUrl))),
         'format' => '',
         'add_args' => '',
         'current' => max(1, get_query_var('paged')),

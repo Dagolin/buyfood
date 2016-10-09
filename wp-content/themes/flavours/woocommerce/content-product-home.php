@@ -37,33 +37,18 @@ if ( ! $product || ! $product->is_visible() ) {
 	return;
 }
 
-$fromIndex = false;
-
-$from = get_query_var('from', '');
-
-if (!empty($from)){
-    $fromArray = explode('/', $from);
-    if ($fromArray[0] == '1'){
-        $fromIndex = true;
-    }
-}
-
 // Increase loop count
 $woocommerce_loop['loop']++;
 
 // Extra post classes
 $classes = array();
 $class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
-
-if ($fromIndex)
-    $class = 'item col-lg-3 col-md-3 col-sm-3 col-xs-4';
-
 if ( 0 === ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 === $woocommerce_loop['columns'] ) {
-    //$class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
+    $class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
     $classes[] = $class;
 }
 if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
-    //$class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
+    $class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
     $classes[] = $class;
 }
 ?>

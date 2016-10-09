@@ -7,6 +7,7 @@ $TmFlavours = new TmFlavours();
 <?php tmFlavours_home_offer_banners(); ?>
 <?php tmFlavours_category_product($flavours_Options['home-product-categories-limit']!='' ? esc_html($flavours_Options['home-product-categories-limit']) : 10);?>
 <?php tmFlavours_bestseller_products(); ?>
+<?php tmFlavours_bestseller_products_salad(); ?>
 <?php tmFlavours_home_blog_posts();?>
 <div class="brand-logo wow bounceInUp animated animated" style="visibility: visible;">
   <div class="container">
