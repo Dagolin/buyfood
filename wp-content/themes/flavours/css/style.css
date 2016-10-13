@@ -282,7 +282,7 @@ ul.lang li span {
 	display: none
 }
 .form-currency {
-	display: inline;
+	display: none;
 	float: left;
 	line-height: 17px
 }

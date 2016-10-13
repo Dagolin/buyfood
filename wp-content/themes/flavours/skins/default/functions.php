@@ -600,7 +600,7 @@ if ( ! function_exists ( 'tmFlavours_bestseller_products_salad' ) ) {
                     <div class="woocommerce-pagination pager pages" style="display: none">
                         <ul class="page-numbers">
                             <li><span class="page-numbers current">0</span></li>
-                            <li><a class="next page-numbers" href="http://localhost/buyfood/product-category/salads/fruit-salads/page/1/from/1"><div class="page-separator-next">»</div></a></li>
+                            <li><a class="next page-numbers" href="<?php echo get_home_url(); ?>/product-category/salads/fruit-salads/page/1/from/1"><div class="page-separator-next">»</div></a></li>
                         </ul>
                     </div>
                 </div>
