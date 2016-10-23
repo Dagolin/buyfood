@@ -1,0 +1,1248 @@
+# Copyright (C) 2015 the WordPress team
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: flavours 1.1\n"
+"Report-Msgid-Bugs-To: http://wptest.themesmart.net/\n"
+"POT-Creation-Date: 2016-10-22 14:50+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-10-23 00:27+0800\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_TW\n"
+"X-Poedit-Bookmarks: -1,-1,-1,389,-1,-1,-1,-1,-1,-1\n"
+
+#: 404.php
+msgid "404! Page Not Found"
+msgstr ""
+
+msgid "Back To Home"
+msgstr ""
+
+msgid "Oops! The Page you requested was not found!"
+msgstr ""
+
+#: comments.php
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php
+msgid "Home"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+#: index.php archive.php category.php tags.php search.php
+msgid "By"
+msgstr ""
+
+msgid "Continue reading..."
+msgstr ""
+
+msgid "Sorry, What you are looking isn't here."
+msgstr ""
+
+msgid "Published by"
+msgstr ""
+
+msgid "Pages:&nbsp;"
+msgstr ""
+
+msgid "Next &raquo;"
+msgstr ""
+
+msgid "Product Banner"
+msgstr ""
+
+msgid "Please do not load this page directly. Thanks!"
+msgstr ""
+
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: functions.php
+msgid "All Categories"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "MY CART"
+msgstr "買肉購物車"
+
+msgid "Daily Archives"
+msgstr ""
+
+msgid "Monthly Archives:"
+msgstr ""
+
+msgid "Yearly Archives:"
+msgstr ""
+
+msgid "Archives:"
+msgstr ""
+
+msgid "Search results for &ldquo;"
+msgstr ""
+
+msgid "Posts tagged &ldquo;"
+msgstr ""
+
+msgid "My Search"
+msgstr ""
+
+msgid "Author:"
+msgstr ""
+
+msgid "Recently added item(s)"
+msgstr ""
+
+msgid "Remove This Item"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Recently added items"
+msgstr ""
+
+msgid "items"
+msgstr ""
+
+msgid "Edit item"
+msgstr ""
+
+msgid "Subtotal"
+msgstr ""
+
+msgid "Checkout"
+msgstr ""
+
+msgid "View Cart"
+msgstr ""
+
+msgid "Buy product"
+msgstr ""
+
+msgid "Sorry, nothing in cart."
+msgstr ""
+
+msgid "View products"
+msgstr ""
+
+msgid "Add to Cart"
+msgstr "加入購物車"
+
+msgid "Out of stock"
+msgstr ""
+
+msgid "Read more"
+msgstr ""
+
+msgid "Read More"
+msgstr ""
+
+msgid "Select options"
+msgstr ""
+
+msgid "Sale"
+msgstr ""
+
+msgid "hot"
+msgstr ""
+
+msgid "Quick View"
+msgstr ""
+
+msgid "Call"
+msgstr ""
+
+msgid "Log In"
+msgstr ""
+
+msgid "Log Out"
+msgstr ""
+
+msgid "My Wishlist"
+msgstr ""
+
+msgid "Wishlist"
+msgstr ""
+
+msgid "Compare"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
+msgid "EN"
+msgstr ""
+
+msgid "French"
+msgstr ""
+
+msgid "German"
+msgstr ""
+
+msgid "USD"
+msgstr ""
+
+msgid "$ - Dollar"
+msgstr ""
+
+msgid "&pound; - Pound"
+msgstr ""
+
+msgid "&euro; - Euro"
+msgstr ""
+
+msgid "You are logged in as"
+msgstr ""
+
+msgid "Search entire store here"
+msgstr ""
+
+#: functions.php
+msgid "Main sidebar that appears on the left"
+msgstr ""
+
+msgid "Additional sidebar that appears on the left"
+msgstr ""
+
+msgid "Additional sidebar that appears on the right"
+msgstr ""
+
+msgid "Appears in the footer section of the site"
+msgstr ""
+
+msgid "Post Layout"
+msgstr ""
+
+msgid "at"
+msgstr ""
+
+msgid "Current theme preview"
+msgstr ""
+
+msgid ""
+"This is a section created by adding a filter to the sections array. Can be "
+"used by child themes to add/remove sections from the options."
+msgstr ""
+
+msgid "This"
+msgstr ""
+
+msgid "child theme"
+msgstr ""
+
+msgid "requires its parent theme,"
+msgstr ""
+
+#: /skins/default/functions.php
+msgid "New"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "New Arrivals"
+msgstr ""
+
+msgid "Best"
+msgstr ""
+
+msgid "Seller"
+msgstr ""
+
+msgid "Featured"
+msgstr ""
+
+msgid "Recommended"
+msgstr ""
+
+msgid "Latest"
+msgstr ""
+
+msgid "Blog"
+msgstr ""
+
+msgid "VIEW ALL"
+msgstr ""
+
+msgid "Browse"
+msgstr ""
+
+msgid "No products found"
+msgstr ""
+
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: woo_function.php
+msgid "Related"
+msgstr ""
+
+msgid "Related Products"
+msgstr ""
+
+msgid "Upsell"
+msgstr ""
+
+msgid "Upsell Products"
+msgstr ""
+
+msgid "Upsell Product"
+msgstr ""
+
+msgid "You may also like"
+msgstr ""
+
+msgid "Grid"
+msgstr ""
+
+msgid "List"
+msgstr ""
+
+msgid "Add to Compare"
+msgstr ""
+
+msgid "Add to WishList"
+msgstr ""
+
+msgid "Proceed to Checkout"
+msgstr ""
+
+msgid "Rated"
+msgstr ""
+
+msgid "out of"
+msgstr ""
+
+#: /woocommerce/cart/cart.php
+msgid "Qty"
+msgstr ""
+
+msgid "Clear Cart"
+msgstr ""
+
+msgid "Continue Shopping"
+msgstr ""
+
+msgid "Discount Codes"
+msgstr ""
+
+#: /woocommerce/cart/cart-totals.php
+msgid "Update Cart"
+msgstr ""
+
+msgid "Show breadcrumb"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "offer banner1"
+msgstr ""
+
+msgid "offer banner2"
+msgstr ""
+
+msgid "offer banner3"
+msgstr ""
+
+msgid "offer banner4"
+msgstr ""
+
+msgid "offer banner5"
+msgstr ""
+
+msgid "offer banner6"
+msgstr ""
+
+msgid "offer banner"
+msgstr ""
+
+msgid "link"
+msgstr ""
+
+msgid "Special"
+msgstr ""
+
+#: tm menu admin
+msgid "Move up"
+msgstr ""
+
+msgid "Move down"
+msgstr ""
+
+msgid "Edit Menu Item"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
+msgid "Navigation Label"
+msgstr ""
+
+msgid "Open link in a new window/tab"
+msgstr ""
+
+msgid "Font Awesome Icon Class"
+msgstr ""
+
+msgid "Don't link"
+msgstr ""
+
+msgid "Don't show a link"
+msgstr ""
+
+msgid "Don't show a link on mobile panel"
+msgstr ""
+
+msgid "Menu Type"
+msgstr ""
+
+msgid "Narrow"
+msgstr ""
+
+msgid "Wide"
+msgstr ""
+
+msgid "Popup Position"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Justify (only for wide)"
+msgstr ""
+
+msgid "Center (only for wide)"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "2 Columns"
+msgstr ""
+
+msgid "3 Columns"
+msgstr ""
+
+msgid "4 Columns"
+msgstr ""
+
+msgid "5 Columns"
+msgstr ""
+
+msgid "6 Columns"
+msgstr ""
+
+msgid "Columns (only for wide)"
+msgstr ""
+
+msgid "will occupy x columns of parent popup columns"
+msgstr ""
+
+msgid "Background Image (only for wide)"
+msgstr ""
+
+msgid "Upload Image"
+msgstr ""
+
+msgid "Remove Image"
+msgstr ""
+
+msgid "Background Position (only for wide)"
+msgstr ""
+
+msgid "Left Top"
+msgstr ""
+
+msgid "Left Center"
+msgstr ""
+
+msgid "Left Bottom"
+msgstr ""
+
+msgid "Center Top"
+msgstr ""
+
+msgid "Center Center"
+msgstr ""
+
+msgid "Center Bottom"
+msgstr ""
+
+msgid "Right Top"
+msgstr ""
+
+msgid "Right Center"
+msgstr ""
+
+msgid "Right Bottom"
+msgstr ""
+
+msgid "Background Repeat (only for wide)"
+msgstr ""
+
+msgid "No Repeat"
+msgstr ""
+
+msgid "Repeat All"
+msgstr ""
+
+msgid "Repeat Horizontally"
+msgstr ""
+
+msgid "Repeat Vertically"
+msgstr ""
+
+msgid "Inherit"
+msgstr ""
+
+msgid "Background Size (only for wide)"
+msgstr ""
+
+msgid "Cover"
+msgstr ""
+
+msgid "Contain"
+msgstr ""
+
+msgid "Custom Styles (only for wide)"
+msgstr ""
+
+msgid "Tip Label"
+msgstr ""
+
+msgid "Tip Text Color"
+msgstr ""
+
+msgid "Tip BG Color"
+msgstr ""
+
+msgid "Title Attribute"
+msgstr ""
+
+msgid "CSS Classes (optional)"
+msgstr ""
+
+msgid "Link Relationship (XFN)"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid ""
+"The description will be displayed in the menu if the current theme supports "
+"it"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+#: other pages
+msgid "Pages:"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Posts widget"
+msgstr ""
+
+msgid "Flavours: Posts"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Random"
+msgstr ""
+
+msgid "Popular"
+msgstr ""
+
+msgid "Recent"
+msgstr ""
+
+msgid "Oldest"
+msgstr ""
+
+msgid "Number of posts to show"
+msgstr ""
+
+msgid "Logout"
+msgstr "登出"
+
+msgid "Pages:&nbsp"
+msgstr ""
+
+msgid "View all posts by"
+msgstr ""
+
+msgid "No image URL has been entered."
+msgstr ""
+
+msgid "Image is BMP. Please use either JPG or PNG."
+msgstr ""
+
+msgid "Continue reading"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Top menu"
+msgstr ""
+
+msgid "Main menu"
+msgstr ""
+
+msgid "Blog Sidebar"
+msgstr ""
+
+msgid "Shop Sidebar"
+msgstr ""
+
+msgid "Content Sidebar Left"
+msgstr ""
+
+msgid "Content Sidebar Right"
+msgstr ""
+
+msgid "Footer Widget Area 1"
+msgstr ""
+
+msgid "Footer Widget Area 2"
+msgstr ""
+
+msgid "Footer Widget Area 3"
+msgstr ""
+
+msgid "Footer Widget Area 4"
+msgstr ""
+
+msgid "Footer Widget Area 5"
+msgstr ""
+
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+msgid "Product successfully added to wishlist"
+msgstr ""
+
+msgid "The product is already in the wishlist"
+msgstr ""
+
+msgid "Page Layout"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "At"
+msgstr ""
+
+msgid "Your comment is awaiting moderation"
+msgstr ""
+
+msgid "Previous Image"
+msgstr ""
+
+msgid "Next Image"
+msgstr ""
+
+msgid "Next page"
+msgstr ""
+
+msgid "Login"
+msgstr "登入"
+
+msgid "Register"
+msgstr "註冊"
+
+msgid "Input font awesome icon or icon class. You can see"
+msgstr ""
+
+msgid "Font Awesome Icons in here"
+msgstr ""
+
+msgid "Previous page"
+msgstr ""
+
+#: redux admin pages
+msgid "Home Settings"
+msgstr "首頁設定"
+
+msgid "Home page settings"
+msgstr "首頁設定"
+
+msgid "Theme Variation"
+msgstr "首頁風格"
+
+msgid "Select the variation you want to apply on your store"
+msgstr "設定您的首頁風格"
+
+msgid "Default"
+msgstr "蔬菜風"
+
+msgid "Version2"
+msgstr "時尚風"
+
+msgid "Enter your welcome message here"
+msgstr ""
+
+msgid "Enable Home Page Gallery"
+msgstr "啟用首頁大Banner"
+
+msgid "You can enable/disable Home page Gallery"
+msgstr "啟用首頁大Banner"
+
+msgid "Unlimited slide uploads with drag and drop sortings"
+msgstr "新增首頁大Banner，用拖曳調整首頁大Banner的順序"
+
+msgid "This is a title"
+msgstr ""
+
+msgid "Description Here"
+msgstr ""
+
+msgid "Give us a link!"
+msgstr ""
+
+msgid "Top slides"
+msgstr "首頁最上方跑馬燈"
+
+msgid "Add content for top offer slides"
+msgstr "新增最上方跑馬燈(可用<span></span>)變色的字框起來用"
+
+msgid "Enable Home Page Offer Banners"
+msgstr "啟用首頁小Banner"
+
+msgid "You can enable/disable Home page offer Banners"
+msgstr "啟用首頁小Banner 區 (六塊圖)"
+
+msgid "Home offer Banner 1"
+msgstr ""
+
+msgid "Upload offer banner to appear on  home page"
+msgstr ""
+
+msgid "Home offer Banner-1 URL"
+msgstr ""
+
+msgid "URL for the offer banner"
+msgstr ""
+
+msgid "Home offer Banner-1 Small Text"
+msgstr ""
+
+msgid "Text on the offer banner"
+msgstr ""
+
+msgid "Home offer Banner-1 Big Text"
+msgstr ""
+
+msgid "Home offer Banner 2"
+msgstr ""
+
+msgid "Home offer Banner-2 URL"
+msgstr ""
+
+msgid "Home offer Banner-2 Small Text"
+msgstr ""
+
+msgid "Home offer Banner-2 Big Text"
+msgstr ""
+
+msgid "Home offer Banner 3"
+msgstr ""
+
+msgid "Home offer Banner-3 URL"
+msgstr ""
+
+msgid "Home offer Banner-3 Small Text"
+msgstr ""
+
+msgid "Home offer Banner-3 Big Text"
+msgstr ""
+
+msgid "Home offer Banner 4"
+msgstr ""
+
+msgid "Home offer Banner-4 URL"
+msgstr ""
+
+msgid "Home offer Banner 5"
+msgstr ""
+
+msgid "Home offer Banner-5 URL"
+msgstr ""
+
+msgid "Home offer Banner 6"
+msgstr ""
+
+msgid "Home offer Banner-6 URL"
+msgstr ""
+
+msgid "Product Categories"
+msgstr "產品類別"
+
+msgid "Please choose a product categories to show on home"
+msgstr "選擇要在圓圈區顯示的產品類別"
+
+msgid "Product Categories - Limit"
+msgstr "產品類別顯示上限"
+
+msgid "Number of products show from  category"
+msgstr "產品的顯示上限"
+
+msgid "Show Best Seller Products"
+msgstr "首頁暢銷產品(首頁的流水式產品列表)"
+
+msgid "You can show best seller products on home page."
+msgstr "暢銷產品區塊是否啟用"
+
+msgid "Home bestseller products text"
+msgstr "暢銷產品類別圖(無效，不顯示)"
+
+msgid "Home bestseller image"
+msgstr ""
+
+msgid "Upload bestseller image appear to the left of best seller on home page"
+msgstr ""
+
+msgid "Home Best seller Url"
+msgstr "暢銷產品點選後的連結(已經無效)"
+
+msgid "Show Related Products"
+msgstr "相關連產品"
+
+msgid "You can show Related products on home page."
+msgstr "在首頁顯示關聯產品"
+
+msgid "Related products text"
+msgstr ""
+
+msgid "related products-text "
+msgstr ""
+
+msgid "Number of Related Products"
+msgstr ""
+
+msgid "Number of Related products on home page."
+msgstr ""
+
+msgid "Show Upsell Products"
+msgstr ""
+
+msgid "You can show Upsell products on home page."
+msgstr ""
+
+msgid "Upsell Products text"
+msgstr ""
+
+msgid "upsell products text"
+msgstr ""
+
+msgid "Number of Upsell Products"
+msgstr ""
+
+msgid "Number of Upsell products on home page."
+msgstr ""
+
+msgid "Show Home Blog"
+msgstr ""
+
+msgid "You can show latest blog post on home page."
+msgstr "在首頁顯示最新 blog 文章"
+
+msgid "Enable Testimonial"
+msgstr "啟用首頁顯示消費心得"
+
+msgid "You can enable/disable Testimonial Uploads"
+msgstr "在此選擇是否顯示消費心得"
+
+msgid "Add Testimonial here"
+msgstr "新增消費心得"
+
+msgid "Unlimited testimonial."
+msgstr "消費心得"
+
+msgid "Enable Company Logo Uploads"
+msgstr "顯示公司Logo"
+
+msgid "You can enable/disable Company Logo Uploads"
+msgstr ""
+
+msgid "Unlimited slide uploads with drag and drop sortings."
+msgstr ""
+
+msgid "General Settings"
+msgstr "一般設定"
+
+msgid "Back To Top Button"
+msgstr "回到畫面最上方按鈕"
+
+msgid "Toggle whether or not to enable a back to top button on your pages"
+msgstr "選擇是否要顯示\"回到最上方\"按鈕"
+
+msgid "Styling Options"
+msgstr "風格設定"
+
+msgid "Use animation effect"
+msgstr ""
+
+msgid "Set Body Background"
+msgstr ""
+
+msgid "Body Background"
+msgstr ""
+
+msgid "Body background with image, color, etc"
+msgstr ""
+
+msgid "Footer Background Color"
+msgstr ""
+
+msgid "Pick a background color for the footer"
+msgstr ""
+
+msgid "Header Nav Menu Background"
+msgstr "主選單背景色(預設為透明)"
+
+msgid "Header Background"
+msgstr "Header 背景色(預設為透明)"
+
+msgid "Header"
+msgstr ""
+
+msgid "All header related options are listed here"
+msgstr "Header 相關設定"
+
+msgid "Show Currency HTML"
+msgstr "Header 顯示金額選單"
+
+msgid "You can show Currency in the header"
+msgstr ""
+
+msgid "Show Language HTML"
+msgstr "Header 顯示語言選單"
+
+msgid "You can show Language in the header"
+msgstr ""
+
+msgid "Use Image for Logo"
+msgstr "是否使用圖片Logo?"
+
+msgid ""
+"If left unchecked, plain text will be used instead (generated from site name)"
+msgstr "如果沒勾選，將會用站台名稱文字顯示"
+
+msgid "Logo Upload"
+msgstr "上傳 Logo 圖"
+
+msgid "Upload your logo here and enter the height of it below"
+msgstr ""
+
+msgid "Logo Height"
+msgstr "Logo 高度"
+
+msgid "Don't include \"px\" in the string"
+msgstr "請輸入純數字，不含單位(px)，如 30"
+
+msgid "Remove Header Search"
+msgstr "移除 Header 搜尋框"
+
+msgid "Active to remove the search functionality from your header"
+msgstr "勾選以便移除Header 搜尋框"
+
+msgid "Show Services"
+msgstr ""
+
+msgid "Services Text"
+msgstr ""
+
+msgid "All Menu related options are listed here"
+msgstr "主選單相關設定"
+
+msgid "Show Menu Arrow"
+msgstr ""
+
+msgid "Show arrow in menu"
+msgstr ""
+
+msgid "Show Login/sign and logout link"
+msgstr "顯示登入登出連結"
+
+msgid "Please Select any option from above"
+msgstr ""
+
+msgid "All footer related options are listed here"
+msgstr "Footer 相關設定"
+
+msgid "Custom Footer Color Scheme"
+msgstr "客製化 Footer 顏色(預設為透明)"
+
+msgid "Footer Copyright Background Color"
+msgstr ""
+
+msgid "Enable Mailchimp Form"
+msgstr ""
+
+msgid "You can enable/disable Mailchimp Form"
+msgstr ""
+
+msgid "Blog Page Layout"
+msgstr ""
+
+msgid ""
+"Select main blog listing and category page layout from the available blog "
+"layouts"
+msgstr ""
+
+msgid "Author's Bio"
+msgstr ""
+
+msgid "Show Author Bio on Blog page"
+msgstr ""
+
+msgid "Display Post By"
+msgstr ""
+
+msgid "Display Psot by Author on Listing Page"
+msgstr ""
+
+msgid "Display Tags"
+msgstr ""
+
+msgid "Display tags at the bottom of posts"
+msgstr ""
+
+msgid "Display Full Date"
+msgstr ""
+
+msgid "This will add date of post meta on all blog pages"
+msgstr ""
+
+msgid "Display Comments Count on Blog Listing"
+msgstr ""
+
+msgid "Display Category"
+msgstr ""
+
+msgid "Display View Counts"
+msgstr ""
+
+msgid "Display View Counts on Blog Listing"
+msgstr ""
+
+msgid "Facebook URL"
+msgstr ""
+
+msgid "Please enter in your Facebook URL"
+msgstr ""
+
+msgid "Twitter URL"
+msgstr ""
+
+msgid "Please enter in your Twitter URL"
+msgstr ""
+
+msgid "Google+ URL"
+msgstr ""
+
+msgid "Please enter in your Google Plus URL"
+msgstr ""
+
+msgid "Pinterest URL"
+msgstr ""
+
+msgid "Please enter in your Pinterest URL"
+msgstr ""
+
+msgid "Youtube URL"
+msgstr ""
+
+msgid "Please enter in your Youtube URL"
+msgstr ""
+
+msgid "LinkedIn URL"
+msgstr ""
+
+msgid "Please enter in your LinkedIn URL"
+msgstr ""
+
+msgid "RSS URL"
+msgstr ""
+
+msgid "Please enter in your RSS URL"
+msgstr ""
+
+msgid "Theme URL"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Import / Export"
+msgstr "匯入 / 匯出"
+
+msgid "Import and Export your Redux Framework settings from file, text or URL"
+msgstr "從檔案, 網址或純文字匯入或匯出您的設定"
+
+msgid "Flavours Options"
+msgstr "Flavours 樣板設定"
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Extensions"
+msgstr ""
+
+msgid "Section via hook"
+msgstr ""
+
+msgid "Customize"
+msgstr ""
+
+msgid "Top Category"
+msgstr ""
+
+msgid "Please choose a top category to show on its product in home page"
+msgstr ""
+
+msgid "Top Category products Limit"
+msgstr ""
+
+msgid "Number of products show from top category"
+msgstr ""
+
+msgid "Footer Text"
+msgstr "Footer 文字"
+
+msgid "Show Info Banners"
+msgstr ""
+
+msgid "Shipping Banner Text"
+msgstr ""
+
+msgid "Customer Support Banner Text"
+msgstr ""
+
+msgid "Warrant/Gaurantee Banner Text"
+msgstr ""
+
+msgid "Return service Banner Text"
+msgstr ""
+
+msgid "Footer"
+msgstr ""
+
+msgid "Footer Copyright Font Color"
+msgstr ""
+
+msgid "Blog Page"
+msgstr ""
+
+msgid "Don't include \"px\" in the string. e.g. 30"
+msgstr ""
+
+msgid "Display Comments Count"
+msgstr ""
+
+msgid "Display Comments Category on Blog Listing"
+msgstr ""
+
+msgid "Social Media"
+msgstr "社群網路"
+
+msgid "Search Results for"
+msgstr ""
+
+msgid "Shopping Cart Total"
+msgstr ""
+
+msgid "My Cart"
+msgstr "買肉購物車"
+
+msgid "Total"
+msgstr ""
+
+msgid "You may be"
+msgstr ""
+
+msgid "you may be interested"
+msgstr "也許會有興趣..."
+
+msgid " interested in the following items"
+msgstr ""
+
+msgid "You may be interested in the following items:"
+msgstr ""
+
+msgid "Archive by Category"
+msgstr ""
+
+msgid "Archive for"
+msgstr ""
+
+msgid "Posts Tagged"
+msgstr ""
+
+msgid "Articles Posted by"
+msgstr ""
+
+msgid "Error 404"
+msgstr "找不到網頁"
+
+msgid "404"
+msgstr "找不到網頁"
+
+msgid "no"
+msgstr ""
+
+msgid "Product display in product category page"
+msgstr ""
+"產品類別頁中顯示產品上限(如果有使用流水式顯示產品，此為每次刷新新顯示的產品"
+"數)"
+
+msgid "Number of item display in product category page"
+msgstr ""
+
+msgid "Quick Overview"
+msgstr ""
+
+msgid "In Stock"
+msgstr ""

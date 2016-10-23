@@ -1240,7 +1240,7 @@ ul.level1 {
 	display: block;
 }
 .col-2 img {
-	width: 100%
+
 }
 .col-2 .menu_image1 {
 	display: block;
@@ -4871,6 +4871,7 @@ height: 60px;
 	font-size: 14px;
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
+	display: none;
 }
 .breadcrumbs a {
 	color: #fff;
