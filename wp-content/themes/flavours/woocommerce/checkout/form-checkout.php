@@ -36,6 +36,11 @@ $get_checkout_url = apply_filters('woocommerce_get_checkout_url', WC()->cart->ge
         <div class="col2-set" id="customer_details">
             <div class="col-1">
                 <?php do_action('woocommerce_checkout_billing'); ?>
+
+
+                <p class="form-row form-row form-row-first" id="billing_certi_button">
+                    <button id="test">TEST</button>
+                </p>
             </div>
 
             <div class="col-2">

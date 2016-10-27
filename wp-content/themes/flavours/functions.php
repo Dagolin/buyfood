@@ -53,15 +53,51 @@ class TmFlavours {
 
       // Display 24 products per page. Goes in functions.php
       add_filter('loop_shop_per_page', create_function('$cols', 'return 3;'), 20);
+
+      // Add phone number field in checkout shipping
+      // Add cert field in checkout
+      add_filter( 'woocommerce_checkout_fields' , array($this, 'custom_override_checkout_fields' ));
+
+      /*
+       * TODO :
+       * 1. init 打開 session
+       * 2. 畫面上新增簡訊 input box ，以及發送簡訊的按鈕
+       * 3. 發送簡訊用AJAX，此按鈕會把四位數字加入Session 和 呼叫台灣簡訊送出此數字
+       * 4. submit 後檢查該數字是否等於Session內
+       *
+       */
+
   }
 
-function tmFlavours_theme() {
+    // Our hooked in function - $fields is passed via the filter!
+    function tmFlavours_theme() {
 
 global $flavours_Options;
 
 }
 
-  /**
+
+    function custom_override_checkout_fields( $fields ) {
+        $fields['shipping']['shipping_phone'] = array(
+            'label'     => __('Phone', 'woocommerce'),
+            'placeholder'   => _x('Phone number', 'placeholder', 'woocommerce'),
+            'required'  => true,
+            'class'     => array('form-row-wide'),
+            'clear'     => true
+        );
+
+        $fields['billing']['billing_certi'] = array(
+            'label'     => __('Certi', 'woocommerce'),
+            'placeholder'   => _x('Certi', 'placeholder', 'woocommerce'),
+            'required'  => true,
+            'class'     => array('form-row-first'),
+            'clear'     => true
+        );
+
+        return $fields;
+    }
+
+    /**
   * Theme setup
   */
   function tmFlavours_flavours_setup() {   
@@ -1351,5 +1387,78 @@ function tmFlavours_woocommerce_product_add_to_cart_text() {
 
 // Instantiate theme
 $TmFlavours = new TmFlavours();
+
+
+/**
+ * Display field value on the order edit page
+ */
+
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+
+function my_custom_checkout_field_display_admin_order_meta($order){
+    echo '<p><strong>'.__('連絡電話').':</strong> ' . get_post_meta( $order->id, '_shipping_phone', true ) . '</p>';
+}
+
+
+function register_session(){
+    if( !session_id() )
+        session_start();
+}
+
+add_action('init','register_session');
+
+
+function certi_check() {
+
+    $url = 'http://api.twsms.com/smsSend.php';
+    $attr = [
+        'username' => 'dagolin',
+        'password' => 'dagolin911',
+        'mobile' => '0958791679',
+        'message' => 'test',
+    ];
+
+
+    var_dump(wp_safe_remote_post($url, $attr));
+    return;
+
+    // The $_REQUEST contains all the data sent via ajax
+    if ( isset($_REQUEST) ) {
+
+        $fruit = $_REQUEST['fruit'];
+
+        // Let's take the data that was sent and do something with it
+        if ( $fruit == 'Banana' ) {
+            $fruit = 'Apple';
+        }
+
+        // Now we'll return it to the javascript function
+        // Anything outputted will be returned in the response
+        echo $fruit;
+
+        // If you're debugging, it might be useful to see what was sent in the $_REQUEST
+        // print_r($_REQUEST);
+
+    }
+
+    // Always die in functions echoing ajax content
+    die();
+}
+
+if ( is_admin() ) {
+    add_action( 'wp_ajax_certi_check', 'certi_check' );
+}
+
+add_action( 'wp_enqueue_scripts', 'ajax_cert_enqueue_scripts' );
+
+function ajax_cert_enqueue_scripts() {
+
+    wp_enqueue_script( 'cert', get_template_directory_uri() . '/js/cert.js', array('jquery'), '1.0', true );
+
+    wp_localize_script( 'cert', 'cert', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' )
+    ));
+
+}
 
 ?>
