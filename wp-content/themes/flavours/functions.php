@@ -1438,7 +1438,7 @@ function cert_check() {
         'body' => [
             'username' => 'dagolin',
             'password' => 'buyfood911',
-            'mobile' => $_POST['phone'],
+            'mobile' => $_REQUEST['phone'],
             'message' => '您在 <<買肉找我>> 的 手機認證碼為 ' . $cert . '，此認證碼有效時間為 1 小時。',
         ]
     ];
