@@ -7,25 +7,30 @@
 
 jQuery(document).ready(function($) {
 
-	$('#test').on('click', function(){
+	$('#cert_button').on('click', function(){
+		var phone = $('#billing_phone').val().replace(/[^0-9\.]+/g, '');
 
-		// We'll pass this variable to the PHP function example_ajax_request
-		var fruit = 'Banana';
+		if (phone == "") {
+			alert('請輸入有效連絡電話，以收取認證簡訊');
+
+			return false;
+		}
 
 
-		// This does the ajax request
+
 		$.ajax({
+			dataType: 'json',
 			url: cert.ajax_url,
 			data: {
-				'action':'certi_check',
-				'fruit' : fruit
+				'action':'cert_check',
+				'phone': phone
 			},
 			success:function(data) {
 				// This outputs the result of the ajax request
-				console.log(data);
+				alert(data.message);
 			},
 			error: function(errorThrown){
-				console.log(errorThrown);
+				alert('系統繁忙中，請稍後。');
 			}
 		});
 

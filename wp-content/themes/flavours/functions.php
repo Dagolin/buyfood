@@ -86,9 +86,9 @@ global $flavours_Options;
             'clear'     => true
         );
 
-        $fields['billing']['billing_certi'] = array(
-            'label'     => __('Certi', 'woocommerce'),
-            'placeholder'   => _x('Certi', 'placeholder', 'woocommerce'),
+        $fields['billing']['billing_cert'] = array(
+            'label'     => __('認證碼', 'woocommerce'),
+            'placeholder'   => _x('請輸入簡訊內四位數認證碼', 'placeholder', 'woocommerce'),
             'required'  => true,
             'class'     => array('form-row-first'),
             'clear'     => true
@@ -1400,6 +1400,21 @@ function my_custom_checkout_field_display_admin_order_meta($order){
 }
 
 
+add_action('woocommerce_checkout_process', 'is_cert');
+
+function is_cert() {
+    // Check if set, if its not set add an error.
+    if (!isset($_SESSION['cert'])
+        || empty($_SESSION['cert'])
+        || empty($_POST['billing_cert'])
+        || (string) $_SESSION['cert'] !== (string) $_POST['billing_cert']
+        || (time() - $_SESSION['time']) > 3600){
+        wc_add_notice( __( '認證碼錯誤或過期，請重新輸入.' ), 'error' );
+    }
+}
+
+
+
 function register_session(){
     if( !session_id() )
         session_start();
@@ -1408,45 +1423,40 @@ function register_session(){
 add_action('init','register_session');
 
 
-function certi_check() {
+function cert_check() {
+    $response = [
+        'code' => '404',
+        'message' => '錯誤發生，請聯絡管理員'
+    ];
+    $cert = rand(1000, 9999);
+
+    $_SESSION['cert'] = $cert;
+    $_SESSION['time'] = time();
 
     $url = 'http://api.twsms.com/smsSend.php';
     $attr = [
-        'username' => 'dagolin',
-        'password' => 'dagolin911',
-        'mobile' => '0958791679',
-        'message' => 'test',
+        'body' => [
+            'username' => 'dagolin',
+            'password' => 'buyfood911',
+            'mobile' => $_POST['phone'],
+            'message' => '您在 <<買肉找我>> 的 手機認證碼為 ' . $cert . '，此認證碼有效時間為 1 小時。',
+        ]
     ];
 
+    $msgResponse = wp_safe_remote_get($url, $attr);
 
-    var_dump(wp_safe_remote_post($url, $attr));
-    return;
-
-    // The $_REQUEST contains all the data sent via ajax
-    if ( isset($_REQUEST) ) {
-
-        $fruit = $_REQUEST['fruit'];
-
-        // Let's take the data that was sent and do something with it
-        if ( $fruit == 'Banana' ) {
-            $fruit = 'Apple';
-        }
-
-        // Now we'll return it to the javascript function
-        // Anything outputted will be returned in the response
-        echo $fruit;
-
-        // If you're debugging, it might be useful to see what was sent in the $_REQUEST
-        // print_r($_REQUEST);
-
+    if ($msgResponse['response']['code'] == 200){
+        $response = $msgResponse['response'];
+        $response['message'] = '感謝您的支持，認證碼 已發送到您的手機，請稍待片刻，並輸入簡訊內的四位數字。';
     }
 
-    // Always die in functions echoing ajax content
+    echo json_encode($response);
+
     die();
 }
 
 if ( is_admin() ) {
-    add_action( 'wp_ajax_certi_check', 'certi_check' );
+    add_action( 'wp_ajax_cert_check', 'cert_check' );
 }
 
 add_action( 'wp_enqueue_scripts', 'ajax_cert_enqueue_scripts' );
@@ -1458,7 +1468,6 @@ function ajax_cert_enqueue_scripts() {
     wp_localize_script( 'cert', 'cert', array(
         'ajax_url' => admin_url( 'admin-ajax.php' )
     ));
-
 }
 
 ?>
