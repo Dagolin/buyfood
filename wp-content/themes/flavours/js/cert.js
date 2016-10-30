@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 	}
 
 	$('#billing_phone').on('change', function(obj){
-		if ($(this).val() != $('#billing_phone_hidden').val()) {
+		if ($(this).val() != $('#billing_phone_hidden').val() || $(this).val().replace(/\s/g,'') == '') {
 			showCert();
 		} else {
 			skipCert();
