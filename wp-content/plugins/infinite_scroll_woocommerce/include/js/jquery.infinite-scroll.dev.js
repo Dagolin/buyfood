@@ -201,8 +201,6 @@
 		* Function for getting page of products.
 		**/
 		products_loop: function (url,previous,change_hash){
-					 //t0 = performance.now();
-			console.log(url);
 
 					if (typeof previous === 'undefined') { previous=false; }
 					if (typeof change_hash === 'undefined') { change_hash=true; }
@@ -211,8 +209,7 @@
 						var url = previous?$(settings.selector_prev).attr("href"):$(settings.selector_next).attr("href"); 
 					}
 
-			console.log(url);
-					
+
 					if(previous){
 						flag_load_prev_part=true;
 					}else{
@@ -237,9 +234,8 @@
 							if (masonry_support==="on" ){
 								$(".isw_preloader").css({"position":"absolute","bottom":0,"left":"0"});
 							}
-						}	
-											console.log('getting product from inv scroll');
-						console.log(url);
+						}
+
 						 jQuery.get(url , function(data) {
 									var $data = $(data);
 									var shop_loop = $data.find(settings.wrapper_products);
@@ -259,6 +255,11 @@
 												}else{
 													$(pagination_selector).find(settings.selector_next).replaceWith($new_pagination.find(settings.selector_next));
 													$wrapper.append(shop_loop.html()).fadeIn();
+
+													if ($('.grid-trigger').length > 0 && $('.grid-trigger').hasClass('button-active'))
+														$('.grid-trigger').click();
+													else if ($('.list-trigger').length > 0)
+														$('.list-trigger').click();
 												}
 												
 												//$(pagination_selector).hide().html($new_pagination.html());

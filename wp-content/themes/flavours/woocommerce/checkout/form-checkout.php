@@ -37,10 +37,10 @@ $get_checkout_url = apply_filters('woocommerce_get_checkout_url', WC()->cart->ge
             <div class="col-1">
                 <?php do_action('woocommerce_checkout_billing'); ?>
 
-
-                <p class="form-row form-row form-row-first" id="billing_cert_button">
+                <div class="form-row form-row" id="billing_cert_button">
                     <button id="cert_button" class="button alt">取得認證碼</button>
-                </p>
+                    <div><span style="color: red">*</span> 當您第一次使用，或聯絡電話有變更，請點選按鈕取得簡訊認證碼</div>
+                </div>
             </div>
 
             <div class="col-2">

@@ -76,22 +76,26 @@ global $flavours_Options;
 
 }
 
-
     function custom_override_checkout_fields( $fields ) {
-        $fields['shipping']['shipping_phone'] = array(
-            'label'     => __('Phone', 'woocommerce'),
-            'placeholder'   => _x('Phone number', 'placeholder', 'woocommerce'),
-            'required'  => true,
-            'class'     => array('form-row-wide'),
-            'clear'     => true
-        );
-
         $fields['billing']['billing_cert'] = array(
             'label'     => __('認證碼', 'woocommerce'),
             'placeholder'   => _x('請輸入簡訊內四位數認證碼', 'placeholder', 'woocommerce'),
-            'required'  => true,
             'class'     => array('form-row-first'),
-            'clear'     => true
+            'clear'     => true,
+            'default'   => '',
+        );
+
+        $fields['billing']['billing_phone']['placeholder'] = '0912345678';
+
+        $fields['billing']['billing_phone_hidden'] = array(
+            'type'      => 'text',
+            'class'     => array('hidden'),
+        );
+
+        $fields['billing']['billing_skipcert'] = array(
+            'type'      => 'text',
+            'class'     => array('hidden'),
+            'default'   => 'true'
         );
 
         return $fields;
@@ -1404,20 +1408,22 @@ add_action('woocommerce_checkout_process', 'is_cert');
 
 function is_cert() {
     // Check if set, if its not set add an error.
-    if (!isset($_SESSION['cert'])
-        || empty($_SESSION['cert'])
-        || empty($_POST['billing_cert'])
-        || (string) $_SESSION['cert'] !== (string) $_POST['billing_cert']
-        || (time() - $_SESSION['time']) > 3600){
-        wc_add_notice( __( '認證碼錯誤或過期，請重新輸入.' ), 'error' );
+    if ($_REQUEST['billing_skipcert'] == 'false'){
+        if (!isset($_SESSION['cert'])
+            || empty($_SESSION['cert'])
+            || empty($_REQUEST['billing_cert'])
+            || (string) $_SESSION['cert'] !== (string) $_REQUEST['billing_cert']
+            || (time() - $_SESSION['time']) > 3600) {
+            wc_add_notice( __( '認證碼錯誤或過期，請重新輸入.' ), 'error' );
+        }
     }
 }
 
 
-
 function register_session(){
-    if( !session_id() )
+    if( !session_id() ){
         session_start();
+    }
 }
 
 add_action('init','register_session');
@@ -1428,6 +1434,7 @@ function cert_check() {
         'code' => '404',
         'message' => '錯誤發生，請聯絡管理員'
     ];
+
     $cert = rand(1000, 9999);
 
     $_SESSION['cert'] = $cert;
