@@ -917,6 +917,17 @@ function tmFlavours_bestseller_template()
                   </div>
                   <div class="actions">
                      <span class="add-to-links">
+                         <!-- -->
+                         <form class="hide" method="post" enctype="multipart/form-data" action="<?php echo the_permalink(); ?>" id="expressShop<?php echo esc_html($product->id); ?>">
+                             <input type="hidden" name="quantity" value="1">
+                             <input type="hidden" name="add-to-cart" value="<?php echo esc_html($product->id); ?>">
+                             <button type="submit"></button>
+                         </form>
+                         <!-- -->
+                         <a href="#" class="link-add-cart"
+                             onclick="$('#expressShop<?php echo esc_html($product->id); ?>').submit();return false;">
+                             <span></span>
+                         </a>
                      <?php
                         if (isset($yith_wcwl) && is_object($yith_wcwl)) {
                             $classes = get_option('yith_wcwl_use_button') == 'yes' ? 'class="link-wishlist"' : 'class="link-wishlist"';

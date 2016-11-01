@@ -3236,13 +3236,16 @@ ul.pdt-list li.item a img.image-hover {
 	list-style: none;
 
 }
+.products-grid .link-add-cart:before {
+	content: "\f07a";
+}
 .products-grid .link-wishlist:before {
 	content: "\f004";
 }
 .products-grid .link-compare:before {
 	content: "\f012";
 }
-.products-grid .link-wishlist {
+.products-grid .link-wishlist, .products-grid .link-add-cart {
     color: #252932;
     font-family: 'FontAwesome';
     font-size: 14px;
@@ -3260,12 +3263,14 @@ ul.pdt-list li.item a img.image-hover {
     background: #fff;
     border-radius: 50px;
 }
-.products-grid .link-wishlist:hover, .products-grid .link-compare:hover {
+.products-grid .link-wishlist:hover, .products-grid .link-add-cart:hover, .products-grid .link-compare:hover {
 	background: #252932;
 	border-color:#252932;
 	color: #fff;
 }
-.products-grid .box-inner .actions .link-wishlist span, .products-grid .box-inner .actions .add-to-links a.link-compare span {
+.products-grid .box-inner .actions .add-to-links a.link-add-cart span,
+.products-grid .box-inner .actions .link-wishlist span,
+.products-grid .box-inner .actions .add-to-links a.link-compare span {
 	display: none;
 }
 .products-grid .link-compare {

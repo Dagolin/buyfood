@@ -95,7 +95,20 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                    <?php if (class_exists('YITH_WCQV_Frontend')) { ?>
                   <a title="<?php esc_attr_e('Quick View', 'flavours'); ?>" class="button detail-bnt yith-wcqv-button quickview" type="button" data-product_id="<?php echo esc_html($product->id); ?>"><span><?php esc_attr_e('Quick View', 'flavours'); ?></span></a>
                   <?php } ?>
-                </div> 
+                </div>
+
+                 <!-- add to cart -->
+                 <form class="hide" method="post" enctype="multipart/form-data" action="<?php echo the_permalink(); ?>" id="expressShopInf<?php echo esc_html($product->id); ?>">
+                     <input type="hidden" name="quantity" value="1">
+                     <input type="hidden" name="add-to-cart" value="<?php echo esc_html($product->id); ?>">
+                     <button type="submit"></button>
+                 </form>
+                 <!-- add to cart -->
+                 <a href="#" class="link-add-cart"
+                    onclick="$('#expressShopInf<?php echo esc_html($product->id); ?>').submit();return false;">
+                     <span></span>
+                 </a>
+
                 <?php if (isset($yith_wcwl) && is_object($yith_wcwl)) {
 		        $classes = get_option('yith_wcwl_use_button') == 'yes' ? 'class="link-wishlist"' : 'class="link-wishlist"';
 	        ?>
