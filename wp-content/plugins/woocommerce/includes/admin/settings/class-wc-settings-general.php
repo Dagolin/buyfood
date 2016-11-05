@@ -159,6 +159,36 @@ class WC_Settings_General extends WC_Settings_Page {
 				'autoload' => false
 			),
 
+            array(
+                'title'    => __( '註冊訊息', 'woocommerce' ),
+                'desc'     => '%cert = 認證碼',
+                'id'       => 'woocommerce_registration_notice',
+                'default'  => __( '【買肉找我】 您的手機認證碼為 %cert ，此認證碼有效時間為 1 小時。', 'woocommerce' ),
+                'css'     => 'width:350px; height: 65px;',
+                'type'  => 'textarea',
+                'autoload' => false
+            ),
+
+            array(
+                'title'    => __( '付款訊息', 'woocommerce' ),
+                'desc'     => '%item = 產品項目(顯示第一個), $payment = 金額, $date = 日期',
+                'id'       => 'woocommerce_payment_notice',
+                'default'  => __( '【買肉找我】 以確認您 %item 等的訂單款項共 %payment，將於 %date 出貨，感謝您的支持。', 'woocommerce' ),
+                'css'     => 'width:350px; height: 65px;',
+                'type'  => 'textarea',
+                'autoload' => false
+            ),
+
+            array(
+                'title'    => __( '出貨訊息', 'woocommerce' ),
+                'desc'     => '%item = 產品項目(顯示第一個), $address = 地址, $date = 日期, $phone = 電話',
+                'id'       => 'woocommerce_delivery_notice',
+                'default'  => __( '【買肉找我】 您的 %item 已出貨，並將於 %date 送到 %address，若有問題歡迎電洽 %phone，將有專員為您答覆。', 'woocommerce' ),
+                'css'     => 'width:350px; height: 65px;',
+                'type'  => 'textarea',
+                'autoload' => false
+            ),
+
 			array( 'type' => 'sectionend', 'id' => 'general_options'),
 
 			array( 'title' => __( 'Currency Options', 'woocommerce' ), 'type' => 'title', 'desc' => __( 'The following options affect how prices are displayed on the frontend.', 'woocommerce' ), 'id' => 'pricing_options' ),

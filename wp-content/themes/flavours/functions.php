@@ -1392,6 +1392,18 @@ function tmFlavours_woocommerce_product_add_to_cart_text() {
 // Instantiate theme
 $TmFlavours = new TmFlavours();
 
+/**
+ * Send SMS after order completed
+ */
+
+add_filter( 'woocommerce_payment_complete_order_status', 'my_payment_complete_order_status');
+
+function my_payment_complete_order_status($order_status, $order_id){
+    var_dump($order_id);
+    var_dump($order_status);
+    exit;
+}
+
 
 /**
  * Display field value on the order edit page
@@ -1430,6 +1442,7 @@ add_action('init','register_session');
 
 
 function cert_check() {
+
     $response = [
         'code' => '404',
         'message' => '錯誤發生，請聯絡管理員'
@@ -1440,13 +1453,19 @@ function cert_check() {
     $_SESSION['cert'] = $cert;
     $_SESSION['time'] = time();
 
+    $replacements = [
+        '%cert' => $cert,
+    ];
+
+    $certString = str_replace(array_keys($replacements), $replacements, get_option('woocommerce_registration_notice'));
+
     $url = 'http://api.twsms.com/smsSend.php';
     $attr = [
         'body' => [
             'username' => 'dagolin',
             'password' => 'buyfood911',
             'mobile' => $_REQUEST['phone'],
-            'message' => '您在 <<買肉找我>> 的 手機認證碼為 ' . $cert . '，此認證碼有效時間為 1 小時。',
+            'message' => $certString,
         ]
     ];
 
