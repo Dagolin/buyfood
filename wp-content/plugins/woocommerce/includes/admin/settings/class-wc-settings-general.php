@@ -173,7 +173,7 @@ class WC_Settings_General extends WC_Settings_Page {
                 'title'    => __( '付款訊息', 'woocommerce' ),
                 'desc'     => '%item = 產品項目(顯示第一個), $payment = 金額, $date = 日期',
                 'id'       => 'woocommerce_payment_notice',
-                'default'  => __( '【買肉找我】 以確認您 %item 等的訂單款項共 %payment，將於 %date 出貨，感謝您的支持。', 'woocommerce' ),
+                'default'  => __( '【買肉找我】 已確認您的 %item 等訂單款項共 %payment，將於 %date 送達您的指定地點，請耐心等候，感謝您的支持。', 'woocommerce' ),
                 'css'     => 'width:350px; height: 65px;',
                 'type'  => 'textarea',
                 'autoload' => false

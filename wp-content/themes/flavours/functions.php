@@ -1397,10 +1397,59 @@ $TmFlavours = new TmFlavours();
  */
 
 add_filter( 'woocommerce_payment_complete_order_status', 'my_payment_complete_order_status');
+add_filter( 'woocommerce_order_status_processing', 'my_payment_processing_order_status');
 
-function my_payment_complete_order_status($order_status, $order_id){
-    var_dump($order_id);
-    var_dump($order_status);
+function my_payment_processing_order_status($order_id) {
+    $order = new WC_Order($order_id);
+
+    $items = $order->get_items();
+    $total = $order->get_total();
+
+    $itemName = '';
+
+    foreach ($items as $itemKey => $item) {
+        $itemName = $item['name'];
+        break;
+    }
+
+    $replacements = [
+        '%item' => $itemName,
+        '%payment' => $total,
+        '%date' => $date,
+    ];
+
+
+
+    $orderPhone ='';
+
+    var_dump();
+    $orderPhone = '0958791679';
+
+    $notice = str_replace(array_keys($replacements), $replacements, get_option('woocommerce_payment_notice'));
+
+    $url = 'http://api.twsms.com/smsSend.php';
+    $attr = [
+        'body' => [
+            'username' => 'dagolin',
+            'password' => 'buyfood911',
+            'mobile' => $orderPhone,
+            'message' => $notice,
+        ]
+    ];
+
+    $msgResponse = wp_safe_remote_get($url, $attr);
+
+    var_dump($msgResponse);
+    exit;
+
+    return 'processing';
+}
+
+
+function my_payment_complete_order_status($order_id){
+    $order = new WC_Order($order_id);
+    var_dump($order);
+
     exit;
 }
 
