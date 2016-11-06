@@ -2,7 +2,7 @@
 
     <div id="jckwds-fields" <?php if( !$active ) echo 'class="jckwds-fields-inactive"'; ?>>
 
-        <h3><?php _e('Delivery Details', 'jckwds'); ?></h3>
+        <!--<h3><?php _e('Delivery Details', 'jckwds'); ?></h3>-->
 
         <?php do_action('jckwds_after_delivery_details_title'); ?>
 

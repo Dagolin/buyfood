@@ -1400,14 +1400,31 @@ $TmFlavours = new TmFlavours();
  */
 
 add_filter( 'woocommerce_payment_complete_order_status', 'my_payment_complete_order_status');
-add_filter( 'woocommerce_order_status_processing', 'my_payment_processing_order_status');
+add_action( 'woocommerce_order_status_changed', 'my_order_status_changed');
 
-function my_payment_processing_order_status($order_id) {
+function my_order_status_changed($order_id, $old_status = '', $new_status = '') {
+
+    $acceptStatus = ['completed', 'wc-completed', 'processing', 'wc-processing'];
+
+    global $wpdb;
+
     $order = new WC_Order($order_id);
+
+    if (!(in_array($new_status, $acceptStatus) || in_array($order->post->post_status, $acceptStatus)))
+    {
+        return;
+    }
+
+    $deilveryDate = $wpdb->get_var("
+            SELECT date
+            FROM wp_jckwds
+            WHERE order_id = '{$order_id}'
+        ");
+
+    $deilveryDate = date('m月d日', strtotime($deilveryDate));
 
     $items = $order->get_items();
     $total = $order->get_total();
-
     $itemName = '';
 
     foreach ($items as $itemKey => $item) {
@@ -1415,20 +1432,30 @@ function my_payment_processing_order_status($order_id) {
         break;
     }
 
-    $replacements = [
-        '%item' => $itemName,
-        '%payment' => $total,
-        '%date' => $date,
-    ];
+    if ($new_status == 'completed' || $order->post->post_status == 'wc-completed') {
+        $replacements = [
+            '%item' => $itemName,
+            '%date' => $deilveryDate,
+            '%phone' => '02-12345667'
+        ];
 
+        $option = get_option('woocommerce_delivery_notice');
 
+    } else if ($new_status == 'processing' || $order->post->post_status == 'wc-processing') {
+        $replacements = [
+            '%item' => $itemName,
+            '%payment' => $total,
+            '%date' => $deilveryDate,
+        ];
 
-    $orderPhone ='';
+        $option = get_option('woocommerce_payment_notice');
+    }
 
-    var_dump();
-    $orderPhone = '0958791679';
+    $defaultPhone = get_option('woocommerce_message_phone');
 
-    $notice = str_replace(array_keys($replacements), $replacements, get_option('woocommerce_payment_notice'));
+    $orderPhone = empty($defaultPhone) ? $order->billing_phone : $defaultPhone;
+
+    $notice = str_replace(array_keys($replacements), $replacements, $option);
 
     $url = 'http://api.twsms.com/smsSend.php';
     $attr = [
@@ -1441,21 +1468,7 @@ function my_payment_processing_order_status($order_id) {
     ];
 
     $msgResponse = wp_safe_remote_get($url, $attr);
-
-    var_dump($msgResponse);
-    exit;
-
-    return 'processing';
 }
-
-
-function my_payment_complete_order_status($order_id){
-    $order = new WC_Order($order_id);
-    var_dump($order);
-
-    exit;
-}
-
 
 /**
  * Display field value on the order edit page
@@ -1510,13 +1523,16 @@ function cert_check() {
     ];
 
     $certString = str_replace(array_keys($replacements), $replacements, get_option('woocommerce_registration_notice'));
+    $defaultPhone = get_option('woocommerce_message_phone');
+
+    $phone = empty($defaultPhone) ? $_REQUEST['phone'] : $defaultPhone;
 
     $url = 'http://api.twsms.com/smsSend.php';
     $attr = [
         'body' => [
             'username' => 'dagolin',
             'password' => 'buyfood911',
-            'mobile' => $_REQUEST['phone'],
+            'mobile' => $phone,
             'message' => $certString,
         ]
     ];

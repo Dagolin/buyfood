@@ -181,12 +181,20 @@ class WC_Settings_General extends WC_Settings_Page {
 
             array(
                 'title'    => __( '出貨訊息', 'woocommerce' ),
-                'desc'     => '%item = 產品項目(顯示第一個), $address = 地址, $date = 日期, $phone = 電話',
+                'desc'     => '%item = 產品項目(顯示第一個), %address = 地址, %date = 日期, %phone = 電話',
                 'id'       => 'woocommerce_delivery_notice',
                 'default'  => __( '【買肉找我】 您的 %item 已出貨，並將於 %date 送到 %address，若有問題歡迎電洽 %phone，將有專員為您答覆。', 'woocommerce' ),
                 'css'     => 'width:350px; height: 65px;',
                 'type'  => 'textarea',
                 'autoload' => false
+            ),
+
+            array(
+                'title'    => __( '簡訊測試用手機', 'woocommerce' ),
+                'desc'     => '正式使用時請留空',
+                'id'       => 'woocommerce_message_phone',
+                'default'  => __( '', 'woocommerce' ),
+                'type'  => 'text',
             ),
 
 			array( 'type' => 'sectionend', 'id' => 'general_options'),
