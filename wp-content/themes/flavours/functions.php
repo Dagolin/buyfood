@@ -282,7 +282,10 @@ function tmFlavours_scripts_styles()
     wp_enqueue_script('owl.carousel.min-js',TMFLAVOURS_THEME_URI . '/js/owl.carousel.min.js', array('jquery'), '', true);
     wp_enqueue_script('cloud-zoom-js', TMFLAVOURS_THEME_URI . '/js/cloud-zoom.js', array('jquery'), '', true);
 
-     
+    // Date picker
+    wp_enqueue_script('jquery-ui-datepicker', TMFLAVOURS_THEME_URI . '/js/jquery-ui.min.js', array('jquery'), '', true);
+    wp_enqueue_style('jquery-ui-datepicker', TMFLAVOURS_THEME_URI . '/css/jquery-ui.min.css', array(), '');
+
       wp_register_script('tmFlavours-theme', TMFLAVOURS_THEME_URI .'/js/tm_menu.js', array('jquery'), '', true );
         wp_enqueue_script('tmFlavours-theme');
 
