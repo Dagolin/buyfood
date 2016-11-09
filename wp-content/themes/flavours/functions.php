@@ -1404,6 +1404,9 @@ add_action( 'woocommerce_order_status_changed', 'my_order_status_changed');
 
 function my_order_status_changed($order_id, $old_status = '', $new_status = '') {
 
+    $sendDeliveryMessage = (get_option('woocommerce_enable_delivery_notice', 'no') == 'yes');
+    $sendPaymentMessage = (get_option('woocommerce_enable_payment_notice', 'no') == 'yes');
+
     $acceptStatus = ['completed', 'wc-completed', 'processing', 'wc-processing'];
 
     global $wpdb;
@@ -1440,6 +1443,7 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
         ];
 
         $option = get_option('woocommerce_delivery_notice');
+        $sendMessage = $sendDeliveryMessage;
 
     } else if ($new_status == 'processing' || $order->post->post_status == 'wc-processing') {
         $replacements = [
@@ -1449,6 +1453,7 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
         ];
 
         $option = get_option('woocommerce_payment_notice');
+        $sendMessage = $sendPaymentMessage;
     }
 
     $defaultPhone = get_option('woocommerce_message_phone');
@@ -1467,7 +1472,9 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
         ]
     ];
 
-    $msgResponse = wp_safe_remote_get($url, $attr);
+    if ($sendMessage) {
+        $msgResponse = wp_safe_remote_get($url, $attr);
+    }
 }
 
 /**

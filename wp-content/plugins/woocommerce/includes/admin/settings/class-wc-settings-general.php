@@ -159,6 +159,7 @@ class WC_Settings_General extends WC_Settings_Page {
 				'autoload' => false
 			),
 
+
             array(
                 'title'    => __( '註冊訊息', 'woocommerce' ),
                 'desc'     => '%cert = 認證碼',
@@ -170,6 +171,14 @@ class WC_Settings_General extends WC_Settings_Page {
             ),
 
             array(
+                'title'   => __( '啟用付款訊息', 'woocommerce' ),
+                'desc'    => __( '於付款完成時寄送通知簡訊', 'woocommerce' ),
+                'id'      => 'woocommerce_enable_payment_notice',
+                'default' => 'yes',
+                'type'    => 'checkbox',
+            ),
+
+            array(
                 'title'    => __( '付款訊息', 'woocommerce' ),
                 'desc'     => '%item = 產品項目(顯示第一個), $payment = 金額, $date = 日期',
                 'id'       => 'woocommerce_payment_notice',
@@ -177,6 +186,14 @@ class WC_Settings_General extends WC_Settings_Page {
                 'css'     => 'width:350px; height: 65px;',
                 'type'  => 'textarea',
                 'autoload' => false
+            ),
+
+            array(
+                'title'   => __( '啟用出貨訊息', 'woocommerce' ),
+                'desc'    => __( '於訂單變更狀態為【完成】時寄送通知簡訊', 'woocommerce' ),
+                'id'      => 'woocommerce_enable_delivery_notice',
+                'default' => 'yes',
+                'type'    => 'checkbox',
             ),
 
             array(
