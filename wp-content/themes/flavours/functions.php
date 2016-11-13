@@ -1417,7 +1417,7 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
     {
         return;
     }
-
+/*
     $deilveryDate = $wpdb->get_var("
             SELECT date
             FROM wp_jckwds
@@ -1425,7 +1425,7 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
         ");
 
     $deilveryDate = date('m月d日', strtotime($deilveryDate));
-
+*/
     $items = $order->get_items();
     $total = $order->get_total();
     $itemName = '';
@@ -1438,8 +1438,8 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
     if ($new_status == 'completed' || $order->post->post_status == 'wc-completed') {
         $replacements = [
             '%item' => $itemName,
-            '%date' => $deilveryDate,
-            '%phone' => '02-12345667'
+            //'%date' => $deilveryDate,
+            '%phone' => get_option('woocommerce_company_number', '')
         ];
 
         $option = get_option('woocommerce_delivery_notice');
@@ -1449,7 +1449,7 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
         $replacements = [
             '%item' => $itemName,
             '%payment' => $total,
-            '%date' => $deilveryDate,
+            //'%date' => $deilveryDate,
         ];
 
         $option = get_option('woocommerce_payment_notice');
@@ -1477,13 +1477,101 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
     }
 }
 
+
+// - -
+
+//
+//Adding Meta container admin shop_order pages
+//
+add_action( 'add_meta_boxes', 'mv_add_meta_boxes' );
+if ( ! function_exists( 'mv_add_meta_boxes' ) )
+{
+    function mv_add_meta_boxes()
+    {
+        global $woocommerce, $order, $post;
+
+        add_meta_box( 'mv_other_fields', __('出貨時間','woocommerce'), 'mv_add_other_fields_for_packaging', 'shop_order', 'side', 'core' );
+    }
+}
+
+//
+//adding Meta field in the meta container admin shop_order pages
+//
+if ( ! function_exists( 'mv_save_wc_order_other_fields' ) )
+{
+    function mv_add_other_fields_for_packaging()
+    {
+        global $woocommerce, $order, $post;
+
+
+        //$meta_field_data = get_post_meta( $post->ID, '_my_choice', true ); //? get_post_meta( $post->ID, '_my_choice', true ) : '';
+        $meta_field_data = get_post_meta( $post->ID, 'delivery_date', true );
+
+        echo '<input type="hidden" name="mv_other_meta_field_nonce" value="' . wp_create_nonce() . '">
+        <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
+            <input type="text" class="date-picker" style="width:250px;";" name="delivery_date" placeholder="' . $meta_field_data
+            . '" value="' . $meta_field_data . '" ></p>';
+
+
+    }
+}
+
+//Save the data of the Meta field
+add_action( 'save_post', 'mv_save_wc_order_other_fields', 10, 1 );
+if ( ! function_exists( 'mv_save_wc_order_other_fields' ) )
+{
+
+    function mv_save_wc_order_other_fields( $post_id ) {
+
+        // We need to verify this with the proper authorization (security stuff).
+
+        // Check if our nonce is set.
+        if ( ! isset( $_POST[ 'mv_other_meta_field_nonce' ] ) ) {
+            return $post_id;
+        }
+        $nonce = $_REQUEST[ 'mv_other_meta_field_nonce' ];
+
+        //Verify that the nonce is valid.
+        if ( ! wp_verify_nonce( $nonce ) ) {
+            return $post_id;
+        }
+
+        // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+            return $post_id;
+        }
+
+        // Check the user's permissions.
+        if ( 'page' == $_POST[ 'post_type' ] ) {
+
+            if ( ! current_user_can( 'edit_page', $post_id ) ) {
+                return $post_id;
+            }
+        } else {
+
+            if ( ! current_user_can( 'edit_post', $post_id ) ) {
+                return $post_id;
+            }
+        }
+        // --- Its safe for us to save the data ! --- //
+
+        // Sanitize user input  and update the meta field in the database.
+        update_post_meta( $post_id, 'delivery_date', $_POST[ 'delivery_date' ] );
+    }
+}
+
+
+
+
+
+// - -
 /**
  * Display field value on the order edit page
  */
 
-add_action( 'woocommerce_admin_order_data_after_shipping_address', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'my_custom_checkout_phone_display_admin_order_meta', 10, 1 );
 
-function my_custom_checkout_field_display_admin_order_meta($order){
+function my_custom_checkout_phone_display_admin_order_meta($order){
     echo '<p><strong>'.__('連絡電話').':</strong> ' . get_post_meta( $order->id, '_shipping_phone', true ) . '</p>';
 }
 

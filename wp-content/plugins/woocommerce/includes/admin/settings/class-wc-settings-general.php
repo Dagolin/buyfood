@@ -214,6 +214,14 @@ class WC_Settings_General extends WC_Settings_Page {
                 'type'  => 'text',
             ),
 
+            array(
+                'title'    => __( '公司電話(使用於簡訊中)', 'woocommerce' ),
+                'desc'     => '',
+                'id'       => 'woocommerce_company_number',
+                'default'  => __( '', 'woocommerce' ),
+                'type'  => 'text',
+            ),
+
 			array( 'type' => 'sectionend', 'id' => 'general_options'),
 
 			array( 'title' => __( 'Currency Options', 'woocommerce' ), 'type' => 'title', 'desc' => __( 'The following options affect how prices are displayed on the frontend.', 'woocommerce' ), 'id' => 'pricing_options' ),
