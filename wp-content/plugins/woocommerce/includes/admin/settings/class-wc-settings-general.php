@@ -222,7 +222,15 @@ class WC_Settings_General extends WC_Settings_Page {
                 'type'  => 'text',
             ),
 
-			array( 'type' => 'sectionend', 'id' => 'general_options'),
+            array(
+                'title'    => __( '產品頁冷凍表示圖 URL', 'woocommerce' ),
+                'desc'     => '',
+                'id'       => 'frozen_shipping_image',
+                'default'  => __( '/wp-content/themes/flavours/images/cool.gif', 'woocommerce' ),
+                'type'  => 'text',
+            ),
+
+            array( 'type' => 'sectionend', 'id' => 'general_options'),
 
 			array( 'title' => __( 'Currency Options', 'woocommerce' ), 'type' => 'title', 'desc' => __( 'The following options affect how prices are displayed on the frontend.', 'woocommerce' ), 'id' => 'pricing_options' ),
 

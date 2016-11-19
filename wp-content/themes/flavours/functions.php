@@ -1480,6 +1480,27 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
 
 // - -
 
+/**
+ * Displays product attributes in the top right of the single product page.
+ *
+ * @param $product
+ */
+function tutsplus_list_attributes( $product ) {
+
+    global $product;
+
+    if (strpos($product->get_tags(), '冷凍') > 0)
+    {
+        $defaultImgUrl = esc_url(TMFLAVOURS_THEME_URI).'/images/cool.gif';
+
+        $imageUrl = empty(get_option('frozen_shipping_image', $defaultImgUrl)) ? $defaultImgUrl : get_option('frozen_shipping_image');
+
+        echo '<span class="posted_in"><img src="' . $imageUrl . '" /></span>';
+    }
+}
+
+add_action( 'woocommerce_product_meta_end', 'tutsplus_list_attributes' );
+
 //
 //Adding Meta container admin shop_order pages
 //
