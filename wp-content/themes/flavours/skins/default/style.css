@@ -8716,6 +8716,15 @@ button.button#empty_cart_button:before {
 #shopping-cart-table .product-name a {
 	text-transform: none;
 }
+
+#shopping-cart-table .normal {
+	color : orange;
+}
+
+#shopping-cart-table .frozen {
+	color : blue;
+}
+
 #shopping-cart-table.data-table .price {
 	font-weight: bold;
 	font-family: 'Montserrat', sans-serif;

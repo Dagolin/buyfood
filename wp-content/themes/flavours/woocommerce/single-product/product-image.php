@@ -25,7 +25,7 @@ global $post, $woocommerce, $product;
 
 ?>
 
-            <div class="product-image">
+            <div class="product-image images" style="float:inherit;width:100%">
                 <div class="large-image">
                     <?php
                     if (has_post_thumbnail()) {

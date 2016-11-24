@@ -28,7 +28,6 @@ if ($attachment_ids) {
     $loop = 0;
     $columns = apply_filters('woocommerce_product_thumbnails_columns', 3);
     ?>
-    
         <div class="flexslider flexslider-thumb">
             <ul class="previews-list slides">
                 <?php

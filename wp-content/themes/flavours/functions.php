@@ -1147,8 +1147,11 @@ function tmFlavours_breadcrumbs() {
                          </div>
                       <strong><?php echo esc_html($cart_item['quantity']); ?>
                   </strong> x <span class="price"><?php echo htmlspecialchars_decode($product_price); ?></span>
-                     <p class="product-name"><a href="<?php echo esc_url($_product->get_permalink($cart_item)); ?>"
-                        title="<?php echo esc_html($product_name); ?>"><?php echo esc_html($product_name); ?></a> </p>
+                     <p class="product-name">
+                         <a href="<?php echo esc_url($_product->get_permalink($cart_item)); ?>">
+                             <?php echo esc_html($product_name); ?>
+                         </a>
+                     </p>
                   </div>
                   <?php echo htmlspecialchars_decode(WC()->cart->get_item_data($cart_item)); ?>
                      </div>
@@ -1399,7 +1402,6 @@ $TmFlavours = new TmFlavours();
  * Send SMS after order completed
  */
 
-add_filter( 'woocommerce_payment_complete_order_status', 'my_payment_complete_order_status');
 add_action( 'woocommerce_order_status_changed', 'my_order_status_changed');
 
 function my_order_status_changed($order_id, $old_status = '', $new_status = '') {
@@ -1488,14 +1490,15 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
 function tutsplus_list_attributes( $product ) {
 
     global $product;
+    global $flavours_Options;
 
     if (strpos($product->get_tags(), '冷凍') > 0)
     {
         $defaultImgUrl = esc_url(TMFLAVOURS_THEME_URI).'/images/cool.gif';
 
-        $imageUrl = empty(get_option('frozen_shipping_image', $defaultImgUrl)) ? $defaultImgUrl : get_option('frozen_shipping_image');
+        $imageUrl = isset($flavours_Options['frozen_image']) ? $flavours_Options['frozen_image'] : $defaultImgUrl;
 
-        echo '<span class="posted_in"><img src="' . $imageUrl . '" /></span>';
+        echo '<span class="posted_in"><img src="' . $imageUrl['url'] . '" /></span>';
     }
 }
 
@@ -1679,5 +1682,54 @@ function ajax_cert_enqueue_scripts() {
         'ajax_url' => admin_url( 'admin-ajax.php' )
     ));
 }
+
+/*
+ * Add this to your (child) theme's functions.php file
+ */
+add_filter( 'woocommerce_cart_item_name', 'add_product_shipping_class', PHP_INT_MAX, 3 );
+/*
+ * add_product_shipping_class.
+ */
+function add_product_shipping_class( $cart_item_name, $cart_item, $cart_item_key ) {
+    $product_id = ( 0 != $cart_item['variation_id'] ) ? $cart_item['variation_id'] : $cart_item['product_id'];
+    $product_shipping_classes = get_the_terms( $product_id, 'product_shipping_class' );
+    $product_shipping_class_name = ( $product_shipping_classes && ! is_wp_error( $product_shipping_classes ) ) ? current( $product_shipping_classes )->name : '';
+    $product_shipping_class_style = '';
+
+    switch ($product_shipping_class_name){
+        case '常溫':
+            $product_shipping_class_style = 'normal';
+            break;
+        case '冷藏':
+            $product_shipping_class_style = 'frozen';
+            break;
+        default:
+            break;
+    }
+
+    return $cart_item_name . ' ' . '<span class="' . $product_shipping_class_style . '">'  . $product_shipping_class_name . '</span>';
+}
+
+/*
+ * Sort shopping cart by shipping class
+ */
+add_action( 'woocommerce_cart_loaded_from_session', function() {
+
+    global $woocommerce;
+    $products_in_cart = array();
+    foreach ( $woocommerce->cart->cart_contents as $key => $item ) {
+        $product_shipping_classes = get_the_terms( $item['data']->id, 'product_shipping_class' );
+        $products_in_cart[ $key ] = ( $product_shipping_classes && ! is_wp_error( $product_shipping_classes ) ) ? current( $product_shipping_classes )->term_id : '';
+    }
+
+    asort( $products_in_cart );
+
+    $cart_contents = array();
+    foreach ( $products_in_cart as $cart_key => $product_title ) {
+        $cart_contents[ $cart_key ] = $woocommerce->cart->cart_contents[ $cart_key ];
+    }
+    $woocommerce->cart->cart_contents = $cart_contents;
+
+}, 100 );
 
 ?>

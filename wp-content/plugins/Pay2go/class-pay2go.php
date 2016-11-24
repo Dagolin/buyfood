@@ -835,7 +835,7 @@ function pay2go_gateway_init() {
                 echo "</div>";
             }
 
-            echo '<script type="text/javascript" src="http://code.jquery.com/jquery-1.1.1.js"></script>
+            echo '<script type="text/javascript" src="https://code.jquery.com/jquery-1.1.1.js"></script>
                     <script type="text/javascript">
                         function idchk(idvalue) {
                             var tmp = new String("12121241");

@@ -605,6 +605,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'default' => true,
                     ),
 
+                    array(
+                        'id' => 'frozen_image',
+                        'type' => 'media',
+                        'title' => esc_html__('Frozen image', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('上傳溫層圖', 'flavours'),
+                    ),
+
                     /*array(
                         'id'       => 'enable_footer_middle',
                         'type'     => 'switch',                    
