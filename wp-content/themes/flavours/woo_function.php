@@ -383,8 +383,8 @@ ob_start();
                          </div>
                       <strong><?php echo esc_html($cart_item['quantity']); ?>
                   </strong> x <span class="price"><?php echo htmlspecialchars_decode($product_price); ?></span>
-                     <p class="product-name"><a href="<?php echo esc_url($_product->get_permalink($cart_item)); ?>"
-                        title="<?php echo esc_html($product_name); ?>"><?php echo esc_html($product_name); ?></a> </p>
+                     <p class="product-name"><a href="<?php echo esc_url($_product->get_permalink($cart_item)); ?>">
+                             <?php echo esc_html($product_name); ?></a> </p>
                   </div>
                   <?php echo htmlspecialchars_decode(WC()->cart->get_item_data($cart_item)); ?>
                      </div>

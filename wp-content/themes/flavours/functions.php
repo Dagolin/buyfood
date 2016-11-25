@@ -1440,7 +1440,7 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
     if ($new_status == 'completed' || $order->post->post_status == 'wc-completed') {
         $replacements = [
             '%item' => $itemName,
-            //'%date' => $deilveryDate,
+            '%no' => $order_id,
             '%phone' => get_option('woocommerce_company_number', '')
         ];
 
@@ -1451,6 +1451,7 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
         $replacements = [
             '%item' => $itemName,
             '%payment' => $total,
+            '%no' => $order_id,
             //'%date' => $deilveryDate,
         ];
 
