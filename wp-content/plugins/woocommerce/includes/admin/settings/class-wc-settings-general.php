@@ -159,12 +159,46 @@ class WC_Settings_General extends WC_Settings_Page {
 				'autoload' => false
 			),
 
+            array(
+                'title'    => __( '台灣簡訊帳號', 'woocommerce' ),
+                'desc'     => '',
+                'id'       => 'woocommerce_sms_account',
+                'default'  => __( '', 'woocommerce' ),
+                'type'  => 'text',
+            ),
+
+            array(
+                'title'    => __( '台灣簡訊密碼', 'woocommerce' ),
+                'desc'     => '',
+                'id'       => 'woocommerce_sms_password',
+                'default'  => __( '', 'woocommerce' ),
+                'type'  => 'text',
+            ),
+
 
             array(
                 'title'    => __( '註冊訊息', 'woocommerce' ),
                 'desc'     => '%cert = 認證碼',
                 'id'       => 'woocommerce_registration_notice',
                 'default'  => __( '【買肉找我】 您的手機認證碼為 %cert ，此認證碼有效時間為 1 小時。', 'woocommerce' ),
+                'css'     => 'width:350px; height: 65px;',
+                'type'  => 'textarea',
+                'autoload' => false
+            ),
+
+            array(
+                'title'   => __( '啟用下單訊息', 'woocommerce' ),
+                'desc'    => __( '下單時寄送簡訊', 'woocommerce' ),
+                'id'      => 'woocommerce_enable_order_notice',
+                'default' => 'yes',
+                'type'    => 'checkbox',
+            ),
+
+            array(
+                'title'    => __( '下單訊息', 'woocommerce' ),
+                'desc'     => '%no = 訂單單號, %payment = 金額, %phone = 電話',
+                'id'       => 'woocommerce_order_notice',
+                'default'  => __( '【買肉找我】您的訂單 (編號# %no) 已確立，請於指定時間內付款，我們將在2個工作天內寄送至您指定的地址，感謝您的支持。', 'woocommerce' ),
                 'css'     => 'width:350px; height: 65px;',
                 'type'  => 'textarea',
                 'autoload' => false
@@ -180,9 +214,9 @@ class WC_Settings_General extends WC_Settings_Page {
 
             array(
                 'title'    => __( '付款訊息', 'woocommerce' ),
-                'desc'     => '%no = 訂單單號, %payment = 金額',
+                'desc'     => '%no = 訂單編號, %payment = 金額',
                 'id'       => 'woocommerce_payment_notice',
-                'default'  => __( '【買肉找我】已收到訂單 %no 款項共 %payment，我們將在2個工作天內寄送至您指定的地址，感謝您的支持', 'woocommerce' ),
+                'default'  => __( '【買肉找我】已收到訂單 (編號# %no) 款項共 %payment，我們將在2個工作天內寄送至您指定的地址，感謝您的支持', 'woocommerce' ),
                 'css'     => 'width:350px; height: 65px;',
                 'type'  => 'textarea',
                 'autoload' => false
@@ -198,9 +232,9 @@ class WC_Settings_General extends WC_Settings_Page {
 
             array(
                 'title'    => __( '出貨訊息', 'woocommerce' ),
-                'desc'     => '%no = 訂單單號, %phone = 電話',
+                'desc'     => '%no = 訂單編號, %phone = 電話',
                 'id'       => 'woocommerce_delivery_notice',
-                'default'  => __( '【買肉找我】 您的訂單 %no 已出貨，若有問題歡迎電洽 $phone，將有專員為您答覆，感謝您的支持。', 'woocommerce' ),
+                'default'  => __( '【買肉找我】 您的訂單 (編號# %no) 已出貨，若有問題歡迎電洽 $phone，將有專員為您答覆，感謝您的支持。', 'woocommerce' ),
                 'css'     => 'width:350px; height: 65px;',
                 'type'  => 'textarea',
                 'autoload' => false

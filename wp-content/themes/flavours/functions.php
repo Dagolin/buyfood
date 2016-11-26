@@ -1399,6 +1399,48 @@ function tmFlavours_woocommerce_product_add_to_cart_text() {
 $TmFlavours = new TmFlavours();
 
 /**
+ * Send SMS after order placed
+ */
+
+add_action( 'woocommerce_new_order', 'my_new_order',  1, 1  );
+function my_new_order($order_id){
+    $order = new WC_Order($order_id);
+    $total = $order->get_total();
+
+    $sendMessage = (get_option('woocommerce_enable_order_notice', 'no') == 'yes');
+    $option = get_option('woocommerce_order_notice');
+
+    $replacements = [
+        '%payment' => $total,
+        '%no' => $order_id,
+        '%phone' => get_option('woocommerce_company_number', '')
+    ];
+
+    $notice = str_replace(array_keys($replacements), $replacements, $option);
+    $orderPhone = empty($defaultPhone) ? get_user_meta( $order->user_id, 'billing_phone', true ) : $defaultPhone;
+
+    if ($sendMessage) {
+        $msgResponse = sendTaiwanSMS($orderPhone, $notice);
+    }
+}
+
+function sendTaiwanSMS($phone, $message){
+
+    $url = 'http://api.twsms.com/smsSend.php';
+
+    $attr = [
+        'body' => [
+            'username' => get_option('woocommerce_sms_account', ''),
+            'password' => get_option('woocommerce_sms_password', ''),
+            'mobile' => $phone,
+            'message' => $message,
+        ]
+    ];
+
+    return  wp_safe_remote_get($url, $attr);
+}
+
+/**
  * Send SMS after order completed
  */
 
@@ -1461,22 +1503,12 @@ function my_order_status_changed($order_id, $old_status = '', $new_status = '') 
 
     $defaultPhone = get_option('woocommerce_message_phone');
 
-    $orderPhone = empty($defaultPhone) ? $order->billing_phone : $defaultPhone;
+    $orderPhone = empty($defaultPhone) ? get_user_meta( $order->user_id, 'billing_phone', true ) : $defaultPhone;
 
     $notice = str_replace(array_keys($replacements), $replacements, $option);
 
-    $url = 'http://api.twsms.com/smsSend.php';
-    $attr = [
-        'body' => [
-            'username' => 'dagolin',
-            'password' => 'buyfood911',
-            'mobile' => $orderPhone,
-            'message' => $notice,
-        ]
-    ];
-
     if ($sendMessage) {
-        $msgResponse = wp_safe_remote_get($url, $attr);
+        $msgResponse = sendTaiwanSMS($orderPhone, $notice);
     }
 }
 
@@ -1664,17 +1696,7 @@ function cert_check() {
 
     $phone = empty($defaultPhone) ? $_REQUEST['phone'] : $defaultPhone;
 
-    $url = 'http://api.twsms.com/smsSend.php';
-    $attr = [
-        'body' => [
-            'username' => 'dagolin',
-            'password' => 'buyfood911',
-            'mobile' => $phone,
-            'message' => $certString,
-        ]
-    ];
-
-    $msgResponse = wp_safe_remote_get($url, $attr);
+    $msgResponse = sendTaiwanSMS($phone, $certString);
 
     if ($msgResponse['response']['code'] == 200){
         $response = $msgResponse['response'];
@@ -1752,5 +1774,4 @@ add_action( 'woocommerce_cart_loaded_from_session', function() {
     $woocommerce->cart->cart_contents = $cart_contents;
 
 }, 100 );
-
 ?>
