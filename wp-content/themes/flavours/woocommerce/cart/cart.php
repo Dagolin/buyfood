@@ -31,7 +31,7 @@ do_action('woocommerce_before_cart'); ?>
                 <?php esc_attr_e('Product Name', 'woocommerce'); ?>
                 </span></th>
                             <th colspan="1" class="a-center"><span class="nobr">
-                <?php esc_attr_e('Unit Price', 'woocommerce'); ?>
+                <?php esc_attr_e('單價', 'woocommerce'); ?>
                 </span></th>
                             <th class="a-center " rowspan="1"><?php esc_attr_e('Qty', 'woocommerce'); ?></th>
                             <th colspan="1" class="a-center"><?php esc_attr_e('Subtotal', 'woocommerce'); ?></th>
@@ -142,7 +142,7 @@ do_action('woocommerce_before_cart'); ?>
 
                                 <div id="discount-coupon-form">
                                     <label for="coupon_code">
-                                        <?php esc_attr_e('Enter your coupon code if you have one.', 'woocommerce'); ?>
+                                        <?php esc_attr_e('輸入優惠卷代號，立刻折價！', 'woocommerce'); ?>
                                         :</label>
                                     <input type="text" name="coupon_code" class="input-text fullwidth" id="coupon_code"
                                            value="" placeholder="<?php _e('Coupon code', 'woocommerce'); ?>"/>

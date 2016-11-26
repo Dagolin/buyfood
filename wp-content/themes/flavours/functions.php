@@ -1149,7 +1149,7 @@ function tmFlavours_breadcrumbs() {
                   </strong> x <span class="price"><?php echo htmlspecialchars_decode($product_price); ?></span>
                      <p class="product-name">
                          <a href="<?php echo esc_url($_product->get_permalink($cart_item)); ?>">
-                             <?php echo esc_html($product_name); ?>
+                             <?php echo $product_name; ?>
                          </a>
                      </p>
                   </div>
@@ -1493,12 +1493,29 @@ function tutsplus_list_attributes( $product ) {
     global $product;
     global $flavours_Options;
 
-    if (strpos($product->get_tags(), '冷凍') > 0)
-    {
-        $defaultImgUrl = esc_url(TMFLAVOURS_THEME_URI).'/images/cool.gif';
+    $product_shipping_classes = get_the_terms( $product->id, 'product_shipping_class' );
+    $product_shipping_class_name = ( $product_shipping_classes && ! is_wp_error( $product_shipping_classes ) ) ? current( $product_shipping_classes )->name : '';
 
-        $imageUrl = isset($flavours_Options['frozen_image']) ? $flavours_Options['frozen_image'] : $defaultImgUrl;
+    $defaultImgUrl = esc_url(TMFLAVOURS_THEME_URI).'/images/cool.gif';
 
+    $option = 'normal_image';
+
+    switch ($product_shipping_class_name){
+        case '常溫':
+            break;
+        case '冷藏':
+            $option = 'cool_image';
+            break;
+        case '冷凍':
+            $option = 'frozen_image';
+            break;
+        default:
+            break;
+    }
+
+    $imageUrl = isset($flavours_Options[$option]) ? $flavours_Options[$option] : $defaultImgUrl;
+
+    if (!empty($imageUrl)) {
         echo '<span class="posted_in"><img src="' . $imageUrl['url'] . '" /></span>';
     }
 }
@@ -1619,7 +1636,7 @@ function is_cert() {
 
 function register_session(){
     if( !session_id() ){
-        session_start();
+        //session_start();
     }
 }
 
@@ -1699,18 +1716,19 @@ function add_product_shipping_class( $cart_item_name, $cart_item, $cart_item_key
 
     switch ($product_shipping_class_name){
         case '常溫':
-            $product_shipping_class_style = 'normal';
+            $product_shipping_class_style = 'degree-normal';
             break;
         case '冷藏':
-            $product_shipping_class_style = 'frozen';
+            $product_shipping_class_style = 'degree-cool';
+            break;
+        case '冷凍':
+            $product_shipping_class_style = 'degree-frozen';
             break;
         default:
             break;
     }
 
-    return $cart_item_name . '(' . $product_shipping_class_name . ')';
-
-    //return $cart_item_name . ' ' . '<span class="' . $product_shipping_class_style . '">'  . $product_shipping_class_name . '</span>';
+    return $cart_item_name . ' ' . '<span class="' . $product_shipping_class_style . '">'  . $product_shipping_class_name . '</span>';
 }
 
 /*

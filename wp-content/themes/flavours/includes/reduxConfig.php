@@ -606,11 +606,27 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     ),
 
                     array(
+                        'id' => 'normal_image',
+                        'type' => 'media',
+                        'title' => esc_html__('溫層圖 - 常溫', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('產品頁溫層示意圖', 'flavours'),
+                    ),
+
+                    array(
+                        'id' => 'cool_image',
+                        'type' => 'media',
+                        'title' => esc_html__('溫層圖 - 冷藏', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('產品頁溫層示意圖', 'flavours'),
+                    ),
+
+                    array(
                         'id' => 'frozen_image',
                         'type' => 'media',
-                        'title' => esc_html__('Frozen image', 'flavours'),
+                        'title' => esc_html__('溫層圖 - 冷凍', 'flavours'),
                         'desc' => esc_html__('', 'flavours'),
-                        'subtitle' => esc_html__('上傳溫層圖', 'flavours'),
+                        'subtitle' => esc_html__('產品頁溫層示意圖', 'flavours'),
                     ),
 
                     /*array(

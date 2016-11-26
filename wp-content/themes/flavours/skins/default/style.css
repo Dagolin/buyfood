@@ -8717,11 +8717,15 @@ button.button#empty_cart_button:before {
 	text-transform: none;
 }
 
-#shopping-cart-table .normal {
+.degree-normal {
 	color : orange;
 }
 
-#shopping-cart-table .frozen {
+.degree-cool {
+	color : #5B9DD9;
+}
+
+.degree-frozen {
 	color : blue;
 }
 

@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-10-23 00:27+0800\n"
+"PO-Revision-Date: 2016-11-26 11:22+0800\n"
 "Language-Team: \n"
 "X-Generator: Poedit 1.8.11\n"
 "Last-Translator: \n"
@@ -115,16 +115,16 @@ msgid "Recently added items"
 msgstr ""
 
 msgid "items"
-msgstr ""
+msgstr "品項"
 
 msgid "Edit item"
 msgstr ""
 
 msgid "Subtotal"
-msgstr ""
+msgstr "小計"
 
 msgid "Checkout"
-msgstr ""
+msgstr "結帳"
 
 msgid "View Cart"
 msgstr ""
@@ -331,13 +331,13 @@ msgid "Qty"
 msgstr ""
 
 msgid "Clear Cart"
-msgstr ""
+msgstr "清空購物車"
 
 msgid "Continue Shopping"
-msgstr ""
+msgstr "繼續購物"
 
 msgid "Discount Codes"
-msgstr ""
+msgstr "輸入優惠代碼"
 
 #: /woocommerce/cart/cart-totals.php
 msgid "Update Cart"
@@ -1192,7 +1192,7 @@ msgid "Search Results for"
 msgstr ""
 
 msgid "Shopping Cart Total"
-msgstr ""
+msgstr "總計"
 
 msgid "My Cart"
 msgstr "買肉購物車"
@@ -1207,10 +1207,10 @@ msgid "you may be interested"
 msgstr "也許會有興趣..."
 
 msgid " interested in the following items"
-msgstr ""
+msgstr "也許會有興趣..."
 
 msgid "You may be interested in the following items:"
-msgstr ""
+msgstr "也許會有興趣..."
 
 msgid "Archive by Category"
 msgstr ""

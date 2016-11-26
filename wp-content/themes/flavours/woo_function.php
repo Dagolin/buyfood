@@ -385,7 +385,7 @@ ob_start();
                   </strong> x <span class="price"><?php echo htmlspecialchars_decode($product_price); ?></span>
                      <p class="product-name">
                          <a href="<?php echo esc_url($_product->get_permalink($cart_item)); ?>">
-                             <?php echo esc_html($product_name); ?>
+                             <?php echo $product_name; ?>
                          </a>
                      </p>
                   </div>
