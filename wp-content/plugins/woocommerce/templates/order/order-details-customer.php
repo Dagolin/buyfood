@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
 
-<div class="col2-set addresses">
+<div class="col2-set">
 	<div class="col-1">
 
 <?php endif; ?>

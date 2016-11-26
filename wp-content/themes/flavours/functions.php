@@ -1708,7 +1708,9 @@ function add_product_shipping_class( $cart_item_name, $cart_item, $cart_item_key
             break;
     }
 
-    return $cart_item_name . ' ' . '<span class="' . $product_shipping_class_style . '">'  . $product_shipping_class_name . '</span>';
+    return $cart_item_name . '(' . $product_shipping_class_name . ')';
+
+    //return $cart_item_name . ' ' . '<span class="' . $product_shipping_class_style . '">'  . $product_shipping_class_name . '</span>';
 }
 
 /*
