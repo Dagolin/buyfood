@@ -241,6 +241,16 @@ class WC_Settings_General extends WC_Settings_Page {
             ),
 
             array(
+                'title'    => __( '匯款資訊', 'woocommerce' ),
+                'desc'     => '在 email 中的匯款資訊',
+                'id'       => 'woocommerce_transfer_notice',
+                'default'  => __( '銀行：xxx, 帳號：xxx, 戶名：xxx', 'woocommerce' ),
+                'css'     => 'width:350px; height: 65px;',
+                'type'  => 'textarea',
+                'autoload' => false
+            ),
+
+            array(
                 'title'    => __( '簡訊測試用手機', 'woocommerce' ),
                 'desc'     => '正式使用時請留空',
                 'id'       => 'woocommerce_message_phone',
