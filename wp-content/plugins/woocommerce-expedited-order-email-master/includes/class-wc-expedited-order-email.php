@@ -38,7 +38,7 @@ class WC_Expedited_Order_Email extends WC_Email {
 		$this->template_plain = 'emails/plain/customer-new-order.php';
 
 		// Trigger on new paid orders
-		add_action( 'woocommerce_new_order', array( $this, 'trigger' ), 2 , 1);
+		add_action( 'woocommerce_checkout_order_processed ', array( $this, 'trigger' ), 2 , 1);
 
 		// Call parent constructor to load any other defaults not explicity defined here
 		parent::__construct();
