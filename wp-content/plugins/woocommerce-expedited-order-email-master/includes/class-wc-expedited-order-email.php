@@ -41,10 +41,12 @@ class WC_Expedited_Order_Email extends WC_Email {
 
         $registed = false;
 
-        foreach ($wp_filter['woocommerce_checkout_order_processed'] as $actionPriority) {
-            foreach ($actionPriority as $uniqueAction) {
-                if ($uniqueAction['function'][1] == 'trigger') {
-                    $registed = true;
+        if (isset($wp_filter['woocommerce_checkout_order_processed'])) {
+            foreach ($wp_filter['woocommerce_checkout_order_processed'] as $actionPriority) {
+                foreach ($actionPriority as $uniqueAction) {
+                    if ($uniqueAction['function'][1] == 'trigger') {
+                        $registed = true;
+                    }
                 }
             }
         }
