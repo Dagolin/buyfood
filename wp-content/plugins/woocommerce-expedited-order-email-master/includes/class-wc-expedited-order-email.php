@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-if ( ! class_exists( 'WC_Email_Customer_Processing_Order' ) ) :
+if ( ! class_exists( 'WC_Expedited_Order_Email' ) ) :
 /**
  * A custom Expedited Order WooCommerce Email class
  *
@@ -167,4 +167,4 @@ class WC_Expedited_Order_Email extends WC_Email {
 }
 endif;
 
-return new WC_Email_Customer_Processing_Order();
+return new WC_Expedited_Order_Email();
