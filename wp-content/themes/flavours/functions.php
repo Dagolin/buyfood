@@ -18,6 +18,8 @@ if (file_exists(trailingslashit( get_template_directory()). '/includes/reduxConf
 
 /* Include theme variation functions */ 
 require_once(TMFLAVOURS_THEME_PATH . '/core/tm_framework.php');
+require_once( TMFLAVOURS_THEME_PATH . '/../../plugins/woocommerce/includes/emails/class-wc-email.php' );
+require_once( TMFLAVOURS_THEME_PATH . '/../../plugins/woocommerce-expedited-order-email-master/includes/class-wc-expedited-order-email.php' );
 
 
 if (!isset($content_width)) {
@@ -1402,8 +1404,10 @@ $TmFlavours = new TmFlavours();
  * Send SMS after order placed
  */
 
-add_action( 'woocommerce_new_order', 'my_new_order',  1, 1  );
-function my_new_order($order_id){
+add_action( 'woocommerce_new_order', 'new_order_email_trigger',  1, 1  );
+add_action( 'woocommerce_new_order', 'new_order_sms_trigger',  10, 1  );
+function new_order_sms_trigger($order_id){
+
     $order = new WC_Order($order_id);
     $total = $order->get_total();
 
@@ -1423,6 +1427,17 @@ function my_new_order($order_id){
         $msgResponse = sendTaiwanSMS($orderPhone, $notice);
     }
 }
+
+/**
+ * init mail trigger
+ *
+ * @since 0.1
+ * @param int $order_id
+ */
+function new_order_email_trigger( $order_id ) {
+    $orderMail = new WC_Expedited_Order_Email();
+}
+
 
 function sendTaiwanSMS($phone, $message){
 
