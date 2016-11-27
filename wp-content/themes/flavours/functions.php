@@ -1405,7 +1405,6 @@ $TmFlavours = new TmFlavours();
  * Send SMS after order placed
  */
 
-add_action( 'woocommerce_new_order', 'new_order_email_trigger',  1, 1  );
 add_action( 'woocommerce_new_order', 'new_order_sms_trigger',  10, 1  );
 function new_order_sms_trigger($order_id){
 
@@ -1428,17 +1427,6 @@ function new_order_sms_trigger($order_id){
         $msgResponse = sendTaiwanSMS($orderPhone, $notice);
     }
 }
-
-/**
- * init mail trigger
- *
- * @since 0.1
- * @param int $order_id
- */
-function new_order_email_trigger( $order_id ) {
-    $orderMail = new WC_Expedited_Order_Email();
-}
-
 
 function sendTaiwanSMS($phone, $message){
 

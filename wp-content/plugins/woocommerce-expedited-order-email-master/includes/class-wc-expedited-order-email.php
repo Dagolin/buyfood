@@ -2,6 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+if ( ! class_exists( 'WC_Email_Customer_Processing_Order' ) ) :
 /**
  * A custom Expedited Order WooCommerce Email class
  *
@@ -24,6 +25,7 @@ class WC_Expedited_Order_Email extends WC_Email {
 		// this is the title in WooCommerce Email settings
 		$this->title = '新訂單(顧客)';
 
+
 		// this is the description in WooCommerce email settings
 		$this->description = '顧客下單後收到的確認信';
 
@@ -41,14 +43,6 @@ class WC_Expedited_Order_Email extends WC_Email {
 		// Call parent constructor to load any other defaults not explicity defined here
 		parent::__construct();
 
-		// this sets the recipient to the settings defined below in init_form_fields()
-//		$this->recipient = $this->get_option( 'recipient' );
-//
-//		// if none was entered, just use the WP admin email as a fallback
-//		if ( ! $this->recipient )
-//			$this->recipient = get_option( 'admin_email' );
-//
-//        $this->recipient = 'customer';
         $this->customer_email   = true;
 	}
 
@@ -91,36 +85,38 @@ class WC_Expedited_Order_Email extends WC_Email {
 	}
 
 
-	/**
-	 * get_content_html function.
-	 *
-	 * @since 0.1
-	 * @return string
-	 */
-	public function get_content_html() {
-		ob_start();
-		woocommerce_get_template( $this->template_html, array(
-			'order'         => $this->object,
-			'email_heading' => $this->get_heading()
-		) );
-		return ob_get_clean();
-	}
+    /**
+     * Get content html.
+     *
+     * @access public
+     * @return string
+     */
+    public function get_content_html() {
+        return wc_get_template_html( $this->template_html, array(
+            'order'         => $this->object,
+            'email_heading' => $this->get_heading(),
+            'sent_to_admin' => false,
+            'plain_text'    => false,
+            'email'			=> $this
+        ) );
+    }
 
 
-	/**
-	 * get_content_plain function.
-	 *
-	 * @since 0.1
-	 * @return string
-	 */
-	public function get_content_plain() {
-		ob_start();
-		woocommerce_get_template( $this->template_plain, array(
-			'order'         => $this->object,
-			'email_heading' => $this->get_heading()
-		) );
-		return ob_get_clean();
-	}
+    /**
+     * Get content plain.
+     *
+     * @access public
+     * @return string
+     */
+    public function get_content_plain() {
+        return wc_get_template_html( $this->template_plain, array(
+            'order'         => $this->object,
+            'email_heading' => $this->get_heading(),
+            'sent_to_admin' => false,
+            'plain_text'    => true,
+            'email'			=> $this
+        ) );
+    }
 
 
 	/**
@@ -168,4 +164,7 @@ class WC_Expedited_Order_Email extends WC_Email {
 	}
 
 
-} // end \WC_Expedited_Order_Email class
+}
+endif;
+
+return new WC_Email_Customer_Processing_Order();
