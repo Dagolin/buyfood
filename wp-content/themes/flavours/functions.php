@@ -18,6 +18,7 @@ if (file_exists(trailingslashit( get_template_directory()). '/includes/reduxConf
 
 /* Include theme variation functions */ 
 require_once(TMFLAVOURS_THEME_PATH . '/core/tm_framework.php');
+require_once( TMFLAVOURS_THEME_PATH . '/../../plugins/woocommerce/includes/libraries/class-emogrifier.php');
 require_once( TMFLAVOURS_THEME_PATH . '/../../plugins/woocommerce/includes/emails/class-wc-email.php' );
 require_once( TMFLAVOURS_THEME_PATH . '/../../plugins/woocommerce-expedited-order-email-master/includes/class-wc-expedited-order-email.php' );
 
