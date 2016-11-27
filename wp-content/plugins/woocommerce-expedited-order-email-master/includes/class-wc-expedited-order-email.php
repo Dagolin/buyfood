@@ -80,6 +80,9 @@ class WC_Expedited_Order_Email extends WC_Email {
 		$this->find[] = '{order_number}';
 		$this->replace[] = $this->object->get_order_number();
 
+        $this->find[] = '{order_id}';
+        $this->replace[] = $order_id;
+
 		if ( ! $this->is_enabled())
 			return;
 
