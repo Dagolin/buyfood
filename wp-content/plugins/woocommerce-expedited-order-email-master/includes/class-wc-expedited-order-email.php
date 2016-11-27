@@ -37,24 +37,7 @@ class WC_Expedited_Order_Email extends WC_Email {
 		$this->template_html  = 'emails/customer-new-order.php';
 		$this->template_plain = 'emails/plain/customer-new-order.php';
 
-        global $wp_filter;
-
-        $registed = false;
-
-        if (isset($wp_filter['woocommerce_checkout_order_processed'])) {
-            foreach ($wp_filter['woocommerce_checkout_order_processed'] as $actionPriority) {
-                foreach ($actionPriority as $uniqueAction) {
-                    if ($uniqueAction['function'][1] == 'trigger') {
-                        $registed = true;
-                    }
-                }
-            }
-        }
-
-		// Trigger on new paid orders
-        if (!$registed) {
-            add_filter( 'woocommerce_checkout_order_processed', array( $this, 'trigger' ),  1, 2 );
-        }
+        add_filter( 'woocommerce_checkout_order_processed', array( $this, 'trigger' ),  1, 2 );
 
 		// Call parent constructor to load any other defaults not explicity defined here
 		parent::__construct();

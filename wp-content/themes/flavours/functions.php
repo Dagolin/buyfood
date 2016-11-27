@@ -1397,8 +1397,8 @@ function tmFlavours_woocommerce_product_add_to_cart_text() {
 // Instantiate theme
 $TmFlavours = new TmFlavours();
 
-//Instantiate email
-$wcMail = new WC_Emails();
+// Instantiate email
+WC_Emails::instance();
 
 /**
  * Send SMS after order placed
