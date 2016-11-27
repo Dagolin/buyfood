@@ -389,7 +389,6 @@ class WC_Email extends WC_Settings_API {
 		} else {
 			$email_content = $this->get_content_html();
 		}
-
 		return wordwrap( $email_content, 70 );
 	}
 

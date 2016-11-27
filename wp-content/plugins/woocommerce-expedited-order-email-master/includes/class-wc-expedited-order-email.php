@@ -79,8 +79,6 @@ class WC_Expedited_Order_Email extends WC_Email {
 		if ( ! $this->is_enabled())
 			return;
 
-		// woohoo, send the email!
-		//$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
         $this->send( $this->object->billing_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 	}
 
