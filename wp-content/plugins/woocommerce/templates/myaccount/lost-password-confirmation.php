@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 wc_print_notices();
-wc_print_notice( __( 'Password reset email has been sent.', 'woocommerce' ) );
+wc_print_notice( __( '已寄出密碼重設信件', 'woocommerce' ) );
 ?>
 
-<p><?php echo apply_filters( 'woocommerce_lost_password_message', __( 'A password reset email has been sent to the email address on file for your account, but may take several minutes to show up in your inbox. Please wait at least 10 minutes before attempting another reset.', 'woocommerce' ) ); ?></p>
+<p><?php echo apply_filters( 'woocommerce_lost_password_message', __( '密碼重設信已寄到您指定的信箱中，請稍待片刻，為避免重複信件而造成您的困擾，如要重新寄送，請等10分鐘後重試。', 'woocommerce' ) ); ?></p>
