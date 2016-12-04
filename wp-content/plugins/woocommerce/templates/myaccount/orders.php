@@ -118,7 +118,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		<a class="woocommerce-Button button" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
 			<?php _e( 'Go Shop', 'woocommerce' ) ?>
 		</a>
-		<?php _e( 'No order has been made yet.', 'woocommerce' ); ?>
+		<?php _e( '目前無任何訂單.', 'woocommerce' ); ?>
 	</div>
 <?php endif; ?>
 
