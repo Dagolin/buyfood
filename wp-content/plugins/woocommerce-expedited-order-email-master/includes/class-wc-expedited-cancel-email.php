@@ -37,10 +37,25 @@ class WC_Expedited_Cancel_Email extends WC_Email {
 		$this->template_html  = 'emails/customer-cancel-order.php';
 		$this->template_plain = 'emails/plain/customer-cancel-order.php';
 
+        global $wp_filter;
 
-        add_filter( 'woocommerce_order_status_cancelled', array( $this, 'trigger' ),  1, 2 );
+        $registed = false;
 
+        if (isset($wp_filter['woocommerce_order_status_cancelled'])) {
+            foreach ($wp_filter['woocommerce_order_status_cancelled'] as $actionPriority) {
+                foreach ($actionPriority as $uniqueAction) {
+                    if ($uniqueAction['function'][1] == 'trigger') {
+                        $registed = true;
+                    }
+                }
+            }
+        }
 
+        // Trigger on new paid orders
+        if (!$registed) {
+            add_filter( 'woocommerce_order_status_cancelled', array( $this, 'trigger' ),  1, 2 );
+        }
+        
 		// Call parent constructor to load any other defaults not explicity defined here
 		parent::__construct();
 
