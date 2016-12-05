@@ -1568,13 +1568,15 @@ if ( ! function_exists( 'mv_add_meta_boxes' ) )
         global $woocommerce, $order, $post;
 
         add_meta_box( 'mv_other_fields', __('出貨時間','woocommerce'), 'mv_add_other_fields_for_packaging', 'shop_order', 'side', 'core' );
+        add_meta_box( 'mv_delivery_fields', __('貨運序號','woocommerce'), 'mv_add_delivery_for_packaging', 'shop_order', 'side', 'core' );
     }
 }
 
 //
 //adding Meta field in the meta container admin shop_order pages
 //
-if ( ! function_exists( 'mv_save_wc_order_other_fields' ) )
+
+if ( ! function_exists( 'mv_add_other_fields_for_packaging' ) )
 {
     function mv_add_other_fields_for_packaging()
     {
@@ -1592,6 +1594,69 @@ if ( ! function_exists( 'mv_save_wc_order_other_fields' ) )
 
     }
 }
+
+
+if ( ! function_exists( 'mv_add_delivery_for_packaging' ) )
+{
+    function mv_add_delivery_for_packaging()
+    {
+        global $woocommerce, $order, $post;
+
+
+        //$meta_field_data = get_post_meta( $post->ID, '_my_choice', true ); //? get_post_meta( $post->ID, '_my_choice', true ) : '';
+        $meta_field_data = get_post_meta( $post->ID, 'delivery_number', true );
+
+        echo '<input type="hidden" name="mv_delivery_number_field_nonce" value="' . wp_create_nonce() . '">
+        <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
+            <input type="text" class="" style="width:250px;";" name="delivery_number" placeholder="' . $meta_field_data
+            . '" value="' . $meta_field_data . '" ></p>';
+
+    }
+}
+//Save the data of the Meta field
+add_action( 'save_post', 'mv_save_wc_order_delivery_number_fields', 10, 1 );
+if ( ! function_exists( 'mv_save_wc_order_delivery_number_fields' ) )
+{
+
+    function mv_save_wc_order_delivery_number_fields( $post_id ) {
+
+        // We need to verify this with the proper authorization (security stuff).
+
+        // Check if our nonce is set.
+        if ( ! isset( $_POST[ 'mv_delivery_number_field_nonce' ] ) ) {
+            return $post_id;
+        }
+        $nonce = $_REQUEST[ 'mv_delivery_number_field_nonce' ];
+
+        //Verify that the nonce is valid.
+        if ( ! wp_verify_nonce( $nonce ) ) {
+            return $post_id;
+        }
+
+        // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+            return $post_id;
+        }
+
+        // Check the user's permissions.
+        if ( 'page' == $_POST[ 'post_type' ] ) {
+
+            if ( ! current_user_can( 'edit_page', $post_id ) ) {
+                return $post_id;
+            }
+        } else {
+
+            if ( ! current_user_can( 'edit_post', $post_id ) ) {
+                return $post_id;
+            }
+        }
+        // --- Its safe for us to save the data ! --- //
+
+        // Sanitize user input  and update the meta field in the database.
+        update_post_meta( $post_id, 'delivery_number', $_POST[ 'delivery_number' ] );
+    }
+}
+
 
 //Save the data of the Meta field
 add_action( 'save_post', 'mv_save_wc_order_other_fields', 10, 1 );
