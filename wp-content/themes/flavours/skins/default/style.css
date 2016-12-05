@@ -14301,7 +14301,9 @@ p.lost_password a{ font-size:12px; text-decoration:underline;}
 	border: 1px solid #6dbe14 !important;
 }
 .box-additional .products-grid .item .item-inner .item-img .item-box-hover .product-detail-bnt a {
+	/*
 	padding: 12px 0 !important;
+	*/
 }
 .woocommerce ul#shipping_method label {
 	display: inline;
