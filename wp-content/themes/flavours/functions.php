@@ -1704,7 +1704,30 @@ if ( ! function_exists( 'mv_save_wc_order_other_fields' ) )
 
 
 
+add_filter( 'manage_edit-shop_order_columns', 'delivery_number_order_column',11);
+function delivery_number_order_column($columns)
+{
+    //add columns
+    $columns['delivery_number'] = __( '配送單號', 'flavours');
+    return $columns;
+}
 
+// adding the data for each orders by column (example)
+add_action( 'manage_shop_order_posts_custom_column' , 'delivery_number_details', 10, 2 );
+function delivery_number_details( $column )
+{
+    global $post, $woocommerce, $the_order;
+    $order_id = $the_order->id;
+
+    switch ( $column )
+    {
+        case 'delivery_number' :
+            $myVarOne = get_post_meta( $order_id, 'delivery_number', true );
+            echo $myVarOne;
+            break;
+
+    }
+}
 
 // - -
 /**
