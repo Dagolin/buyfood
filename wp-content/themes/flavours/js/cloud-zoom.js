@@ -163,6 +163,7 @@
 
         /* Init function start.  */
         this.init = function () {
+            return;
             // Remove loading message (if present);
             jQuery('.cloud-zoom-loading', jWin.parent()).remove();
 
