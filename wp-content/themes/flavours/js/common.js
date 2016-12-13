@@ -572,11 +572,13 @@ return false;
 }
 function slideEffectAjax() {
 jQuery('.top-cart-contain').mouseenter(function() {
-jQuery(this).find(".top-cart-content").stop(true, true).slideDown();
+//jQuery(this).find(".top-cart-content").stop(true, true).slideDown();
+	jQuery(this).find(".top-cart-content").show();
 });
 
 jQuery('.top-cart-contain').mouseleave(function() {
-jQuery(this).find(".top-cart-content").stop(true, true).slideUp();
+//jQuery(this).find(".top-cart-content").stop(true, true).slideUp();
+	jQuery(this).find(".top-cart-content").hide();
 });
 }
 function deleteCartInSidebar() {
