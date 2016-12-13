@@ -1709,6 +1709,7 @@ function delivery_number_order_column($columns)
 {
     //add columns
     $columns['delivery_number'] = __( '配送單號', 'flavours');
+    $columns['invoice_number'] = __( '發票號', 'flavours');
     return $columns;
 }
 
@@ -1719,8 +1720,23 @@ function delivery_number_details( $column )
     global $post, $woocommerce, $the_order;
     $order_id = $the_order->id;
 
+
     switch ( $column )
     {
+        case 'invoice_number' :
+            $invoice = '';
+            $comments = get_comments(['post_id'=>$order_id]);
+
+            foreach ($comments as $comment) {
+                if (strpos($comment->comment_content, '發票號碼') !== false) {
+                    $contents =  preg_split("/\\r\\n|\\r|\\n/", $comment->comment_content);
+                    $numberArray = explode(' ', $contents[count($contents) -1]);
+                    $invoice = $numberArray[count($numberArray) -1];
+                }
+            }
+
+            echo $invoice;
+            break;
         case 'delivery_number' :
             $myVarOne = get_post_meta( $order_id, 'delivery_number', true );
             echo $myVarOne;
