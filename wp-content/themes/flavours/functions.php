@@ -1548,10 +1548,10 @@ function tutsplus_list_attributes( $product ) {
             break;
     }
 
-    $imageUrl = isset($flavours_Options[$option]) ? $flavours_Options[$option] : $defaultImgUrl;
+    $imageUrl = isset($flavours_Options[$option]) ? $flavours_Options[$option]['url'] : $defaultImgUrl;
 
     if (!empty($imageUrl)) {
-        echo '<span class="posted_in"><img src="' . $imageUrl['url'] . '" /></span>';
+        echo '<span class="posted_in"><img src="' . $imageUrl . '" /></span>';
     }
 }
 
