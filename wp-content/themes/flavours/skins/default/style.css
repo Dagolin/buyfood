@@ -3253,7 +3253,7 @@ ul.pdt-list li.item a img.image-hover {
     margin: 0;
     padding: 8px 0px;
     text-decoration: none;
-    display: inline-block;
+    display: none;
     transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
@@ -4876,7 +4876,6 @@ height: 60px;
 	font-size: 14px;
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
-	display: none;
 }
 .breadcrumbs a {
 	color: #fff;
