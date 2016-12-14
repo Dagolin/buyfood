@@ -488,8 +488,19 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'title' => esc_html__('Home Best seller   Url', 'flavours'),
                         'subtitle' => esc_html__('Home Best seller  Url.', 'flavours'),
                     ),
-                 
-                           
+
+
+                    array(
+                        'id'=>'home_feature_products',
+                        'type' => 'select',
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('選擇首頁 Feature Products', 'flavours'),
+                        'subtitle' => esc_html__('選擇首頁 Feature product', 'flavours'),
+                        'desc' => '',
+                    ),
+
                     // array(
                     //     'id' => 'enable_home_featured_products',
                     //     'type' => 'switch',

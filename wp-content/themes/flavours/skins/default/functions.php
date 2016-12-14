@@ -589,6 +589,7 @@ if ( ! function_exists ( 'tmFlavours_bestseller_products_salad' ) ) {
         <div class="best-pro slider-items-products container">
             <div class="new_title">
                 <h2><?php esc_attr_e('Feature Products', 'flavours'); ?></h2>
+                <?php $link = get_term_link( (int) $flavours_Options['home_feature_products'][0], 'product_cat' ); ?>
             </div>
             <div class="category-products">
                 <div class="products-grid">
@@ -600,7 +601,7 @@ if ( ! function_exists ( 'tmFlavours_bestseller_products_salad' ) ) {
                     <div class="woocommerce-pagination pager pages" style="display: none">
                         <ul class="page-numbers">
                             <li><span class="page-numbers current">0</span></li>
-                            <li><a class="next page-numbers" href="<?php echo get_home_url(); ?>/product-category/salads/fruit-salads/page/1/from/1"><div class="page-separator-next">»</div></a></li>
+                            <li><a class="next page-numbers" href="<?php echo $link;?>page/1/from/1"><div class="page-separator-next">»</div></a></li>
                         </ul>
                     </div>
                 </div>
