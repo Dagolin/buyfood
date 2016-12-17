@@ -1889,7 +1889,8 @@ add_action( 'woocommerce_cart_loaded_from_session', function() {
 
 add_filter('woocommerce_states', 'cwp_woocommerce_tw_states');
 
-function cwp_woocommerce_tw_states($states) {
+function cwp_woocommerce_tw_states($states)
+{
 
     $states['TW'] = array(
         '基隆市' => '基隆市',
@@ -1918,5 +1919,15 @@ function cwp_woocommerce_tw_states($states) {
     );
 
     return $states;
+}
+
+add_action( 'wp_enqueue_scripts', 'my_product_script' );
+
+function my_product_script() {
+    if(is_product()) {
+        var_dump(wp_enqueue_script('product-video.js', TMFLAVOURS_THEME_URI . '/js/product-video.js', array('jquery'), '', true));
+    } else {
+         return false;
+    }
 }
 ?>

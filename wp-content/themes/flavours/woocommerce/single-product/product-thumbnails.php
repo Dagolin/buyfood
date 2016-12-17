@@ -32,6 +32,21 @@ if ($attachment_ids) {
             <ul class="previews-list slides">
                 <?php
 
+                // Add video thumbnail before the others
+
+                if(class_exists( 'YITH_WC_Audio_Video' ) ){
+                    $postId = $post->ID;
+                    $video_url = get_post_meta( $postId, '_video_url', true );
+                    list( $video_type, $video_id ) = explode( ':', ywcfav_video_type_by_url( $video_url ) );
+                    if (!empty($video_url)){
+                        $html = '<li style="width: 100px; float: left; display: block;">
+<img width="180" height="180" src="https://img.youtube.com/vi/' . $video_id .'/0.jpg" 
+class="video-thumbnails attachment-shop_thumbnail size-shop_thumbnail" alt="p3" title="p3" 
+caption="" ></a></li>';
+                        echo $html;
+                    }
+                }
+
                 foreach ($attachment_ids as $attachment_id) {
 
                     $classes = array('cloud-zoom-gallery');
@@ -42,6 +57,7 @@ if ($attachment_ids) {
                     if (($loop + 1) % $columns == 0)
                         $classes[] = 'last';
 
+                    $classes[] = 'image-thumbnails';
                     $image_class = implode( ' ', $classes );
                     $props       = wc_get_product_attachment_props( $attachment_id, $post );          
 
