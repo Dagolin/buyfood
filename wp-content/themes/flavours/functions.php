@@ -1925,7 +1925,7 @@ add_action( 'wp_enqueue_scripts', 'my_product_script' );
 
 function my_product_script() {
     if(is_product()) {
-        var_dump(wp_enqueue_script('product-video.js', TMFLAVOURS_THEME_URI . '/js/product-video.js', array('jquery'), '', true));
+        wp_enqueue_script('product-video.js', TMFLAVOURS_THEME_URI . '/js/product-video.js', array('jquery'), '', true);
     } else {
          return false;
     }
