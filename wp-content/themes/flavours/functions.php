@@ -1710,6 +1710,7 @@ function delivery_number_order_column($columns)
     //add columns
     $columns['delivery_number'] = __( '配送單號', 'flavours');
     $columns['invoice_number'] = __( '發票號', 'flavours');
+    $columns['shipping_state'] = __( '配送縣市', 'flavours');
     return $columns;
 }
 
@@ -1719,7 +1720,6 @@ function delivery_number_details( $column )
 {
     global $post, $woocommerce, $the_order;
     $order_id = $the_order->id;
-
 
     switch ( $column )
     {
@@ -1740,6 +1740,9 @@ function delivery_number_details( $column )
         case 'delivery_number' :
             $myVarOne = get_post_meta( $order_id, 'delivery_number', true );
             echo $myVarOne;
+            break;
+        case 'shipping_state' :
+            echo get_post_meta( $order_id, '_shipping_state', true);
             break;
 
     }
@@ -1881,4 +1884,39 @@ add_action( 'woocommerce_cart_loaded_from_session', function() {
     $woocommerce->cart->cart_contents = $cart_contents;
 
 }, 100 );
+
+// WooCommerce 台灣結帳表單 城市下拉選項
+
+add_filter('woocommerce_states', 'cwp_woocommerce_tw_states');
+
+function cwp_woocommerce_tw_states($states) {
+
+    $states['TW'] = array(
+        '基隆市' => '基隆市',
+        '台北市' => '台北市',
+        '新北市' => '新北市',
+        '宜蘭縣' => '宜蘭縣',
+        '桃園市' => '桃園市',
+        '新竹市' => '新竹市',
+        '新竹縣' => '新竹縣',
+        '苗栗縣' => '苗栗縣',
+        '台中市' => '台中市',
+        '彰化縣' => '彰化縣',
+        '南投縣' => '南投縣',
+        '雲林縣' => '雲林縣',
+        '嘉義市' => '嘉義市',
+        '嘉義縣' => '嘉義縣',
+        '台南市' => '台南市',
+        '高雄市' => '高雄市',
+        '屏東縣' => '屏東縣',
+        '花蓮縣' => '花蓮縣',
+        '台東縣' => '台東縣',
+        '澎湖' => '澎湖',
+        '金門' => '金門',
+        '馬祖' => '馬祖',
+        '離島地區' => '離島地區',
+    );
+
+    return $states;
+}
 ?>
