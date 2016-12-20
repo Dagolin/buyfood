@@ -30,8 +30,7 @@ if ( 'no' === get_option( 'woocommerce_enable_shipping_calc' ) || ! WC()->cart->
 
 <form class="woocommerce-shipping-calculator" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 
-	<!-- remove shipping calculator button -->
-	<!--<p><a href="#" class="shipping-calculator-button"><?php _e( 'Calculate Shipping', 'woocommerce' ); ?></a></p>-->
+	<p><a href="#" class="shipping-calculator-button"><?php _e( 'Calculate Shipping', 'woocommerce' ); ?></a></p>
 
 	<section class="shipping-calculator-form" style="display:none;">
 
