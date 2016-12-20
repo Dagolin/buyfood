@@ -1400,6 +1400,11 @@ $TmFlavours = new TmFlavours();
 // Instantiate email
 WC_Emails::instance();
 
+if (class_exists( 'BE_Multiple_Packages' )  && !is_admin()) {
+    
+    new BE_Multiple_Packages();
+}
+
 /**
  * Send SMS after order placed
  */

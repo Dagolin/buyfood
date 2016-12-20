@@ -148,9 +148,6 @@ function woocommerce_multiple_packaging_init() {
 				}
 
 			} // end class BE_Multiple_Packages
-
-
-            new BE_Multiple_Packages();
         } // end IF class 'BE_Multiple_Packages' exists
 
     } // end IF woocommerce exists
