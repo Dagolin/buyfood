@@ -1794,6 +1794,7 @@ function delivery_number_order_column($columns)
     $columns['delivery_number'] = __( '配送單號', 'flavours');
     $columns['invoice_number'] = __( '發票號', 'flavours');
     $columns['shipping_state'] = __( '配送縣市', 'flavours');
+    $columns['shipping_city'] = __( '配送區域', 'flavours');
     return $columns;
 }
 
@@ -1827,7 +1828,9 @@ function delivery_number_details( $column )
         case 'shipping_state' :
             echo get_post_meta( $order_id, '_shipping_state', true);
             break;
-
+        case 'shipping_city' :
+            echo get_post_meta( $order_id, '_shipping_city', true);
+            break;
     }
 }
 
