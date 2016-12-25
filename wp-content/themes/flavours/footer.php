@@ -93,7 +93,7 @@ $TmFlavours = new TmFlavours();?>
     });
 
     </script>
-    
+
 <div class="menu-overlay"></div>
 <?php // navigation panel
 require_once(TMFLAVOURS_THEME_PATH .'/menu_panel.php');
@@ -101,4 +101,43 @@ require_once(TMFLAVOURS_THEME_PATH .'/menu_panel.php');
     <!-- JavaScript -->
     
     <?php wp_footer(); ?>
+<?php
+
+$limitDates = get_limit_product_list();
+$isProductPage = is_product();
+
+global $flavours_Options;
+
+$isLimitOverlayEnable = isset($flavours_Options['enable_home_countdown_overlay']) ? $flavours_Options['enable_home_countdown_overlay'] : false;
+$limitOverlayBG = isset($flavours_Options['countdown_overlay_image']) ? $flavours_Options['countdown_overlay_image']['url'] : '';
+?>
+<div>
+    <input type="hidden" name="product_start_date" id="product_start_date" value="<?php echo $limitDates['startDate']; ?>"/>
+    <input type="hidden" name="product_end_date" id="product_end_date" value="<?php echo $limitDates['endDate']; ?>"/>
+</div>
+<div id="twzipcode"></div>
+<div id="twzipcode2"></div>
+<?php if ($isLimitOverlayEnable) : ?>
+    <div id="limit-block" style="display: none;"><a href="<?php echo $limitDates['path']; ?>">
+            <div style="color: #fff;
+                text-align: center;
+                top: 150px;
+                height: 100px;
+                width: 100px;
+                line-height: 40px;
+                overflow: hidden;
+                position: fixed;
+                right: 10px;
+                text-decoration: none;
+                background: url(<?php echo $limitOverlayBG?>) no-repeat center;
+                text-transform: uppercase;
+                z-index: 1001;
+                border-radius: 0px;
+                background-size: auto 100%;
+                background-repeat: no-repeat;"></div>
+        </a>
+</div>
+<?php endif ?>
+
+
     </body></html>

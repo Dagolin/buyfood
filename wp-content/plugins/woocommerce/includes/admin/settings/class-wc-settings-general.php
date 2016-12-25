@@ -266,6 +266,14 @@ class WC_Settings_General extends WC_Settings_Page {
                 'type'  => 'text',
             ),
 
+            array(
+                'title'    => __( '產品頁限時結束文字', 'woocommerce' ),
+                'desc'     => '限時活動結束後，該頁面取代倒數計時的文字',
+                'id'       => 'woocommerce_countdown_word',
+                'default'  => __( '限時搶購已經截止，買肉將不定時推出各種好康優惠，請多多密切關注！', 'woocommerce' ),
+                'type'  => 'text',
+            ),
+
             array( 'type' => 'sectionend', 'id' => 'general_options'),
 
 			array( 'title' => __( 'Currency Options', 'woocommerce' ), 'type' => 'title', 'desc' => __( 'The following options affect how prices are displayed on the frontend.', 'woocommerce' ), 'id' => 'pricing_options' ),

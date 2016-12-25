@@ -272,6 +272,7 @@ function tmFlavours_scripts_styles()
      wp_enqueue_script('countdown',TMFLAVOURS_THEME_URI . '/js/countdown.js', array('jquery'), '', true);
     wp_enqueue_script('parallax',TMFLAVOURS_THEME_URI . '/js/parallax.js', array('jquery'), '', true);
    wp_enqueue_script('tmFlavours-cart',TMFLAVOURS_THEME_URI . '/js/common.js', array('jquery'), '', true);
+    wp_enqueue_script('twzipcode', TMFLAVOURS_THEME_URI . '/js/jquery.twzipcode.min.js', array('jquery'), '', true);
 
     wp_enqueue_script('revolution', TMFLAVOURS_THEME_URI . '/js/revslider.js', array('jquery'), '', true);
     // wp_enqueue_script('revolution-exe', TMFLAVOURS_THEME_URI . '/js/revolution.extension.js', array('jquery'), '', true);
@@ -1570,10 +1571,43 @@ if ( ! function_exists( 'mv_add_meta_boxes' ) )
 {
     function mv_add_meta_boxes()
     {
-        global $woocommerce, $order, $post;
-
         add_meta_box( 'mv_other_fields', __('出貨時間','woocommerce'), 'mv_add_other_fields_for_packaging', 'shop_order', 'side', 'core' );
         add_meta_box( 'mv_delivery_fields', __('貨運序號','woocommerce'), 'mv_add_delivery_for_packaging', 'shop_order', 'side', 'core' );
+        add_meta_box( 'mv_limit_start_fields', __('限時起始日','woocommerce'), 'mv_limit_start_for_product', 'product', 'side', 'core' );
+        add_meta_box( 'mv_limit_end_fields', __('限時終止日','woocommerce'), 'mv_limit_end_for_product', 'product', 'side', 'core' );
+    }
+}
+
+if ( ! function_exists( 'mv_limit_start_for_product' ) )
+{
+    function mv_limit_start_for_product()
+    {
+        global $woocommerce, $product, $post;
+
+        $meta_field_data = get_post_meta( $post->ID, 'limit_start_date', true );
+
+        echo '<input type="hidden" name="mv_start_date_meta_field_nonce" value="' . wp_create_nonce() . '">
+        <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
+            <input type="text" class="date-picker" style="width:250px;";" name="limit_start_date" placeholder="' . $meta_field_data
+            . '" value="' . $meta_field_data . '" ></p>';
+
+
+    }
+}
+
+if ( ! function_exists( 'mv_limit_end_for_product' ) )
+{
+    function mv_limit_end_for_product()
+    {
+        global $woocommerce, $order, $post;
+        $meta_field_data = get_post_meta( $post->ID, 'limit_end_date', true );
+
+        echo '<input type="hidden" name="mv_end_date_meta_field_nonce" value="' . wp_create_nonce() . '">
+        <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
+            <input type="text" class="date-picker" style="width:250px;";" name="limit_end_date" placeholder="' . $meta_field_data
+            . '" value="' . $meta_field_data . '" ></p>';
+
+
     }
 }
 
@@ -1585,21 +1619,19 @@ if ( ! function_exists( 'mv_add_other_fields_for_packaging' ) )
 {
     function mv_add_other_fields_for_packaging()
     {
-        global $woocommerce, $order, $post;
-
+        global $woocommerce, $product, $post;
 
         //$meta_field_data = get_post_meta( $post->ID, '_my_choice', true ); //? get_post_meta( $post->ID, '_my_choice', true ) : '';
-        $meta_field_data = get_post_meta( $post->ID, 'delivery_date', true );
+        $meta_field_data = get_post_meta( $post->ID, 'limit_end_date', true );
 
         echo '<input type="hidden" name="mv_other_meta_field_nonce" value="' . wp_create_nonce() . '">
         <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
-            <input type="text" class="date-picker" style="width:250px;";" name="delivery_date" placeholder="' . $meta_field_data
+            <input type="text" class="date-picker" style="width:250px;";" name="limit_end_date" placeholder="' . $meta_field_data
             . '" value="' . $meta_field_data . '" ></p>';
 
 
     }
 }
-
 
 if ( ! function_exists( 'mv_add_delivery_for_packaging' ) )
 {
@@ -1619,6 +1651,52 @@ if ( ! function_exists( 'mv_add_delivery_for_packaging' ) )
     }
 }
 //Save the data of the Meta field
+add_action( 'save_post', 'mv_save_wc_product_limit_date_fields', 10, 1 );
+if ( ! function_exists( 'mv_save_wc_product_limit_date_fields' ) )
+{
+    function mv_save_wc_product_limit_date_fields( $post_id ) {
+
+        // Check if our nonce is set.
+        if ( !isset( $_POST[ 'mv_start_date_meta_field_nonce' ] ) || !isset( $_POST[ 'mv_end_date_meta_field_nonce' ] )) {
+            return $post_id;
+
+        }
+        $nonce = $_REQUEST[ 'mv_start_date_meta_field_nonce' ];
+        $nonce2 = $_REQUEST[ 'mv_end_date_meta_field_nonce' ];
+
+        //Verify that the nonce is valid.
+        if ( ! wp_verify_nonce( $nonce ) || ! wp_verify_nonce( $nonce2 )) {
+            return $post_id;
+        }
+
+        // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+            return $post_id;
+        }
+
+        // Check the user's permissions.
+        if ( 'page' == $_POST[ 'post_type' ] ) {
+
+            if ( ! current_user_can( 'edit_page', $post_id ) ) {
+                return $post_id;
+            }
+        } else {
+
+            if ( ! current_user_can( 'edit_post', $post_id ) ) {
+                return $post_id;
+            }
+        }
+        // --- Its safe for us to save the data ! --- //
+        // Sanitize user input  and update the meta field in the database.
+        update_post_meta( $post_id, 'limit_start_date', $_POST[ 'limit_start_date' ] );
+        update_post_meta( $post_id, 'limit_end_date', $_POST[ 'limit_end_date' ] );
+    }
+}
+
+
+
+
+
 add_action( 'save_post', 'mv_save_wc_order_delivery_number_fields', 10, 1 );
 if ( ! function_exists( 'mv_save_wc_order_delivery_number_fields' ) )
 {
@@ -1766,6 +1844,7 @@ function my_custom_checkout_phone_display_admin_order_meta($order){
 
 
 add_action('woocommerce_checkout_process', 'is_cert');
+add_action('woocommerce_checkout_process', 'is_limit_outofdate');
 
 function is_cert() {
     // Check if set, if its not set add an error.
@@ -1780,6 +1859,31 @@ function is_cert() {
     }
 }
 
+function is_limit_outofdate($wccs_custom_checkout_field_pro_process ) {
+    foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
+
+        $postId = $values['product_id'];
+        $startDateTemp = get_post_meta($postId, 'limit_start_date', true);
+        $endDateTemp = get_post_meta($postId, 'limit_end_date', true);
+
+        if (!empty($startDateTemp) && !empty($endDateTemp) )
+        {
+            $now = time();
+            $startDateTime = strtotime($startDateTemp);
+            $endDateTime = strtotime($endDateTemp);
+
+            $product = wc_get_product( $postId );
+            $title = $product->get_title();
+
+            if ($now <= $startDateTime || $now >= $endDateTime)
+            {
+                wc_add_notice( __( '限時搶購【' . $title . '】已經截止，請至購物車中刪除，感謝您的支持，下次請早！' ), 'error' );
+                break;
+            }
+
+        }
+    }
+}
 
 function register_session(){
     if( !session_id() ){
@@ -1892,7 +1996,7 @@ add_action( 'woocommerce_cart_loaded_from_session', function() {
 
 // WooCommerce 台灣結帳表單 城市下拉選項
 
-add_filter('woocommerce_states', 'cwp_woocommerce_tw_states');
+//add_filter('woocommerce_states', 'cwp_woocommerce_tw_states');
 
 function cwp_woocommerce_tw_states($states)
 {
@@ -1934,5 +2038,84 @@ function my_product_script() {
     } else {
          return false;
     }
+}
+
+function get_product_meta_start_date()
+{
+    $theid = get_the_ID();
+    $date = '';
+    $now = time();
+    $startDateTemp = get_post_meta($theid, 'limit_start_date', true);
+//    $endDateTemp = get_post_meta($theid, 'limit_end_date', true);
+//    $startDateTime = strtotime($startDateTemp);
+//    $endDateTime = strtotime($endDateTemp);
+//
+//    if ($now >= $startDateTime && $now <= $endDateTime)
+//    {
+//        $date = $startDateTemp;
+//    }
+
+    return $startDateTemp;
+}
+
+function get_product_meta_end_date(){
+    $theid = get_the_ID();
+    $date = '';
+    $now = time();
+    $startDateTemp = get_post_meta($theid, 'limit_start_date', true);
+    $endDateTemp = get_post_meta($theid, 'limit_end_date', true);
+//    $startDateTime = strtotime($startDateTemp);
+//    $endDateTime = strtotime($endDateTemp);
+//
+//    if ($now >= $startDateTime && $now <= $endDateTime)
+//    {
+//        $date = $endDateTemp;
+//    }
+
+    return $endDateTemp;
+}
+
+add_action( 'wp_enqueue_scripts', 'jquery_countdown' );
+
+function jquery_countdown() {
+    wp_enqueue_script('countdown.min', TMFLAVOURS_THEME_URI . '/js/jquery.countdown.min.js', array('jquery'), '', true);
+    wp_enqueue_script('product.countdown', TMFLAVOURS_THEME_URI . '/js/product.countdown.js', array('jquery'), '', true);
+
+}
+
+
+function get_limit_product_list() {
+    $loop = new WP_Query( array( 'post_type' => array('product', 'product_variation'), 'posts_per_page' => -1 ) );
+
+    $result = [
+        'startDate' => '',
+        'endDate' => '',
+        'path' => ''
+    ];
+
+    while ( $loop->have_posts() ) : $loop->the_post();
+        $theid = get_the_ID();
+        $product = new WC_Product($theid);
+        $startDateTemp = get_post_meta($theid, 'limit_start_date', true );
+        $endDateTemp = get_post_meta($theid, 'limit_end_date', true );
+
+        if (!empty($startDateTemp) && !empty($endDateTemp) )
+        {
+            $now = time();
+            $startDateTime = strtotime($startDateTemp);
+            $endDateTime = strtotime($endDateTemp);
+
+            if ($now >= $startDateTime && $now <= $endDateTime)
+            {
+                $result['startDate'] = $startDateTemp;
+                $result['endDate'] = $endDateTemp;
+                $result['path'] = get_permalink( $product->ID );
+                break;
+            }
+
+        }
+    endwhile; wp_reset_query();
+
+    return $result;
 }
 ?>

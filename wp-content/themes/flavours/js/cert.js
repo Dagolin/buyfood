@@ -6,6 +6,41 @@
  */
 
 jQuery(document).ready(function($) {
+	// zipcode
+	$('#twzipcode').twzipcode({
+		'countyName'   : 'billing_state_temp',   // 預設值為 county
+		'districtName' : 'billing_city_temp', // 預設值為 district
+		'zipcodeName'  : 'billing_postcode_temp'   // 預設值為 zipcode
+	});
+
+	$('#twzipcode2').twzipcode({
+		'countyName'   : 'shipping_state_temp',   // 預設值為 county
+		'districtName' : 'shipping_city_temp', // 預設值為 district
+		'zipcodeName'  : 'shipping_postcode_temp'   // 預設值為 zipcode
+	});
+
+	$('#myinput').clone().attr('type','tel').insertAfter('#myinput').prev().remove();
+
+	$('#billing_city_field > #billing_city').replaceWith($('select[name=billing_city_temp]'));
+	$('select[name=billing_city_temp]').attr('name', 'billing_city');
+
+	$('#billing_state_field > #billing_state').replaceWith($('select[name=billing_state_temp]'));
+	$('select[name=billing_state_temp]').attr('name', 'billing_state');
+
+	$('#billing_postcode_field > #billing_postcode').replaceWith($('input[name=billing_postcode_temp]'));
+	$('input[name=billing_postcode_temp]').attr('name', 'billing_postcode');
+
+	$('#shipping_city_field > #shipping_city').replaceWith($('select[name=shipping_city_temp]'));
+	$('select[name=shipping_city_temp]').attr('name', 'shipping_city');
+
+	$('#shipping_state_field > #shipping_state').replaceWith($('select[name=shipping_state_temp]'));
+	$('select[name=shipping_state_temp]').attr('name', 'shipping_state');
+
+	$('#shipping_postcode_field > #shipping_postcode').replaceWith($('input[name=shipping_postcode_temp]'));
+	$('input[name=shipping_postcode_temp]').attr('name', 'shipping_postcode');
+
+
+
 	$('#billing_cert').val('');
 	$('#billing_phone_hidden').val($('#billing_phone').val());
 

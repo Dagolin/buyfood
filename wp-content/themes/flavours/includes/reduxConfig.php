@@ -278,7 +278,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'type' => 'slides',
                         'title' => esc_html__('Home Slider Uploads', 'flavours'),
                         'required' => array('enable_home_gallery', '=', '1'),
-                        'subtitle' => esc_html__('Unlimited slide uploads with drag and drop sortings.', 'flavours'),
+                        'subtitle' => esc_html__('倒數計時區塊 <div id=\'bannerclock\'></div>', 'flavours'),
                         'placeholder' => array(
                             'title' => esc_html__('This is a title', 'flavours'),
                             'description' => esc_html__('Description Here', 'flavours'),
@@ -499,6 +499,21 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'title' => esc_html__('選擇首頁 Feature Products', 'flavours'),
                         'subtitle' => esc_html__('選擇首頁 Feature product', 'flavours'),
                         'desc' => '',
+                    ),
+
+                    array(
+                        'id' => 'enable_home_countdown_overlay',
+                        'type' => 'switch',
+                        'title' => esc_html__('首頁顯示限時購物浮動視窗', 'flavours'),
+                        'subtitle' => esc_html__('當目前有限時購物時，在首頁右方顯示浮動視窗', 'flavours')
+                    ),
+
+                    array(
+                        'id' => 'countdown_overlay_image',
+                        'type' => 'media',
+                        'required' => array('enable_home_countdown_overlay', '=', '1'),
+                        'title' => esc_html__('限時購物浮動視窗的底圖', 'flavours'),
+                        'subtitle' => esc_html__('浮動視窗的底圖', 'flavours')
                     ),
 
                     // array(
