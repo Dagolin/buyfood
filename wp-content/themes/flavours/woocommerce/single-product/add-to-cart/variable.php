@@ -49,7 +49,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
-		<div class="single_variation_wrap">
+		<div class="single_variation_wrap add-to-box">
 			<?php
 				/**
 				 * woocommerce_before_single_variation Hook.

@@ -19,8 +19,6 @@ jQuery(document).ready(function($) {
 		'zipcodeName'  : 'shipping_postcode_temp'   // 預設值為 zipcode
 	});
 
-	$('#myinput').clone().attr('type','tel').insertAfter('#myinput').prev().remove();
-
 	$('#billing_city_field > #billing_city').replaceWith($('select[name=billing_city_temp]'));
 	$('select[name=billing_city_temp]').attr('name', 'billing_city');
 
@@ -38,8 +36,6 @@ jQuery(document).ready(function($) {
 
 	$('#shipping_postcode_field > #shipping_postcode').replaceWith($('input[name=shipping_postcode_temp]'));
 	$('input[name=shipping_postcode_temp]').attr('name', 'shipping_postcode');
-
-
 
 	$('#billing_cert').val('');
 	$('#billing_phone_hidden').val($('#billing_phone').val());

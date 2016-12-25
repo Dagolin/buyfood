@@ -1997,42 +1997,6 @@ add_action( 'woocommerce_cart_loaded_from_session', function() {
 
 }, 100 );
 
-// WooCommerce 台灣結帳表單 城市下拉選項
-
-//add_filter('woocommerce_states', 'cwp_woocommerce_tw_states');
-
-function cwp_woocommerce_tw_states($states)
-{
-
-    $states['TW'] = array(
-        '基隆市' => '基隆市',
-        '台北市' => '台北市',
-        '新北市' => '新北市',
-        '宜蘭縣' => '宜蘭縣',
-        '桃園市' => '桃園市',
-        '新竹市' => '新竹市',
-        '新竹縣' => '新竹縣',
-        '苗栗縣' => '苗栗縣',
-        '台中市' => '台中市',
-        '彰化縣' => '彰化縣',
-        '南投縣' => '南投縣',
-        '雲林縣' => '雲林縣',
-        '嘉義市' => '嘉義市',
-        '嘉義縣' => '嘉義縣',
-        '台南市' => '台南市',
-        '高雄市' => '高雄市',
-        '屏東縣' => '屏東縣',
-        '花蓮縣' => '花蓮縣',
-        '台東縣' => '台東縣',
-        '澎湖' => '澎湖',
-        '金門' => '金門',
-        '馬祖' => '馬祖',
-        '離島地區' => '離島地區',
-    );
-
-    return $states;
-}
-
 add_action( 'wp_enqueue_scripts', 'my_product_script' );
 
 function my_product_script() {
@@ -2046,34 +2010,14 @@ function my_product_script() {
 function get_product_meta_start_date()
 {
     $theid = get_the_ID();
-    $date = '';
-    $now = time();
     $startDateTemp = get_post_meta($theid, 'limit_start_date', true);
-//    $endDateTemp = get_post_meta($theid, 'limit_end_date', true);
-//    $startDateTime = strtotime($startDateTemp);
-//    $endDateTime = strtotime($endDateTemp);
-//
-//    if ($now >= $startDateTime && $now <= $endDateTime)
-//    {
-//        $date = $startDateTemp;
-//    }
 
     return $startDateTemp;
 }
 
 function get_product_meta_end_date(){
     $theid = get_the_ID();
-    $date = '';
-    $now = time();
-    $startDateTemp = get_post_meta($theid, 'limit_start_date', true);
     $endDateTemp = get_post_meta($theid, 'limit_end_date', true);
-//    $startDateTime = strtotime($startDateTemp);
-//    $endDateTime = strtotime($endDateTemp);
-//
-//    if ($now >= $startDateTime && $now <= $endDateTime)
-//    {
-//        $date = $endDateTemp;
-//    }
 
     return $endDateTemp;
 }
@@ -2083,7 +2027,6 @@ add_action( 'wp_enqueue_scripts', 'jquery_countdown' );
 function jquery_countdown() {
     wp_enqueue_script('countdown.min', TMFLAVOURS_THEME_URI . '/js/jquery.countdown.min.js', array('jquery'), '', true);
     wp_enqueue_script('product.countdown', TMFLAVOURS_THEME_URI . '/js/product.countdown.js', array('jquery'), '', true);
-
 }
 
 
