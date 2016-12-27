@@ -218,6 +218,8 @@ function tmFlavours_custom_enqueue_google_font() {
   function tmFlavours_admin_scripts_styles()
   {  
       wp_enqueue_script('tmFlavours-admin', TMFLAVOURS_THEME_URI . '/js/admin_menu.js', array(), '', true);
+      wp_enqueue_script('admin_customize', TMFLAVOURS_THEME_URI . '/js/admin_customize.js', array('jquery'), '', true);
+      wp_enqueue_style( 'admin_customize_style', TMFLAVOURS_THEME_URI . '/css/admin_customize.css' );
   }
 
 function tmFlavours_scripts_styles()
@@ -2064,4 +2066,188 @@ function get_limit_product_list() {
 
     return $result;
 }
+
+add_action( 'manage_posts_extra_tablenav','add_ordercsv_download_btn');
+
+function add_ordercsv_download_btn() {
+
+    if ($_GET['post_type'] !== 'shop_order')
+        return;
+
+    $ajaxUrl = 'admin-ajax.php?';
+
+    $parameters = $_GET;
+
+    $parameters['action'] = 'download_order_csv';
+
+    $ajaxUrl .= http_build_query($parameters);
+
+    $html = '<div style="float: left">';
+    $html .= '<a href="' . $ajaxUrl . '" download="黑貓訂單表.csv" class="button-primary" id="downloadOrderCSV" target="_blank">下載黑貓訂單表 CSV</a>';
+    $html .= '<form action="" method="POST" class="" enctype="multipart/form-data">';
+    $html .= '<div id="order_csv_upload_button" class="file-upload button-primary" style="margin-left: 5px;">
+<input type="file" id="order_csv_upload_input" style="opacity:0;" />
+<span class="order_csv_upload_text">上傳黑貓配送單 CSV</span>
+</div>';
+    $html .= '</form>';
+    $html .= '</div>';
+
+    echo $html;
+}
+
+add_action('wp_ajax_csv_order_file_upload', 'csv_order_file_upload' );
+
+function csv_order_file_upload() {
+    $fileErrors = array(
+        0 => "There is no error, the file uploaded with success",
+        1 => "The uploaded file exceeds the upload_max_files in server settings",
+        2 => "The uploaded file exceeds the MAX_FILE_SIZE from html form",
+        3 => "The uploaded file uploaded only partially",
+        4 => "No file was uploaded",
+        6 => "Missing a temporary folder",
+        7 => "Failed to write file to disk",
+        8 => "A PHP extension stoped file to upload" );
+
+    $posted_data =  isset( $_POST ) ? $_POST : array();
+    $file_data = isset( $_FILES ) ? $_FILES : array();
+    $data = array_merge( $posted_data, $file_data );
+    $response = array();
+    $uploaded_file = wp_handle_upload( $data['csv_order_file_upload'], array( 'test_form' => false ) );
+
+    if( $uploaded_file && ! isset( $uploaded_file['error'] ) ) {
+        $response['response'] = "SUCCESS";
+        //$response['filename'] = basename( $uploaded_file['url'] );
+        $response['url'] = $uploaded_file['url'];
+        $response['type'] = $uploaded_file['type'];
+    } else {
+        $response['response'] = "ERROR";
+        $response['error'] = $uploaded_file['error'];
+    }
+
+    // Parsing
+    $file = fopen($uploaded_file['file'], "r");
+    $i = 0;
+    while(!feof($file))
+    {
+        $line = fgets($file);
+
+        // skip first line header
+        // 出貨日,指定配達日,訂單編號,託運單號,代收金額,物品名稱,備註,收件人,電話(收),手機(收),郵區(收),地址(收),寄件人,契客代號,溫層,距離,規格,配送時間帶,報值金額
+        if ($i != 0) {
+            $data = explode(',', $line);
+            $orderId = trim($data[2]);
+            $deliveryNo = trim($data[3]);
+            if (!empty($data)) {
+                update_post_meta( $orderId, 'delivery_number', $deliveryNo );
+            }
+        }
+
+        $i++;
+    }
+
+    fclose($file);
+
+    echo json_encode( $response );
+    die();
+}
+
+
+
+add_action( 'wp_ajax_download_order_csv', 'download_order_csv_callback' );
+
+function download_order_csv_callback() {
+    global $wpdb; // this is how you get access to the database
+
+    $csv = '';
+    $dateFrom = $_GET['date_from'];
+    $dateTo = $_GET['date_to'];
+    $postStatus = $_GET['post_status'];
+    $customerUser = $_GET['_customer_user'];
+
+    $filter = $_GET['filter-by-date'];
+    $dateTimeFrom = '';
+    $dateTimeTo = '';
+
+    $args = array(
+        'post_type' => 'shop_order',
+        'post_status' => 'publish',
+        'posts_per_page' => -1, // or -1 for all
+    );
+
+    if (!empty($dateFrom) && !empty($dateTo)) {
+        $dateTimeFrom = DateTime::createFromFormat('Y/m/d', $dateFrom);
+        $dateTimeTo = DateTime::createFromFormat('Y/m/d', $dateTo);
+    } else {
+        if (strlen($filter) == 6) {
+            $year = substr($filter, 0 , 4);
+            $month = substr($filter, 4 , 2);
+
+            $dateTimeFrom = DateTime::createFromFormat('Y/m/d', $year . '/' . $month . '/01');
+            $dateTimeTo = DateTime::createFromFormat('Y/m/d', $dateTimeFrom->format( 'Y/m/t' ));
+        }
+    }
+
+    if ($postStatus != 'all') {
+        $args['post_status'] = $postStatus;
+    }
+
+    if (!empty($dateTimeFrom) && !empty($dateTimeTo)) {
+        $args['date_query'] = array(
+            'after' => $dateTimeFrom->format('Y-m-d'), //'2012-04-01',
+            'before' => $dateTimeTo->format('Y-m-d'), //'2012-04-01',
+            'inclusive' => true,
+        );
+    }
+
+    if (!empty($customerUser)) {
+        $args['meta_key'] = '_customer_user';
+        $args['meta_value'] = $customerUser;
+    }
+
+    $orders = get_posts($args);
+
+    $headers = [
+        '訂單編號',
+        '姓名',
+        '連絡電話',
+        '收貨地址',
+        '指定收貨日',
+        '收貨時段',
+        '出貨日期',
+    ];
+
+    $csv .= implode(',', $headers) . "\r\n";
+
+    foreach ($orders as $order) {
+
+        $order_id = $order->ID;
+        $order = new WC_Order($order_id);
+
+        $address = $order->shipping_postcode . $order->shipping_state . $order->billing_city . $order->shipping_address_1;
+
+        $line = [
+            $order_id,
+            $order->shipping_first_name,
+            $order->billing_phone,
+            $address,
+            '',
+            '',
+            '',
+        ];
+
+        $csv .= implode(',', $line) . "\r\n";
+    }
+
+    header("Pragma: public");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Cache-Control: private", false);
+    header("Content-Type: application/octet-stream");
+    header("Content-Transfer-Encoding: binary");
+
+    echo $csv;
+
+    wp_die(); // this is required to terminate immediately and return a proper response
+}
+
 ?>
