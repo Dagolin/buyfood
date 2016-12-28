@@ -97,6 +97,20 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                   <?php } ?>
                 </div>
 
+                 <!-- play video -->
+                 <?php
+                 $src= get_post_meta( $product->id, '_video_url', true );
+                 if (!empty($src)) :
+
+                 list( $video_type, $video_id ) = explode( ':', ywcfav_video_type_by_url( $src ) );
+
+                 if (!empty($video_id)) :
+                 ?>
+                 <a href="<?php echo $src;?>" target="_blank" class="play">
+                     <span></span>
+                 </a>
+                 <?php endif; ?>
+                 <?php endif; ?>
                  <!-- add to cart -->
                  <form class="hide" method="post" enctype="multipart/form-data" action="<?php echo the_permalink(); ?>" id="expressShopInf<?php echo esc_html($product->id); ?>">
                      <input type="hidden" name="quantity" value="1">
@@ -104,7 +118,7 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                      <button type="submit"></button>
                  </form>
                  <!-- add to cart -->
-                 <a href="#" class="link-add-cart"
+                 <a href="#" class="hide link-add-cart"
                     onclick="$('#expressShopInf<?php echo esc_html($product->id); ?>').submit();return false;">
                      <span></span>
                  </a>
