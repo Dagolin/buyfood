@@ -36,6 +36,16 @@
                      </div>
                
             </div>
+             <?php
+             global $flavours_Options;
+             if (isset($flavours_Options['enable_header_mobile_links']) && $flavours_Options['enable_header_mobile_links'] == 1) :
+                 ?>
+             <div class="dock-menu">
+                 <div id="dock-1"><a href="<?php echo $flavours_Options['header_mobile_link_url_1'];?>"><?php echo $flavours_Options['header_mobile_link_text_1'];?></a></div>
+                 <div id="dock-2"><a href="<?php echo $flavours_Options['header_mobile_link_url_2'];?>"><?php echo $flavours_Options['header_mobile_link_text_2'];?></a></div>
+                 <div id="dock-3"><a href="<?php echo $flavours_Options['header_mobile_link_url_3'];?>"><?php echo $flavours_Options['header_mobile_link_text_3'];?></a></div>
+             </div>
+             <?php endif; ?>
              
                <div class="header-right-col">
                 <?php  if ( has_nav_menu( 'toplinks' ) ) :?>

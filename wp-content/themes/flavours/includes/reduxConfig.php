@@ -655,6 +655,67 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'subtitle' => esc_html__('產品頁溫層示意圖', 'flavours'),
                     ),
 
+                    array(
+                        'id'       => 'enable_header_mobile_links',
+                        'type'     => 'switch',
+                        'title'    => esc_html__( '啟用手機上方快速選單', 'flavours' ),
+                        'subtitle' => esc_html__( '手機上方快速選單', 'flavours' ),
+                        'default' => '0'
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_text_1',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單文字1', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_url_1',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單連結1', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_text_2',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單文字2', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_url_2',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單連結2', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_text_3',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單文字3', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_url_3',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單連結3', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
                     /*array(
                         'id'       => 'enable_footer_middle',
                         'type'     => 'switch',                    
