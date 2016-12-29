@@ -94,6 +94,7 @@ class WC_Report_Customer_List extends WP_List_Table {
 
 			case 'location' :
 
+				$city   = get_user_meta( $user->ID, 'billing_city', true );
 				$state_code   = get_user_meta( $user->ID, 'billing_state', true );
 				$country_code = get_user_meta( $user->ID, 'billing_country', true );
 
@@ -101,6 +102,11 @@ class WC_Report_Customer_List extends WP_List_Table {
 				$country = isset( WC()->countries->countries[ $country_code ] ) ? WC()->countries->countries[ $country_code ] : $country_code;
 
 				$value = '';
+
+				if (!empty($city)) {
+					$value .= $city . ', ';
+				}
+
 
 				if ( $state ) {
 					$value .= $state . ', ';
