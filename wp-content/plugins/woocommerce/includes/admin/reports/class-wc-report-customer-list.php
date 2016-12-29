@@ -83,8 +83,8 @@ class WC_Report_Customer_List extends WP_List_Table {
 		switch ( $column_name ) {
 
 			case 'customer_name' :
-				if ( $user->last_name && $user->first_name ) {
-					return $user->last_name . ', ' . $user->first_name;
+				if ( $user->first_name ) {
+					return $user->first_name;
 				} else {
 					return '-';
 				}
