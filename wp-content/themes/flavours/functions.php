@@ -1789,6 +1789,32 @@ if ( ! function_exists( 'mv_save_wc_order_other_fields' ) )
 
 
 
+function new_user_column_row( $columns )
+{
+    $columns['billing_state'] = __( '縣市', 'flavours');
+    $columns['billing_city'] = __( '區域', 'flavours');
+
+    return $columns;
+}
+
+add_filter( 'manage_users_columns', 'new_user_column_row');
+
+function user_columns_customize( $val, $column_name, $user_id ) {
+    switch ($column_name) {
+        case 'billing_state' :
+            return get_user_meta( $user_id, 'billing_state', true );
+            break;
+        case 'billing_city' :
+            return get_user_meta( $user_id, 'billing_city', true );
+            break;
+        default:
+    }
+    return $val;
+}
+
+
+add_action( 'manage_users_custom_column', 'user_columns_customize', 10, 3 );
+
 add_filter( 'manage_edit-shop_order_columns', 'delivery_number_order_column',11);
 function delivery_number_order_column($columns)
 {
