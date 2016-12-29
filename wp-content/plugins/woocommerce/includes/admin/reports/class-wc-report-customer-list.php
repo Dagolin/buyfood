@@ -83,11 +83,16 @@ class WC_Report_Customer_List extends WP_List_Table {
 		switch ( $column_name ) {
 
 			case 'customer_name' :
+
+				$billing_name = get_user_meta( $user->ID, 'billing_first_name', true );
+
+				$name = $billing_name;
+
 				if ( $user->first_name ) {
-					return $user->first_name;
-				} else {
-					return '-';
+					$name .= ' ( ' . $user->first_name . ' )';
 				}
+
+				return $name;
 
 			case 'username' :
 				return $user->user_login;
