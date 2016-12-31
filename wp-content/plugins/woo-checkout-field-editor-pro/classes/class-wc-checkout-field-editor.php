@@ -26,7 +26,7 @@ class WC_Checkout_Field_Editor {
 	 * menu function.
 	 */
 	function admin_menu() {
-		$this->screen_id = add_submenu_page('woocommerce', __('WooCommerce Checkout Form Designer', 'thwcfd'), __('Checkout Form', 'thwcfd'), 
+		$this->screen_id = add_submenu_page('woocommerce', __('WooCommerce Checkout Form Designer', 'thwcfd'), __('自訂結帳欄位', 'thwcfd'),
 		'manage_woocommerce', 'checkout_form_designer', array($this, 'the_designer'));
 
 		add_action('admin_print_scripts-'. $this->screen_id, array($this, 'enqueue_admin_scripts'));
