@@ -115,8 +115,8 @@ $limitOverlayBG = isset($flavours_Options['countdown_overlay_image']) ? $flavour
     <input type="hidden" name="product_start_date" id="product_start_date" value="<?php echo $limitDates['startDate']; ?>"/>
     <input type="hidden" name="product_end_date" id="product_end_date" value="<?php echo $limitDates['endDate']; ?>"/>
 </div>
-<div id="twzipcode"></div>
-<div id="twzipcode2"></div>
+<div id="twzipcode" class="hide"></div>
+<div id="twzipcode2" class="hide"></div>
 <?php if ($isLimitOverlayEnable) : ?>
     <div id="limit-block" style="display: none;"><a href="<?php echo $limitDates['path']; ?>">
             <div style="color: #fff;
