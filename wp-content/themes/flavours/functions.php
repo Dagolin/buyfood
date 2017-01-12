@@ -2110,6 +2110,12 @@ function add_ordercsv_download_btn() {
 
     $html = '<div style="float: left">';
     $html .= '<a href="' . $ajaxUrl . '" download="黑貓訂單表.csv" class="button-primary" id="downloadOrderCSV" target="_blank">下載黑貓訂單表 CSV</a>';
+
+
+    $parameters['action'] = 'download_order_csv2';
+
+    $ajaxUrl .= http_build_query($parameters);
+    $html .= '<a href="' . $ajaxUrl . '" download="黑貓訂單表.csv" class="button-primary" id="downloadOrderCSV" target="_blank">下載黑貓訂單表 CSV BOM</a>';
     $html .= '<form action="" method="POST" class="" enctype="multipart/form-data">';
     $html .= '<div id="order_csv_upload_button" class="file-upload button-primary" style="margin-left: 5px;">
 <input type="file" id="order_csv_upload_input" style="opacity:0;" />
@@ -2180,6 +2186,7 @@ function csv_order_file_upload() {
 
 
 add_action( 'wp_ajax_download_order_csv', 'download_order_csv_callback' );
+add_action( 'wp_ajax_download_order_csv2', 'download_order_csv_callback_big5' );
 
 function download_order_csv_callback() {
     global $wpdb; // this is how you get access to the database
@@ -2230,6 +2237,15 @@ function download_order_csv_callback() {
         $args['meta_value'] = $customerUser;
     }
 
+    header("Pragma: no-cache");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Cache-Control: private", false);
+    header("Content-type: text/csv; charset=UTF-8");
+
+    // create a file pointer connected to the output stream
+    $output = fopen('php://output', 'w');
+
     $orders = get_posts($args);
 
     $headers = [
@@ -2242,7 +2258,7 @@ function download_order_csv_callback() {
         '出貨日期',
     ];
 
-    $csv .= implode(',', $headers) . "\r\n";
+    fputcsv($output, $headers);
 
     foreach ($orders as $order) {
 
@@ -2261,17 +2277,111 @@ function download_order_csv_callback() {
             '',
         ];
 
-        $csv .= implode(',', $line) . "\r\n";
+        fputcsv($output, $line);
     }
 
-    header("Pragma: public");
+    // output the column headings
+    fclose($output);
+
+    wp_die(); // this is required to terminate immediately and return a proper response
+}
+
+function download_order_csv_callback_big5() {
+    global $wpdb; // this is how you get access to the database
+
+    $csv = '';
+    $dateFrom = $_GET['date_from'];
+    $dateTo = $_GET['date_to'];
+    $postStatus = $_GET['post_status'];
+    $customerUser = $_GET['_customer_user'];
+
+    $filter = $_GET['filter-by-date'];
+    $dateTimeFrom = '';
+    $dateTimeTo = '';
+
+    $args = array(
+        'post_type' => 'shop_order',
+        'post_status' => 'publish',
+        'posts_per_page' => -1, // or -1 for all
+    );
+
+    if (!empty($dateFrom) && !empty($dateTo)) {
+        $dateTimeFrom = DateTime::createFromFormat('Y/m/d', $dateFrom);
+        $dateTimeTo = DateTime::createFromFormat('Y/m/d', $dateTo);
+    } else {
+        if (strlen($filter) == 6) {
+            $year = substr($filter, 0 , 4);
+            $month = substr($filter, 4 , 2);
+
+            $dateTimeFrom = DateTime::createFromFormat('Y/m/d', $year . '/' . $month . '/01');
+            $dateTimeTo = DateTime::createFromFormat('Y/m/d', $dateTimeFrom->format( 'Y/m/t' ));
+        }
+    }
+
+    if ($postStatus != 'all') {
+        $args['post_status'] = $postStatus;
+    }
+
+    if (!empty($dateTimeFrom) && !empty($dateTimeTo)) {
+        $args['date_query'] = array(
+            'after' => $dateTimeFrom->format('Y-m-d'), //'2012-04-01',
+            'before' => $dateTimeTo->format('Y-m-d'), //'2012-04-01',
+            'inclusive' => true,
+        );
+    }
+
+    if (!empty($customerUser)) {
+        $args['meta_key'] = '_customer_user';
+        $args['meta_value'] = $customerUser;
+    }
+
+    header("Pragma: no-cache");
     header("Expires: 0");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     header("Cache-Control: private", false);
-    header("Content-Type: application/octet-stream");
-    header("Content-Transfer-Encoding: binary");
+    header("Content-type: text/csv; charset=UTF-8");
 
-    echo $csv;
+    // create a file pointer connected to the output stream
+    $output = fopen('php://output', 'w');
+
+    $orders = get_posts($args);
+
+    $headers = [
+        '訂單編號',
+        '姓名',
+        '連絡電話',
+        '收貨地址',
+        '指定收貨日',
+        '收貨時段',
+        '出貨日期',
+    ];
+
+    fputs($output, "\xEF\xBB\xBF");
+
+    fputcsv($output, $headers);
+
+    foreach ($orders as $order) {
+
+        $order_id = $order->ID;
+        $order = new WC_Order($order_id);
+
+        $address = $order->shipping_postcode . $order->shipping_state . $order->billing_city . $order->shipping_address_1;
+
+        $line = [
+            $order_id,
+            $order->shipping_first_name,
+            $order->billing_phone,
+            $address,
+            '',
+            '',
+            '',
+        ];
+
+        fputcsv($output, $line);
+    }
+
+    // output the column headings
+    fclose($output);
 
     wp_die(); // this is required to terminate immediately and return a proper response
 }
