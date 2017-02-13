@@ -509,11 +509,11 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     ),
 
                     array(
-                        'id' => 'countdown_overlay_image',
-                        'type' => 'media',
+                        'id' => 'countdown_overlay_template',
+                        'type' => 'text',
                         'required' => array('enable_home_countdown_overlay', '=', '1'),
-                        'title' => esc_html__('限時購物浮動視窗的底圖', 'flavours'),
-                        'subtitle' => esc_html__('浮動視窗的底圖', 'flavours')
+                        'title' => esc_html__('限時購物浮動視窗文字', 'flavours'),
+                        'subtitle' => esc_html__('時 %h 分 %m 秒 %s', 'flavours')
                     ),
 
                     // array(

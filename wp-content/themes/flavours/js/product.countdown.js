@@ -15,6 +15,7 @@ jQuery(document).ready(function($) {
             $('div#clock').countdown($('#meta_end_date').val())
                 .on('update.countdown', function (event) {
                     $(this).html(event.strftime('距離截止： %D 天 %H:%M:%S'));
+					$('#clock-large').html(event.strftime('%D 天 %H:%M:%S'));
                 })
                 .on('finish.countdown', function (event) {
                     $(this).hide();
@@ -32,6 +33,7 @@ jQuery(document).ready(function($) {
 		$('div#bannerclock').countdown($('#product_end_date').val())
 			.on('update.countdown', function(event){
 				$(this).html(event.strftime('%D 天 %H:%M:%S'));
+				$('#clock-large').html(event.strftime('%D 天 %H:%M:%S'));
 			})
 			.on('finish.countdown', function(event){
 				$(this).hide();

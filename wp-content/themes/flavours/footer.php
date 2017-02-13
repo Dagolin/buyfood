@@ -109,7 +109,7 @@ $isProductPage = is_product();
 global $flavours_Options;
 
 $isLimitOverlayEnable = isset($flavours_Options['enable_home_countdown_overlay']) ? $flavours_Options['enable_home_countdown_overlay'] : false;
-$limitOverlayBG = isset($flavours_Options['countdown_overlay_image']) ? $flavours_Options['countdown_overlay_image']['url'] : '';
+$limitOverlayTemplate = isset($flavours_Options['countdown_overlay_template']) ? $flavours_Options['countdown_overlay_template'] : '%h : %i : %s';
 ?>
 <div>
     <input type="hidden" name="product_start_date" id="product_start_date" value="<?php echo $limitDates['startDate']; ?>"/>
@@ -118,25 +118,15 @@ $limitOverlayBG = isset($flavours_Options['countdown_overlay_image']) ? $flavour
 <div id="twzipcode" class="hide"></div>
 <div id="twzipcode2" class="hide"></div>
 <?php if ($isLimitOverlayEnable) : ?>
-    <div id="limit-block" style="display: none;"><a href="<?php echo $limitDates['path']; ?>">
-            <div style="color: #fff;
-                text-align: center;
-                top: 150px;
-                height: 100px;
-                width: 100px;
-                line-height: 40px;
-                overflow: hidden;
-                position: fixed;
-                right: 10px;
-                text-decoration: none;
-                background: url(<?php echo $limitOverlayBG?>) no-repeat center;
-                text-transform: uppercase;
-                z-index: 1001;
-                border-radius: 0px;
-                background-size: auto 100%;
-                background-repeat: no-repeat;"></div>
-        </a>
-</div>
+    <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'/>
+
+    <a href="<?php echo $limitDates['path']; ?>">
+        <div id="clockdate-full">
+            <div class="wrapper-clockdate">
+                <div id="clock-large"></div>
+            </div>
+        </div>
+    </a>
 <?php endif ?>
 
 
