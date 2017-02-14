@@ -14,8 +14,8 @@ jQuery(document).ready(function($) {
 	    if (now > startDate && now < endDate) {
             $('div#clock').countdown($('#meta_end_date').val())
                 .on('update.countdown', function (event) {
-                    $(this).html(event.strftime('距離截止： %D 天 %H:%M:%S'));
-					$('#clock-large').html(event.strftime('%D 天 %H:%M:%S'));
+                    $(this).html(event.strftime('截止時間： %I:%M:%S'));
+					$('#clock-large').html(event.strftime('%I:%M:%S'));
                 })
                 .on('finish.countdown', function (event) {
                     $(this).hide();
@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
 		$('div#limit-block').show();
 		$('div#bannerclock').countdown($('#product_end_date').val())
 			.on('update.countdown', function(event){
-				$(this).html(event.strftime('%D 天 %H:%M:%S'));
-				$('#clock-large').html(event.strftime('%D 天 %H:%M:%S'));
+				$(this).html(event.strftime('%I:%M:%S'));
+				$('#clock-large').html(event.strftime('%I:%M:%S'));
 			})
 			.on('finish.countdown', function(event){
 				$(this).hide();
