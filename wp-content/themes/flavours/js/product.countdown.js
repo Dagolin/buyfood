@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
             $('div#clock').countdown($('#meta_end_date').val())
                 .on('update.countdown', function (event) {
                     $(this).html(event.strftime('截止時間： %I:%M:%S'));
-					$('#clock-large').html(event.strftime('%I:%M:%S'));
+                    $('#clock-large').html(event.strftime('%I:%M:%S'));
                 })
                 .on('finish.countdown', function (event) {
                     $(this).hide();
@@ -29,11 +29,18 @@ jQuery(document).ready(function($) {
 	}
 
 	if ($('#product_start_date').val() !== ''){
+        $('div#clock-large').countdown($('#product_end_date').val())
+            .on('update.countdown', function(event){
+                $(this).html(event.strftime('%I:%M:%S'));
+            })
+            .on('finish.countdown', function(event){
+                $(this).hide();
+            });
+
 		$('div#limit-block').show();
 		$('div#bannerclock').countdown($('#product_end_date').val())
 			.on('update.countdown', function(event){
 				$(this).html(event.strftime('%I:%M:%S'));
-				$('#clock-large').html(event.strftime('%I:%M:%S'));
 			})
 			.on('finish.countdown', function(event){
 				$(this).hide();
