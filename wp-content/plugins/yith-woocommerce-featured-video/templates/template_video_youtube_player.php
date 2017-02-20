@@ -34,6 +34,9 @@ $height_ratio = $aspect_ratio[1];
     .ywcfav_video_iframe .play-icon {
     position: absolute;
     display: block;
+        top: 50%;
+        left: 50%;
+        margin: -170px 0 0 -280px;
     }
 
 </style>
