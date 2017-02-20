@@ -41,8 +41,7 @@ if ($attachment_ids) {
                     if (!empty($video_url)){
                         $html = '<li style="width: 100px; float: left; display: block;">
 <img width="180" height="180" src="https://img.youtube.com/vi/' . $video_id .'/0.jpg" 
-class="video-thumbnails attachment-shop_thumbnail size-shop_thumbnail" alt="p3" title="p3" 
-caption="" ></a></li>';
+class="video-thumbnails attachment-shop_thumbnail size-shop_thumbnail" alt="p3" title="p3"></li>';
                         echo $html;
                     }
                 }

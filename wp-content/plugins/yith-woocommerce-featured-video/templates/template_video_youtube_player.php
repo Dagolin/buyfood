@@ -16,11 +16,27 @@ $height_ratio = $aspect_ratio[1];
 
 <div class="ywcfav_video_content youtube">
     <div class="ywcfav_video_iframe">
-
-        <iframe id="video_<?php echo $post->ID;?>" type="text/html" onload="onYouTubeIframeAPIReady()" src="<?php echo $http;?>://www.youtube.com/embed/<?php echo $video_id;?>?enablejsapi=1" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen="1">
-        </iframe>
+        <a href="<?php echo $src;?>" target="_blank">
+            <img src="http://localhost/buyfood/wp-content/themes/flavours/images/play.png" class="play-icon"/>
+            </a>
+        <a href="<?php echo $src;?>" target="_blank">
+            <img src="https://img.youtube.com/vi/<?php echo $video_id; ?>/0.jpg"
+             class="video-thumbnails attachment-shop_thumbnail size-shop_thumbnail" alt="p3" title="p3">
+            </a>
+<!--        <iframe id="video_--><?php //echo $post->ID;?><!--" type="text/html" onload="onYouTubeIframeAPIReady()" src="-->
+        <?php //echo $http;?><!--://www.youtube.com/embed/--><?php //echo $video_id;?><!--?enablejsapi=1" frameborder="0"  webkitallowfullscreen mozallowfullscreen allowfullscreen="1">-->
+<!--        </iframe>-->
     </div>
 </div>
+<style>
+    .ywcfav_video_iframe { position: relative; }
+
+    .ywcfav_video_iframe .play-icon {
+    position: absolute;
+    display: block;
+    }
+
+</style>
 <script type="text/javascript">
     var player,
            img_container = jQuery('.product .images'),
