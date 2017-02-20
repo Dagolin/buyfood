@@ -17,7 +17,7 @@ $height_ratio = $aspect_ratio[1];
 <div class="ywcfav_video_content youtube">
     <div class="ywcfav_video_iframe">
         <a href="<?php echo $src;?>" target="_blank">
-            <img src="http://localhost/buyfood/wp-content/themes/flavours/images/play.png" class="play-icon"/>
+            <img src="/wp-content/themes/flavours/images/play.png" class="play-icon"/>
             </a>
         <a href="<?php echo $src;?>" target="_blank">
             <img src="https://img.youtube.com/vi/<?php echo $video_id; ?>/0.jpg"
