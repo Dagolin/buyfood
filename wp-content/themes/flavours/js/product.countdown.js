@@ -6,6 +6,8 @@
  */
 
 jQuery(document).ready(function($) {
+
+    // in product page
 	if ($('#meta_start_date').val() !== '' && $('#meta_end_date').val() !== '') {
 	    var now = Date.now();
         var startDate = Date.parse($('#meta_start_date').val());
@@ -27,6 +29,8 @@ jQuery(document).ready(function($) {
             $('#outofdate').show();
         }
 	}
+
+    $('div#clock-large').hide();
 
 	if ($('#product_start_date').val() !== ''){
         $('div#clock-large').countdown($('#product_end_date').val())

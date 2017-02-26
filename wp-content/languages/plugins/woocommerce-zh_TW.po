@@ -11204,7 +11204,7 @@ msgstr "加入購物車"
 
 #: includes/abstracts/abstract-wc-product.php:593
 msgid "Read more"
-msgstr "閱讀全文"
+msgstr "了解更多"
 
 #: includes/abstracts/abstract-wc-product.php:673
 #: includes/abstracts/abstract-wc-product.php:684
