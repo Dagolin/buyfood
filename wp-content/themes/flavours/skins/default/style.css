@@ -14985,6 +14985,12 @@ font-weight:normal;
 
 /* 32. RESPONSIVE SCREEN */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
+
+	.category-products .products-grid li.item {
+		width: 100%;
+		float: none;
+	}
+
 	.wrapper-clockdate {
 		padding: 10px;
 	}
