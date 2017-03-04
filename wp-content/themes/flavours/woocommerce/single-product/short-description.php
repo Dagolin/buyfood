@@ -19,6 +19,6 @@ if (!$post->post_excerpt) {
 
 ?>
 <div itemprop="description" class="short-description">
-    <h2>Quick Overview</h2>
+<!--    <h2>Quick Overview</h2>-->
     <?php echo apply_filters('woocommerce_short_description', $post->post_excerpt) ?>
 </div>
