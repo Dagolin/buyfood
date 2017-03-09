@@ -7613,12 +7613,13 @@ a.button.detail-bnt span {
 	border-bottom: 1px #ddd dotted
 }
 .product-view .short-description h2 {
-	font-family: 'Open Sans', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	color: #333;
 	margin: 0px;
 	margin-bottom: 8px;
 	font-weight: bold;
+	*/
 }
 .product-view .short-description p {
 	font-size: 13px;
