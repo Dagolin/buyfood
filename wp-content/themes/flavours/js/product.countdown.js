@@ -30,9 +30,10 @@ jQuery(document).ready(function($) {
         }
 	}
 
-    $('div#clock-large').hide();
+    $('div#clockdate-full').hide();
 
 	if ($('#product_start_date').val() !== ''){
+        $('div#clockdate-full').show();
         $('div#clock-large').countdown($('#product_end_date').val())
             .on('update.countdown', function(event){
                 $(this).html(event.strftime('%I:%M:%S'));
