@@ -1209,7 +1209,7 @@ if (has_post_thumbnail())
                        <span></span>
                    </a>
 
-                  <div class="actions">
+                  <div class="product-detail-bnt actions">
                      <span class="add-to-links">
                      <?php
                         if (isset($yith_wcwl) && is_object($yith_wcwl)) {
