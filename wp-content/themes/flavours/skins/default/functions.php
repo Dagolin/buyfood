@@ -916,7 +916,7 @@ function tmFlavours_bestseller_template()
                         data-product_id="<?php echo esc_html($product->id); ?>"><span> <?php esc_attr_e('Quick View', 'flavours'); ?></span></a>
                      <?php } ?>
                   </div>
-                  <div class="actions">
+                  <div class="product-detail-bnt actions">
                      <span class="add-to-links">
                          <!-- -->
                          <form class="hide" method="post" enctype="multipart/form-data" action="<?php echo the_permalink(); ?>" id="expressShop<?php echo esc_html($product->id); ?>">
@@ -1036,7 +1036,7 @@ if (has_post_thumbnail())
       <?php if (class_exists('YITH_WCQV_Frontend')) { ?>
                <div class="product-detail-bnt"><a class="button detail-bnt yith-wcqv-button quickview" title="<?php esc_attr_e('Quick View', 'flavours'); ?>"  data-product_id="<?php echo esc_html($product->id); ?>"><span> <?php esc_attr_e('Quick View', 'flavours'); ?></span></a></div>
       <?php } ?>            
-               <div class="actions"><span class="add-to-links">
+               <div class="product-detail-bnt actions"><span class="add-to-links">
                  <?php
                                     if (isset($yith_wcwl) && is_object($yith_wcwl)) {
                                         $classes = get_option('yith_wcwl_use_button') == 'yes' ? 'class="link-wishlist"' : 'class="link-wishlist"';
@@ -1309,7 +1309,7 @@ if (has_post_thumbnail())
                     <span></span>
                 </a>
 
-               <div class="actions"><span class="add-to-links">
+               <div class="product-detail-bnt actions"><span class="add-to-links">
                  <?php
                                     if (isset($yith_wcwl) && is_object($yith_wcwl)) {
                                         $classes = get_option('yith_wcwl_use_button') == 'yes' ? 'class="link-wishlist"' : 'class="link-wishlist"';

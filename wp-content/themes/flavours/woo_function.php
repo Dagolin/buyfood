@@ -396,7 +396,7 @@ ob_start();
             <?php endif; ?>
             <?php $i++; endforeach; ?>
          </ul>    
-         <div class="actions">
+         <div class="product-detail-bnt actions">
             <button class="btn-checkout" type="button"
                onClick="window.location.assign('<?php echo esc_js(WC()->cart->get_checkout_url()); ?>')"><span><?php esc_attr_e('Checkout','flavours') ;?></span> </button>          
          </div>
