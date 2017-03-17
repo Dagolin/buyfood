@@ -22,7 +22,7 @@ global $product;
             $stock = number_format($product->stock, 0);
 
             ?>
-            <p class="availability in-stock pull-right">
+            <p class="availability in-stock">
                 <span>
                     <?php esc_attr_e('熱銷中','flavours');?>
                     <?php if ($stock > 0) {

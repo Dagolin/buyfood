@@ -7813,12 +7813,7 @@ a.button.detail-bnt span {
 	border-bottom: 1px #ddd dotted;
 	margin-bottom: 15px!important;
 }
-.availability.in-stock {
-	padding: 3px 10px;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-}
+
 .availability.in-stock span {
 	color: #6dbe14;
 	font-size: 12px;
@@ -13763,7 +13758,6 @@ del .amount {
 	font-size: 12px;
 	font-weight: bold;
 	margin: 0px 0 8px;
-	padding: 4px 15px;
 	color: #fff;
 }
 .single-product .page-heading {
@@ -18324,6 +18318,12 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1279px) {
+     .availability.in-stock {
+         padding: 3px 10px;
+         position: absolute;
+         top: 0px;
+         right: 0px;
+     }
 	 .wrapper-clockdate {
 		 padding: 15px;
 	 }
