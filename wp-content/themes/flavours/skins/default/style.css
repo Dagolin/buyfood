@@ -18318,6 +18318,10 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1279px) {
+     div.floatNormal {
+		 width: 50%;
+		 float: left;
+	 }
      .availability.in-stock {
          padding: 3px 10px;
          position: absolute;
