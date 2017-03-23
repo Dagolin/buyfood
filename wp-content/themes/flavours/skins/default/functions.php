@@ -999,8 +999,11 @@ function tmFlavours_category_product_template()
   
     <div class="item">
       <div class="pro-img">
-        <img alt="<?php echo esc_attr($post->post_title); ?>" class="img-responsive" src="<?php echo esc_url($imageUrl[0]); ?>">
-          <div class="pro-info"><a title="<?php echo esc_attr($post->post_title); ?>" href="<?php the_permalink(); ?>"><?php echo esc_html($post->post_title); ?></a></div>
+          <a title="<?php echo esc_attr($post->post_title); ?>" href="<?php the_permalink(); ?>">
+              <img alt="<?php echo esc_attr($post->post_title); ?>" class="img-responsive" src="<?php echo esc_url($imageUrl[0]); ?>">
+          </a>
+          <div class="pro-info">
+              <a title="<?php echo esc_attr($post->post_title); ?>" href="<?php the_permalink(); ?>"><?php echo esc_html($post->post_title); ?></a></div>
       </div>
     </div>
  
