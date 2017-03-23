@@ -9861,17 +9861,17 @@ button.button span span {
 	border: 1px #f4f4f4 solid
 }
 .featured-pro .pro-img img {
-	-webkit-transition: all 0.5s ease-out;
-	-moz-transition: all 0.5s ease-out;
-	transition: all 0.5s ease-out;
+	/*-webkit-transition: all 0.5s ease-out;*/
+	/*-moz-transition: all 0.5s ease-out;*/
+	/*transition: all 0.5s ease-out;*/
 	width: 100%;
 	cursor: pointer
 }
 .featured-pro .pro-img img:hover {
-	-webkit-transform: scale(1.25);
-	-moz-transform: scale(1.25);
-	-o-transform: scale(1.25);
-	transform: scale(1.25);
+	/*-webkit-transform: scale(1.25);*/
+	/*-moz-transform: scale(1.25);*/
+	/*-o-transform: scale(1.25);*/
+	/*transform: scale(1.25);*/
 }
 .featured-pro .pro-img .pro-info {
 	color: #000;

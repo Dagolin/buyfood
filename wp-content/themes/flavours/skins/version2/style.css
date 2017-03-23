@@ -4126,15 +4126,15 @@ text-transform: uppercase
   position: relative;
   width:100%;
   margin-top:20px;
-      -webkit-transition-duration: 500ms;
-    transition-duration: 500ms;
-    -webkit-transition-property: transform;
-    transition-property: transform;
+      /*-webkit-transition-duration: 500ms;*/
+    /*transition-duration: 500ms;*/
+    /*-webkit-transition-property: transform;*/
+    /*transition-property: transform;*/
 }
 .featured-pro .pro-img img:hover {
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
-	-moz-transform: scale(1.1);
+	/*-webkit-transform: scale(1.1);*/
+	/*transform: scale(1.1);*/
+	/*-moz-transform: scale(1.1);*/
 
 }
 
