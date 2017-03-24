@@ -79,7 +79,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             echo "<pre>";
             print_r($changed_values); // Values that have changed since the last save
             echo "</pre>";
-       
+
         }
 
         /**
@@ -225,14 +225,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
             }
 
 
-             global $woocommerce;
-               $cat_arg=array();
-               $cat_data='';
-                if(class_exists('WooCommerce')) {
-                   
-                     $cat_data='terms';
-                    $cat_arg=array('taxonomies'=>'product_cat', 'args'=>array());
-                }
+            global $woocommerce;
+            $cat_arg=array();
+            $cat_data='';
+            if(class_exists('WooCommerce')) {
+
+                $cat_data='terms';
+                $cat_arg=array('taxonomies'=>'product_cat', 'args'=>array());
+            }
 
             // ACTUAL DECLARATION OF SECTIONS
             // Edgesettings: Home Page Settings Tab
@@ -241,7 +241,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                 'desc' => esc_html__('Home page settings ', 'flavours'),
                 'icon' => 'el-icon-home',
                 // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
-                'fields' => array(   
+                'fields' => array(
 
                     array(
                         'id' => 'theme_layout',
@@ -260,12 +260,12 @@ if (!class_exists('Redux_Framework_sample_config')) {
                                 'alt' => esc_html__('Version 2', 'flavours'),
                                 'img' => get_template_directory_uri() . '/images/variations/screen2.jpg'
                             ),
-                                                    
-                           
+
+
                         ),
                         'default' => 'default'
-                    ), 
-                                  
+                    ),
+
                     array(
                         'id' => 'enable_home_gallery',
                         'type' => 'switch',
@@ -285,22 +285,22 @@ if (!class_exists('Redux_Framework_sample_config')) {
                             'url' => esc_html__('Give us a link!', 'flavours'),
                         ),
                     ),
-                      
-                        array(
-                     'id'=>'topslide',
-                     'type' => 'multi_text',
-                     'required' => array(array('theme_layout', '=', 'default')),
-                     'title' => esc_html__('Top slides', 'flavours'),                     
-                     'subtitle' => esc_html__('Add content for top offer slides', 'flavours'),
-                     'desc' => esc_html__('Add content for top offer slides', 'flavours')
-                      ),                
-            
 
-                        
-                  
+                    array(
+                        'id'=>'topslide',
+                        'type' => 'multi_text',
+                        'required' => array(array('theme_layout', '=', 'default')),
+                        'title' => esc_html__('Top slides', 'flavours'),
+                        'subtitle' => esc_html__('Add content for top offer slides', 'flavours'),
+                        'desc' => esc_html__('Add content for top offer slides', 'flavours')
+                    ),
+
+
+
+
                     array(
                         'id' => 'enable_home_offer_banners',
-                        'type' => 'switch',              
+                        'type' => 'switch',
                         'title' => __('Enable Home Page Offer Banners', 'flavours'),
                         'subtitle' => __('You can enable/disable Home page offer Banners', 'flavours')
                     ),
@@ -310,29 +310,29 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array('enable_home_offer_banners', '=', '1'),
                         'title' => __('Home offer Banner 1', 'flavours'),
                         'desc' => __('', 'flavours'),
-                        'subtitle' => __('Upload offer banner to appear on  home page ', 'flavours'),                                    
-                    ),   
+                        'subtitle' => __('Upload offer banner to appear on  home page ', 'flavours'),
+                    ),
                     array(
                         'id' => 'home-offer-banner1-url',
                         'type' => 'text',
                         'required' => array('enable_home_offer_banners', '=', '1'),
                         'title' => __('Home offer Banner-1 URL', 'flavours'),
                         'subtitle' => __('URL for the offer banner.', 'flavours'),
-                    ), 
+                    ),
                     array(
                         'id' => 'home-offer-banner1-text1',
                         'type' => 'text',
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'version2')),
                         'title' => __('Home offer Banner-1 Small Text', 'flavours'),
                         'subtitle' => __('Text on the offer banner.', 'flavours'),
-                    ), 
+                    ),
                     array(
                         'id' => 'home-offer-banner1-text2',
                         'type' => 'text',
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'version2')),
                         'title' => __('Home offer Banner-1 Big Text', 'flavours'),
                         'subtitle' => __('Text on the offer banner.', 'flavours'),
-                    ), 
+                    ),
                     array(
                         'id' => 'home-offer-banner2',
                         'type' => 'media',
@@ -347,21 +347,21 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array('enable_home_offer_banners', '=', '1'),
                         'title' => __('Home offer Banner-2 URL', 'flavours'),
                         'subtitle' => __('URL for the offer banner.', 'flavours'),
-                    ),    
+                    ),
                     array(
                         'id' => 'home-offer-banner2-text1',
                         'type' => 'text',
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'version2')),
                         'title' => __('Home offer Banner-2 Small Text', 'flavours'),
                         'subtitle' => __('Text on the offer banner.', 'flavours'),
-                    ),                  
+                    ),
                     array(
                         'id' => 'home-offer-banner2-text2',
                         'type' => 'text',
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'version2')),
                         'title' => __('Home offer Banner-2 Big Text', 'flavours'),
                         'subtitle' => __('Text on the offer banner.', 'flavours'),
-                    ),   
+                    ),
                     array(
                         'id' => 'home-offer-banner3',
                         'type' => 'media',
@@ -383,14 +383,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'version2')),
                         'title' => __('Home offer Banner-3 Small Text', 'flavours'),
                         'subtitle' => __('Text on the offer banner.', 'flavours'),
-                    ), 
+                    ),
                     array(
                         'id' => 'home-offer-banner3-text2',
                         'type' => 'text',
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'version2')),
                         'title' => __('Home offer Banner-3 Big Text', 'flavours'),
                         'subtitle' => __('Text on the offer banner.', 'flavours'),
-                    ), 
+                    ),
                     array(
                         'id' => 'home-offer-banner4',
                         'type' => 'media',
@@ -420,7 +420,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'default')),
                         'title' => __('Home offer Banner-5 URL', 'flavours'),
                         'subtitle' => __('URL for the offer banner.', 'flavours'),
-                    ),     
+                    ),
                     array(
                         'id' => 'home-offer-banner6',
                         'type' => 'media',
@@ -435,26 +435,26 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array(array('enable_home_offer_banners', '=', '1'),array('theme_layout', '=', 'default')),
                         'title' => __('Home offer Banner-6 URL', 'flavours'),
                         'subtitle' => __('URL for the offer banner.', 'flavours'),
-                    ),                      
-                    
+                    ),
 
-                  
+
+
                     array(
-                       'id'=>'home-product-categories',
+                        'id'=>'home-product-categories',
                         'type' => 'select',
-                        'data' => $cat_data,                            
-                        'args' => $cat_arg,         
-                        'title' => __('Product Categories ', 'flavours'), 
-                     'subtitle' => __('Please choose a product categories to show on home.', 'flavours'),                       
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => __('Product Categories ', 'flavours'),
+                        'subtitle' => __('Please choose a product categories to show on home.', 'flavours'),
                     ),
                     array(
-                    'id'=>'home-product-categories-limit',
-                     'type' => 'text',                                                        
-                     'title' => __('Product Categories - Limit', 'flavours'), 
-                     'subtitle' => __('Number of products show from  category.', 'flavours'),                           
+                        'id'=>'home-product-categories-limit',
+                        'type' => 'text',
+                        'title' => __('Product Categories - Limit', 'flavours'),
+                        'subtitle' => __('Number of products show from  category.', 'flavours'),
                     ),
 
-                        
+
                     array(
                         'id' => 'enable_home_bestseller_products',
                         'type' => 'switch',
@@ -462,26 +462,26 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'subtitle' => esc_html__('You can show best seller products on home page.', 'flavours')
                     ),
 
-                   array(
-                            'id'=>'home_bestseller_categories',
-                            'type' => 'select',
-                            'multi'=> true,                        
-                            'data' => $cat_data,                            
-                            'args' => $cat_arg,
-                            'title' => esc_html__('Best Seller Category', 'flavours'), 
-                            'required' => array('enable_home_bestseller_products', '=', '1'),
-                            'subtitle' => esc_html__('Please choose Best Seller Category to show  its product in home page.', 'flavours'),
-                            'desc' => '',
-                        ),
-                       array(
-                            'id' => 'bestseller_image',
-                            'type' => 'media',
-                            'required' => array('enable_home_bestseller_products', '=', '1'),
-                            'title' => esc_html__('Home bestseller image', 'flavours'),
-                            'desc' => esc_html__('', 'flavours'),
-                            'subtitle' => esc_html__('Upload bestseller image appear to the left of best seller on  home page ', 'flavours')
+                    array(
+                        'id'=>'home_bestseller_categories',
+                        'type' => 'select',
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('Best Seller Category', 'flavours'),
+                        'required' => array('enable_home_bestseller_products', '=', '1'),
+                        'subtitle' => esc_html__('Please choose Best Seller Category to show  its product in home page.', 'flavours'),
+                        'desc' => '',
                     ),
-                      array(
+                    array(
+                        'id' => 'bestseller_image',
+                        'type' => 'media',
+                        'required' => array('enable_home_bestseller_products', '=', '1'),
+                        'title' => esc_html__('Home bestseller image', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('Upload bestseller image appear to the left of best seller on  home page ', 'flavours')
+                    ),
+                    array(
                         'id' => 'bestseller_product_url',
                         'type' => 'text',
                         'required' => array('enable_home_bestseller_products', '=', '1'),
@@ -489,15 +489,119 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'subtitle' => esc_html__('Home Best seller  Url.', 'flavours'),
                     ),
 
+                    array(
+                        'id'=>'enable_home_feature_products_1',
+                        'type' => 'switch',
+                        'title' => esc_html__('啟用首頁產品列表 1', 'flavours'),
+                        'subtitle' => esc_html__('啟用首頁產品列表 1', 'flavours'),
+                        'desc' => '',
+                    ),
 
                     array(
-                        'id'=>'home_feature_products',
+                        'id'=>'title_home_feature_products_1',
+                        'type' => 'text',
+                        'required' => array('enable_home_feature_products_1', '=', '1'),
+                        'title' => esc_html__('首頁產品列表 1 標題', 'flavours'),
+                        'subtitle' => esc_html__('首頁產品列表 1 標題', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'home_feature_products_1',
                         'type' => 'select',
+                        'required' => array('enable_home_feature_products_1', '=', '1'),
                         'multi'=> true,
                         'data' => $cat_data,
                         'args' => $cat_arg,
-                        'title' => esc_html__('選擇首頁 Feature Products', 'flavours'),
-                        'subtitle' => esc_html__('選擇首頁 Feature product', 'flavours'),
+                        'title' => esc_html__('選擇首頁產品列表 1', 'flavours'),
+                        'subtitle' => esc_html__('選擇首頁產品列表 1', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'enable_home_feature_products_2',
+                        'type' => 'switch',
+                        'title' => esc_html__('啟用首頁產品列表 2', 'flavours'),
+                        'subtitle' => esc_html__('啟用首頁產品列表 2', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'title_home_feature_products_2',
+                        'type' => 'text',
+                        'required' => array('enable_home_feature_products_2', '=', '1'),
+                        'title' => esc_html__('首頁產品列表 2 標題', 'flavours'),
+                        'subtitle' => esc_html__('首頁產品列表 2 標題', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'home_feature_products_2',
+                        'type' => 'select',
+                        'required' => array('enable_home_feature_products_2', '=', '1'),
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('選擇首頁產品列表 2', 'flavours'),
+                        'subtitle' => esc_html__('選擇首頁產品列表 2', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'enable_home_feature_products_3',
+                        'type' => 'switch',
+                        'title' => esc_html__('啟用首頁產品列表 3', 'flavours'),
+                        'subtitle' => esc_html__('啟用首頁產品列表 3', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'title_home_feature_products_3',
+                        'type' => 'text',
+                        'required' => array('enable_home_feature_products_3', '=', '1'),
+                        'title' => esc_html__('首頁產品列表 3 標題', 'flavours'),
+                        'subtitle' => esc_html__('首頁產品列表 3 標題', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'home_feature_products_3',
+                        'type' => 'select',
+                        'required' => array('enable_home_feature_products_3', '=', '1'),
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('選擇首頁產品列表 3', 'flavours'),
+                        'subtitle' => esc_html__('選擇首頁產品列表 3', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'enable_home_feature_products_4',
+                        'type' => 'switch',
+                        'title' => esc_html__('啟用首頁產品列表 4', 'flavours'),
+                        'subtitle' => esc_html__('啟用首頁產品列表 4', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'title_home_feature_products_4',
+                        'type' => 'text',
+                        'required' => array('enable_home_feature_products_4', '=', '1'),
+                        'title' => esc_html__('首頁產品列表 4 標題', 'flavours'),
+                        'subtitle' => esc_html__('首頁產品列表 4 標題', 'flavours'),
+                        'desc' => '',
+                    ),
+
+                    array(
+                        'id'=>'home_feature_products_4',
+                        'type' => 'select',
+                        'required' => array('enable_home_feature_products_4', '=', '1'),
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('選擇首頁產品列表 4', 'flavours'),
+                        'subtitle' => esc_html__('選擇首頁產品列表 4', 'flavours'),
                         'desc' => '',
                     ),
 
@@ -522,7 +626,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     //     'title' => esc_html__('Show Featured Products', 'flavours'),
                     //     'subtitle' => esc_html__('You can show featured products on home page.', 'flavours')
                     // ),
-                    
+
                     //   array(
                     //         'id' => 'featured_image',
                     //         'type' => 'media',
@@ -555,7 +659,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     //     'subtitle' => esc_html__('Number of Featured products on home page.', 'flavours')
                     // ),                             
 
-                 array(
+                    array(
                         'id' => 'enable_home_blog_posts',
                         'type' => 'switch',
                         'title' => esc_html__('Show Latest Post', 'flavours'),
@@ -566,7 +670,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             );
 
 
-            
+
             // Edgesettings: General Settings Tab
             $this->sections[] = array(
                 'icon' => 'el-icon-cogs',
@@ -574,11 +678,11 @@ if (!class_exists('Redux_Framework_sample_config')) {
                 'fields' => array(
                     array(
                         'id'       => 'enable_brand_logo',
-                        'type'     => 'switch',                    
+                        'type'     => 'switch',
                         'title'    => __( 'Enable Company Logo Uploads', 'flavours' ),
                         'subtitle' => __( 'You can enable/disable Company Logo Uploads', 'flavours' ),
-                          'default' => '0'
-                    ),                   
+                        'default' => '0'
+                    ),
                     array(
                         'id' => 'all-company-logos',
                         'type' => 'slides',
@@ -590,27 +694,27 @@ if (!class_exists('Redux_Framework_sample_config')) {
                             'url' => __('Give us a link!', 'flavours'),
                         ),
                     ),
-                                                                                                                   
-                     array(
-                     'id'       => 'category_item',
-                     'type'     => 'spinner', 
-                     'title'    => esc_html__('Product display in product category page', 'flavours'),
-                     'subtitle' => esc_html__('Number of item display in product category page','flavours'),
-                     'desc'     => esc_html__('Number of item display in product category page', 'flavours'),
-                     'default'  => '9',
-                     'min'      => '0',
-                     'step'     => '1',
-                     'max'      => '100',
-                     ),
 
-                      array(
+                    array(
+                        'id'       => 'category_item',
+                        'type'     => 'spinner',
+                        'title'    => esc_html__('Product display in product category page', 'flavours'),
+                        'subtitle' => esc_html__('Number of item display in product category page','flavours'),
+                        'desc'     => esc_html__('Number of item display in product category page', 'flavours'),
+                        'default'  => '9',
+                        'min'      => '0',
+                        'step'     => '1',
+                        'max'      => '100',
+                    ),
+
+                    array(
                         'id'       => 'enable_testimonial',
-                        'type'     => 'switch',                    
+                        'type'     => 'switch',
                         'required' => array(array('theme_layout', '=', 'default')),
                         'title'    => esc_html__( 'Enable Testimonial ', 'Flavours' ),
                         'subtitle' => esc_html__( 'You can enable/disable Testimonial Uploads', 'Flavours' ),
-                          'default' => '0'
-                    ),                   
+                        'default' => '0'
+                    ),
                     array(
                         'id' => 'all_testimonial',
                         'type' => 'slides',
@@ -622,7 +726,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                             'description' => esc_html__('Description Here', 'Flavours'),
                             'url' => esc_html__('Give us a link!', 'flavours'),
                         ),
-                        ),
+                    ),
                     array(
                         'id' => 'back_to_top',
                         'type' => 'switch',
@@ -737,9 +841,9 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $this->sections[] = array(
                 'icon' => 'el-icon-website',
                 'title' => esc_html__('Styling Options', 'flavours'),
-               
+
                 'fields' => array(
-                        array(
+                    array(
                         'id' => 'opt-animation',
                         'type' => 'switch',
                         'title' => esc_html__('Use animation effect', 'flavours'),
@@ -747,7 +851,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'default' => 0,
                         'on' => 'On',
                         'off' => 'Off',
-					),     
+                    ),
                     array(
                         'id' => 'set_body_background_img_color',
                         'type' => 'switch',
@@ -763,9 +867,9 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array('set_body_background_img_color', '=', '1'),
                         'output' => array('body'),
                         'title' => esc_html__('Body Background', 'flavours'),
-                        'subtitle' => esc_html__('Body background with image, color, etc.', 'flavours'),               
+                        'subtitle' => esc_html__('Body background with image, color, etc.', 'flavours'),
                         'transparent' => false,
-                    ),                   
+                    ),
                     array(
                         'id' => 'opt-color-footer',
                         'type' => 'color',
@@ -792,7 +896,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'transparent' => false,
                         'output' => array('.header-container'),
                         'mode' => 'background',
-                    ),                   
+                    ),
                 )
             );
 
@@ -849,8 +953,8 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'subtitle' => esc_html__('Don\'t include "px" in the string. e.g. 30', 'flavours'),
                         'desc' => '',
                         'validate' => 'numeric'
-                    ),    
-                                 
+                    ),
+
                     array(
                         'id' => 'header_remove_header_search',
                         'type' => 'checkbox',
@@ -859,14 +963,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'desc' => esc_html__('', 'flavours'),
                         'default' => '0'
                     ),
-                     array(
+                    array(
                         'id' => 'header_show_info_banner',
                         'type' => 'switch',
                         'title' => esc_html__('Show Info Banners', 'flavours'),
-                          'default' => '0'
+                        'default' => '0'
                     ),
 
-                 
+
                     array(
                         'id' => 'header_shipping_banner',
                         'type' => 'text',
@@ -887,46 +991,46 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array('header_show_info_banner', '=', '1'),
                         'title' => esc_html__('Warrant/Gaurantee Banner Text', 'flavours'),
                     ),
-                      array(
+                    array(
                         'id' => 'header_returnservice_banner',
                         'type' => 'text',
                         'required' => array('header_show_info_banner', '=', '1'),
                         'title' => esc_html__('Return service Banner Text', 'flavours'),
                     ),
-                   
-                 
-                   
+
+
+
                 ) //fields end
             );
 
-             // Edgesettings: Menu Tab
+            // Edgesettings: Menu Tab
             $this->sections[] = array(
                 'icon' => 'el el-website icon',
                 'title' => esc_html__('Menu', 'flavours'),
                 'heading' => esc_html__('All Menu related options are listed here.', 'flavours'),
                 'desc' => esc_html__('', 'flavours'),
                 'fields' => array(
-                   array(
+                    array(
                         'id' => 'show_menu_arrow',
                         'type' => 'switch',
                         'title' => esc_html__('Show Menu Arrow', 'flavours'),
                         'desc'  => esc_html__('Show arrow in menu.', 'flavours'),
-                        
-                    ),               
-                   array(
-                    'id'       => 'login_button_pos',
-                    'type'     => 'radio',
-                    'title'    => esc_html__('Show Login/sign and logout link', 'flavours'),                   
-                    'desc'     => esc_html__('Please Select any option from above.', 'flavours'),
-                     //Must provide key => value pairs for radio options
-                    'options'  => array(
-                    'none' => 'None', 
-                   'toplinks' => 'In Top Menu', 
-                   'main_menu' => 'In Main Menu'
+
                     ),
-                   'default' => 'none'
+                    array(
+                        'id'       => 'login_button_pos',
+                        'type'     => 'radio',
+                        'title'    => esc_html__('Show Login/sign and logout link', 'flavours'),
+                        'desc'     => esc_html__('Please Select any option from above.', 'flavours'),
+                        //Must provide key => value pairs for radio options
+                        'options'  => array(
+                            'none' => 'None',
+                            'toplinks' => 'In Top Menu',
+                            'main_menu' => 'In Main Menu'
+                        ),
+                        'default' => 'none'
                     )
-                  
+
                 ) // fields ends here
             );
             // Edgesettings: Footer Tab
@@ -941,7 +1045,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'type' => 'switch',
                         'title' => esc_html__('Custom Footer Color Scheme', 'flavours'),
                         'subtitle' => esc_html__('', 'flavours')
-                    ),               
+                    ),
                     array(
                         'id' => 'footer_copyright_background_color',
                         'type' => 'color',
@@ -959,7 +1063,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'title' => esc_html__('Footer Copyright Font Color', 'flavours'),
                         'subtitle' => esc_html__('', 'flavours'),
                         'validate' => 'color',
-                    ),                    
+                    ),
                     array(
                         'id' => 'bottom-footer-text',
                         'type' => 'editor',
@@ -974,8 +1078,8 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $this->sections[] = array(
                 'icon' => 'el-icon-pencil',
                 'title' => esc_html__('Blog Page', 'flavours'),
-                'fields' => array( 
-                       array(
+                'fields' => array(
+                    array(
                         'id' => 'blog-page-layout',
                         'type' => 'image_select',
                         'title' => esc_html__('Blog Page Layout', 'flavours'),
@@ -993,31 +1097,31 @@ if (!class_exists('Redux_Framework_sample_config')) {
                             '3' => array(
                                 'alt' => '2 Column Right',
                                 'img' => get_template_directory_uri() . '/images/tmFlavours_col/category-layout-3.png'
-                            )                                                                                 
-                          
+                            )
+
                         ),
                         'default' => '2'
-                    ), 
-                     array(
+                    ),
+                    array(
                         'id' => 'blog_show_authors_bio',
                         'type' => 'switch',
                         'title' => esc_html__('Author\'s Bio', 'flavours'),
                         'subtitle' => esc_html__('Show Author Bio on Blog page.', 'flavours'),
-                         'default' => true,
+                        'default' => true,
                         'desc' => esc_html__('', 'flavours')
-                    ),                  
+                    ),
                     array(
                         'id' => 'blog_show_post_by',
                         'type' => 'switch',
                         'title' => esc_html__('Display Post By', 'flavours'),
-                         'default' => true,
+                        'default' => true,
                         'subtitle' => esc_html__('Display Psot by Author on Listing Page', 'flavours')
                     ),
                     array(
                         'id' => 'blog_display_tags',
                         'type' => 'switch',
                         'title' => esc_html__('Display Tags', 'flavours'),
-                         'default' => true,
+                        'default' => true,
                         'subtitle' => esc_html__('Display tags at the bottom of posts.', 'flavours')
                     ),
                     array(
@@ -1038,16 +1142,16 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id' => 'blog_display_category',
                         'type' => 'switch',
                         'title' => esc_html__('Display Category', 'flavours'),
-                         'default' => true,
+                        'default' => true,
                         'subtitle' => esc_html__('Display Comments Category on Blog Listing.', 'flavours')
                     ),
                     array(
                         'id' => 'blog_display_view_counts',
                         'type' => 'switch',
                         'title' => esc_html__('Display View Counts', 'flavours'),
-                         'default' => true,
+                        'default' => true,
                         'subtitle' => esc_html__('Display View Counts on Blog Listing.', 'flavours')
-                    ),                  
+                    ),
                 )
             );
 
@@ -1074,7 +1178,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'title' => esc_html__('Google+ URL', 'flavours'),
                         'subtitle' => esc_html__('Please enter in your Google Plus URL.', 'flavours'),
                     ),
-                  
+
                     array(
                         'id' => 'social_pinterest',
                         'type' => 'text',
@@ -1098,7 +1202,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'type' => 'text',
                         'title' => esc_html__('RSS URL', 'flavours'),
                         'subtitle' => esc_html__('Please enter in your RSS URL.', 'flavours'),
-                    )                   
+                    )
                 )
             );
 
@@ -1115,7 +1219,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $theme_info .= '</div>';
 
 
-          
+
             $this->sections[] = array(
                 'title' => esc_html__('Import / Export', 'flavours'),
                 'desc' => esc_html__('Import and Export your Redux Framework settings from file, text or URL.', 'flavours'),
@@ -1198,7 +1302,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                 'page_priority' => null,
                 // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
                 'page_parent' => 'themes.php',
-                
+
                 'page_permissions' => 'manage_options',
                 // Permissions needed to access the options panel.
                 'menu_icon' => '',
@@ -1271,7 +1375,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             );
 
             $this->args['admin_bar_links'][] = array(
-            
+
                 'href' => 'https://github.com/ReduxFramework/redux-framework/issues',
                 'title' => esc_html__('Support', 'flavours'),
             );
@@ -1316,7 +1420,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $error = true;
             $value = 'just testing';
 
-        
+
 
             $return['value'] = $value;
             $field['msg'] = 'your custom error message';
@@ -1363,7 +1467,7 @@ if (!function_exists('redux_validate_callback_function')):
         $error = true;
         $value = 'just testing';
 
-   
+
 
         $return['value'] = $value;
         $field['msg'] = 'your custom error message';

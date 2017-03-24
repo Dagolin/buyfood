@@ -580,16 +580,15 @@ function tmFlavours_featured_products()
 }
 }
 
-// Salad
-if ( ! function_exists ( 'tmFlavours_bestseller_products_salad' ) ) {
-    function tmFlavours_bestseller_products_salad()
+if ( ! function_exists ( 'tmFlavours_bestseller_products_customize' ) ) {
+    function tmFlavours_bestseller_products_customize($category, $title)
     {
         global $flavours_Options;
         ?>
         <div class="best-pro slider-items-products container">
             <div class="new_title">
-                <h2><?php esc_attr_e('Feature Products', 'flavours'); ?></h2>
-                <?php $link = get_term_link( (int) $flavours_Options['home_feature_products'][0], 'product_cat' ); ?>
+                <h2><?php echo $flavours_Options[$title]; ?></h2>
+                <?php $link = get_term_link( (int) $flavours_Options[$category][0], 'product_cat' ); ?>
             </div>
             <div class="category-products">
                 <div class="products-grid">
