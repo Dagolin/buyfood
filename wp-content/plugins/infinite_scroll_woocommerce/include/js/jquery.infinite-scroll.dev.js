@@ -278,7 +278,7 @@
 													$(pagination_selector).find(settings.selector_prev).replaceWith($new_pagination.find(settings.selector_prev));
 													 keywrapper.prepend(shop_loop.html()).fadeIn();
 												}else{
-													var $pagination_selector;
+													var $pagination_selector = $(pagination_selector);
 
 													$.each($(pagination_selector), function(key, val) {
 														if ($(val).find('#' + targetId).length > 0) {
