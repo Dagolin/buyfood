@@ -456,37 +456,167 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
 
                     array(
-                        'id' => 'enable_home_bestseller_products',
+                        'id' => 'enable_home_bestseller_products_1',
                         'type' => 'switch',
-                        'title' => esc_html__('Show Best Seller Products', 'flavours'),
+                        'title' => esc_html__('首頁橫式暢銷產品區 1', 'flavours'),
                         'subtitle' => esc_html__('You can show best seller products on home page.', 'flavours')
                     ),
 
                     array(
-                        'id'=>'home_bestseller_categories',
+                        'id'=>'home_bestseller_categories_1',
                         'type' => 'select',
                         'multi'=> true,
                         'data' => $cat_data,
                         'args' => $cat_arg,
-                        'title' => esc_html__('Best Seller Category', 'flavours'),
-                        'required' => array('enable_home_bestseller_products', '=', '1'),
-                        'subtitle' => esc_html__('Please choose Best Seller Category to show  its product in home page.', 'flavours'),
+                        'title' => esc_html__('暢銷產品類 1', 'flavours'),
+                        'required' => array('enable_home_bestseller_products_1', '=', '1'),
+                        'subtitle' => esc_html__('選擇首頁的橫式區塊產品類別 1', 'flavours'),
                         'desc' => '',
                     ),
                     array(
-                        'id' => 'bestseller_image',
-                        'type' => 'media',
-                        'required' => array('enable_home_bestseller_products', '=', '1'),
-                        'title' => esc_html__('Home bestseller image', 'flavours'),
-                        'desc' => esc_html__('', 'flavours'),
-                        'subtitle' => esc_html__('Upload bestseller image appear to the left of best seller on  home page ', 'flavours')
+                        'id' => 'bestseller_product_title_1',
+                        'type' => 'text',
+                        'required' => array('enable_home_bestseller_products_1', '=', '1'),
+                        'title' => esc_html__('暢銷產品類標題 1', 'flavours'),
+                        'subtitle' => esc_html__('標題', 'flavours'),
                     ),
                     array(
-                        'id' => 'bestseller_product_url',
+                        'id' => 'bestseller_image_1',
+                        'type' => 'media',
+                        'required' => array('enable_home_bestseller_products_1', '=', '1'),
+                        'title' => esc_html__('暢銷產品類示意圖 1', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('上傳示意圖，將出現在區塊左方', 'flavours')
+                    ),
+                    array(
+                        'id' => 'bestseller_product_url_1',
                         'type' => 'text',
-                        'required' => array('enable_home_bestseller_products', '=', '1'),
-                        'title' => esc_html__('Home Best seller   Url', 'flavours'),
-                        'subtitle' => esc_html__('Home Best seller  Url.', 'flavours'),
+                        'required' => array('enable_home_bestseller_products_1', '=', '1'),
+                        'title' => esc_html__('示意圖超連結 1', 'flavours'),
+                        'subtitle' => esc_html__('示意圖的超連結', 'flavours'),
+                    ),
+                    array(
+                        'id' => 'enable_home_bestseller_products_2',
+                        'type' => 'switch',
+                        'title' => esc_html__('首頁橫式暢銷產品區 2', 'flavours'),
+                        'subtitle' => esc_html__('You can show best seller products on home page.', 'flavours')
+                    ),
+
+
+                    array(
+                        'id'=>'home_bestseller_categories_2',
+                        'type' => 'select',
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('暢銷產品類 2', 'flavours'),
+                        'required' => array('enable_home_bestseller_products_2', '=', '1'),
+                        'subtitle' => esc_html__('選擇首頁的橫式區塊產品類別 2', 'flavours'),
+                        'desc' => '',
+                    ),
+                    array(
+                        'id' => 'bestseller_product_title_2',
+                        'type' => 'text',
+                        'required' => array('enable_home_bestseller_products_2', '=', '1'),
+                        'title' => esc_html__('暢銷產品類標題 2', 'flavours'),
+                        'subtitle' => esc_html__('標題', 'flavours'),
+                    ),
+                    array(
+                        'id' => 'bestseller_image_2',
+                        'type' => 'media',
+                        'required' => array('enable_home_bestseller_products_2', '=', '1'),
+                        'title' => esc_html__('暢銷產品類示意圖 2', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('上傳示意圖，將出現在區塊左方', 'flavours')
+                    ),
+                    array(
+                        'id' => 'bestseller_product_url_2',
+                        'type' => 'text',
+                        'required' => array('enable_home_bestseller_products_2', '=', '1'),
+                        'title' => esc_html__('示意圖超連結 2', 'flavours'),
+                        'subtitle' => esc_html__('示意圖的超連結', 'flavours'),
+                    ),
+
+                    array(
+                        'id' => 'enable_home_bestseller_products_3',
+                        'type' => 'switch',
+                        'title' => esc_html__('首頁橫式暢銷產品區 3', 'flavours'),
+                        'subtitle' => esc_html__('You can show best seller products on home page.', 'flavours')
+                    ),
+
+                    array(
+                        'id'=>'home_bestseller_categories_3',
+                        'type' => 'select',
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('暢銷產品類 3', 'flavours'),
+                        'required' => array('enable_home_bestseller_products_3', '=', '1'),
+                        'subtitle' => esc_html__('選擇首頁的橫式區塊產品類別 3', 'flavours'),
+                        'desc' => '',
+                    ),
+                    array(
+                        'id' => 'bestseller_product_title_3',
+                        'type' => 'text',
+                        'required' => array('enable_home_bestseller_products_3', '=', '1'),
+                        'title' => esc_html__('暢銷產品類標題 3', 'flavours'),
+                        'subtitle' => esc_html__('標題', 'flavours'),
+                    ),
+                    array(
+                        'id' => 'bestseller_image_3',
+                        'type' => 'media',
+                        'required' => array('enable_home_bestseller_products_3', '=', '1'),
+                        'title' => esc_html__('暢銷產品類示意圖 3', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('上傳示意圖，將出現在區塊左方', 'flavours')
+                    ),
+                    array(
+                        'id' => 'bestseller_product_url_3',
+                        'type' => 'text',
+                        'required' => array('enable_home_bestseller_products_3', '=', '1'),
+                        'title' => esc_html__('示意圖超連結 3', 'flavours'),
+                        'subtitle' => esc_html__('示意圖的超連結', 'flavours'),
+                    ),
+
+                    array(
+                        'id' => 'enable_home_bestseller_products_4',
+                        'type' => 'switch',
+                        'title' => esc_html__('首頁橫式暢銷產品區 4', 'flavours'),
+                        'subtitle' => esc_html__('You can show best seller products on home page.', 'flavours')
+                    ),
+
+                    array(
+                        'id'=>'home_bestseller_categories_4',
+                        'type' => 'select',
+                        'multi'=> true,
+                        'data' => $cat_data,
+                        'args' => $cat_arg,
+                        'title' => esc_html__('暢銷產品類 4', 'flavours'),
+                        'required' => array('enable_home_bestseller_products_4', '=', '1'),
+                        'subtitle' => esc_html__('選擇首頁的橫式區塊產品類別 4', 'flavours'),
+                        'desc' => '',
+                    ),
+                    array(
+                        'id' => 'bestseller_product_title_4',
+                        'type' => 'text',
+                        'required' => array('enable_home_bestseller_products_4', '=', '1'),
+                        'title' => esc_html__('暢銷產品類標題 4', 'flavours'),
+                        'subtitle' => esc_html__('標題', 'flavours'),
+                    ),
+                    array(
+                        'id' => 'bestseller_image_4',
+                        'type' => 'media',
+                        'required' => array('enable_home_bestseller_products_4', '=', '1'),
+                        'title' => esc_html__('暢銷產品類示意圖 4', 'flavours'),
+                        'desc' => esc_html__('', 'flavours'),
+                        'subtitle' => esc_html__('上傳示意圖，將出現在區塊左方', 'flavours')
+                    ),
+                    array(
+                        'id' => 'bestseller_product_url_4',
+                        'type' => 'text',
+                        'required' => array('enable_home_bestseller_products_4', '=', '1'),
+                        'title' => esc_html__('示意圖超連結 4', 'flavours'),
+                        'subtitle' => esc_html__('示意圖的超連結', 'flavours'),
                     ),
 
                     array(

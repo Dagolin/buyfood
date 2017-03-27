@@ -139,7 +139,7 @@ msgid "View products"
 msgstr ""
 
 msgid "Add to Cart"
-msgstr "加入購物車"
+msgstr "加入購物"
 
 msgid "Out of stock"
 msgstr ""

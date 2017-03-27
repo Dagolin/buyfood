@@ -7,8 +7,13 @@ global $flavours_Options;
 <?php tmFlavours_home_page_banner(); ?>
 <?php tmFlavours_home_offer_banners(); ?>
 <?php tmFlavours_category_product($flavours_Options['home-product-categories-limit']!='' ? esc_html($flavours_Options['home-product-categories-limit']) : 10);?>
-<?php tmFlavours_bestseller_products(); ?>
 <?php
+for ($i = 1; $i <= 4; $i++) {
+    if(isset($flavours_Options['enable_home_bestseller_products_' . $i]) && $flavours_Options['enable_home_bestseller_products_' . $i]) {
+        tmFlavours_bestseller_products($i);
+    }
+}
+
 for ($i = 1; $i <= 4; $i++) {
     if(isset($flavours_Options['enable_home_feature_products_' . $i]) && $flavours_Options['enable_home_feature_products_' . $i]) {
         tmFlavours_bestseller_products_customize('home_feature_products_' . $i, 'title_home_feature_products_' . $i);

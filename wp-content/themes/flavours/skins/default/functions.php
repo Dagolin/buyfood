@@ -584,21 +584,20 @@ if ( ! function_exists ( 'tmFlavours_bestseller_products_customize' ) ) {
     function tmFlavours_bestseller_products_customize($category, $title)
     {
         global $flavours_Options;
-        ?>
+        $link = get_term_link( (int) $flavours_Options[$category][0], 'product_cat' ); ?>
         <div class="best-pro slider-items-products container">
             <div class="new_title">
                 <h2><?php echo $flavours_Options[$title]; ?></h2>
-                <?php $link = get_term_link( (int) $flavours_Options[$category][0], 'product_cat' ); ?>
             </div>
             <div class="category-products">
                 <div class="products-grid">
-                    <ul class="infproducts">
+                    <ul id="inf_<?php echo $title; ?>" class="infproducts">
 
 
                     </ul>
 
                     <div class="woocommerce-pagination pager pages" style="display: none">
-                        <ul class="page-numbers">
+                        <ul class="page-numbers" id="<?php echo $title; ?>">
                             <li><span class="page-numbers current">0</span></li>
                             <li><a class="next page-numbers" href="<?php echo $link;?>page/1/from/1"><div class="page-separator-next">»</div></a></li>
                         </ul>
@@ -614,22 +613,22 @@ if ( ! function_exists ( 'tmFlavours_bestseller_products_customize' ) ) {
 
 // TODO : add meat category
 if ( ! function_exists ( 'tmFlavours_bestseller_products' ) ) {
-function tmFlavours_bestseller_products()
+function tmFlavours_bestseller_products($index)
 {
    global $flavours_Options;
 
-if (isset($flavours_Options['enable_home_bestseller_products']) && !empty($flavours_Options['enable_home_bestseller_products']) && !empty($flavours_Options['home_bestseller_categories'])) { 
+if (isset($flavours_Options['enable_home_bestseller_products_' . $index]) && !empty($flavours_Options['enable_home_bestseller_products_' . $index]) && !empty($flavours_Options['home_bestseller_categories_' . $index])) {
   ?>
 <div class="best-pro slider-items-products container">
   <div class="new_title">
-    <h2><?php esc_attr_e('Best Seller', 'flavours'); ?></h2>
+    <h2><?php echo $flavours_Options['bestseller_product_title_' . $index]; ?></h2>
   </div>  
   <?php  
-  if (isset($flavours_Options['bestseller_image']) && !empty($flavours_Options['bestseller_image']['url']))
+  if (isset($flavours_Options['bestseller_image_' . $index]) && !empty($flavours_Options['bestseller_image_' . $index]['url']))
  {?>
        <div class="bestseller-box">
-        <a href="<?php echo !empty($flavours_Options['bestseller_product_url']) ? esc_url($flavours_Options['bestseller_product_url']) : '#' ?>">
-         <img src="<?php echo esc_url($flavours_Options['bestseller_image']['url']); ?>" alt="<?php esc_attr_e('best seller', 'flavours'); ?>">
+        <a href="<?php echo !empty($flavours_Options['bestseller_product_url_' . $index]) ? esc_url($flavours_Options['bestseller_product_url_' . $index]) : '#' ?>">
+         <img style="width:250px" src="<?php echo esc_url($flavours_Options['bestseller_image_' . $index]['url']); ?>" alt="<?php esc_attr_e('best seller', 'flavours'); ?>">
        </a>
           </div>   
 <?php } ?>     
@@ -641,7 +640,7 @@ if (isset($flavours_Options['enable_home_bestseller_products']) && !empty($flavo
   
     <?php 
     $contentloop=1;
-  foreach($flavours_Options['home_bestseller_categories'] as $catcontent)
+  foreach($flavours_Options['home_bestseller_categories_' . $index] as $catcontent)
  {
    $term = get_term_by( 'id', $catcontent, 'product_cat', 'ARRAY_A' );
 

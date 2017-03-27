@@ -56,7 +56,7 @@ $classes = array();
 $class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';
 
 if ($fromIndex)
-    $class = 'item col-lg-3 col-md-3 col-sm-3 col-xs-4';
+    $class = 'item col-lg-3 col-md-3 col-sm-3 col-xs-6';
 
 if ( 0 === ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] || 1 === $woocommerce_loop['columns'] ) {
     //$class = 'item col-lg-4 col-md-4 col-sm-4 col-xs-6';

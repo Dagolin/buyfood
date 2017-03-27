@@ -99,7 +99,14 @@
 								// 	_self.products_loop(url, false, false);
 								// }
 								// else
-									_self.products_loop();
+
+								 $.each($(settings.selector_next), function(key, val) {
+									 var next_url = $(val).attr("href");
+									 var id = $(val).parent().parent().attr("id");
+									 _self.products_loop(next_url, id);
+								 });
+
+								 // _self.products_loop();
 							 }
 						}
 						if(history_support){
@@ -193,22 +200,25 @@
 					$pagination_links.bind("click", function(e){
 					e.preventDefault();
 					var link = $(this).attr("href");
-					_self.products_loop(link,false);
+					var id = $(this).parent().parent().attr("id");
+					_self.products_loop(link, id, false);
 					//return false;
 					});
 		},
 		/** 
 		* Function for getting page of products.
 		**/
-		products_loop: function (url,previous,change_hash){
+		products_loop: function (url, targetId, previous, change_hash){
+					var keywrapper = $wrapper;
 
 					if (typeof previous === 'undefined') { previous=false; }
 					if (typeof change_hash === 'undefined') { change_hash=true; }
 					//if no url specified
-					if (typeof url === 'undefined' || url==="") {
-						var url = previous?$(settings.selector_prev).attr("href"):$(settings.selector_next).attr("href"); 
-					}
 
+					if (typeof url === 'undefined' || url==="") {
+						var url = previous?$(settings.selector_prev).attr("href"):$(settings.selector_next).attr("href");
+						var targetId = previous?$(settings.selector_prev).parent().parent().attr("id"):$(settings.selector_next).parent().parent().attr("id");
+					}
 
 					if(previous){
 						flag_load_prev_part=true;
@@ -224,22 +234,35 @@
 
 						var preloader = '<div class="isw_preloader"><img src="'+settings.icon+'"/></div>';
 
-						if(previous){
-							$wrapper.prepend(preloader).fadeIn();	
-							if (masonry_support==="on" ){
-								$(".isw_preloader").css({"position":"absolute","top":0,"left":"0"});
+						$.each($wrapper, function (key, val){
+							var id = 'inf_' + targetId;
+							if ($(val).attr('id') == id) {
+								if(previous){
+									$(val).prepend(preloader).fadeIn();
+									if (masonry_support==="on" ){
+										$(".isw_preloader").css({"position":"absolute","top":0,"left":"0"});
+									}
+								}else{
+									$(val).append(preloader).fadeIn();
+									if (masonry_support==="on" ){
+										$(".isw_preloader").css({"position":"absolute","bottom":0,"left":"0"});
+									}
+								}
 							}
-						}else{
-							$wrapper.append(preloader).fadeIn();	
-							if (masonry_support==="on" ){
-								$(".isw_preloader").css({"position":"absolute","bottom":0,"left":"0"});
-							}
-						}
+						});
 
 						 jQuery.get(url , function(data) {
+
 									var $data = $(data);
 									var shop_loop = $data.find(settings.wrapper_products);
 									page_title = $data.filter('title').text();
+
+									 $.each($wrapper, function (key, val){
+										 var id = 'inf_' + targetId;
+										 if ($(val).attr('id') == id) {
+											 keywrapper = $(val);
+										 }
+									 });
 
 									if(shop_loop.length>0){	
 											new_class="new_item"+ (i++);
@@ -248,13 +271,23 @@
 											}
 
 											var $new_pagination = $data.find(pagination_selector);
+
+
 											if (!simple_ajax_method){
 												if(previous){
 													$(pagination_selector).find(settings.selector_prev).replaceWith($new_pagination.find(settings.selector_prev));
-													 $wrapper.prepend(shop_loop.html()).fadeIn();
+													 keywrapper.prepend(shop_loop.html()).fadeIn();
 												}else{
-													$(pagination_selector).find(settings.selector_next).replaceWith($new_pagination.find(settings.selector_next));
-													$wrapper.append(shop_loop.html()).fadeIn();
+													var $pagination_selector;
+
+													$.each($(pagination_selector), function(key, val) {
+														if ($(val).find('#' + targetId).length > 0) {
+															$pagination_selector = $(val);
+														}
+													});
+
+													$pagination_selector.find(settings.selector_next).replaceWith($new_pagination.find(settings.selector_next));
+													keywrapper.append(shop_loop.html()).fadeIn();
 
 													if ($('.grid-trigger').length > 0 && $('.grid-trigger').hasClass('button-active'))
 														$('.grid-trigger').click();
@@ -265,7 +298,7 @@
 												//$(pagination_selector).hide().html($new_pagination.html());
 											}else{
 												//simple ajax pagination
-												$wrapper.hide().html(shop_loop.html()).fadeIn();
+												keywrapper.hide().html(shop_loop.html()).fadeIn();
 												$(pagination_selector).html($new_pagination.html());
 											}
 											
@@ -309,17 +342,16 @@
 										}
 										$(".isw_preloader").remove();
 
-										
 										if (simple_ajax_method){
 											_self.bind_pagination_clicks();//bind again click for new pagination links
 											if (settings.animate_to_top==="on" ){
 												$('html, body').animate({ scrollTop: settings.pixels_from_top }, 500, 'swing');
 											}
 										}
-										
+
 										//if masonry support
 										if (settings.masonry_item_selector.length>0 && masonry_support==="on" ){
-											 var $block = $wrapper;
+											 var $block = keywrapper;
 											 $newElems= $("."+new_class);
 											 if(!simple_ajax_method){
 														$newElems.imagesLoaded(function(){
@@ -343,14 +375,13 @@
 										}
 										//t1 = performance.now();
 										//console.log('Took', (t1 - t0).toFixed(4), 'milliseconds to load next page results');
-
-										if (typeof isw_ajax_done == 'function') { 
+										if (typeof isw_ajax_done == 'function') {
 											isw_ajax_done(); 
 										}
 										$.event.trigger( "isw_ajax_done",[new_class] );
 								   }).fail(function() {
 										$(".isw_preloader,.isw_load_more_button_wrapper").remove();
-										$wrapper.hide().html(settings.error).fadeIn();
+							 				keywrapper.hide().html(settings.error).fadeIn();
 										if (typeof isw_ajax_fail == 'function') { 
 											  isw_ajax_fail(); 
 										}
@@ -398,8 +429,8 @@
 			var State = History.getState(); // Note: We are using History.getState() instead of event.state
 			//document.title = State.title;
 			if(simple_ajax_method && !flag_load_next_part){
-				link = document.location.href; 
-				_self.products_loop(link, false, false);
+				link = document.location.href;
+				_self.products_loop(link, '', false, false);
 			}
 		});	 
 	}
