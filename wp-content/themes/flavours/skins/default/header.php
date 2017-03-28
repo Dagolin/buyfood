@@ -26,7 +26,9 @@
 
             <div class="top-menu">          
                
-                  <a class="mobile-toggle"><i class="fa fa-reorder"></i></a>
+                  <a class="mobile-toggle"><i class="fa fa-reorder"></i>
+                      <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
+                  </a>
                  
                   <div class="tm-main-menu">
                      <div id="main-menu">
@@ -41,9 +43,12 @@
              if (isset($flavours_Options['enable_header_mobile_links']) && $flavours_Options['enable_header_mobile_links'] == 1) :
                  ?>
              <div class="dock-menu">
-                 <div id="dock-1"><a href="<?php echo $flavours_Options['header_mobile_link_url_1'];?>"><?php echo $flavours_Options['header_mobile_link_text_1'];?></a></div>
-                 <div id="dock-2"><a href="<?php echo $flavours_Options['header_mobile_link_url_2'];?>"><?php echo $flavours_Options['header_mobile_link_text_2'];?></a></div>
-                 <div id="dock-3"><a href="<?php echo $flavours_Options['header_mobile_link_url_3'];?>"><?php echo $flavours_Options['header_mobile_link_text_3'];?></a></div>
+                 <?php
+                 for ($i = 1; $i <= 4; $i++) {
+                     if (isset($flavours_Options['header_mobile_link_text_' . $i]) && $flavours_Options['header_mobile_link_url_' . $i]) {
+                 ?>
+                 <div id="dock-<?php echo $i;?>"><a href="<?php echo $flavours_Options['header_mobile_link_url_' . $i];?>"><?php echo $flavours_Options['header_mobile_link_text_' . $i];?></a></div>
+                 <?php }} ?>
              </div>
              <?php endif; ?>
              

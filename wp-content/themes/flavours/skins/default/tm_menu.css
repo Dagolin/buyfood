@@ -1274,7 +1274,7 @@ color: #444;
 }
 #header .mobile-toggle {
 	cursor: pointer;
-	width: 30px;
+	/*width: 30px;*/
 	height: 40px;
 	line-height: 30px;
 	text-align: center;

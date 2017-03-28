@@ -950,6 +950,24 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'subtitle' => '',
                         'default' => '',
                     ),
+
+                    array(
+                        'id' => 'header_mobile_link_text_4',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單文字4', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_url_4',
+                        'type' => 'text',
+                        'title' => esc_html__('手機快速選單連結4', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
                     /*array(
                         'id'       => 'enable_footer_middle',
                         'type'     => 'switch',                    
