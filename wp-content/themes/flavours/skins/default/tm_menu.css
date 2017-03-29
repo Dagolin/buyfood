@@ -1382,7 +1382,7 @@ html.menu-opened body {
 html.menu-opened body > * {
 	z-index: 0;
 }
-html.menu-opened body > #nav-panel {
+html.menu-opened body #nav-panel {
 	-webkit-transition: all 0.3s ease-in-out 0s;
 	-moz-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
