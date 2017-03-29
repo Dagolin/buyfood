@@ -14983,7 +14983,9 @@ font-weight:normal;
 
 /* 32. RESPONSIVE SCREEN */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
-
+	.products-grid .item .item-inner .item-info .info-inner .item-title {
+		width: 130px;
+	}
 	.category-products .products-grid li.item {
 		/*width: 100%;*/
 		/*float: none;*/
@@ -16162,6 +16164,9 @@ header {
 
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+	.products-grid .item .item-inner .item-info .info-inner .item-title {
+		width: 139px;
+	}
 	.wrapper-clockdate {
 		padding: 10px;
 	}
