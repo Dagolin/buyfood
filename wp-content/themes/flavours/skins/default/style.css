@@ -176,7 +176,6 @@ header {
 .header-container .top-menu {
 	display: block;
 	position: relative;
-	float: left;
 }
 
 .header-container .dock-menu {
@@ -17059,6 +17058,9 @@ footer .newsletter-row {
 
 }
 @media (min-width: 768px) and (max-width: 991px) {
+	.header-container .top-menu {
+		float: left;
+	}
 	.mobile-only {
 		display: none;
 	}
@@ -17838,6 +17840,9 @@ button.button.btn-proceed-checkout:before {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+	.header-container .top-menu {
+		float: left;
+	}
 	.mobile-only {
 		display: none;
 	}
@@ -18336,7 +18341,9 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1279px) {
-
+	 .header-container .top-menu {
+		 float: left;
+	 }
 	 .mobile-only {
 		 display: none;
 	 }
