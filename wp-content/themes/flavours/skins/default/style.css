@@ -7063,7 +7063,8 @@ li .list {
 	font-family: 'Open Sans', sans-serif;
 	margin-bottom: 15px;
 	margin-top: 10px;
-	color: #666
+	color: #666;
+	min-width: 700px;
 }
 .products-list .product-shop p {
 	font-size: 13px;
@@ -7099,7 +7100,7 @@ li .list {
 	font-family: 'FontAwesome';
 	font-size: 13px;
 	text-transform: uppercase;
-	margin-right: 8px;
+	/*margin-right: 8px;*/
 }
 .products-list .product-shop .btn-cart:before {
 	content: "\f07a";
@@ -7109,7 +7110,7 @@ li .list {
 .products-list .product-shop button.button span {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 11px;
-	padding: 0px 0 0 10px;
+	/*padding: 0px 0 0 10px;*/
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 0.5px
@@ -7991,7 +7992,6 @@ a.button.detail-bnt span {
 	padding: 8px 0px;
 	cursor: pointer;
 	color: #102343;
-	text-transform: none;
 	font-family: 'Open Sans', sans-serif;
 }
 #product-tabs > dt.open {

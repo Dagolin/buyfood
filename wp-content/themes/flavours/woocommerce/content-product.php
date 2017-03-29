@@ -96,21 +96,21 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                   <a title="<?php esc_attr_e('Quick View', 'flavours'); ?>" class="button detail-bnt yith-wcqv-button quickview" type="button" data-product_id="<?php echo esc_html($product->id); ?>"><span><?php esc_attr_e('Quick View', 'flavours'); ?></span></a>
                   <?php } ?>
                 </div>
-
-                 <!-- play video -->
-                 <?php
-                 $src= get_post_meta( $product->id, '_video_url', true );
-                 if (!empty($src)) :
-
-                 list( $video_type, $video_id ) = explode( ':', ywcfav_video_type_by_url( $src ) );
-
-                 if (!empty($video_id)) :
-                 ?>
-                 <a href="<?php echo $src;?>" target="_blank" class="play">
-                     <span></span>
-                 </a>
-                 <?php endif; ?>
-                 <?php endif; ?>
+<!---->
+<!--                 <!-- play video -->
+<!--                 --><?php
+//                 $src= get_post_meta( $product->id, '_video_url', true );
+//                 if (!empty($src)) :
+//
+//                 list( $video_type, $video_id ) = explode( ':', ywcfav_video_type_by_url( $src ) );
+//
+//                 if (!empty($video_id)) :
+//                 ?>
+<!--                 <a href="--><?php //echo $src;?><!--" target="_blank" class="play">-->
+<!--                     <span></span>-->
+<!--                 </a>-->
+<!--                 --><?php //endif; ?>
+<!--                 --><?php //endif; ?>
                  <!-- add to cart -->
                  <form class="hide" method="post" enctype="multipart/form-data" action="<?php echo the_permalink(); ?>" id="expressShopInf<?php echo esc_html($product->id); ?>">
                      <input type="hidden" name="quantity" value="1">
