@@ -1030,7 +1030,24 @@ jQuery(window).scroll(function() {
 */
 
 
+jQuery(document).ready(function () {
+	var totalH = jQuery('#header').offset().top;
+	jQuery(window).bind('scroll', function () {
+		var vPos = jQuery(window).scrollTop();
 
+		if (totalH < vPos) {
+			jQuery('#header').css({
+				'position': 'fixed',
+				'top': 0
+			})
+		} else {
+			jQuery('#header').css({
+				'position': 'relative',
+				'top': ''
+			})
+		}
+	});
+});
 
 
 
