@@ -212,7 +212,7 @@ jQuery("#nav li.level0.drop-menu li").mouseover(function(){
 }
 });				
 
-jQuery("#best-seller .slider-items").owlCarousel({
+jQuery(".best-seller .slider-items").owlCarousel({
 	items : 4, //10 items above 1000px browser width
 	itemsDesktop : [1024,4], //5 items between 1024px and 901px
 	itemsDesktopSmall : [900,3], // 3 items betweem 900px and 601px

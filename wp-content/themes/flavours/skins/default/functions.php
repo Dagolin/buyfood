@@ -635,7 +635,7 @@ if (isset($flavours_Options['enable_home_bestseller_products_' . $index]) && !em
       
 
   <!-- Tab panes -->
-<div id="best-seller" class="product-flexslider hidden-buttons">
+<div class="best-seller product-flexslider hidden-buttons">
     <div class="slider-items slider-width-col4 products-grid">  
   
     <?php 
