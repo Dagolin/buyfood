@@ -17057,7 +17057,7 @@ footer .newsletter-row {
 
 }
 @media (min-width: 768px) and (max-width: 991px) {
-	.product-flexslider {
+	.best-seller .product-flexslider {
 		margin-left: 305px;
 	}
 	.header-container .top-menu {
@@ -17842,7 +17842,7 @@ button.button.btn-proceed-checkout:before {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-	.product-flexslider {
+	.best-seller .product-flexslider {
 		margin-left: 305px;
 	}
 	.header-container .top-menu {
@@ -18346,7 +18346,7 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1279px) {
-	 .product-flexslider {
+	 .best-seller .product-flexslider {
 		 margin-left: 305px;
 	 }
 	 .header-container .top-menu {
