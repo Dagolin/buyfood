@@ -40,6 +40,7 @@ jQuery(document).ready(function($) {
             })
             .on('finish.countdown', function(event){
                 $(this).hide();
+                $('div#clockdate-full').hide();
             });
 
 		$('div#limit-block').show();
@@ -49,6 +50,7 @@ jQuery(document).ready(function($) {
 			})
 			.on('finish.countdown', function(event){
 				$(this).hide();
+                $('div#clockdate-full').hide();
 			});
 	}
 });
