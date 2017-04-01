@@ -1578,6 +1578,7 @@ ul.top-links1.mega-menu1 {
 }
 #header .mobile-toggle {
 	display: inline-block;
+	float: left;
 }
 #header .mobile-toggle {
 	/* left: 10px; */

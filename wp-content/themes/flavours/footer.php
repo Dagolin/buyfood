@@ -121,9 +121,9 @@ $limitOverlayTemplate = isset($flavours_Options['countdown_overlay_template']) ?
     <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'/>
 
     <a href="<?php echo $limitDates['path']; ?>">
-        <div id="clockdate-full">
+        <div class="clockdate-full desktop-only">
             <div class="wrapper-clockdate">
-                <div id="clock-large"></div>
+                <div class="clock-large"></div>
             </div>
         </div>
     </a>

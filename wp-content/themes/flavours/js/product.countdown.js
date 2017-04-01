@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
             $('div#clock').countdown($('#meta_end_date').val())
                 .on('update.countdown', function (event) {
                     $(this).html(event.strftime('截止時間： %I:%M:%S'));
-                    $('#clock-large').html(event.strftime('%I:%M:%S'));
+                    $('.clock-large').html(event.strftime('%I:%M:%S'));
                 })
                 .on('finish.countdown', function (event) {
                     $(this).hide();
@@ -30,17 +30,28 @@ jQuery(document).ready(function($) {
         }
 	}
 
-    $('div#clockdate-full').hide();
+    $('div.clockdate-full').hide();
+    $('div.clockdate-full-mobile').hide();
 
 	if ($('#product_start_date').val() !== ''){
-        $('div#clockdate-full').show();
-        $('div#clock-large').countdown($('#product_end_date').val())
+        $('div.clockdate-full').css('display', '');
+        $('div.clockdate-full-mobile').css('display', '');
+        $('div.clock-large').countdown($('#product_end_date').val())
             .on('update.countdown', function(event){
                 $(this).html(event.strftime('%I:%M:%S'));
             })
             .on('finish.countdown', function(event){
                 $(this).hide();
-                $('div#clockdate-full').hide();
+                $('div.clockdate-full').hide();
+            });
+
+        $('div.clock-large-mobile').countdown($('#product_end_date').val())
+            .on('update.countdown', function(event){
+                $(this).html(event.strftime('%I:%M:%S'));
+            })
+            .on('finish.countdown', function(event){
+                $(this).hide();
+                $('div.clockdate-full-mobile').hide();
             });
 
 		$('div#limit-block').show();
@@ -50,7 +61,8 @@ jQuery(document).ready(function($) {
 			})
 			.on('finish.countdown', function(event){
 				$(this).hide();
-                $('div#clockdate-full').hide();
+                $('div.clockdate-full').hide();
+                $('div.clockdate-full-mobile').hide();
 			});
 	}
 });

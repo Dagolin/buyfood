@@ -8,7 +8,8 @@
  <?php wp_head(); ?>
 </head>
 <?php
- $TmFlavours = new TmFlavours(); ?>
+ $TmFlavours = new TmFlavours();
+$limitDates = get_limit_product_list(); ?>
 <body <?php body_class('cms-index-index  cms-home-page'); ?> >
   <div id="page" class="page catalog-category-view">
 
@@ -24,18 +25,26 @@
             <!-- End Header Logo -->
           
 
-            <div class="top-menu">          
-               
-                  <a class="mobile-toggle"><i class="fa fa-reorder"></i>
-                      <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
-                  </a>
-                 
-                  <div class="tm-main-menu">
-                     <div id="main-menu">
-                        <?php echo tmFlavours_main_menu(); ?>                       
-                    
-                     </div>
-                     </div>
+            <div class="top-menu">
+
+                <a class="mobile-toggle"><i class="fa fa-reorder"></i>
+                    <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
+                </a>
+
+                <div class="tm-main-menu">
+                    <div id="main-menu">
+                        <?php echo tmFlavours_main_menu(); ?>
+
+                    </div>
+                </div>
+
+                <a href="<?php echo $limitDates['path']; ?>">
+                    <div class="clockdate-full-mobile mobile-only">
+                        <div class="wrapper-clockdate-mobile">
+                            <div class="clock-large-mobile"></div>
+                        </div>
+                    </div>
+                </a>
                
             </div>
              <?php
