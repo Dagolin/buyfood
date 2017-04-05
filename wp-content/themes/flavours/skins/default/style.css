@@ -847,11 +847,6 @@ nav {
 	width: 100%;
 	transition: all 0.5s;
 }
-.header-container {
-	transition: all 0.5s;
-	position: relative;
-	background: rgba(212, 122, 122, 0.6);
-}
 .nav-inner {
 	position: relative;
 }
