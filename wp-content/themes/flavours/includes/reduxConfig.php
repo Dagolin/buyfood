@@ -750,6 +750,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'subtitle' => esc_html__('時 %h 分 %m 秒 %s', 'flavours')
                     ),
 
+                    array(
+                        'id' => 'marketing_group_purchase_link',
+                        'type' => 'text',
+                        'title' => esc_html__('限時購物連結', 'flavours'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
                     // array(
                     //     'id' => 'enable_home_featured_products',
                     //     'type' => 'switch',
@@ -965,14 +973,6 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'type' => 'text',
                         'title' => esc_html__('手機快速選單連結4', 'flavours'),
                         'required' => array('enable_header_mobile_links', '=', '1'),
-                        'subtitle' => '',
-                        'default' => '',
-                    ),
-
-                    array(
-                        'id' => 'marketing_group_purchase_link',
-                        'type' => 'text',
-                        'title' => esc_html__('團購連結', 'flavours'),
                         'subtitle' => '',
                         'default' => '',
                     ),
