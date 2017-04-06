@@ -968,6 +968,15 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'subtitle' => '',
                         'default' => '',
                     ),
+
+                    array(
+                        'id' => 'marketing_group_purchase_link',
+                        'type' => 'text',
+                        'title' => esc_html__('團購連結', 'flavours'),
+                        'subtitle' => '',
+                        'default' => '',
+                    ),
+
                     /*array(
                         'id'       => 'enable_footer_middle',
                         'type'     => 'switch',                    

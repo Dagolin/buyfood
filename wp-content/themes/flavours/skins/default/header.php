@@ -8,6 +8,7 @@
  <?php wp_head(); ?>
 </head>
 <?php
+global $flavours_Options;
  $TmFlavours = new TmFlavours();
 $limitDates = get_limit_product_list(); ?>
 <body <?php body_class('cms-index-index  cms-home-page'); ?> >
@@ -38,7 +39,7 @@ $limitDates = get_limit_product_list(); ?>
                     </div>
                 </div>
 
-                <a href="<?php echo $limitDates['path']; ?>">
+                <a href="<?php echo $flavours_Options['marketing_group_purchase_link']; ?>">
                     <div class="clockdate-full-mobile mobile-only">
                         <div class="wrapper-clockdate-mobile">
                             <div class="clock-large-mobile"></div>
@@ -48,7 +49,7 @@ $limitDates = get_limit_product_list(); ?>
                
             </div>
              <?php
-             global $flavours_Options;
+
              if (isset($flavours_Options['enable_header_mobile_links']) && $flavours_Options['enable_header_mobile_links'] == 1) :
                  ?>
              <div class="dock-menu">
