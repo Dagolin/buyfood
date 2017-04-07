@@ -93,7 +93,11 @@ function tmFlavours_simple_product_link()
                  href='<?php echo esc_url($product->add_to_cart_url()); ?>'>
                   <span><?php echo esc_html($product->add_to_cart_text()); ?> </span>
               </a>
-          <?php }
+          <?php } else { ?>
+              <div class="single_add_to_cart_button add_to_cart_button  product_type_simple ajax_add_to_cart button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>'>
+                  <span>搶購截止</span>
+              </div>
+              <?php }
       } else {
           ?>
           <a class="single_add_to_cart_button add_to_cart_button  product_type_simple ajax_add_to_cart button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
