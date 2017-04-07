@@ -2519,4 +2519,16 @@ function download_order_csv_callback_big5() {
     wp_die(); // this is required to terminate immediately and return a proper response
 }
 
+
+// fix for woocommerce of w3 total cache on small screen
+add_filter( 'woocommerce_enqueue_styles', 'codeboxr_woocommerce_enqueue_styles' );
+if(!function_exists('codeboxr_woocommerce_enqueue_styles')){
+    function codeboxr_woocommerce_enqueue_styles($arr){
+
+        unset($arr['woocommerce-smallscreen']);
+
+        return $arr;
+    }
+}
+
 ?>
