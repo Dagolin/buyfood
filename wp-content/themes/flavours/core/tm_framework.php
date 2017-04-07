@@ -71,6 +71,8 @@ function tmFlavours_simple_product_link()
   global $product,$class;
   $product_type = $product->product_type;
   $product_id=$product->id;
+    $startDateTemp = get_post_meta($product_id, 'limit_start_date', true);
+    $endDateTemp = get_post_meta($product_id, 'limit_end_date', true);
   if($product->price=='')
   { ?>
 <a class="button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>'
@@ -79,11 +81,29 @@ function tmFlavours_simple_product_link()
     </a>
 <?php  }
   else{
+      if (!empty($startDateTemp) && !empty($endDateTemp) )
+      {
+          $now = time();
+          $startDateTime = strtotime($startDateTemp);
+          $endDateTime = strtotime($endDateTemp);
+          if ($now >= $startDateTime && $now <= $endDateTime)
+          {
+              ?>
+              <a class="single_add_to_cart_button add_to_cart_button  product_type_simple ajax_add_to_cart button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
+                 href='<?php echo esc_url($product->add_to_cart_url()); ?>'>
+                  <span><?php echo esc_html($product->add_to_cart_text()); ?> </span>
+              </a>
+          <?php }
+      } else {
+          ?>
+          <a class="single_add_to_cart_button add_to_cart_button  product_type_simple ajax_add_to_cart button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
+             href='<?php echo esc_url($product->add_to_cart_url()); ?>'>
+              <span><?php echo esc_html($product->add_to_cart_text()); ?> </span>
+          </a>
+      <?php
+      }
   ?>
-<a class="single_add_to_cart_button add_to_cart_button  product_type_simple ajax_add_to_cart button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
-      href='<?php echo esc_url($product->add_to_cart_url()); ?>'>
-    <span><?php echo esc_html($product->add_to_cart_text()); ?> </span>
-    </a>
+
 <?php
 }
 }
