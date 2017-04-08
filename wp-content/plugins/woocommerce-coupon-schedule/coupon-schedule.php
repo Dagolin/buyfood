@@ -79,7 +79,7 @@ class WooCommerceCouponSchedule {
 
 	function woocoupon_schedule_add_data_tab_validity( $coupon_data_tabs ) {
 		$coupon_data_tabs['woocoupon_schedule'] = array(
-			'label'		=> __( 'Schedule', 'woocoupon-schedule' ),
+			'label'		=> __( '有效時日', 'woocoupon-schedule' ),
 			'target'	=> 'woocoupon_schedule_data',
 			'class'		=> ''
 		); 
@@ -104,7 +104,7 @@ class WooCommerceCouponSchedule {
 		
 		woocommerce_wp_text_input( array(
 			'id' 				=> 'woocoupon_schedule_coupon_valid_from_date',
-			'label' 			=> __( 'Coupon valid from date', 'woocoupon-schedule' ),
+			'label' 			=> __( '優惠卷有效起始日', 'woocoupon-schedule' ),
 			'placeholder' 		=> _x( 'YYYY-MM-DD', 'placeholder', 'woocoupon-schedule' ),
 			'description' 		=> '',
 			'class' 			=> 'date-picker short',
@@ -114,7 +114,7 @@ class WooCommerceCouponSchedule {
 
 		woocommerce_wp_text_input( array(
 			'id' 				=> 'woocoupon_schedule_coupon_valid_from_time',
-			'label' 			=> __( 'Coupon valid from time', 'woocoupon-schedule' ),
+			'label' 			=> __( '優惠卷有效起始時', 'woocoupon-schedule' ),
 			'placeholder' 		=> _x( 'HH:MM', 'placeholder', 'woocoupon-schedule' ),
 			'description' 		=> '',
 			'class' 			=> 'short wcshe-timepicker',
@@ -124,7 +124,7 @@ class WooCommerceCouponSchedule {
 
 		woocommerce_wp_text_input( array(
 			'id' 				=> 'woocoupon_schedule_coupon_expires_on_date',
-			'label' 			=> __( 'Coupon expires on date', 'woocoupon-schedule' ),
+			'label' 			=> __( '優惠卷結束日', 'woocoupon-schedule' ),
 			'placeholder' 		=> _x( 'YYYY-MM-DD', 'placeholder', 'woocoupon-schedule' ),
 			'description' 		=> '',
 			'class' 			=> 'date-picker short',
@@ -134,7 +134,7 @@ class WooCommerceCouponSchedule {
 
 		woocommerce_wp_text_input( array(
 			'id' 				=> 'woocoupon_schedule_coupon_expires_on_time',
-			'label' 			=> __( 'Coupon expires on time', 'woocoupon-schedule' ),
+			'label' 			=> __( '優惠卷結束時', 'woocoupon-schedule' ),
 			'placeholder' 		=> _x( 'HH:MM', 'placeholder', 'woocoupon-schedule' ),
 			'description'	 	=> '',
 			'class' 			=> 'short wcshe-timepicker',
