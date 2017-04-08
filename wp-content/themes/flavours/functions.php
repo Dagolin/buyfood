@@ -2104,7 +2104,7 @@ function add_ordercsv_download_btn() {
 
     $parameters = $_GET;
 
-    $parameters['action'] = 'download_order_csv';
+    $parameters['action'] = 'download_order_csv2';
 
     $ajaxUrl .= http_build_query($parameters);
 
@@ -2112,7 +2112,7 @@ function add_ordercsv_download_btn() {
     $html .= '<a href="' . $ajaxUrl . '" download="黑貓訂單表.csv" class="button-primary" id="downloadOrderCSV" target="_blank">下載黑貓訂單表 CSV</a>';
 
 
-    $parameters['action'] = 'download_order_csv2';
+//    $parameters['action'] = 'download_order_csv2';
 
 //    $ajaxUrl = 'admin-ajax.php?';
 //    $ajaxUrl .= http_build_query($parameters);
@@ -2383,6 +2383,7 @@ function download_order_csv_callback() {
 
     $headers = [
         '訂單編號',
+        '推運單號',
         '姓名',
         '連絡電話',
         '收貨地址',
@@ -2399,9 +2400,10 @@ function download_order_csv_callback() {
         $order = new WC_Order($order_id);
 
         $address = $order->shipping_postcode . $order->shipping_state . $order->billing_city . $order->shipping_address_1;
-
+        $deliveryNumber = get_post_meta( $order_id, 'delivery_number', true );
         $line = [
             $order_id,
+            $deliveryNumber,
             $order->shipping_first_name,
             $order->billing_phone,
             $address,
@@ -2481,6 +2483,7 @@ function download_order_csv_callback_big5() {
 
     $headers = [
         '訂單編號',
+        '推運單號',
         '姓名',
         '連絡電話',
         '收貨地址',
@@ -2499,9 +2502,10 @@ function download_order_csv_callback_big5() {
         $order = new WC_Order($order_id);
 
         $address = $order->shipping_postcode . $order->shipping_state . $order->billing_city . $order->shipping_address_1;
-
+        $deliveryNumber = get_post_meta( $order_id, 'delivery_number', true );
         $line = [
             $order_id,
+            $deliveryNumber,
             $order->shipping_first_name,
             $order->billing_phone,
             $address,
