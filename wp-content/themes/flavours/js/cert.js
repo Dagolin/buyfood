@@ -6,6 +6,10 @@
  */
 
 jQuery(document).ready(function($) {
+	if ($('#twzipcode').twzipcode == undefined) {
+		return;
+	}
+
 	// zipcode
 	$('#twzipcode').twzipcode({
 		'countyName'   : 'billing_state_temp',   // 預設值為 county
