@@ -16164,8 +16164,13 @@ header {
 }
 
 .products-list .pimg {
-	width: 270px;
+	width: 144px;
 }
+
+.product-shop .desc {
+	display: none;
+}
+
 .latest-blog h3 {
 	margin-right: 0px;
 }
@@ -16213,9 +16218,14 @@ header {
 	#clock-large {
 		font-size: 15px;
 	}
-.products-list .pimg {
-	width: 270px;
-}
+	.products-list .pimg {
+		width: 144px;
+	}
+
+	.product-shop .desc {
+		display: none;
+	}
+	
 .header-container .top-menu {
     display: block;
     margin-top: 85px;
