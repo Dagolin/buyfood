@@ -4880,10 +4880,6 @@ height: 60px;
 	margin-top: 0px;
 }
 
-.best-pro .best-seller {
-	margin-left: 305px;
-}
-
 #featured-slider.product-flexslider {
 	margin: 0 -15px;
 }
@@ -17110,6 +17106,10 @@ footer .newsletter-row {
 
 }
 @media (min-width: 768px) and (max-width: 991px) {
+	.best-pro .best-seller {
+		margin-left: 305px;
+	}
+
 	.best-seller .product-flexslider {
 		margin-left: 305px;
 	}
@@ -17896,6 +17896,10 @@ button.button.btn-proceed-checkout:before {
 }
 @media (min-width: 992px) and (max-width: 1199px) {
 
+	.best-pro .best-seller {
+		margin-left: 305px;
+	}
+
 	.best-seller .product-flexslider {
 		margin-left: 305px;
 	}
@@ -18400,6 +18404,9 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1279px) {
+	 .best-pro .best-seller {
+		 margin-left: 305px;
+	 }
 
 	 .best-seller .product-flexslider {
 		 margin-left: 305px;
