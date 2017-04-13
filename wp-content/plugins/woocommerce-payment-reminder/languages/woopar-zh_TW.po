@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.10\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_TW\n"
+
+# woopar
+msgid "Payment reminder"
+msgstr "付款提醒"
+
+msgid ""
+"This is an email sent to the customer who finished their order but didnt pay "
+"for it."
+msgstr "這是發給完成訂單後尚未付款之客戶的電子郵件"
+
+msgid "Your order is still pending"
+msgstr "您的訂單還在等待處理中。"
+
+msgid ""
+"You put an order on {order_date}, you indicate youll pay it by "
+"{order_payment_method}, but we are still waiting for your payment !"
+msgstr ""
+"您於 {order_date} 完成了一筆訂單，並使用 {order_payment_method} 進行付款，不"
+"過我們尚未收到您的款項。"
+
+msgid "Sending reminder email (manual)"
+msgstr "發送付款提醒電子郵件 (手動)"
+
+msgid "Y-m-d"
+msgstr "Y年m月d日"
+
+msgid "at"
+msgstr ""
+
+msgid "H:i:s"
+msgstr ""
+
+msgid "Sending reminder email (automatic)"
+msgstr "發送付款提醒電子郵件 (自動)"
+
+msgid "Order status"
+msgstr "訂單狀態："
+
+msgid "Choose for which order statuses reminder applies."
+msgstr ""
+
+msgid "Automation"
+msgstr "自動功能"
+
+msgid "Configure automatic emails."
+msgstr "設定自動信件"
+
+msgid "Important note:"
+msgstr "備註"
+
+msgid ""
+"Automatic emails are independent from manual emails you might send. For "
+"example, if you set number of reminders to 3, the plugin will send 3 "
+"reminders automatically, no matter if you already sent some reminders "
+"manually."
+msgstr ""
+"自動信件與手動發送的提醒信無關，例如如果你把提醒數設為3，無論你已經手動送出多"
+"少提醒信，外掛都將自動送出三封提醒信。"
+
+msgid "Enable/Disable Automation"
+msgstr "啟用 / 停用 自動功能"
+
+msgid "Enable automatic email notification"
+msgstr "啟用自動信件通知"
+
+msgid "Send first reminder after ... days"
+msgstr "... 天後送出第一封提醒信"
+
+msgid "Number of days before sending reminder first time"
+msgstr "第一封提醒信的送出日"
+
+msgid "Then, send it every ... days"
+msgstr "然後, 每隔 ...  天發送"
+
+msgid "Number of days between each reminder"
+msgstr "每封提醒信的間隔日"
+
+msgid "Send maximum ... reminders"
+msgstr "總共送出 ... 提醒信"
+
+msgid ""
+"Total number of automatic reminders to send (if order still has one of the "
+"selected statuses)"
+msgstr ""
+
+msgid "At the end, change order status ?"
+msgstr "結束時切換訂單狀態？"
+
+msgid ""
+"Once all the reminders have been unsuccessfully sent, automatically change "
+"the status of the order (after waiting the same time as between two "
+"reminders)."
+msgstr "當最後一封提醒信送出後的間隔日後，自動功能會切換訂單狀態"
+
+msgid "Dont change status"
+msgstr "不切換狀態"
+
+msgid "Email settings"
+msgstr "電子郵件設定"
+
+msgid "Configure email that will be send."
+msgstr "選擇電子郵件的傳送格式。"
+
+msgid "Email content"
+msgstr "內容"
+
+msgid ""
+"Content of the message sent to customer. You may put these variables : "
+"{order_date}, {order_number}, {order_payment_method}, {first_name}, "
+"{payment_url}. <a target=\"_blank\" href=\"http://codecanyon.net/item/"
+"woocommerce-payment-reminder/6965773/faqs/24782\">Note on payment url</a>"
+msgstr ""
+
+msgid "Email bcc"
+msgstr "電子郵件密件副本："
+
+msgid "Enter an email address to be in bcc of the reminder emails. (Optional)"
+msgstr ""
+
+msgid "Configure"
+msgstr ""
+
+msgid "Send reminder"
+msgstr "寄出提醒信"
+
+msgid "Reminder sent."
+msgstr "提醒信已寄出"
+
+msgid "%s reminders sent."
+msgstr "己手動寄出 %s 封電子郵件通知"
+
+msgid "Reminder sent on"
+msgstr "提醒信已寄出"
+
+msgid ""
+"After %s unsuccessful automatic reminders, order status was automatically "
+"changed."
+msgstr "在 %s 失敗的自動提醒後，訂單狀態會自動切換"
