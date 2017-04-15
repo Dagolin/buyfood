@@ -9651,6 +9651,10 @@ button.subscribe:before {
 	padding: 8px 10px;
 	width: 40%!important;
 }
+
+.infproducts {
+	width: 100%;
+}
 /* 28.     Footer */	
 
 /*footer {
