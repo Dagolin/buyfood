@@ -7073,6 +7073,7 @@ li .list {
 .products-list .product-shop .price-box {
 	margin: 10px 0;
 	font-family: 'Montserrat', sans-serif;
+	min-height: 60px;
 }
 .products-list .desc .link-learn {
 	font-size: 14px;
@@ -16160,7 +16161,7 @@ header {
 }
 
 .products-list .pimg {
-	width: 40%;
+	width: 55%;
 }
 
 .product-shop .desc {
@@ -16215,7 +16216,7 @@ header {
 		font-size: 15px;
 	}
 	.products-list .pimg {
-		width: 40%;
+		width: 55%;
 	}
 
 	.product-shop .desc {
