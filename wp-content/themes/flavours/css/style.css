@@ -244,6 +244,10 @@ header {
 	font-size: 13px;
 	color: #999;
 }
+.infproducts {
+	width: 100%;
+}
+
 /* language &amp; currency */
 /*.menu_top{ display:table;}*/
 
