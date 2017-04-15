@@ -16160,7 +16160,7 @@ header {
 }
 
 .products-list .pimg {
-	width: 144px;
+	width: 40%;
 }
 
 .product-shop .desc {
@@ -16215,7 +16215,7 @@ header {
 		font-size: 15px;
 	}
 	.products-list .pimg {
-		width: 144px;
+		width: 40%;
 	}
 
 	.product-shop .desc {
