@@ -17110,13 +17110,8 @@ footer .newsletter-row {
 
 }
 @media (min-width: 768px) and (max-width: 991px) {
-	.best-pro .best-seller {
-		margin-left: 305px;
-	}
+	.bestseller-box {display:none}
 
-	.best-seller .product-flexslider {
-		margin-left: 305px;
-	}
 	.header-container .top-menu {
 		float: left;
 	}
