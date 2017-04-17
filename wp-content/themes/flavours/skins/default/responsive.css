@@ -623,7 +623,7 @@ top40%
 	display: none;
 }
 .products-list .product-shop {
-	width: 45%;
+	width: 50%;
 	padding-left: 15px;
 }
 .col-left .block-cart .block-content ul li .product-details {
@@ -1204,7 +1204,7 @@ top40%
 	margin-right: 5px;
 }
 .products-list .product-image {
-	width: 30%;
+	width: auto;
 }
 .footer-bottom .company-links li {
 	float: left;
@@ -1451,7 +1451,7 @@ footer .newsletter-row .col1 {text-align:left; margin-top:15px}
 	width: 80%;
 }
 .products-list .product-shop {
-	width: 45%;
+	width: 50%;
 	padding-left: 15px;
 }
 .col-left .block-cart .block-content ul li .product-details {
@@ -2279,7 +2279,7 @@ ol#compare-items li a.product-name {
 	margin: 0px 0px 25px 0px;
 }
 .products-list .product-shop {
-	width: 45%;
+	width: 50%;
 	padding-left: 15px;
 }
 .products-list .product-image {
