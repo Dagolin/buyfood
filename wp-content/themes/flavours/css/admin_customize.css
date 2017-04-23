@@ -1,3 +1,30 @@
+.widefat .column-order_title {
+    width: 10%!important;
+}
+table.wp-list-table .column-order_items {
+    width: 8%!important;
+}
+
+.widefat .column-order_actions {
+    width: 7%!important;
+}
+
+.column-shipping_address {
+    width: 12%;
+}
+
+.column-billing_address {
+    width: 12%;
+}
+
+.column-shipping_state {
+    width: 5%;
+}
+
+.column-shipping_city {
+    width: 5%;
+}
+
 .file-upload {
     margin-left: 5px;
     display:block;
