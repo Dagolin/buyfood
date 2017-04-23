@@ -1,5 +1,5 @@
 .widefat .column-order_title {
-    width: 10%!important;
+    width: 12%!important;
 }
 table.wp-list-table .column-order_items {
     width: 8%!important;
@@ -23,6 +23,10 @@ table.wp-list-table .column-order_items {
 
 .column-shipping_city {
     width: 5%;
+}
+
+.widefat .column-order_date, .widefat .column-order_total {
+    width: 7%;
 }
 
 .file-upload {
