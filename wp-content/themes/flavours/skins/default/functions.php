@@ -628,7 +628,7 @@ if (isset($flavours_Options['enable_home_bestseller_products_' . $index]) && !em
  {?>
        <div class="bestseller-box">
         <a href="<?php echo !empty($flavours_Options['bestseller_product_url_' . $index]) ? esc_url($flavours_Options['bestseller_product_url_' . $index]) : '#' ?>">
-         <img style="width:98%" src="<?php echo esc_url($flavours_Options['bestseller_image_' . $index]['url']); ?>" alt="<?php esc_attr_e('best seller', 'flavours'); ?>">
+         <img src="<?php echo esc_url($flavours_Options['bestseller_image_' . $index]['url']); ?>" alt="<?php esc_attr_e('best seller', 'flavours'); ?>">
        </a>
           </div>   
 <?php } ?>     
