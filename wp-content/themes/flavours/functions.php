@@ -50,8 +50,8 @@ class TmFlavours {
     add_action('add_meta_boxes', array($this,'tmFlavours_reg_post_meta_box'));
     add_action('save_post',array($this, 'tmFlavours_save_post_layout_meta_box_values'));
 
-      // Display 24 products per page. Goes in functions.php
-      add_filter('loop_shop_per_page', create_function('$cols', 'return 3;'), 20);
+      // Display 12 products per page. Goes in functions.php
+      add_filter('loop_shop_per_page', create_function('$cols', 'return 12;'), 20);
 
       // Add phone number field in checkout shipping
       // Add cert field in checkout

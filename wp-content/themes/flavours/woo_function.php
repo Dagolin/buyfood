@@ -19,7 +19,7 @@
     
     add_action('woocommerce_proceed_to_checkout', 'tmFlavours_woocommerce_button_proceed_to_checkout');
     add_action('init','tmFlavours_woocommerce_clear_cart_url');
-     add_action('tmFlavours_single_product_pagination', 'tmFlavours_single_product_prev_next');
+//     add_action('tmFlavours_single_product_pagination', 'tmFlavours_single_product_prev_next');
     add_filter('woocommerce_breadcrumb_defaults','tmFlavours_woocommerce_breadcrumbs');
 
     add_filter('add_to_cart_fragments', 'tmFlavours_woocommerce_header_add_to_cart_fragment');
