@@ -18407,8 +18407,8 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1120px) {
-	 .bestseller-box {
-		 height: 85%;
+	 .bestseller-box a img{
+		 width: 78%;
 	 }
 	 .best-pro .best-seller {
 		 margin-left: 305px;
