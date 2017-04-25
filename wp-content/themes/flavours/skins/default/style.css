@@ -17893,7 +17893,7 @@ button.button.btn-proceed-checkout:before {
 	padding-top: 30px;
 }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1119px) {
 	.bestseller-box a img{
 		width: 78%;
 	}
