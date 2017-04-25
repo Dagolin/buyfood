@@ -18402,7 +18402,7 @@ ol#compare-items li a.product-name {
 	right: 68px;
 }
 }
- @media (min-width: 1279px) {
+ @media (min-width: 1120px) {
 	 .best-pro .best-seller {
 		 margin-left: 305px;
 	 }
