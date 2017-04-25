@@ -17894,6 +17894,9 @@ button.button.btn-proceed-checkout:before {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+	.bestseller-box a img{
+		width: 78%;
+	}
 
 	.bestseller-box {
 		height: 85%;
@@ -18408,7 +18411,7 @@ ol#compare-items li a.product-name {
 }
  @media (min-width: 1120px) {
 	 .bestseller-box a img{
-		 width: 78%;
+		 width: 95%;
 	 }
 	 .best-pro .best-seller {
 		 margin-left: 305px;
