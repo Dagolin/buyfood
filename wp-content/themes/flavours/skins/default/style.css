@@ -4127,6 +4127,8 @@ text-transform: uppercase
 
 
 .featured-pro .pro-img img {
+    object-fit: cover;
+    object-position: center;
   position: relative;
   border-radius: 150px;
   width: 120px;
