@@ -743,6 +743,17 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     ),
 
                     array(
+                        'id' => 'marketing_group_purchase_bg_color',
+                        'type' => 'color',
+                        'title' => esc_html__('限時購物浮動視窗背景色', 'flavours'),
+                        'subtitle' => '',
+                        'validate' => 'color',
+                        'transparent' => true,
+                        'mode' => 'background',
+                        'output' => array('.clock-large-bg')
+                    ),
+
+                    array(
                         'id' => 'countdown_overlay_template',
                         'type' => 'text',
                         'required' => array('enable_home_countdown_overlay', '=', '1'),
