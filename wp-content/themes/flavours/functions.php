@@ -2117,9 +2117,11 @@ function add_ordercsv_download_btn() {
 //    $ajaxUrl = 'admin-ajax.php?';
 //    $ajaxUrl .= http_build_query($parameters);
     //$html .= '<a href="' . $ajaxUrl . '" download="黑貓訂單表.csv" class="button-primary" id="downloadOrderCSV" target="_blank">下載黑貓訂單表 CSV BOM</a>';
-    $html .= '<form action="" method="POST" class="" enctype="multipart/form-data">';
+    $html .= '';
     $html .= '<div id="order_csv_upload_button" class="file-upload button-primary" style="margin-left: 5px;">
+<form action="" method="POST" class="" enctype="multipart/form-data">
 <input type="file" id="order_csv_upload_input" style="opacity:0;" />
+</form>
 <span class="order_csv_upload_text">上傳黑貓配送單</span>
 </div>';
 
@@ -2130,7 +2132,7 @@ function add_ordercsv_download_btn() {
 //    $ajaxUrl .= http_build_query($parameters);
     //$html .= '<a href="' . $ajaxUrl . '" download="黑貓配送單.csv" class="button-primary" id="downloadOrderCSV" target="_blank">下載黑貓配送單 CSV</a>';
     //$html .= '<a href="/wp-content/uploads/deliver_example.csv" download="黑貓配送單.csv" class="button-primary" id="downloadOrderCSV" target="_blank" style="margin-left: 5px;">下載配送單範例</a>';
-    $html .= '</form>';
+    $html .= '';
     $html .= '</div>';
 
     echo $html;
