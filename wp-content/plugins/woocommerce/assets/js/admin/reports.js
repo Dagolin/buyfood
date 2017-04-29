@@ -137,7 +137,7 @@ jQuery(function( $ ) {
 		var xaxes_label   = $( this ).data( 'xaxes' );
 		var groupby       = $( this ) .data( 'groupby' );
 		var export_format = $( this ).data( 'export' );
-		var csv_data      = 'data:application/csv;charset=utf-8,';
+		var csv_data      = 'data:application/csv;charset=big-5,';
 		var s, series_data, d;
 
 		if ( 'table' === export_format ) {
