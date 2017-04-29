@@ -815,9 +815,7 @@ function spgateway_gateway_init() {
             unset($_SESSION['order_awaiting_payment']);
 
             // Empty shopping cart for once
-            if ( is_front_page()) {
-                $woocommerce->cart->empty_cart();
-            }
+            $woocommerce->cart->empty_cart();
 
             //$this->receipt_page($order_id);
             return array(
