@@ -926,6 +926,17 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     ),
 
                     array(
+                        'id' => 'header_mobile_link_color_1',
+                        'type' => 'color',
+                        'validate' => 'color',
+                        'transparent' => false,
+                        'mode' => 'background',
+                        'output' => array('.dock-1'),
+                        'title' => esc_html__('手機快速選單顏色1', 'flavours'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                    ),
+
+                    array(
                         'id' => 'header_mobile_link_url_1',
                         'type' => 'text',
                         'title' => esc_html__('手機快速選單連結1', 'flavours'),
@@ -941,6 +952,17 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array('enable_header_mobile_links', '=', '1'),
                         'subtitle' => '',
                         'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_color_2',
+                        'type' => 'color',
+                        'validate' => 'color',
+                        'transparent' => false,
+                        'mode' => 'background',
+                        'output' => array('.dock-2'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'title' => esc_html__('手機快速選單顏色2', 'flavours'),
                     ),
 
                     array(
@@ -962,6 +984,17 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     ),
 
                     array(
+                        'id' => 'header_mobile_link_color_3',
+                        'type' => 'color',
+                        'validate' => 'color',
+                        'transparent' => false,
+                        'mode' => 'background',
+                        'output' => array('.dock-3'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'title' => esc_html__('手機快速選單顏色3', 'flavours'),
+                    ),
+
+                    array(
                         'id' => 'header_mobile_link_url_3',
                         'type' => 'text',
                         'title' => esc_html__('手機快速選單連結3', 'flavours'),
@@ -977,6 +1010,17 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array('enable_header_mobile_links', '=', '1'),
                         'subtitle' => '',
                         'default' => '',
+                    ),
+
+                    array(
+                        'id' => 'header_mobile_link_color_4',
+                        'type' => 'color',
+                        'validate' => 'color',
+                        'transparent' => false,
+                        'mode' => 'background',
+                        'output' => array('.dock-4'),
+                        'required' => array('enable_header_mobile_links', '=', '1'),
+                        'title' => esc_html__('手機快速選單顏色4', 'flavours'),
                     ),
 
                     array(

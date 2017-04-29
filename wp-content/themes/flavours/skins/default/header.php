@@ -57,7 +57,7 @@ $limitDates = get_limit_product_list(); ?>
                  for ($i = 1; $i <= 4; $i++) {
                      if (isset($flavours_Options['header_mobile_link_text_' . $i]) && $flavours_Options['header_mobile_link_url_' . $i]) {
                  ?>
-                 <div id="dock-<?php echo $i;?>"><a href="<?php echo $flavours_Options['header_mobile_link_url_' . $i];?>"><?php echo $flavours_Options['header_mobile_link_text_' . $i];?></a></div>
+                 <div id="dock-<?php echo $i;?>" class="dock-<?php echo $i;?>"><a href="<?php echo $flavours_Options['header_mobile_link_url_' . $i];?>"><?php echo $flavours_Options['header_mobile_link_text_' . $i];?></a></div>
                  <?php }} ?>
              </div>
              <?php endif; ?>
