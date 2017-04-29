@@ -12601,15 +12601,13 @@ select#shipping-address-select {
 	background-image: url(../../images/category-bg.jpg)
 }*/
 .page-heading {
-	padding: 180px 0 60px;
+	padding: 120px 0 60px 0;
 	background-size: cover;
 	border-bottom: none;
 	text-align: center;
 	background-repeat: no-repeat;
-	overflow: inherit;
 	background-image: url(../../../../uploads/2016/12/category-bg.jpg);
-	background-position: top;
-	margin-top: -125px;
+	margin-top: -85px;
 }
 .tax-product_cat .page-heading {
 padding: 120px 0 60px 0;
