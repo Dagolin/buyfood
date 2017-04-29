@@ -816,6 +816,7 @@ function spgateway_gateway_init() {
 
             // Empty shopping cart for once
             $woocommerce->cart->empty_cart();
+            
 
             //$this->receipt_page($order_id);
             return array(
