@@ -12344,7 +12344,7 @@ select#shipping-address-select {
 	box-shadow: inset 0 -75px 0 0 #202020;
 }
 .click-nav .clicker:before {
-	content: '\f0c9';
+	content: '\f007';
 	font-family: FontAwesome;
 	font-size: 24px;
 	padding-left: 4px;
