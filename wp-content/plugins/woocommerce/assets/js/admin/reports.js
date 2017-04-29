@@ -137,7 +137,8 @@ jQuery(function( $ ) {
 		var xaxes_label   = $( this ).data( 'xaxes' );
 		var groupby       = $( this ) .data( 'groupby' );
 		var export_format = $( this ).data( 'export' );
-		var csv_data      = 'data:application/csv;charset=big-5,';
+		var csv_data_header = 'data:application/csv;charset=utf-8,%EF%BB%BF';
+		var csv_data      = '';
 		var s, series_data, d;
 
 		if ( 'table' === export_format ) {
@@ -239,7 +240,7 @@ jQuery(function( $ ) {
 		}
 
 		// Set data as href and return
-		$( this ).attr( 'href', encodeURI( csv_data ) );
+		$( this ).attr( 'href', csv_data_header + encodeURI( csv_data ) );
 		return true;
 	});
 });
