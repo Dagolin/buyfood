@@ -23,11 +23,21 @@ jQuery(document).ready(function($) {
 		'zipcodeName'  : 'shipping_postcode_temp'   // 預設值為 zipcode
 	});
 
+	var oldstate = $('#billing_state_field > #billing_state').val();
+	$('#billing_state_field > #billing_state').replaceWith($('select[name=billing_state_temp]'));
+	$('select[name=billing_state_temp]').attr('name', 'billing_state');
+
+	if (oldstate != null && oldstate != '') {
+		$('select[name=billing_state]').val(oldstate);
+	}
+
+	var oldcity = $('#billing_city_field > #billing_city').val();
 	$('#billing_city_field > #billing_city').replaceWith($('select[name=billing_city_temp]'));
 	$('select[name=billing_city_temp]').attr('name', 'billing_city');
 
-	$('#billing_state_field > #billing_state').replaceWith($('select[name=billing_state_temp]'));
-	$('select[name=billing_state_temp]').attr('name', 'billing_state');
+	if (oldcity != null && oldcity != '') {
+		$('select[name=billing_city]').val(oldcity);
+	}
 
 	$('#billing_postcode_field > #billing_postcode').replaceWith($('input[name=billing_postcode_temp]'));
 	$('input[name=billing_postcode_temp]').attr('name', 'billing_postcode');
