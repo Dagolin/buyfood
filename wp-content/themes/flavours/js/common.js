@@ -1039,12 +1039,20 @@ jQuery(document).ready(function () {
 			jQuery('#header').css({
 				'position': 'fixed',
 				'top': 0
-			})
+			});
+
+			jQuery('#thm-mart-slideshow').css({
+				'margin-top' : '200px'
+			});
 		} else {
 			jQuery('#header').css({
 				'position': 'relative',
 				'top': ''
-			})
+			});
+
+			jQuery('#thm-mart-slideshow').css({
+				'margin-top' : 0
+			});
 		}
 	});
 });
