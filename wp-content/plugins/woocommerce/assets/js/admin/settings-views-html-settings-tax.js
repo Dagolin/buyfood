@@ -302,7 +302,7 @@
 					event.data.view.updateUrl();
 				},
 				onExport: function( event ) {
-					var csv_data = 'data:application/csv;charset=utf-8,' + data.strings.csv_data_cols.join(',') + '\n';
+					var csv_data = 'data:application/csv;charset=big-5,' + data.strings.csv_data_cols.join(',') + '\n';
 
 					$.each( event.data.view.model.getFilteredRates(), function( id, rowData ) {
 						var row = '';
