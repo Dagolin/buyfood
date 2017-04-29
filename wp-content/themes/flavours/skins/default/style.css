@@ -12608,6 +12608,7 @@ select#shipping-address-select {
 	background-repeat: no-repeat;
 	background-image: url(../../../../uploads/2016/12/category-bg.jpg);
 	margin-top: -85px;
+	background-position: top;
 }
 .tax-product_cat .page-heading {
 padding: 120px 0 60px 0;
