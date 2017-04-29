@@ -1967,6 +1967,7 @@ add_action( 'wp_enqueue_scripts', 'ajax_cert_enqueue_scripts' );
 function ajax_cert_enqueue_scripts() {
 
     wp_enqueue_script( 'cert', get_template_directory_uri() . '/js/cert.js', array('jquery'), '1.0', true );
+    wp_enqueue_script( 'login_enhance', get_template_directory_uri() . '/js/login_enhance.js', array('jquery'), '1.0', true );
 
     wp_localize_script( 'cert', 'cert', array(
         'ajax_url' => admin_url( 'admin-ajax.php' )
