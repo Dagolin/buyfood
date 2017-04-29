@@ -27,16 +27,16 @@ jQuery(document).ready(function($) {
 	$('#billing_state_field > #billing_state').replaceWith($('select[name=billing_state_temp]'));
 	$('select[name=billing_state_temp]').attr('name', 'billing_state');
 
-	if (oldstate != null && oldstate != '') {
-		$('select[name=billing_state]').val(oldstate).change();
-	}
-
 	var oldcity = $('#billing_city_field > #billing_city').val();
 	$('#billing_city_field > #billing_city').replaceWith($('select[name=billing_city_temp]'));
 	$('select[name=billing_city_temp]').attr('name', 'billing_city');
 
-	if (oldcity != null && oldcity != '') {
-		$('select[name=billing_city]').val(oldcity);
+	if (oldstate != null && oldstate != '') {
+		$('select[name=billing_state]').val(oldstate).change();
+
+		if (oldcity != null && oldcity != '') {
+			$('select[name=billing_city]').val(oldcity);
+		}
 	}
 
 	$('#billing_postcode_field > #billing_postcode').replaceWith($('input[name=billing_postcode_temp]'));
