@@ -1041,18 +1041,22 @@ jQuery(document).ready(function () {
 				'top': 0
 			});
 
-			jQuery('#thm-mart-slideshow').css({
-				'margin-top' : '200px'
-			});
+            if (!window.matchMedia("(min-width: 400px)").matches) {
+                jQuery('#thm-mart-slideshow').css({
+                    'margin-top' : '200px'
+                });
+            }
 		} else {
 			jQuery('#header').css({
 				'position': 'relative',
 				'top': ''
 			});
-
-			jQuery('#thm-mart-slideshow').css({
-				'margin-top' : 0
-			});
+            
+            if (!window.matchMedia("(min-width: 400px)").matches) {
+                jQuery('#thm-mart-slideshow').css({
+                    'margin-top' : 0
+                });
+            }
 		}
 	});
 });
