@@ -34,7 +34,7 @@ switch ((int)$design) {
 
   <div class="page-heading">
     <div class="breadcrumbs">
-    <?php if ($tmFlavours_breadcrumb_status == 1) { ?>
+    <?php if ($tmFlavours_breadcrumb_status == 1 || !empty($TmFlavours->tmFlavours_breadcrumbs())) { ?>
         <div class="container">
         <div class="row">
         <div class="col-xs-12">
