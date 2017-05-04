@@ -31,14 +31,6 @@ $limitDates = get_limit_product_list(); ?>
                 <a class="mobile-toggle"><i class="fa fa-reorder"></i>
                     <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
                 </a>
-
-                <div class="tm-main-menu">
-                    <div id="main-menu">
-                        <?php echo tmFlavours_main_menu(); ?>
-
-                    </div>
-                </div>
-
                 <a href="<?php echo $flavours_Options['marketing_group_purchase_link']; ?>">
                     <div class="clockdate-full-mobile mobile-only">
                         <div class="wrapper-clockdate-mobile">
@@ -46,6 +38,12 @@ $limitDates = get_limit_product_list(); ?>
                         </div>
                     </div>
                 </a>
+                <div class="tm-main-menu">
+                    <div id="main-menu">
+                        <?php echo tmFlavours_main_menu(); ?>
+
+                    </div>
+                </div>
                
             </div>
              <?php

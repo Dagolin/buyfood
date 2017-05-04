@@ -18419,6 +18419,7 @@ ol#compare-items li a.product-name {
 
 	 .bestseller-box a img{
 		 width: 95%;
+		 max-width: 230px;
 	 }
 	 .best-pro .best-seller {
 		 margin-left: 305px;
