@@ -137,7 +137,7 @@ legend {
 .add_cart a.btn-cart.added:after, .add_cart a.btn-cart.added:after {
     font-family: WooCommerce;
     content: "\e017";
-    margin-left: .53em;  
+    margin-right: .53em;
 }
 .add_cart a.btn-cart.loading{opacity:.9;}
 .add_cart a.btn-cart.loading:after{font-family:WooCommerce;content:"\e01c";}
