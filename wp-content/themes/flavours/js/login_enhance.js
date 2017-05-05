@@ -11,9 +11,10 @@ jQuery(document).ready(function($) {
 		if (reload_flag) {
 			if($('.theChampFacebookLogin').css('display') == 'none') {
 				window.fbAsyncInit();
+			}else {
+				reload_flag = false;
 			}
 
-			reload_flag = false;
 		}
 	}, 5000);
 });
