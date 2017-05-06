@@ -72,6 +72,11 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                      ?>
              
             </a>
+                <?php if ($product->is_on_sale()) : ?>
+                    <div class="sale-label sale-top-left">
+                        <?php esc_attr_e('Sale', 'flavours'); ?>
+                    </div>
+                <?php endif; ?>
           </div>
         
          <div class="item-box-hover">
