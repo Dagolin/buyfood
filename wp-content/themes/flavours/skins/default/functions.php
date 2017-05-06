@@ -1031,6 +1031,11 @@ if (has_post_thumbnail())
           <img alt="<?php echo esc_html($post->post_title); ?>" src="<?php echo esc_url($imageUrl[0]); ?>">
           </figure>
            </a>
+          <?php if ($product->is_on_sale()) : ?>
+              <div class="sale-label sale-top-left">
+                  <?php esc_attr_e('Sale', 'flavours'); ?>
+              </div>
+          <?php endif; ?>
          <div class="item-box-hover">
             <div class="box-inner">
 
