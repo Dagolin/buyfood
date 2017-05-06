@@ -32,8 +32,8 @@ $limitDates = get_limit_product_list(); ?>
                     <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
                 </a>
                 <a href="<?php echo $flavours_Options['marketing_group_purchase_link']; ?>">
-                    <div class="clockdate-full-mobile mobile-only">
-                        <div class="wrapper-clockdate-mobile">
+                    <div class="clockdate-full-mobile mobile-only clock-large-bg">
+                        <div class="wrapper-clckdate-mobile">
                             <div class="clock-large-mobile"></div>
                         </div>
                     </div>
