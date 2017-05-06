@@ -448,16 +448,16 @@ class WC_Checkout {
 					if ( isset( $field['required'] ) && $field['required'] && ( ! isset( $this->posted[ $key ] ) || "" === $this->posted[ $key ] ) ) {
 						switch ( $fieldset_key ) {
 							case 'shipping' :
-								$field_label = sprintf( _x( 'Shipping %s', 'Shipping FIELDNAME', 'woocommerce' ), $field['label'] );
+								$field_label = sprintf( _x( ' %s', 'Shipping FIELDNAME', 'woocommerce' ), $field['label'] );
 							break;
 							case 'billing' :
-								$field_label = sprintf( _x( 'Billing %s', 'Billing FIELDNAME', 'woocommerce' ), $field['label'] );
+								$field_label = sprintf( _x( '%s', 'Billing FIELDNAME', 'woocommerce' ), $field['label'] );
 							break;
 							default :
 								$field_label = $field['label'];
 							break;
 						}
-						wc_add_notice( apply_filters( 'woocommerce_checkout_required_field_notice', sprintf( _x( '%s is a required field.', 'FIELDNAME is a required field.', 'woocommerce' ), '<strong>' . $field_label . '</strong>' ), $field_label ), 'error' );
+						wc_add_notice( apply_filters( 'woocommerce_checkout_required_field_notice', sprintf( _x( '%s 是必填欄位.', 'FIELDNAME is a required field.', 'woocommerce' ), '<strong>' . $field_label . '</strong>' ), $field_label ), 'error' );
 					}
 
 					if ( ! empty( $this->posted[ $key ] ) ) {
@@ -566,7 +566,7 @@ class WC_Checkout {
 				$shipping_country = WC()->customer->get_shipping_country();
 
 				if ( empty( $shipping_country ) ) {
-					wc_add_notice( __( 'Please enter an address to continue.', 'woocommerce' ), 'error' );
+					wc_add_notice( __( '請輸入地址以繼續.', 'woocommerce' ), 'error' );
 				} elseif ( ! in_array( WC()->customer->get_shipping_country(), array_keys( WC()->countries->get_shipping_countries() ) ) ) {
 					wc_add_notice( sprintf( __( 'Unfortunately <strong>we do not ship %s</strong>. Please enter an alternative shipping address.', 'woocommerce' ), WC()->countries->shipping_to_prefix() . ' ' . WC()->customer->get_shipping_country() ), 'error' );
 				}
@@ -577,7 +577,7 @@ class WC_Checkout {
 
 				foreach ( $packages as $i => $package ) {
 					if ( ! isset( $package['rates'][ $this->shipping_methods[ $i ] ] ) ) {
-						wc_add_notice( __( 'No shipping method has been selected. Please double check your address, or contact us if you need any help.', 'woocommerce' ), 'error' );
+						wc_add_notice( __( '沒有可用的運送方式. 請再重覆檢查你的地址是否正確. 或連絡我們以取得協助.', 'woocommerce' ), 'error' );
 						$this->shipping_methods[ $i ] = '';
 					}
 				}
@@ -589,7 +589,7 @@ class WC_Checkout {
 
 				if ( ! isset( $available_gateways[ $this->posted['payment_method'] ] ) ) {
 					$this->payment_method = '';
-					wc_add_notice( __( 'Invalid payment method.', 'woocommerce' ), 'error' );
+					wc_add_notice( __( '無付款方式.', 'woocommerce' ), 'error' );
 				} else {
 					$this->payment_method = $available_gateways[ $this->posted['payment_method'] ];
 					$this->payment_method->validate_fields();
