@@ -14,6 +14,12 @@ jQuery(document).ready(function($) {
 		changeCSVUrl('m', this.value);
 	});
 
+	$('#posts-filter').submit(function(event) {
+		$('[name^=post]:checkbox:checked').each(function(index, element) {
+			$('#posts-filter').append("<input type='hidden' name='post[]' value='" + $(element).val() + "'/>");
+		});
+	});
+
 	function changeCSVUrl(key, value) {
 		var url = $('#downloadOrderCSV').attr('href');
 
