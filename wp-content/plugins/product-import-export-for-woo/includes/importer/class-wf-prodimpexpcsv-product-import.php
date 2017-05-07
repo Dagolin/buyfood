@@ -504,7 +504,7 @@ class WF_ProdImpExpCsv_Product_Import extends WP_Importer {
 		    }
 		    fclose( $handle );
 		}
-		
+
 		$mapping_from_db  = get_option( 'wf_prod_csv_imp_exp_mapping');
 		$saved_mapping = null;
 		$saved_evaluation = null;
@@ -549,6 +549,7 @@ class WF_ProdImpExpCsv_Product_Import extends WP_Importer {
 		foreach ( $this->parsed_data as $key => &$item ) {
 
 			$product = $this->parser->parse_product( $item, $this->merge_empty_cells );
+
 			if ( ! is_wp_error( $product ) )
 				$this->process_product( $product );
 			else
@@ -715,6 +716,9 @@ class WF_ProdImpExpCsv_Product_Import extends WP_Importer {
 		foreach ($post as $key => $value) {
 			if (in_array($key, ['post_title', 'post_content', 'post_name'])) {
 				$post[$key] = iconv('big-5', 'utf-8', $value);
+				if (empty($post[$key])) {
+					$post[$key] = $value;
+				}
 			}
 		}
 
