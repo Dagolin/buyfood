@@ -2478,6 +2478,8 @@ function download_order_csv_callback_big5() {
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     header("Cache-Control: private", false);
     header("Content-type: text/csv; charset=UTF-8");
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename=黑貓訂單表.csv');
 
     // create a file pointer connected to the output stream
     $output = fopen('php://output', 'w');
