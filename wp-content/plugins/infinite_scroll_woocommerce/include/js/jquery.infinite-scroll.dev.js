@@ -45,10 +45,12 @@
 		flag_load_next_part		=	false,
 		history_support			= 	settings.enable_history==="on"?true:false,
 		t0,t1,
-		flag_load_prev_part		=	false ;	
+		flag_load_prev_part		=	false ;
+		flag_load_next_item		=	[] ;
 
 	 var pantrif_infinite_scroll = {
 		init: function(){
+			console.log('infinite init' + settings.wrapper_products);
 			 if($wrapper.length>0 && !simple_ajax_method){
 			   //we dont want pagination links
 				$(pagination_selector).hide();
@@ -73,7 +75,8 @@
 				 $(_self.element).scroll( function ( event ) {
 				   if($wrapper.length>0){
 						var inbottom= _self.isScrolledToBottom(settings.wrapper_products);
-						if(inbottom && !flag_load_next_part){ //if pagination is inview and the flag of load next part false
+
+						if(inbottom){ //if pagination is inview and the flag of load next part false
 							 if (settings.ajax_method==="method_load_more_button"){
 								var next_url = $(settings.selector_next).attr("href");
 								//check if there is next link
@@ -103,7 +106,11 @@
 								 $.each($(settings.selector_next), function(key, val) {
 									 var next_url = $(val).attr("href");
 									 var id = $(val).parent().parent().attr("id");
-									 _self.products_loop(next_url, id);
+
+									 if (flag_load_next_item[id] == undefined || !flag_load_next_item[id]){
+										 flag_load_next_item[id] = true;
+										 _self.products_loop(next_url, id);
+									 }
 								 });
 
 								 // _self.products_loop();
@@ -209,6 +216,7 @@
 		* Function for getting page of products.
 		**/
 		products_loop: function (url, targetId, previous, change_hash){
+
 					var keywrapper = $wrapper;
 
 					if (typeof previous === 'undefined') { previous=false; }
@@ -220,13 +228,15 @@
 						var targetId = previous?$(settings.selector_prev).parent().parent().attr("id"):$(settings.selector_next).parent().parent().attr("id");
 					}
 
-					if(previous){
-						flag_load_prev_part=true;
-					}else{
-						flag_load_next_part=true;//make it true in order to run only once this function on scroll
-					}
 
-					if(typeof url != 'undefined'){//check if url has been set
+			if(previous){
+				flag_load_prev_part=true;
+			}else{
+				flag_load_next_part=true;//make it true in order to run only once this function on scroll
+				flag_load_next_item[targetId] = true;
+			}
+
+			if(typeof url != 'undefined'){//check if url has been set
 						if (typeof isw_before_ajax == 'function') {
 						  isw_before_ajax();
 						}
@@ -251,6 +261,7 @@
 							}
 						});
 
+				console.log('get calling' + url);
 						 jQuery.get(url , function(data) {
 
 									var $data = $(data);
@@ -332,6 +343,7 @@
 
 											}else{
 													flag_load_next_part=false;
+												flag_load_next_item[targetId] = false;
 													_self.addNextPage(stateObj);
 													$(".isw_preloader,.isw_load_more_button_wrapper").remove();
 											}
@@ -339,6 +351,7 @@
 											
 										}else{
 											flag_load_next_part=false;
+											flag_load_next_item[targetId] = false;
 										}
 										$(".isw_preloader").remove();
 
