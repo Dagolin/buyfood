@@ -95,7 +95,11 @@
                             <option value=""><?php _e('Do not import', 'wf_csv_import_export'); ?></option>
                             <?php
                             foreach ($row as $hkey => $hdr):
-                                $hdr = iconv("big5", "utf-8", $hdr);
+                                $hdrBig5 = iconv("big5", "utf-8", $hdr);
+                                if (!empty($hdrBig5)) {
+                                    $hdr = $hdrBig5;
+                                }
+                                
                                 $hdr = strlen($hdr) > 50 ? substr(strip_tags($hdr), 0, 50) . "..." : $hdr;
                                 ?>
                                 <option value="<?php echo $raw_headers[$hkey]; ?>" <?php selected(strtolower($sel_key), $hkey); ?>><?php echo $raw_headers[$hkey] . " &nbsp;  : &nbsp; " . $hdr; ?></option>
