@@ -12610,15 +12610,7 @@ select#shipping-address-select {
 	margin-top: -80px;
 	background-position: top;
 }
-.tax-product_cat .page-heading {
-padding: 120px 0 60px 0;
-    background-size: cover;
-    border-bottom: none;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-image: url(../../../../uploads/2016/12/category-bg.jpg);
-    margin-top: -80px;
-}
+
 .catalog-category-view .page-heading .page-title h1, .catalog-category-view .page-heading .page-title h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 32px;
