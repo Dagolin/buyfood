@@ -488,6 +488,8 @@ class WF_ProdImpExpCsv_Product_Import extends WP_Importer {
 		// Get headers
 		if ( ( $handle = fopen( $file, "r" ) ) !== FALSE ) {
 
+			fseek ($handle, 3);
+
 			$row = $raw_headers = array();
 			$header = fgetcsv( $handle, 0, $this->delimiter );
 
