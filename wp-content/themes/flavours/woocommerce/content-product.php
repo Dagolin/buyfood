@@ -101,6 +101,7 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                   <a title="<?php esc_attr_e('Quick View', 'flavours'); ?>" class="button detail-bnt yith-wcqv-button quickview" type="button" data-product_id="<?php echo esc_html($product->id); ?>"><span><?php esc_attr_e('Quick View', 'flavours'); ?></span></a>
                   <?php } ?>
                 </div>
+                 <div class="product-detail-bnt actions">
 <!---->
 <!--                 <!-- play video -->
 <!--                 --><?php
@@ -123,7 +124,7 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                      <button type="submit"></button>
                  </form>
                  <!-- add to cart -->
-                 <a href="#" class="hide link-add-cart"
+                 <a href="#" class="link-add-cart"
                     onclick="$('#expressShopInf<?php echo esc_html($product->id); ?>').submit();return false;">
                      <span></span>
                  </a>
@@ -148,8 +149,8 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
 		<?php
 		}
 	        ?>
-                                  
-	        
+
+                 </div>
             </div>
          </div>
           </div>
