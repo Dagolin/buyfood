@@ -50,7 +50,6 @@
 
 	 var pantrif_infinite_scroll = {
 		init: function(){
-			console.log('infinite init' + settings.wrapper_products);
 			 if($wrapper.length>0 && !simple_ajax_method){
 			   //we dont want pagination links
 				$(pagination_selector).hide();
@@ -261,7 +260,6 @@
 							}
 						});
 
-				console.log('get calling' + url);
 						 jQuery.get(url , function(data) {
 
 									var $data = $(data);
@@ -321,7 +319,6 @@
 											if($new_breadcrumb.length>0){
 												$(settings.wrapper_breadcrumb).html($new_breadcrumb.html());
 											}
-											console.log($new_results_count + 'result');
 									}
 									}).done(function() {
 										//history state
