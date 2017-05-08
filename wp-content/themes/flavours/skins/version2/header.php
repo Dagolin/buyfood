@@ -91,9 +91,9 @@
          <?php if(is_product_category()){?>
          <div class="page-title">
              <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-                            <h2>
+             <h1 class="entry-title">
                                 <?php esc_html(woocommerce_page_title()); ?>
-                            </h2>
+                            </h1>
                         <?php endif; ?>
      
     </div>
