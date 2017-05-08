@@ -1045,6 +1045,10 @@ jQuery(document).ready(function () {
                 jQuery('#thm-mart-slideshow').css({
                     'margin-top' : '200px'
                 });
+
+				jQuery('.page-heading').css({
+					'margin-top' : '200px'
+				});
             }
 		} else {
 			jQuery('#header').css({
@@ -1056,6 +1060,10 @@ jQuery(document).ready(function () {
                 jQuery('#thm-mart-slideshow').css({
                     'margin-top' : 0
                 });
+
+				jQuery('.page-heading').css({
+					'margin-top' : 0
+				});
             }
 		}
 	});
