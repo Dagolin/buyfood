@@ -1041,7 +1041,7 @@ jQuery(document).ready(function () {
 				'top': 0
 			});
 
-            if (!window.matchMedia("(min-width: 400px)").matches) {
+            if (window.matchMedia("(max-width: 767px)").matches) {
                 jQuery('#thm-mart-slideshow').css({
                     'margin-top' : '200px'
                 });
@@ -1056,7 +1056,7 @@ jQuery(document).ready(function () {
 				'top': ''
 			});
             
-            if (!window.matchMedia("(min-width: 400px)").matches) {
+            if (window.matchMedia("(max-width: 767px)").matches) {
                 jQuery('#thm-mart-slideshow').css({
                     'margin-top' : 0
                 });
