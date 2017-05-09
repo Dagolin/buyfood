@@ -832,7 +832,7 @@ function tmFlavours_bestseller_template()
              </a>
             <?php if ($product->is_on_sale()) : ?>
             <div class="sale-label sale-top-left">
-               <?php esc_attr_e('Sale', 'flavours'); ?>
+               <?php esc_attr_e('特價', 'flavours'); ?>
             </div>
             <?php endif; ?>
             <div class="item-box-hover">
@@ -1056,7 +1056,7 @@ $TmFlavours = new TmFlavours();
              </a>
             <?php if ($product->is_on_sale()) : ?>
             <div class="sale-label sale-top-left">
-               <?php esc_attr_e('Sale', 'flavours'); ?>
+               <?php esc_attr_e('特價', 'flavours'); ?>
             </div>
             <?php endif; ?>
              </div>
@@ -1104,7 +1104,7 @@ if (has_post_thumbnail())
             </a>
             <?php if ($product->is_on_sale()) : ?>
             <div class="sale-label sale-top-left">
-               <?php esc_attr_e('Sale', 'flavours'); ?>
+               <?php esc_attr_e('特價', 'flavours'); ?>
             </div>
             <?php endif; ?>
             <div class="item-box-hover">
