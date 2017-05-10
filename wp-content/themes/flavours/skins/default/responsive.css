@@ -432,7 +432,8 @@ ul.navmenu {
 	margin: auto;
 }
 .mini-cart .basket a span {
-	display: none;
+	/*display: none;*/
+	margin-top : 9px;
 }
 .mini-cart .basket a {
 	margin: 0px;
@@ -441,9 +442,9 @@ ul.navmenu {
 	background: none;
 	font-weight: normal;
 	min-width: 40px !important;
-	height:38px;
+	height:50px;
 	padding:0px 10px;
-	line-height:38px;
+	line-height:50px;
 }
 .fl-cart-contain {
 	right: 0px;
