@@ -1037,34 +1037,14 @@ jQuery(document).ready(function () {
 
 		if (totalH < vPos) {
 			jQuery('#header').css({
-				'position': 'fixed',
+				'position' : 'sticky', /* for Firefox */
 				'top': 0
 			});
-
-            if (window.matchMedia("(max-width: 767px)").matches) {
-                jQuery('#thm-mart-slideshow').css({
-                    'margin-top' : '200px'
-                });
-
-				jQuery('.page-heading').css({
-					'margin-top' : '200px'
-				});
-            }
 		} else {
 			jQuery('#header').css({
 				'position': 'relative',
 				'top': ''
 			});
-            
-            if (window.matchMedia("(max-width: 767px)").matches) {
-                jQuery('#thm-mart-slideshow').css({
-                    'margin-top' : 0
-                });
-
-				jQuery('.page-heading').css({
-					'margin-top' : 0
-				});
-            }
 		}
 	});
 });
