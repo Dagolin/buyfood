@@ -72,7 +72,7 @@ global $flavours_Options;
    
     $html = '';
 
-    if (true || (isset($flavours_Options['login_button_pos']) && $flavours_Options['login_button_pos'] == 'toplinks')) {
+    if ((isset($flavours_Options['login_button_pos']) && $flavours_Options['login_button_pos'] == 'toplinks')) {
 
         if (is_user_logged_in()) {
             $logout_link = '';
