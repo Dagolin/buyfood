@@ -12406,7 +12406,8 @@ select#shipping-address-select {
 	transition: all 0.3s ease-in-out 0s;
 	visibility: hidden;
 }
-.click-nav .no-js:hover .top-links {
+
+.click-nav .no-js:hover .top-links, .click-nav .no-js .hover_effect {
 	background: #202020;
 	background-repeat: repeat;
 	background-position: 0 0;
@@ -12433,7 +12434,7 @@ select#shipping-address-select {
 	color: #C2C2C2;
 	letter-spacing: 0.5px
 }
-.click-nav .no-js:hover .top-links .links a:hover {
+.click-nav .no-js:hover .top-links .links a:hover, .click-nav .no-js .hover_effect .links a:hover {
 	color: #ed6663;
 	letter-spacing: 0.5px
 }

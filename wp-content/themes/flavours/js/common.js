@@ -1031,6 +1031,16 @@ jQuery(window).scroll(function() {
 
 
 jQuery(document).ready(function () {
+	$('.click-nav .no-js').bind('click', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		$('.click-nav .no-js .top-links').toggleClass('hover_effect');
+		$(document).one('click', function (e) {
+			$('.click-nav .no-js .top-links').toggleClass('hover_effect')
+		});
+	});
+
+
 	var totalH = jQuery('#header').offset().top;
 	jQuery(window).bind('scroll', function () {
 		var vPos = jQuery(window).scrollTop();
