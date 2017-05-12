@@ -48,22 +48,7 @@ if ( ! function_exists ( 'tmFlavours_search_form' ) ) {
   ?>
   <?php if (isset($flavours_Options['header_remove_header_search']) && !$flavours_Options['header_remove_header_search']) : ?>
             <div class="block-icon pull-right"> <a data-target=".bs-example-modal-lg" data-toggle="modal" class="search-focus dropdown-toggle links"> <i class="fa fa-search"></i> </a>
-              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="<?php echo esc_url(get_template_directory_uri()) ;?>/images/interstitial-close.png" alt="<?php esc_attr_e('close', 'flavours') ;?> "> </button>
-                    </div>
-                    <div class="modal-body">
-                       <div id="modalsearch">
-                          <div class="input-group">
- <?php $TmFlavours->tmFlavours_custom_search_form(); ?>
- </div>
-                        </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
              </div>
             <?php  endif; ?>
   <?php
@@ -256,10 +241,32 @@ if ( ! function_exists ( 'tmFlavours_home_offer_banners' ) ) {
 function tmFlavours_home_offer_banners()
 {
     global $flavours_Options;
+    $TmFlavours = new TmFlavours();
   if (isset($flavours_Options['enable_home_offer_banners']) && !empty($flavours_Options['enable_home_offer_banners'])){
         ?>
         <!-- banner -->
+      <?php if (isset($flavours_Options['header_remove_header_search']) && !$flavours_Options['header_remove_header_search']) : ?>
+          <div class="top-search">
+          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="z-index:10050">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="<?php echo esc_url(get_template_directory_uri()) ;?>/images/interstitial-close.png" alt="<?php esc_attr_e('close', 'flavours') ;?> "> </button>
+                      </div>
+                      <div class="modal-body">
+                          <div id="modalsearch">
+                              <div class="input-group">
+                                  <?php $TmFlavours->tmFlavours_custom_search_form(); ?>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+      <?php  endif; ?>
     <div id="top">
+
     <div class="container">
       <div class="row">
         <ul>
