@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-03-28 00:03+0800\n"
+"PO-Revision-Date: 2017-05-12 20:20+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3650,8 +3650,8 @@ msgid "Sorry, we do not have enough \"%s\" in stock to fulfill your order (%s in
 msgstr "抱歉, \"%s\" 的庫存量 (%s) 無法滿足您的訂單. 請更改您的購物車並且再次嘗試. 我們對所造成的不便表示歉意."
 
 #: includes/class-wc-cart.php:562
-msgid "Sorry, we do not have enough \"%s\" in stock to fulfill your order right now. Please try again in %d minutes or edit your cart and try again. We apologise for any inconvenience caused."
-msgstr "抱歉，目前 \"%s\" 的庫存不足您訂購的數量，請您在 %d 內再試或是修改您的訂單然後再試一次。造成您的不便我們謹此致歉"
+msgid "Sorry, we do not have enough \"%s\" in stock to fulfill your order right now. Please try again or edit your cart and try again. We apologise for any inconvenience caused."
+msgstr "抱歉，目前 \"%s\" 的庫存不足您訂購的數量，請您再試試或是修改您的訂單然後再試一次。造成您的不便我們謹此致歉"
 
 #: includes/class-wc-cart.php:725
 msgid "Get cart should not be called before the wp_loaded action."

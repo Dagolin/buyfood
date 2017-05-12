@@ -1031,6 +1031,7 @@ jQuery(window).scroll(function() {
 
 
 jQuery(document).ready(function () {
+
 	$('.click-nav .no-js').bind('click', function(e) {
 		e.preventDefault();
 		e.stopPropagation();
@@ -1038,24 +1039,6 @@ jQuery(document).ready(function () {
 		$(document).one('click', function (e) {
 			$('.click-nav .no-js .top-links').toggleClass('hover_effect')
 		});
-	});
-
-
-	var totalH = jQuery('#header').offset().top;
-	jQuery(window).bind('scroll', function () {
-		var vPos = jQuery(window).scrollTop();
-
-		if (totalH < vPos) {
-			jQuery('#header').css({
-				'position' : 'sticky', /* for Firefox */
-				'top': 0
-			});
-		} else {
-			jQuery('#header').css({
-				'position': 'relative',
-				'top': ''
-			});
-		}
 	});
 });
 
