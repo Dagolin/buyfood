@@ -96,6 +96,27 @@ $limitDates = get_limit_product_list(); ?>
             </div>
          </div>
       </header>
+
+      <?php if (isset($flavours_Options['header_remove_header_search']) && !$flavours_Options['header_remove_header_search']) : ?>
+                <div class="top-search">
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="z-index:10050">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-label="Close" data-dismiss="modal" class="close" type="button"><img src="<?php echo esc_url(get_template_directory_uri()) ;?>/images/interstitial-close.png" alt="<?php esc_attr_e('close', 'flavours') ;?> "> </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="modalsearch">
+                                    <div class="input-group">
+                                        <?php $TmFlavours->tmFlavours_custom_search_form(); ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <?php  endif; ?>
       <!-- end header -->
       <?php if (class_exists('WooCommerce') && is_woocommerce()) : ?>
      <div class="page-heading">
