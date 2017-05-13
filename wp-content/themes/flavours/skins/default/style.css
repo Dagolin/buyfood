@@ -18499,9 +18499,19 @@ a.reset_variations {
     border-style: solid;
     border-color: #f5f5f5 #eee #d5d5d5 #eee;
     box-shadow: 0 5px 0 rgba(200,200,200,.2);}
-	
+
+.woocommerce #respond input#submit.added, .woocommerce a.button.added, .woocommerce button.button.added, .woocommerce input.button.added, .product-view .product-shop .cart .single_add_to_cart_button.added {
+	background-color: #ed6663 !important;
+	border : 2px #ed6663 solid;
+}
+
+.woocommerce #respond input#submit.added span, .woocommerce a.button.added span, .woocommerce button.button.added span, .woocommerce input.button.added span {
+	color : #fff!important;
+}
+
 .woocommerce #respond input#submit.added:after, .woocommerce a.button.added:after, .woocommerce button.button.added:after, .woocommerce input.button.added:after {
     font-family: WooCommerce;
+	color : #fff!important;
     content: "\e017";
     margin-left: 0px;
     vertical-align: middle;

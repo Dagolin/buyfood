@@ -929,11 +929,14 @@ function tmFlavours_bestseller_template()
                              <input type="hidden" name="add-to-cart" value="<?php echo esc_html($product->id); ?>">
                              <button type="submit"></button>
                          </form>
-                         <!-- -->
+                         <!--
                          <a href="#" class="link-add-cart"
                              onclick="$('#expressShop<?php echo esc_html($product->id); ?>').submit();return false;">
                              <span></span>
                          </a>
+                         -->
+                         <a href="<?php echo wc_get_cart_url(); ?>" class="link-add-cart"></a>
+
                      <?php
                         if (isset($yith_wcwl) && is_object($yith_wcwl)) {
                             $classes = get_option('yith_wcwl_use_button') == 'yes' ? 'class="link-wishlist"' : 'class="link-wishlist"';
@@ -978,7 +981,7 @@ function tmFlavours_bestseller_template()
                     <?php echo htmlspecialchars_decode($product->get_price_html()); ?>
                   </div>
                </div>
-               <div class="add_cart">
+               <div class="add_cart woocommerce">
                      <?php $TmFlavours->tmFlavours_woocommerce_product_add_to_cart_text() ;?>
                </div>
             </div>
@@ -1071,7 +1074,7 @@ if (has_post_thumbnail())
                                     }
                                     ?>      
                           </span> </div>
-               <div class="add_cart">
+               <div class="add_cart woocommerce">
                  <?php $TmFlavours->tmFlavours_woocommerce_product_add_to_cart_text() ;?>
                </div>
             </div>
@@ -1210,18 +1213,21 @@ if (has_post_thumbnail())
                         data-product_id="<?php echo esc_html($product->id); ?>"><span> <?php esc_attr_e('Quick View', 'flavours'); ?></span></a>
                      <?php } ?>
                   </div>
-                   <!-- add to cart -->
+                   <div class="product-detail-bnt">
+                       <a href="<?php echo wc_get_cart_url(); ?>" class="link-add-cart"></a>
+                   </div>
+                   <!-- add to cart
                    <form class="hide" method="post" enctype="multipart/form-data" action="<?php echo the_permalink(); ?>" id="expressShopInf<?php echo esc_html($product->id); ?>">
                        <input type="hidden" name="quantity" value="1">
                        <input type="hidden" name="add-to-cart" value="<?php echo esc_html($product->id); ?>">
                        <button type="submit"></button>
                    </form>
-                   <!-- add to cart -->
+                   <!-- add to cart
                    <a href="#" class="link-add-cart"
                       onclick="$('#expressShopInf<?php echo esc_html($product->id); ?>').submit();return false;">
                        <span></span>
                    </a>
-
+-->
                   <div class="product-detail-bnt actions">
                      <span class="add-to-links">
                      <?php
@@ -1244,7 +1250,7 @@ if (has_post_thumbnail())
                         ?>
                      </span> 
                   </div>
-                  <div class="add_cart">
+                  <div class="add_cart woocommerce">
                     <?php $TmFlavours->tmFlavours_woocommerce_product_add_to_cart_text() ;?>
                   </div>
                </div>
@@ -1308,19 +1314,25 @@ if (has_post_thumbnail())
             <div class="box-inner">
 
       <?php if (class_exists('YITH_WCQV_Frontend')) { ?>
-               <div class="product-detail-bnt"><a class="button detail-bnt yith-wcqv-button quickview" title="<?php esc_attr_e('Quick View', 'flavours'); ?>"  data-product_id="<?php echo esc_html($product->id); ?>"><span> <?php esc_attr_e('Quick View', 'flavours'); ?></span></a></div>
+               <div class="product-detail-bnt">
+                   <a class="button detail-bnt yith-wcqv-button quickview" title="<?php esc_attr_e('Quick View', 'flavours'); ?>"  data-product_id="<?php echo esc_html($product->id); ?>"><span> <?php esc_attr_e('Quick View', 'flavours'); ?></span></a>
+               </div>
+                <div class="product-detail-bnt">
+                    <a href="<?php echo wc_get_cart_url(); ?>" class="link-add-cart"></a>
+                </div>
       <?php } ?>
-                <!-- add to cart -->
+                <!-- add to cart -
                 <form class="hide" method="post" enctype="multipart/form-data" action="<?php echo the_permalink(); ?>" id="expressShopInf<?php echo esc_html($product->id); ?>">
                     <input type="hidden" name="quantity" value="1">
                     <input type="hidden" name="add-to-cart" value="<?php echo esc_html($product->id); ?>">
                     <button type="submit"></button>
                 </form>
-                <!-- add to cart -->
+                <!-- add to cart
                 <a href="#" class="link-add-cart"
                    onclick="$('#expressShopInf<?php echo esc_html($product->id); ?>').submit();return false;">
                     <span></span>
                 </a>
+                -->
 
                <div class="product-detail-bnt actions"><span class="add-to-links">
                  <?php
@@ -1366,7 +1378,7 @@ if (has_post_thumbnail())
             <div class="item-price">
                <div class="price-box"><?php echo htmlspecialchars_decode($product->get_price_html()); ?></div>
             </div>
-            <div class="add_cart">
+            <div class="add_cart woocommerce">
                  <?php $TmFlavours->tmFlavours_woocommerce_product_add_to_cart_text() ;?>
             </div>
          </div>

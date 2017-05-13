@@ -28,9 +28,9 @@ global $flavours_Options;
                 if ($active_signup != 'none')
                     $register_link = wp_registration_url( get_home_url() );
             }
-            $html .= '<li class="menu-item"><a href="' . esc_url($login_link) . '"> ' . esc_html__('Login', 'flavours') . '</a></li>';
+            $html .= '<li class="menu-item menu-item-type-post_type menu-item-object-page  narrow "><a href="' . esc_url($login_link) . '">' . esc_html__('Login', 'flavours') . '</a></li>';
             if ($register_link) {
-                $html .= '<li class="menu-item"><a href="' . esc_url($register_link) . '">' . esc_html__('Register', 'flavours') . '</a></li>';
+                $html .= '<li class="menu-item menu-item-type-post_type menu-item-object-page  narrow "><a href="' . esc_url($register_link) . '">' . esc_html__('Register', 'flavours') . '</a></li>';
             }
         }
     }
