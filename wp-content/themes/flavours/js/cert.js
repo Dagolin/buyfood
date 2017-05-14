@@ -99,13 +99,13 @@ jQuery(document).ready(function($) {
 });
 
 function skipCert(){
-	$('#billing_cert_field').hide();
-	$('#billing_cert_button').hide();
-	$('#billing_skipcert').val('true');
+	jQuery('#billing_cert_field').hide();
+	jQuery('#billing_cert_button').hide();
+	jQuery('#billing_skipcert').val('true');
 }
 
 function showCert(){
-	$('#billing_cert_field').show();
-	$('#billing_cert_button').show();
-	$('#billing_skipcert').val('false');
+	jQuery('#billing_cert_field').show();
+	jQuery('#billing_cert_button').show();
+	jQuery('#billing_skipcert').val('false');
 }

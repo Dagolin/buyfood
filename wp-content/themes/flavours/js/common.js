@@ -478,7 +478,11 @@ jQuery(window).on("load", function() {
 
 if (isTouchDevice)
 {
-jQuery('#nav a.level-top').click(function(e) {
+	jQuery(':not(.click-nav)').one('click', function (e) {
+		jQuery('.top-links').hide();
+	});
+
+	jQuery('#nav a.level-top').click(function(e) {
 jQueryt = jQuery(this);
 jQueryparent = jQueryt.parent();
 if (jQueryparent.hasClass('parent'))
@@ -571,6 +575,14 @@ return false;
 return false;
 }
 function slideEffectAjax() {
+    jQuery('.click-nav').mouseenter(function() {
+        jQuery(this).find(".top-links").show();
+    });
+
+    jQuery('.click-nav').mouseleave(function() {
+        jQuery(this).find(".top-links").hide();
+    });
+
 jQuery('.top-cart-contain').mouseenter(function() {
 //jQuery(this).find(".top-cart-content").stop(true, true).slideDown();
 	jQuery(this).find(".top-cart-content").show();
@@ -1031,34 +1043,21 @@ jQuery(window).scroll(function() {
 
 
 jQuery(document).ready(function () {
-
-	$('.click-nav .no-js').bind('click', function(e) {
-		e.preventDefault();
-		e.stopPropagation();
-		$('.click-nav .no-js .top-links').toggleClass('hover_effect');
-		$(document).one('click', function (e) {
-			$('.click-nav .no-js .top-links').toggleClass('hover_effect')
-		});
-	});
-});
-
-
-
-
 //countdown js filter
-            var $=jQuery.noConflict();
-            var hot_sale_start=jQuery("#hot_sale_current").val();
-            var hot_sale_end=jQuery("#hot_sale_end").val();
-           // alert(hot_sale_end);
-            var dthen1 = new Date(hot_sale_end);
-            start =hot_sale_start;   
-            start_date = Date.parse(start);
-            var dnow1 = new Date(start_date);        
-            if(CountStepper>0)
-                ddiff= new Date((dnow1)-(dthen1));
-            else
-                ddiff = new Date((dthen1)-(dnow1));
-            gsecs1 = Math.floor(ddiff.valueOf()/1000);
-            
-            var iid1 = "countbox_1";
-            CountBack_slider(gsecs1,"countbox_1", 1);
+	var $=jQuery.noConflict();
+	var hot_sale_start=jQuery("#hot_sale_current").val();
+	var hot_sale_end=jQuery("#hot_sale_end").val();
+	// alert(hot_sale_end);
+	var dthen1 = new Date(hot_sale_end);
+	start =hot_sale_start;
+	start_date = Date.parse(start);
+	var dnow1 = new Date(start_date);
+	if(CountStepper>0)
+		ddiff= new Date((dnow1)-(dthen1));
+	else
+		ddiff = new Date((dthen1)-(dnow1));
+	gsecs1 = Math.floor(ddiff.valueOf()/1000);
+
+	var iid1 = "countbox_1";
+	CountBack_slider(gsecs1,"countbox_1", 1);
+});

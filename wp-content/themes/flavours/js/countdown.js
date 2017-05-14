@@ -46,7 +46,7 @@ function CountBack_slider(secs,iid,j_timer) {
 		}
 	}
 	
-	$('.'+iid).innerHTML = DisplayStr;
+	jQuery('.'+iid).innerHTML = DisplayStr;
 	  if (CountActive)
 		setTimeout(function(){CountBack_slider((secs+CountStepper),iid,j_timer)}, SetTimeOutPeriod);
 }
