@@ -478,8 +478,12 @@ jQuery(window).on("load", function() {
 
 if (isTouchDevice)
 {
-	jQuery(':not(.click-nav)').one('click', function (e) {
+	jQuery(':not(.click-nav, .click-nav *)').on('click', function (e) {
 		jQuery('.top-links').hide();
+	});
+
+	jQuery(':not(.top-cart-contain, .top-cart-contain *)').on('click', function (e) {
+		jQuery('.top-cart-content').hide();
 	});
 
 	jQuery('#nav a.level-top').click(function(e) {
