@@ -152,9 +152,9 @@ small {
 /* Header Start */ 
 header {
 	width: 100%;
+	position: fixed;
 	position: -webkit-sticky;
 	position: sticky;
-	position: fixed;
 	z-index: 10000;
 	top : 0;
 	/* MAGIC HAPPENS HERE */
