@@ -761,6 +761,7 @@ function tmFlavours_page_title() {
     }
 }
 
+
 // page breadcrumbs code
 function tmFlavours_breadcrumbs() {
     global $post, $flavours_Options,$wp_query, $author;
@@ -2543,20 +2544,22 @@ if(!function_exists('codeboxr_woocommerce_enqueue_styles')){
 // this is just to prevent the user log in automatically after register
 function wc_registration_redirect( $redirect_to ) {
     wp_logout();
-    wp_redirect( '/sign-in/?q=');
+    wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
     exit;
 }
 // when user login, we will check whether this guy email is verify
 function wp_authenticate_user( $userdata ) {
     $isAdmin = in_array('administrator', $userdata->roles);
+    $isSocial = get_user_meta($userdata->ID, 'user_activation_key', true);
     $isActivated = get_user_meta($userdata->ID, 'is_activated', true);
-    if ( !$isActivated && !$isAdmin) {
+    if ( !$isActivated && !$isAdmin && empty($isSocial)) {
         $userdata = new WP_Error(
             'inkfool_confirmation_error',
             '您的帳號尚未啟用，請前往信箱查看認證信並點選', 'inkfool');
         }
         return $userdata;
 }
+
 // when a user register we need to send them an email to verify their account
 function my_user_register($user_id) {
         // get user data
@@ -2571,9 +2574,9 @@ function my_user_register($user_id) {
         // create the url
         $url = get_site_url(). '/sign-in/?p=' .base64_encode( serialize($string));
         // basically we will edit here to make this nicer
-        $html = 'Please click the following links' .$url;
+        $html = '請點選此連結啟用買肉帳號：' . $url;
         // send an email out to user
-        wc_mail($user_info->user_email, __('Please activate your account'), $html);
+        wc_mail($user_info->user_email, '【買肉找我】帳號認證信', $html);
 }
 // we need this to handle all the getty hacks i made
 function my_init(){
@@ -2585,18 +2588,18 @@ function my_init(){
                 if($code == $data['code']){
                         // update the db on the activation process
                         update_user_meta($data['id'], 'is_activated', 1);
-                        wc_add_notice( __( 'Success: Your account has been activated! ', 'inkfool' )  );
+                    wp_redirect( '/%E5%95%9F%E7%94%A8%E6%88%90%E5%8A%9F/');
                 }else{
-                        wc_add_notice( __( 'Error: Activation fails, please contact our administrator. ', 'inkfool' )  );
+                    wp_redirect( '/%E5%95%9F%E7%94%A8%E5%A4%B1%E6%95%97/');
                 }
         }
         if(isset($_GET['q'])){
-                wc_add_notice( __( 'Error: Your account has to be activated before you can login. Please check your email.', 'inkfool' ) );
+            wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
         }
-        if(isset($_GET['u'])){
-                my_user_register($_GET['u']);
-                wc_add_notice( __( 'Succes: Your activation email has been resend. Please check your email.', 'inkfool' ) );
-        }
+//        if(isset($_GET['u'])){
+//                my_user_register($_GET['u']);
+//                wc_add_notice( __( 'Succes: Your activation email has been resend. Please check your email.', 'inkfool' ) );
+//        }
 }
 // hooks handler
 add_action( 'init', 'my_init' );
