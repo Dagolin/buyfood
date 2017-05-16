@@ -2593,16 +2593,17 @@ function my_init(){
                 }else{
                     wp_redirect( '/%E5%95%9F%E7%94%A8%E5%A4%B1%E6%95%97/');
                 }
+                exit;
 
         }
         if(isset($_GET['q'])){
             wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
+            exit;
         }
 //        if(isset($_GET['u'])){
 //                my_user_register($_GET['u']);
 //                wc_add_notice( __( 'Succes: Your activation email has been resend. Please check your email.', 'inkfool' ) );
 //        }
-    exit;
 }
 // hooks handler
 add_action( 'init', 'my_init' );
