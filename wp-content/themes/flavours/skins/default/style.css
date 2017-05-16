@@ -152,7 +152,6 @@ small {
 /* Header Start */ 
 header {
 	width: 100%;
-	position: fixed;
 	position: -webkit-sticky;
 	position: sticky;
 	z-index: 10000;
