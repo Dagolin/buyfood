@@ -2555,7 +2555,7 @@ function wp_authenticate_user( $userdata ) {
     if ( !$isActivated && !$isAdmin && empty($isSocial)) {
         $userdata = new WP_Error(
             'inkfool_confirmation_error',
-            '您的帳號尚未啟用，請前往信箱查看認證信並點選', 'inkfool');
+            '您的帳號尚未啟用，請前往信箱查看帳號認證信', 'inkfool');
         }
         return $userdata;
 }
@@ -2589,9 +2589,11 @@ function my_init(){
                         // update the db on the activation process
                         update_user_meta($data['id'], 'is_activated', 1);
                     wp_redirect( '/%E5%95%9F%E7%94%A8%E6%88%90%E5%8A%9F/');
+
                 }else{
                     wp_redirect( '/%E5%95%9F%E7%94%A8%E5%A4%B1%E6%95%97/');
                 }
+
         }
         if(isset($_GET['q'])){
             wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
@@ -2600,6 +2602,7 @@ function my_init(){
 //                my_user_register($_GET['u']);
 //                wc_add_notice( __( 'Succes: Your activation email has been resend. Please check your email.', 'inkfool' ) );
 //        }
+    exit;
 }
 // hooks handler
 add_action( 'init', 'my_init' );
