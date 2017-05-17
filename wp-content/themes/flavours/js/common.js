@@ -582,22 +582,20 @@ return false;
 }
 function slideEffectAjax() {
     jQuery('.click-nav').click(function() {
-        jQuery(this).find(".top-links").show();
+        jQuery(".top-links").show();
     });
 
     jQuery('.click-nav').mouseleave(function() {
-        jQuery(this).find(".top-links").hide();
+        jQuery(".top-links").hide();
     });
 
-jQuery('.top-cart-contain').click(function() {
-//jQuery(this).find(".top-cart-content").stop(true, true).slideDown();
-	jQuery(this).find(".top-cart-content").show();
-});
+    jQuery('.top-cart-contain').click(function() {
+        jQuery(".top-cart-content").show();
+    });
 
-jQuery('.top-cart-contain').mouseleave(function() {
-//jQuery(this).find(".top-cart-content").stop(true, true).slideUp();
-	jQuery(this).find(".top-cart-content").hide();
-});
+    jQuery('.top-cart-contain').mouseleave(function() {
+        jQuery(".top-cart-content").hide();
+    });
 }
 function deleteCartInSidebar() {
 if(is_checkout_page>0) return false;
