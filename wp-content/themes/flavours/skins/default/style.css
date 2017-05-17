@@ -153,14 +153,14 @@ small {
 header {
 	width: 100%;
 	z-index: 10000;
-	top : 0;
-	/* MAGIC HAPPENS HERE */
-	transform: translateZ(0);
-	-moz-transform: translatez(0);
-	-ms-transform: translatez(0);
-	-o-transform: translatez(0);
-	-webkit-transform: translateZ(0);
-	-webkit-font-smoothing: antialiased; /* seems to do the same in Safari */
+	/*top : 0;*/
+	/*!* MAGIC HAPPENS HERE *!*/
+	/*transform: translateZ(0);*/
+	/*-moz-transform: translatez(0);*/
+	/*-ms-transform: translatez(0);*/
+	/*-o-transform: translatez(0);*/
+	/*-webkit-transform: translateZ(0);*/
+	/*-webkit-font-smoothing: antialiased; !* seems to do the same in Safari *!*/
 }
 .header-container {
 	position: relative
@@ -17127,6 +17127,11 @@ footer .newsletter-row {
 
 }
 @media (min-width: 768px) and (max-width: 991px) {
+	header {
+		top : 0;
+		position: fixed;
+	}
+
 	.bestseller-box {display:none}
 
 	.header-container .top-menu {
@@ -18426,6 +18431,11 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1120px) {
+
+	 header {
+		 top : 0;
+		 position: fixed;
+	 }
 
      .products-grid .item .item-inner .item-img .item-img-info a.product-image img {
          width: 100%;
