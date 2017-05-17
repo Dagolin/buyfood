@@ -1107,8 +1107,8 @@ function tmFlavours_breadcrumbs() {
 
 <div class="mini-cart">
    <div  class="basket">
-      <a href="<?php echo esc_url(WC()->cart->get_cart_url()); ?>">
-
+<!--      <a href="--><?php //echo esc_url(WC()->cart->get_cart_url()); ?><!--">-->
+       <a class="clicker">
         <span><?php echo esc_html($woocommerce->cart->cart_contents_count); ?> </span>
       </a>
    </div>
