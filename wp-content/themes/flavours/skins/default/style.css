@@ -152,8 +152,6 @@ small {
 /* Header Start */ 
 header {
 	width: 100%;
-	position: -webkit-sticky;
-	position: sticky;
 	z-index: 10000;
 	top : 0;
 	/* MAGIC HAPPENS HERE */
@@ -13188,7 +13186,6 @@ margin-bottom: 8px !important;
 	background-color: #ed6663;
 	color: #fff !important;
 	transition: all 200ms ease-in-out 0s;
-display:
 }
 /*sidbar product category */
 
