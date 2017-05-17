@@ -503,6 +503,8 @@ jQueryt.removeClass('menu-ready');
 }
 }
 });
+} else {
+	// jQuery('#header').css('')
 }
 //on load
 jQuery().UItoTop();
@@ -579,7 +581,7 @@ return false;
 return false;
 }
 function slideEffectAjax() {
-    jQuery('.click-nav').mouseenter(function() {
+    jQuery('.click-nav').click(function() {
         jQuery(this).find(".top-links").show();
     });
 
@@ -587,7 +589,7 @@ function slideEffectAjax() {
         jQuery(this).find(".top-links").hide();
     });
 
-jQuery('.top-cart-contain').mouseenter(function() {
+jQuery('.top-cart-contain').click(function() {
 //jQuery(this).find(".top-cart-content").stop(true, true).slideDown();
 	jQuery(this).find(".top-cart-content").show();
 });
