@@ -581,6 +581,11 @@ return false;
 return false;
 }
 function slideEffectAjax() {
+
+	jQuery('.click-nav').mouseenter(function() {
+		jQuery(".top-links").show();
+	});
+
     jQuery('.click-nav').click(function() {
         jQuery(".top-links").show();
     });
@@ -588,6 +593,10 @@ function slideEffectAjax() {
     jQuery('.click-nav').mouseleave(function() {
         jQuery(".top-links").hide();
     });
+
+	jQuery('.top-cart-contain').mouseenter(function() {
+		jQuery(".top-cart-content").show();
+	});
 
     jQuery('.top-cart-contain').click(function() {
         jQuery(".top-cart-content").show();

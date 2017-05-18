@@ -529,7 +529,7 @@ class WC_Cart {
 						$not_enough_stock = true;
 					}
 					if ( $not_enough_stock ) {
-						$error->add( 'out-of-stock', sprintf(__( 'Sorry, we do not have enough "%s" in stock to fulfill your order right now. Please try again or edit your cart and try again. We apologise for any inconvenience caused.', 'woocommerce' ), $_product->get_title(), get_option( 'woocommerce_hold_stock_minutes' ) ) );
+						$error->add( 'out-of-stock', sprintf(__( '抱歉, "%s" 目前庫存不足，請重新整理您的購物車或聯絡官方人員，造成不便請多包涵。', 'woocommerce' ), $_product->get_title(), get_option( 'woocommerce_hold_stock_minutes' ) ) );
 						return $error;
 					}
 				}

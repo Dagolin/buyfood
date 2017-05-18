@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Multiple Customer Addresses\n"
 "POT-Creation-Date: 2016-10-25 10:18+0100\n"
-"PO-Revision-Date: 2016-10-30 00:15+0800\n"
+"PO-Revision-Date: 2017-05-18 22:03+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -1575,7 +1575,7 @@ msgstr ""
 
 #: classes/acf/fields/color_picker.php:84
 msgid "Default"
-msgstr ""
+msgstr "預設"
 
 #: classes/acf/fields/color_picker.php:85
 msgid "Select Color"
@@ -2795,7 +2795,7 @@ msgstr ""
 
 #: classes/acf/pro/fields/gallery.php:563
 msgid "Bulk actions"
-msgstr ""
+msgstr "批次動作"
 
 #: classes/acf/pro/fields/gallery.php:564
 msgid "Sort by date uploaded"
@@ -2819,15 +2819,15 @@ msgstr ""
 
 #: classes/acf/pro/fields/gallery.php:639
 msgid "Minimum Selection"
-msgstr ""
+msgstr "選擇最小資料數"
 
 #: classes/acf/pro/fields/gallery.php:648
 msgid "Maximum Selection"
-msgstr ""
+msgstr "選擇最大資料數"
 
 #: classes/acf/pro/fields/gallery.php:657
 msgid "Insert"
-msgstr ""
+msgstr "加入"
 
 #: classes/acf/pro/fields/gallery.php:658
 msgid "Specify where new attachments are added"
@@ -2835,7 +2835,7 @@ msgstr ""
 
 #: classes/acf/pro/fields/gallery.php:662
 msgid "Append to the end"
-msgstr ""
+msgstr "新增在最後"
 
 #: classes/acf/pro/fields/gallery.php:663
 msgid "Prepend to the beginning"
@@ -2843,31 +2843,31 @@ msgstr ""
 
 #: classes/acf/pro/fields/repeater.php:36
 msgid "Repeater"
-msgstr ""
+msgstr "重複"
 
 #: classes/acf/pro/fields/repeater.php:47
 msgid "Minimum rows reached ({min} rows)"
-msgstr ""
+msgstr "到達最小資料筆數 {min} 筆"
 
 #: classes/acf/pro/fields/repeater.php:48
 msgid "Maximum rows reached ({max} rows)"
-msgstr ""
+msgstr "到達最大資料筆數 {max} 筆"
 
 #: classes/acf/pro/fields/repeater.php:402
 msgid "Add row"
-msgstr ""
+msgstr "新增資料"
 
 #: classes/acf/pro/fields/repeater.php:403
 msgid "Remove row"
-msgstr ""
+msgstr "移除資料"
 
 #: classes/acf/pro/fields/repeater.php:451
 msgid "Sub Fields"
-msgstr ""
+msgstr "子欄位"
 
 #: classes/acf/pro/fields/repeater.php:481
 msgid "Collapsed"
-msgstr ""
+msgstr "關閉"
 
 #: classes/acf/pro/fields/repeater.php:482
 msgid "Select a sub field to show when row is collapsed"
@@ -2875,66 +2875,66 @@ msgstr ""
 
 #: classes/acf/pro/fields/repeater.php:492
 msgid "Minimum Rows"
-msgstr ""
+msgstr "最小資料數"
 
 #: classes/acf/pro/fields/repeater.php:502
 msgid "Maximum Rows"
-msgstr ""
+msgstr "最大資料數"
 
 #: classes/admin/WCMCA_AdminOrderDetailsPage.php:19
 #: classes/admin/WCMCA_AdminOrderDetailsPage.php:20
 #: classes/frontend/WCMCA_CheckoutPage.php:59
 #: classes/frontend/WCMCA_Emails.php:18
 msgid "VAT Identification Number"
-msgstr ""
+msgstr "統一編號"
 
 #: classes/com/WCMCA_Address.php:163 classes/com/WCMCA_Address.php:207
 msgid "Select one"
-msgstr ""
+msgstr "選擇一個地址"
 
 #: classes/com/WCMCA_Html.php:44
 msgid "Are you sure?"
-msgstr ""
+msgstr "確定？"
 
 #: classes/com/WCMCA_Html.php:45
 msgid "State"
-msgstr ""
+msgstr "區"
 
 #: classes/com/WCMCA_Html.php:46
 msgid "Postcode / ZIP"
-msgstr ""
+msgstr "郵遞區號"
 
 #: classes/com/WCMCA_Html.php:47
 msgid "City"
-msgstr ""
+msgstr "城市"
 
 #: classes/com/WCMCA_Html.php:69
 msgid "Additional addresses"
-msgstr ""
+msgstr "新地址"
 
 #: classes/com/WCMCA_Html.php:73
 msgid "Addresses list"
-msgstr ""
+msgstr "帳單列表"
 
 #: classes/com/WCMCA_Html.php:75
 msgid "View & Edit"
-msgstr ""
+msgstr "檢視和編輯"
 
 #: classes/com/WCMCA_Html.php:100
 msgid "Click to load addresses list"
-msgstr ""
+msgstr "點選讀取地址列表"
 
 #: classes/com/WCMCA_Html.php:120
 msgid "Please select a regisered user."
-msgstr ""
+msgstr "選擇一個註冊帳號"
 
 #: classes/com/WCMCA_Html.php:171
 msgid "Add new billing address"
-msgstr ""
+msgstr "新增帳單地址"
 
 #: classes/com/WCMCA_Html.php:176
 msgid "Add new shipping address"
-msgstr ""
+msgstr "新增運送地址"
 
 #: classes/com/WCMCA_Html.php:236
 msgid ""
@@ -2948,11 +2948,11 @@ msgstr "設為預設宅配地址"
 
 #: classes/com/WCMCA_Html.php:244
 msgid "Make this address as default billing address"
-msgstr ""
+msgstr "將此地址設為預設帳單地址"
 
 #: classes/com/WCMCA_Html.php:275
 msgid "Select a country"
-msgstr ""
+msgstr "選擇一個國家"
 
 #: classes/com/WCMCA_Html.php:382
 msgid "Save"
@@ -2960,31 +2960,31 @@ msgstr "儲存"
 
 #: classes/com/WCMCA_Html.php:428 classes/com/WCMCA_Html.php:431
 msgid "Select an address"
-msgstr ""
+msgstr "選擇一個地址"
 
 #: classes/com/WCMCA_Html.php:432 templates/my_account.php:31
 msgid "Default billing address"
-msgstr ""
+msgstr "預設帳單地址"
 
 #: classes/com/WCMCA_Html.php:433 templates/my_account.php:33
 msgid "Default shipping address"
-msgstr ""
+msgstr "預設運送地址"
 
 #: classes/com/WCMCA_Html.php:434
 msgid "There are no additional addresses"
-msgstr ""
+msgstr "無地址"
 
 #: classes/com/WCMCA_Html.php:436
 msgid "Select an address to load"
-msgstr ""
+msgstr "選取想讀取的地址"
 
 #: classes/com/WCMCA_Html.php:438
 msgid "Last used shipping address"
-msgstr ""
+msgstr "上次使用運送地址"
 
 #: classes/com/WCMCA_Html.php:440
 msgid "Last used billing address"
-msgstr ""
+msgstr "上次使用帳單地址"
 
 #: classes/com/WCMCA_Html.php:452
 msgid "Add new address"
@@ -2993,24 +2993,24 @@ msgstr "新增宅配地址"
 #: classes/frontend/WCMCA_CheckoutPage.php:60
 msgctxt "placeholder"
 msgid "VAT Identification Number"
-msgstr ""
+msgstr "統一編號"
 
 #: classes/frontend/WCMCA_MyAccountPage.php:59
 msgid "Latest Used Addresses"
-msgstr ""
+msgstr "上次使用地址"
 
 #: classes/frontend/WCMCA_OrderDetailsPage.php:17
 msgid "VAT Identification Number:"
-msgstr ""
+msgstr "統一編號"
 
 #: templates/my_account.php:5
 msgid "Additional Billing Addresses"
-msgstr ""
+msgstr "新增帳單地址"
 
 #: templates/my_account.php:9
 msgid "Additional Shipping Addresses"
-msgstr ""
+msgstr "新增運送地址"
 
 #: templates/my_account.php:39
 msgid "Load"
-msgstr ""
+msgstr "讀取中"
