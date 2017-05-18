@@ -20,8 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<header><h2><?php _e( 'Customer Details', 'woocommerce' ); ?></h2></header>
-
 <table class="shop_table customer_details">
 	<?php if ( $order->customer_note ) : ?>
 		<tr>
@@ -54,9 +52,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php endif; ?>
 
-<header class="title">
+<div class="title">
 	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
-</header>
+</div>
 <address>
 	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 </address>
@@ -65,9 +63,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div><!-- /.col-1 -->
 	<div class="col-2">
-		<header class="title">
+		<div class="title">
 			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
-		</header>
+		</div>
 		<address>
 			<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 		</address>

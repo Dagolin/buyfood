@@ -84,7 +84,7 @@ global $flavours_Options;
             'default'   => '',
         );
 
-        $fields['billing']['billing_phone']['placeholder'] = '0912345678';
+        $fields['billing']['billing_phone']['placeholder'] = '';
 
         $fields['billing']['billing_phone_hidden'] = array(
             'type'      => 'text',
