@@ -2611,4 +2611,11 @@ add_filter('woocommerce_registration_redirect', 'wc_registration_redirect');
 add_filter('wp_authenticate_user', 'wp_authenticate_user',10,2);
 add_action('user_register', 'my_user_register',10,2);
 
+function login_error_override()
+{
+    return '您輸入的帳號密碼有誤，請重新檢查。 ' . '<a href="' . esc_url( wp_lostpassword_url() ) . '">忘記密碼？</a>';
+}
+
+add_filter('login_errors', 'login_error_override');
+
 ?>
