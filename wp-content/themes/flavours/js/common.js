@@ -588,10 +588,18 @@ function slideEffectAjax() {
 
     jQuery('.click-nav').click(function() {
         jQuery(".top-links").show();
+
+		if (isTouchDevice) {
+			jQuery('.menu-overlay').addClass('active');
+		}
     });
 
     jQuery('.click-nav').mouseleave(function() {
         jQuery(".top-links").hide();
+
+		if (isTouchDevice) {
+			jQuery('.menu-overlay').removeClass('active');
+		}
     });
 
 	jQuery('.top-cart-contain').mouseenter(function() {
@@ -600,10 +608,18 @@ function slideEffectAjax() {
 
     jQuery('.top-cart-contain').click(function() {
         jQuery(".top-cart-content").show();
+
+		if (isTouchDevice) {
+			jQuery('.menu-overlay').addClass('active');
+		}
     });
 
     jQuery('.top-cart-contain').mouseleave(function() {
         jQuery(".top-cart-content").hide();
+
+		if (isTouchDevice) {
+			jQuery('.menu-overlay').removeClass('active');
+		}
     });
 }
 function deleteCartInSidebar() {

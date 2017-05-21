@@ -15586,7 +15586,7 @@ ul.navmenu {
 	top: 0px;
 }
 .header-container .header-right-col {
-	z-index: 100;
+	z-index: 100000;
 	top: 20px;
 	right: 20px;
 
