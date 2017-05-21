@@ -596,10 +596,6 @@ function slideEffectAjax() {
 
     jQuery('.click-nav').mouseleave(function() {
         jQuery(".top-links").hide();
-
-		if (isTouchDevice) {
-			jQuery('.menu-overlay').removeClass('active');
-		}
     });
 
 	jQuery('.top-cart-contain').mouseenter(function() {
@@ -616,11 +612,7 @@ function slideEffectAjax() {
 
     jQuery('.top-cart-contain').mouseleave(function() {
         jQuery(".top-cart-content").hide();
-
-		if (isTouchDevice) {
-			jQuery('.menu-overlay').removeClass('active');
-		}
-    });
+	});
 }
 function deleteCartInSidebar() {
 if(is_checkout_page>0) return false;
