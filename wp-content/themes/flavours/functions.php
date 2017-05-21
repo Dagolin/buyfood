@@ -2586,14 +2586,13 @@ function my_init(){
                 $code = get_user_meta($data['id'], 'activationcode', true);
                 // check whether the code given is the same as ours
                 if($code == $data['code']){
-                        // update the db on the activation process
-                        update_user_meta($data['id'], 'is_activated', 1);
+                    // update the db on the activation process
+                    update_user_meta($data['id'], 'is_activated', 1);
 
-                    $email = include( '../../plugins/woocommerce/includes/emails/class-wc-email-customer-new-account.php' );
+                    $email = include( 'wp-content/plugins/woocommerce/includes/emails/class-wc-email-customer-new-account.php' );
                     $email->trigger($data['id'], '');
 
                     wp_redirect( '/%E5%95%9F%E7%94%A8%E6%88%90%E5%8A%9F/');
-
                 }else{
                     wp_redirect( '/%E5%95%9F%E7%94%A8%E5%A4%B1%E6%95%97/');
                 }

@@ -93,6 +93,11 @@ class WC_Email_Customer_New_Account extends WC_Email {
 		$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 	}
 
+    public function is_enabled() {
+        return true;
+//        return apply_filters( 'woocommerce_email_enabled_' . $this->id, 'yes' === $this->enabled, $this->object );
+    }
+
 	/**
 	 * Get content html.
 	 *
