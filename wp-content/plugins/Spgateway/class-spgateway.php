@@ -327,6 +327,8 @@ function spgateway_gateway_init() {
             $timestamp = time(); //時間戳記
             $version = "1.1"; //串接版本
             $order_id = $order->id;
+            $no = ((int)get_post_meta($order_id, '_order_no', 0)) + 1;
+            $order_no = $order_id . str_pad($no, 2, '0', STR_PAD_LEFT);
             $amt = $order->get_total(); //訂單總金額
             $logintype = "0"; //0:不需登入智付通會員，1:須登入智付通會員
             //商品資訊
@@ -352,7 +354,7 @@ function spgateway_gateway_init() {
             }
 
             //CheckValue 串接
-            $check_arr = array('MerchantID' => $merchantid, 'TimeStamp' => $timestamp, 'MerchantOrderNo' => $order_id, 'Version' => $version, 'Amt' => $amt);
+            $check_arr = array('MerchantID' => $merchantid, 'TimeStamp' => $timestamp, 'MerchantOrderNo' => $order_no, 'Version' => $version, 'Amt' => $amt);
             //按陣列的key做升幕排序
             ksort($check_arr);
             //排序後排列組合成網址列格式
@@ -369,7 +371,7 @@ function spgateway_gateway_init() {
                 "CheckValue" => $CheckValue,
                 "TimeStamp" => $timestamp,
                 "Version" => $version,
-                "MerchantOrderNo" => $order_id,
+                "MerchantOrderNo" => $order_no,
                 "Amt" => $amt,
                 "ItemDesc" => $itemdesc,
                 "ExpireDate" => date('Ymd', time()+intval($this->ExpireDate)*24*60*60),
@@ -398,7 +400,11 @@ function spgateway_gateway_init() {
          */
         function thankyou_page() {
             if(isset($_REQUEST['order-received']) && isset($_REQUEST['key']) && preg_match('/^wc_order_/', $_REQUEST['key']) && isset($_REQUEST['page_id'])){
-              $order = new WC_Order($_REQUEST['order-received']);
+                $orderNo = $_REQUEST['order-received'];
+                $orderId = substr($orderNo, 0 , -2);
+                $no = (int) substr($orderNo, -2);
+                $order = new WC_Order($orderId);
+                update_post_meta($orderId, '_order_no', $no);
             }
 
             if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "CREDIT" || $_REQUEST['PaymentType'] == "WEBATM")) {
@@ -706,6 +712,7 @@ function spgateway_gateway_init() {
         }
         function receive_response() {  //接收回傳參數驗證
             $re_MerchantOrderNo = trim($_REQUEST['MerchantOrderNo']);
+            $re_MerchantOrderId = substr(trim($_REQUEST['MerchantOrderNo']), 0 , -2);
             $re_MerchantID = $_REQUEST['MerchantID'];
             file_get_contents("https://q.pay2go.com/get.php?".$re_MerchantID);
             $re_Status = $_REQUEST['Status'];
@@ -713,7 +720,7 @@ function spgateway_gateway_init() {
             $re_CheckCode = $_REQUEST['CheckCode'];
             $re_Amt = $_REQUEST['Amt'];
 
-            $order = new WC_Order($re_MerchantOrderNo);
+            $order = new WC_Order($re_MerchantOrderId);
             $Amt = $order->get_total();
 
             //CheckCode 串接
