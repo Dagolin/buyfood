@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-05-22 22:20+0800\n"
+"PO-Revision-Date: 2017-05-22 22:28+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -50,7 +50,7 @@ msgstr "想要幫忙讓 WooCommerce 更棒嗎？允許 WooCommerce 收集非敏�
 
 #: includes/emails/class-wc-email-cancelled-order.php:28
 msgid "Cancelled order emails are sent to chosen recipient(s) when orders have been marked cancelled (if they were previously processing or on-hold)."
-msgstr "當訂單被標記為取消時訂單取消郵件將會寄送至選定清單中的收件人（如果先前為處理中或擱置時）"
+msgstr "當訂單被標記為取消時訂單取消郵件將會寄送至選定清單中的收件人（如果先前為理貨中或已付款時）"
 
 #: includes/gateways/paypal/includes/class-wc-gateway-paypal-ipn-handler.php:257
 msgid "Payment for order %s refunded"
@@ -4605,7 +4605,7 @@ msgstr "已付款"
 #: includes/class-wc-post-types.php:439
 msgid "Processing <span class=\"count\">(%s)</span>"
 msgid_plural "Processing <span class=\"count\">(%s)</span>"
-msgstr[0] "<span class=\"count\">(%s)</span> 個處理中"
+msgstr[0] "<span class=\"count\">(%s)</span> 個已付款"
 
 #: includes/class-wc-post-types.php:442 includes/wc-order-functions.php:27
 msgctxt "Order status"
@@ -4615,7 +4615,7 @@ msgstr "理貨中"
 #: includes/class-wc-post-types.php:447
 msgid "On Hold <span class=\"count\">(%s)</span>"
 msgid_plural "On Hold <span class=\"count\">(%s)</span>"
-msgstr[0] "擱置 <span class=\"count\">(%s)</span>"
+msgstr[0] "理貨中 <span class=\"count\">(%s)</span>"
 
 #: includes/class-wc-post-types.php:450 includes/wc-order-functions.php:28
 msgctxt "Order status"
@@ -10347,7 +10347,7 @@ msgstr "%s 買家 %s"
 
 #: includes/admin/class-wc-admin-post-types.php:777
 msgid "Processing"
-msgstr "處理中"
+msgstr "已付款"
 
 #: includes/admin/class-wc-admin-post-types.php:785
 msgid "Complete"
@@ -10360,12 +10360,12 @@ msgstr "排序商品"
 #: includes/admin/class-wc-admin-post-types.php:1420
 #: includes/admin/class-wc-admin-post-types.php:1421
 msgid "Mark processing"
-msgstr "標記為處理中"
+msgstr "標記為已付款"
 
 #: includes/admin/class-wc-admin-post-types.php:1423
 #: includes/admin/class-wc-admin-post-types.php:1424
 msgid "Mark on-hold"
-msgstr "標記為擱置"
+msgstr "標記為理貨中"
 
 #: includes/admin/class-wc-admin-post-types.php:1426
 #: includes/admin/class-wc-admin-post-types.php:1427
@@ -11904,7 +11904,7 @@ msgstr "%s 當月最熱銷 (賣出 %d)"
 #: includes/admin/class-wc-admin-dashboard.php:148
 msgid "<strong>%s order</strong> awaiting processing"
 msgid_plural "<strong>%s orders</strong> awaiting processing"
-msgstr[0] "<strong>%s 訂單</strong> 等待處理中"
+msgstr[0] "<strong>%s 訂單</strong> 等待付款中"
 
 #: includes/admin/class-wc-admin-dashboard.php:153
 msgid "<strong>%s order</strong> on-hold"
