@@ -327,7 +327,7 @@ function spgateway_gateway_init() {
             $timestamp = time(); //時間戳記
             $version = "1.1"; //串接版本
             $order_id = $order->id;
-            $no = ((int)get_post_meta($order_id, '_order_no', 0)) + 1;
+            $no = ((int)get_post_meta($order_id, '_order_no', true)) + 1;
             $order_no = $order_id . str_pad($no, 2, '0', STR_PAD_LEFT);
             $amt = $order->get_total(); //訂單總金額
             $logintype = "0"; //0:不需登入智付通會員，1:須登入智付通會員
