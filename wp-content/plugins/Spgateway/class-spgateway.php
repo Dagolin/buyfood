@@ -432,8 +432,8 @@ function spgateway_gateway_init() {
                     echo "銀行代碼：" . $_REQUEST['BankCode'] . "<br>";
                     echo "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
                 } else {
-                    isset($order) && $order->remove_order_items();
-                    isset($order) && $order->update_status('failed');
+//                    isset($order) && $order->remove_order_items();
+//                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "CVS")) {
@@ -442,8 +442,8 @@ function spgateway_gateway_init() {
                     echo "取號成功<br>";
                     echo "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
                 } else {
-                    isset($order) && $order->remove_order_items();
-                    isset($order) && $order->update_status('failed');
+//                    isset($order) && $order->remove_order_items();
+//                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "BARCODE")) {
@@ -452,8 +452,8 @@ function spgateway_gateway_init() {
                     echo "取號成功<br>";
                     echo "請前往信箱列印繳費單<br>";
                 } else {
-                    isset($order) && $order->remove_order_items();
-                    isset($order) && $order->update_status('failed');
+//                    isset($order) && $order->remove_order_items();
+//                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "ALIPAY" || $_REQUEST['PaymentType'] == "TENPAY")) {
@@ -466,8 +466,8 @@ function spgateway_gateway_init() {
                     }
                     echo "跨境通路交易序號：" . $_REQUEST['ChannelNO'] . "<br>";
                 } else {
-                    isset($order) && $order->remove_order_items();
-                    isset($order) && $order->update_status('failed');
+//                    isset($order) && $order->remove_order_items();
+//                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if ($_REQUEST['Status'] == 'CUSTOM') {
