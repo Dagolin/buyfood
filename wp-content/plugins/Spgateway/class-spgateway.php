@@ -327,7 +327,8 @@ function spgateway_gateway_init() {
             $timestamp = time(); //時間戳記
             $version = "1.1"; //串接版本
             $order_id = $order->id;
-            $no = ((int)get_post_meta($order_id, '_order_no', true)) + 1;
+            $no = ((int)get_post_meta($order_id, '_order_no', true));
+            $no = empty($no) ? 0 : $no;
             $order_no = $order_id . str_pad($no, 2, '0', STR_PAD_LEFT);
             $amt = $order->get_total(); //訂單總金額
             $logintype = "0"; //0:不需登入智付通會員，1:須登入智付通會員
@@ -402,7 +403,7 @@ function spgateway_gateway_init() {
             if(isset($_REQUEST['order-received']) && isset($_REQUEST['key']) && preg_match('/^wc_order_/', $_REQUEST['key']) && isset($_REQUEST['page_id'])){
                 $orderNo = $_REQUEST['order-received'];
                 $orderId = substr($orderNo, 0 , -2);
-                $no = (int) substr($orderNo, -2);
+                $no = (int) substr($orderNo, -2) + 1;
                 $order = new WC_Order($orderId);
                 update_post_meta($orderId, '_order_no', $no);
             }
