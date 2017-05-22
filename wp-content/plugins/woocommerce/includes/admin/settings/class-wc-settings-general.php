@@ -206,7 +206,7 @@ class WC_Settings_General extends WC_Settings_Page {
 
             array(
                 'title'   => __( '啟用付款訊息', 'woocommerce' ),
-                'desc'    => __( '於訂單變更狀態為【處理中】時寄送通知簡訊(即為付款完成)', 'woocommerce' ),
+                'desc'    => __( '於訂單變更狀態為【已付款】時寄送通知簡訊(即為付款完成)', 'woocommerce' ),
                 'id'      => 'woocommerce_enable_payment_notice',
                 'default' => 'yes',
                 'type'    => 'checkbox',

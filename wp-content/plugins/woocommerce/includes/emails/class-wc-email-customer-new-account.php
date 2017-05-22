@@ -73,8 +73,9 @@ class WC_Email_Customer_New_Account extends WC_Email {
 	 * @param int $user_id
 	 * @param string $user_pass
 	 * @param bool $password_generated
+     * @param bool $forced
 	 */
-	public function trigger( $user_id, $user_pass = '', $password_generated = false ) {
+	public function trigger( $user_id, $user_pass = '', $password_generated = false, $forced = false) {
 
 		if ( $user_id ) {
 			$this->object             = new WP_User( $user_id );
@@ -86,16 +87,17 @@ class WC_Email_Customer_New_Account extends WC_Email {
 			$this->password_generated = $password_generated;
 		}
 
-		if ( ! $this->is_enabled() || ! $this->get_recipient() ) {
-			return;
-		}
+		if (!$forced) {
+            if ( ! $this->is_enabled() || ! $this->get_recipient() ) {
+                return;
+            }
+        }
 
 		$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 	}
 
     public function is_enabled() {
-        return true;
-//        return apply_filters( 'woocommerce_email_enabled_' . $this->id, 'yes' === $this->enabled, $this->object );
+        return apply_filters( 'woocommerce_email_enabled_' . $this->id, 'yes' === $this->enabled, $this->object );
     }
 
 	/**
