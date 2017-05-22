@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-05-22 21:17+0800\n"
+"PO-Revision-Date: 2017-05-22 22:20+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4600,7 +4600,7 @@ msgstr[0] "等待付款中 <span class=\"count\">(%s)</span>"
 #: includes/class-wc-post-types.php:434 includes/wc-order-functions.php:26
 msgctxt "Order status"
 msgid "Processing"
-msgstr "處理中"
+msgstr "已付款"
 
 #: includes/class-wc-post-types.php:439
 msgid "Processing <span class=\"count\">(%s)</span>"
@@ -4610,7 +4610,7 @@ msgstr[0] "<span class=\"count\">(%s)</span> 個處理中"
 #: includes/class-wc-post-types.php:442 includes/wc-order-functions.php:27
 msgctxt "Order status"
 msgid "On Hold"
-msgstr "擱置"
+msgstr "理貨中"
 
 #: includes/class-wc-post-types.php:447
 msgid "On Hold <span class=\"count\">(%s)</span>"
