@@ -400,6 +400,14 @@ function spgateway_gateway_init() {
          * @return void
          */
         function thankyou_page() {
+            if (isset($_REQUEST['MerchantOrderNo'])) {
+                $orderNo = $_REQUEST['MerchantOrderNo'];
+                $orderId = substr($orderNo, 0 , -2);
+                $no = (int) substr($orderNo, -2) + 1;
+                $order = new WC_Order($orderId);
+                update_post_meta($orderId, '_order_no', $no);
+            }
+
             if(isset($_REQUEST['order-received']) && isset($_REQUEST['key']) && preg_match('/^wc_order_/', $_REQUEST['key']) && isset($_REQUEST['page_id'])){
                 $orderNo = $_REQUEST['order-received'];
                 $orderId = substr($orderNo, 0 , -2);
@@ -408,13 +416,14 @@ function spgateway_gateway_init() {
                 update_post_meta($orderId, '_order_no', $no);
             }
 
+
             if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "CREDIT" || $_REQUEST['PaymentType'] == "WEBATM")) {
                 if (in_array($_REQUEST['Status'], array('SUCCESS', 'CUSTOM'))) {
                     echo "交易成功<br>";
                 } else {
                     isset($order) && $order->remove_order_items();
                     isset($order) && $order->update_status('failed');
-                    echo "交易失敗，請前往<a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "VACC")) {
                 if ($_REQUEST['BankCode'] != "" && $_REQUEST['CodeNo'] != "") {
@@ -425,7 +434,7 @@ function spgateway_gateway_init() {
                 } else {
                     isset($order) && $order->remove_order_items();
                     isset($order) && $order->update_status('failed');
-                    echo "交易失敗，請前往<a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "CVS")) {
                 if ($_REQUEST['CodeNo'] != "") {
@@ -435,7 +444,7 @@ function spgateway_gateway_init() {
                 } else {
                     isset($order) && $order->remove_order_items();
                     isset($order) && $order->update_status('failed');
-                    echo "交易失敗，請前往<a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "BARCODE")) {
                 if ($_REQUEST['Barcode_1'] != "" || $_REQUEST['Barcode_2'] != "" || $_REQUEST['Barcode_3'] != "") {
@@ -445,7 +454,7 @@ function spgateway_gateway_init() {
                 } else {
                     isset($order) && $order->remove_order_items();
                     isset($order) && $order->update_status('failed');
-                    echo "交易失敗，請前往<a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "ALIPAY" || $_REQUEST['PaymentType'] == "TENPAY")) {
                 if (in_array($_REQUEST['Status'], array('SUCCESS', 'CUSTOM'))) {
@@ -459,7 +468,7 @@ function spgateway_gateway_init() {
                 } else {
                     isset($order) && $order->remove_order_items();
                     isset($order) && $order->update_status('failed');
-                    echo "交易失敗，請前往<a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if ($_REQUEST['Status'] == 'CUSTOM') {
                 echo "付款方式：{$_REQUEST['PaymentType']}<br>";
@@ -468,7 +477,7 @@ function spgateway_gateway_init() {
                 echo "交易取消<br>";
             } else {
                 isset($order) && $order->cancel_order();
-                echo "交易失敗，請前往<a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
             }
         }
 
