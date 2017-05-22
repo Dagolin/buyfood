@@ -421,8 +421,8 @@ function spgateway_gateway_init() {
                 if (in_array($_REQUEST['Status'], array('SUCCESS', 'CUSTOM'))) {
                     echo "交易成功<br>";
                 } else {
-                    isset($order) && $order->remove_order_items();
-                    isset($order) && $order->update_status('failed');
+//                    isset($order) && $order->remove_order_items();
+//                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "VACC")) {
