@@ -14,6 +14,7 @@
  * @author 	Pya2go Chael
  * @author  Spgateway Geoff
  * @author  Spgateway_Pay2go Q
+ * @author  Buymeat Dago
  */
 add_action('plugins_loaded', 'spgateway_gateway_init', 0);
 
@@ -59,11 +60,14 @@ function spgateway_gateway_init() {
             $this->eiChk = $this->settings['eiChk'];
             $this->InvMerchantID = trim($this->settings['InvMerchantID']);
             $this->InvHashKey = trim($this->settings['InvHashKey']);
-            $this->InvHashIV = trim($this->settings['InvHashIV']);            
+            $this->InvHashIV = trim($this->settings['InvHashIV']);
             $this->TaxType = $this->settings['TaxType'];
             $this->eiStatus = $this->settings['eiStatus'];
             $this->CreateStatusTime = $this->settings['CreateStatusTime'];
-            $this->notify_url = add_query_arg('wc-api', 'WC_spgateway', home_url('/')) . '&callback=return';
+            $this->notify_url = add_query_arg([
+                    'wc-api' => 'WC_spgateway',
+                    'callback' => 'return',
+                ], home_url('/'));
 
             // Test Mode
             if ($this->TestMode == 'yes') {
@@ -400,6 +404,7 @@ function spgateway_gateway_init() {
          * @return void
          */
         function thankyou_page() {
+
             if (isset($_REQUEST['MerchantOrderNo'])) {
                 $orderNo = $_REQUEST['MerchantOrderNo'];
                 $orderId = substr($orderNo, 0 , -2);
@@ -420,64 +425,80 @@ function spgateway_gateway_init() {
             if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "CREDIT" || $_REQUEST['PaymentType'] == "WEBATM")) {
                 if (in_array($_REQUEST['Status'], array('SUCCESS', 'CUSTOM'))) {
                     echo "交易成功<br>";
+                    $orderNote = '交易成功';
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    $orderNote = '信用卡交易失敗 : 錯誤代碼：' . $_REQUEST['Status'] . '<br>錯誤訊息：' . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "VACC")) {
                 if ($_REQUEST['BankCode'] != "" && $_REQUEST['CodeNo'] != "") {
-                    echo "付款方式：ATM<br>";
-                    echo "取號成功<br>";
-                    echo "銀行代碼：" . $_REQUEST['BankCode'] . "<br>";
-                    echo "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
+                    $orderNote = "付款方式：ATM<br>";
+                    $orderNote .= "取號成功<br>";
+                    $orderNote .=  "銀行代碼：" . $_REQUEST['BankCode'] . "<br>";
+                    $orderNote .= "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
+                    echo $orderNote;
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    $orderNote = "交易失敗，錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "CVS")) {
                 if ($_REQUEST['CodeNo'] != "") {
-                    echo "付款方式：超商代碼<br>";
-                    echo "取號成功<br>";
-                    echo "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
+                    $orderNote = "付款方式：超商代碼<br>";
+                    $orderNote .=  "取號成功<br>";
+                    $orderNote .=  "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
+                    echo $orderNote;
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    $orderNote = "交易失敗，錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "BARCODE")) {
                 if ($_REQUEST['Barcode_1'] != "" || $_REQUEST['Barcode_2'] != "" || $_REQUEST['Barcode_3'] != "") {
-                    echo "付款方式：條碼<br>";
-                    echo "取號成功<br>";
-                    echo "請前往信箱列印繳費單<br>";
+                    $orderNote = "付款方式：條碼<br>";
+                    $orderNote .= "取號成功<br>";
+                    $orderNote .= "請前往信箱列印繳費單<br>";
+                    echo $orderNote;
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    $orderNote = "交易失敗，錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "ALIPAY" || $_REQUEST['PaymentType'] == "TENPAY")) {
                 if (in_array($_REQUEST['Status'], array('SUCCESS', 'CUSTOM'))) {
-                    echo "交易成功<br>";
+                    $orderNote = "交易成功<br>";
                     if ($_REQUEST['ChannelID'] == "ALIPAY") {
-                        echo "跨境通路類型：支付寶<br>";
+                        $orderNote .= "跨境通路類型：支付寶<br>";
                     } else if ($_REQUEST['ChannelID'] == "TENPAY") {
-                        echo "跨境通路類型：財富通<br>";
+                        $orderNote .=  "跨境通路類型：財富通<br>";
                     }
-                    echo "跨境通路交易序號：" . $_REQUEST['ChannelNO'] . "<br>";
+                    $orderNote .=  "跨境通路交易序號：" . $_REQUEST['ChannelNO'] . "<br>";
+                    echo $orderNote;
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
                     echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                    $orderNote = "交易失敗，錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
                 }
             } else if ($_REQUEST['Status'] == 'CUSTOM') {
                 echo "付款方式：{$_REQUEST['PaymentType']}<br>";
+                $orderNote = "付款方式：{$_REQUEST['PaymentType']}<br>";
             } else if ($_REQUEST['Status'] == "" && $_REQUEST['Message'] == "") {
                 // isset($order) && $order->cancel_order();
                 echo "交易取消<br>";
             } else {
                 isset($order) && $order->cancel_order();
                 echo "交易失敗，請前往 > <a href='/my-account/orders/'>重新付款</a><br>錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+                $orderNote = "交易失敗，錯誤代碼：" . $_REQUEST['Status'] . "<br>錯誤訊息：" . $_REQUEST['Message'];
+            }
+
+            if (isset($order) && !empty($orderNote)) {
+                $order->add_order_note(__($orderNote, 'woothemes'));
             }
         }
 
@@ -720,6 +741,7 @@ function spgateway_gateway_init() {
             }
             $order->add_order_note(__($orderNote, 'woothemes'));
         }
+
         function receive_response() {  //接收回傳參數驗證
             $re_MerchantOrderNo = trim($_REQUEST['MerchantOrderNo']);
             $re_MerchantOrderId = substr(trim($_REQUEST['MerchantOrderNo']), 0 , -2);
@@ -775,6 +797,27 @@ function spgateway_gateway_init() {
                 }
             } else {
                 $msg = "訂單處理失敗";
+            }
+
+            if (isset($_REQUEST['PaymentType']) && in_array($_REQUEST['PaymentType'], ['VACC', 'CVS', 'BARCODE'])) {
+                switch($_REQUEST['PaymentType']) {
+                    case 'VACC':
+                        $orderNote = 'ATM繳款完成，銀行代碼為: ' . $_REQUEST['PayBankCode'] . '</br> 帳號末五碼為: ' . $_REQUEST['PayerAccount5Code'];
+                        break;
+                    case 'CVS':
+                        $orderNote = '超商代碼繳款完成，代碼為: ' . $_REQUEST['CodeNo'];
+                        break;
+                    case 'BARCODE':
+                        $orderNote = '超商條碼繳款完成，條碼1為: ' . $_REQUEST['Barcode_1'];
+                        $orderNote .= '</br>條碼2為: ' . $_REQUEST['Barcode_2'];
+                        $orderNote .= '</br>條碼3為: ' . $_REQUEST['Barcode_3'];
+                        $orderNote .= '</br>繳款商店為: ' . $_REQUEST['PayStore'];
+                        break;
+                }
+
+                if (isset($order) && !empty($orderNote)) {
+                    $order->add_order_note(__($orderNote, 'woothemes'));
+                }
             }
 
             if (isset($_GET['callback'])) {

@@ -2578,6 +2578,7 @@ function my_user_register($user_id) {
         // send an email out to user
         wc_mail($user_info->user_email, '【買肉找我】帳號認證信', $html);
 }
+
 // we need this to handle all the getty hacks i made
 function my_init(){
         // check whether we get the activation message
@@ -2603,10 +2604,12 @@ function my_init(){
             wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
             exit;
         }
-//        if(isset($_GET['u'])){
-//                my_user_register($_GET['u']);
-//                wc_add_notice( __( 'Succes: Your activation email has been resend. Please check your email.', 'inkfool' ) );
-//        }
+
+    // load plugin
+
+    require_once (WP_PLUGIN_DIR  . '/Spgateway/class-spgateway.php');
+
+    spgateway_gateway_init();
 }
 // hooks handler
 add_action( 'init', 'my_init' );
