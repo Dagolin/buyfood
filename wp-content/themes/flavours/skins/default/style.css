@@ -12608,7 +12608,7 @@ select#shipping-address-select {
 	background-image: url(../../images/category-bg.jpg)
 }*/
 .page-heading {
-	padding: 120px 0 60px 0;
+	padding: 200px 0 60px 0;
 	background-size: cover;
 	border-bottom: none;
 	text-align: center;
@@ -13760,7 +13760,7 @@ del .amount {
 }
 .single-product .page-heading {
 	text-align: center;
-	padding: 155px 0 35px;
+	padding: 200px 0 35px;
 }
 .product-view .product-shop .clear {
 	display: none;

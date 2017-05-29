@@ -26,7 +26,7 @@ global $product;
                 <span>
                     <?php esc_attr_e('熱銷中','flavours');?>
                     <?php if ($stock > 0) {
-                        echo '，目前限量 ' . $stock . ' 份';
+                        echo '，目前庫存量 ' . $stock . ' 份';
                     }
                     ?>
                 </span>

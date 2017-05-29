@@ -18,8 +18,19 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+
+$max = is_numeric($max_value) ? $max_value : 10;
+$max = $max < 10 ? $max : 10;
+$max = $max < $input_value ? $input_value : $max;
+
+$min = is_numeric($min_value) ? $min_value : 1;
+$min = $min > 0 ? $min : 1;
 ?>
 <div class="quantity">
-	<input type="number" step="<?php echo esc_attr( $step ); ?>"
-	<?php if (is_numeric($min_value)) : ?>min="<?php echo esc_attr( $min_value ); ?>"<?php endif; ?> <?php if (is_numeric($max_value)) : ?>max="<?php echo esc_attr( $max_value ); ?>"<?php endif; ?> name="<?php echo esc_attr( $input_name ); ?>" value="<?php echo esc_attr( $input_value ); ?>" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="input-text qty text" size="4" />
+	<select title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="input-select qty" name="<?php echo esc_attr( $input_name ); ?>">
+		<?php
+		for ($i = $min; $i <= $max; $i++) { ?>
+			<option value="<?php echo $i; ?>" <?php echo ($input_value == $i) ? 'selected' : '' ?>><?php echo $i; ?></option>
+		<?php } ?>
+	</select>
 </div>
