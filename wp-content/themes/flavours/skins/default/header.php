@@ -24,35 +24,25 @@ $limitDates = get_limit_product_list(); ?>
              <?php tmFlavours_logo_image();?>
             </div>
             <!-- End Header Logo -->
-          
-
             <div class="top-menu">
-
-                <a class="mobile-toggle"><i class="fa fa-reorder"></i>
-                    <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
-                </a>
-                <a href="<?php echo $flavours_Options['marketing_group_purchase_link']; ?>">
-                    <div class="clockdate-full-mobile mobile-only clock-large-bg">
-                        <div class="wrapper-clckdate-mobile">
-                            <div class="clock-large-mobile"></div>
-                        </div>
-                    </div>
-                </a>
                 <div class="tm-main-menu">
                     <div id="main-menu">
                         <?php echo tmFlavours_main_menu(); ?>
-
                     </div>
                 </div>
-               
             </div>
              <?php
 
              if (isset($flavours_Options['enable_header_mobile_links']) && $flavours_Options['enable_header_mobile_links'] == 1) :
                  ?>
              <div class="dock-menu">
+                 <div>
+                     <a class="mobile-toggle"><i class="fa fa-reorder"></i>
+                         <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
+                     </a>
+                 </div>
                  <?php
-                 for ($i = 1; $i <= 4; $i++) {
+                 for ($i = 1; $i <= 3; $i++) {
                      if (isset($flavours_Options['header_mobile_link_text_' . $i]) && $flavours_Options['header_mobile_link_url_' . $i]) {
                  ?>
                  <div id="dock-<?php echo $i;?>" class="dock-<?php echo $i;?>"><a href="<?php echo $flavours_Options['header_mobile_link_url_' . $i];?>"><?php echo $flavours_Options['header_mobile_link_text_' . $i];?></a></div>

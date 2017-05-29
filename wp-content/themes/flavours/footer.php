@@ -127,6 +127,13 @@ $limitOverlayTemplate = isset($flavours_Options['countdown_overlay_template']) ?
             </div>
         </div>
     </a>
+    <a href="<?php echo $flavours_Options['marketing_group_purchase_link']; ?>">
+        <div class="clockdate-full-mobile mobile-only clock-large-bg">
+            <div class="wrapper-clockdate-mobile">
+                <div class="clock-large-mobile"></div>
+            </div>
+        </div>
+    </a>
 <?php endif ?>
 
 

@@ -844,7 +844,8 @@ nav {
 	z-index: 99;
 }
 .sticky-header {
-	position: fixed;
+	position: -webkit-sticky;
+	position: sticky;
 	margin-top: 0px;
 	z-index: 500;
 	display: block;
@@ -14999,7 +15000,10 @@ font-weight:normal;
 		text-align: center;
 		line-height: 20px;
 		vertical-align: top;
-		float: right;
+		bottom: 100px;
+		position: fixed;
+		right: 10px;
+		z-index: 1001;
 	}
 
 	.desktop-only {
@@ -15065,10 +15069,8 @@ font-weight:normal;
 
 .header-container .top-menu {
     display: block;
-    margin-top: 85px;
     background-color: #fff;
     clear: both;
-	height: 40px;
 }
 
     .header-container .dock-menu {
@@ -15587,9 +15589,6 @@ ul.navmenu {
 }
 .header-container .header-right-col {
 	z-index: 100000;
-	top: 20px;
-	right: 20px;
-
 }
 ul#cart-sidebar {
 	padding: 10px 0 0;
@@ -16074,6 +16073,8 @@ footer .newsletter-row {
 }
 .search-bar, .click-nav {
 	/* display: none; */
+	width: 50px;
+	text-align: center;
 }
 header {
 	/* height: 42px; */
