@@ -19,7 +19,7 @@
 add_action('plugins_loaded', 'spgateway_gateway_init', 0);
 
 function spgateway_gateway_init() {
-    if (!class_exists('WC_Payment_Gateway')) {
+    if (!class_exists('WC_Payment_Gateway') || class_exists('WC_spgateway')) {
         return;
     }
 
