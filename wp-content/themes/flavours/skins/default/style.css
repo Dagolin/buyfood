@@ -15801,7 +15801,7 @@ ul.slideshow {
 	display: inline-block;
 }
 .form-add-tags input.input-text, select, textarea {
-	width: 57% !important;
+	/*width: 57% !important;*/
 }
 .more-views .owl-carousel .owl-item {
 	width: 90px !important;
