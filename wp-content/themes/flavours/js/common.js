@@ -472,6 +472,32 @@ jQuery(document).ready(function(){
 
 });
 
+var homeMark = '#thm-mart-slideshow';
+var pageMark = '.page-heading';
+var lastScrollPositionTop = 0;
+
+jQuery('body').bind('touchmove', function() {
+	var noNav = false;
+	var thisScrollPositionTop = lastScrollPositionTop;
+	var mark = (jQuery(homeMark).length > 0) ? homeMark : pageMark;
+	var offsetTop = jQuery(mark).height() / 2 + jQuery(mark).position().top;
+	var offsetNav = jQuery('#header').hasClass('hide-nav') ? 0 : jQuery('.dock-menu').height();
+
+	thisScrollPositionTop = jQuery(this).scrollTop() - offsetNav;
+
+	if (thisScrollPositionTop > offsetTop && thisScrollPositionTop > lastScrollPositionTop) {
+		noNav = true;
+	}
+
+	if(noNav) {
+		jQuery('#header').addClass('hide-nav');
+	} else {
+		jQuery('#header').removeClass('hide-nav');
+	}
+
+	lastScrollPositionTop = thisScrollPositionTop;
+});
+
 
 var isTouchDevice = ('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0);
 jQuery(window).on("load", function() {

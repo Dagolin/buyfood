@@ -94,7 +94,6 @@ $TmFlavours = new TmFlavours();?>
 
     </script>
 
-<div class="menu-overlay"></div>
 <?php // navigation panel
 require_once(TMFLAVOURS_THEME_PATH .'/menu_panel.php');
  ?>

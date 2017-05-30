@@ -268,7 +268,7 @@ width:300px;
     margin-top: 0px;
     height: auto;
     line-height: normal;
-    padding-bottom: 5px;
+    padding-bottom: 4px;
 	padding-left:0px;
 	padding-right:0px
 }
@@ -2799,4 +2799,3 @@ ol#compare-items li a.product-name {
 .page-not-found img {width:100%}
 .multiple_addresses .title-buttons {text-align: left;}
  }
- 

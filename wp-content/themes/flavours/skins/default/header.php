@@ -13,10 +13,14 @@ global $flavours_Options;
 $limitDates = get_limit_product_list(); ?>
 <body <?php body_class('cms-index-index  cms-home-page'); ?> >
   <div id="page" class="page catalog-category-view">
-
+      <div class="header-container mobile-only">
+          <?php tmFlavours_daily_offer();?>
+      </div>
       <!-- Header -->
-      <header id="header" >
-	 <?php tmFlavours_daily_offer();?>
+      <header id="header" class="mobile-sticky-header">
+          <div class="header-container desktop-only">
+              <?php tmFlavours_daily_offer();?>
+          </div>
          <div class="header-container container">
          <div class="row">
             <!-- Header Logo -->
@@ -38,7 +42,7 @@ $limitDates = get_limit_product_list(); ?>
              <div class="dock-menu">
                  <div>
                      <a class="mobile-toggle"><i class="fa fa-reorder"></i>
-                         <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: text-top;"> 展開選單</span>
+                         <span style="display: inline-block;font-size: 14px; font-weight: bold; margin-left: 5px; line-height: 20px;vertical-align: baseline;"> 展開選單</span>
                      </a>
                  </div>
                  <?php
@@ -49,7 +53,7 @@ $limitDates = get_limit_product_list(); ?>
                  <?php }} ?>
              </div>
              <?php endif; ?>
-             
+
                <div class="header-right-col">
                 <?php  if ( has_nav_menu( 'toplinks' ) ) :?>
                   <div class="click-nav">
@@ -57,7 +61,7 @@ $limitDates = get_limit_product_list(); ?>
                         <a title="<?php esc_attr_e('clicker:', 'flavours');?>" class="clicker"></a>
                         <div class="top-links">
                             <?php tmFlavours_currency_language();?>
-                            <?php echo tmFlavours_top_navigation(); ?>                           
+                            <?php echo tmFlavours_top_navigation(); ?>
                         </div>
                      </div>
                   </div>
@@ -75,12 +79,12 @@ $limitDates = get_limit_product_list(); ?>
 
                     <!-- top search code -->
               <div class="top-search">
-              
-                     <?php echo tmFlavours_search_form(); ?>  
-                   
-                     
+
+                     <?php echo tmFlavours_search_form(); ?>
+
+
           </div>
-                 
+                   <div class="menu-overlay"></div>
                   <!--links-->
                </div>
             </div>

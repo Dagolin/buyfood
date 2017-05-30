@@ -1362,7 +1362,7 @@ color: #444;
 	right: 0;
 	top: 0;
 	bottom: 0;
-	z-index: 99999;
+	z-index: 1002;
 	min-height: 100vh;
 	opacity: 0.35;
 	filter: alpha(opacity=35);
