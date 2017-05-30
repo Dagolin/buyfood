@@ -177,6 +177,7 @@ header {
     background: #cf0a2c;
     height: 116px;
     margin-right: 15px;
+	margin-top: -41px;
 }
 .header-container .top-menu {
 	display: block;
@@ -14982,7 +14983,7 @@ font-weight:normal;
 /* 32. RESPONSIVE SCREEN */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
 	.click-nav .no-js:hover .top-links, .click-nav .no-js .hover_effect {
-		width: 200px;
+		width: 150px;
 	}
 
 	.mobile-sticky-header {
@@ -16090,7 +16091,7 @@ footer .newsletter-row {
 .search-bar, .click-nav {
 	/* display: none; */
 	width: 50px;
-	text-align: center;
+	text-align: left;
 }
 header {
 	/* height: 42px; */
