@@ -606,18 +606,31 @@ return false;
 });	
 return false;
 }
+
+function showToplink(){
+	jQuery(".top-links").show();
+
+	if (isTouchDevice) {
+		jQuery('.menu-overlay').addClass('active');
+	}
+}
+
+function showTopCart() {
+	jQuery(".top-cart-content").show();
+
+	if (isTouchDevice) {
+		jQuery('.menu-overlay').addClass('active');
+	}
+}
+
 function slideEffectAjax() {
 
 	jQuery('.click-nav').mouseenter(function() {
-		jQuery(".top-links").show();
+		showToplink();
 	});
 
     jQuery('.click-nav').click(function() {
-        jQuery(".top-links").show();
-
-		if (isTouchDevice) {
-			jQuery('.menu-overlay').addClass('active');
-		}
+		showToplink();
     });
 
     jQuery('.click-nav').mouseleave(function() {
@@ -625,15 +638,11 @@ function slideEffectAjax() {
     });
 
 	jQuery('.top-cart-contain').mouseenter(function() {
-		jQuery(".top-cart-content").show();
+		showTopCart();
 	});
 
     jQuery('.top-cart-contain').click(function() {
-        jQuery(".top-cart-content").show();
-
-		if (isTouchDevice) {
-			jQuery('.menu-overlay').addClass('active');
-		}
+		showTopCart();
     });
 
     jQuery('.top-cart-contain').mouseleave(function() {
