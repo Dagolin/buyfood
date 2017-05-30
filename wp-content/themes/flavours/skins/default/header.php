@@ -57,7 +57,7 @@ $limitDates = get_limit_product_list(); ?>
                <div class="header-right-col">
                 <?php  if ( has_nav_menu( 'toplinks' ) ) :?>
                   <div class="click-nav">
-                     <div class="no-js">
+                     <div class="clicker-wrapper">
                         <a title="<?php esc_attr_e('clicker:', 'flavours');?>" class="clicker"></a>
                         <div class="top-links">
                             <?php tmFlavours_currency_language();?>

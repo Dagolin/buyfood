@@ -236,6 +236,9 @@ window.theme = {};
           var jQueryhtml = jQuery('html');
           jQueryhtml.removeClass('menu-opened');
           jQuery(this).removeClass('active');
+          jQuery('.top-cart-content').removeClass('hover_effect');
+          jQuery('.top-links').removeClass('hover_effect');
+          console.log('menu-overlay clicked');
         });
         jQuery(window).on('resize', function() {
           var winWidth = jQuery(window).width();
