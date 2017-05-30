@@ -18596,7 +18596,7 @@ button.button.create-account:before {
 }
 
 .clockdate-full {
-	bottom: 100px;
+	bottom: 50px;
 	position: fixed;
 	right: 10px;
 	z-index: 1001;
