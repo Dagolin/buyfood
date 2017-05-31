@@ -442,9 +442,8 @@ function spgateway_gateway_init() {
                     $orderNote .= "取號成功<br>";
                     $orderNote .=  "銀行代碼：" . $_REQUEST['BankCode'] . "<br>";
                     $orderNote .= "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
+                    $orderNote .= '繳費截止日：' . $_REQUEST['ExpireDate'] . "<br>";
                     echo $orderNote;
-
-                    $orderNote .= '繳費有效截止日：' . $_REQUEST['ExpireDate'] . "<br>";
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
@@ -456,9 +455,8 @@ function spgateway_gateway_init() {
                     $orderNote = "付款方式：超商代碼<br>";
                     $orderNote .=  "取號成功<br>";
                     $orderNote .=  "繳費代碼：" . $_REQUEST['CodeNo'] . "<br>";
+                    $orderNote .= '繳費截止日為：' . $_REQUEST['ExpireDate'] . "<br>";
                     echo $orderNote;
-
-                    $orderNote .= '條碼有效截止日：' . $_REQUEST['ExpireDate'] . "<br>";
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
@@ -470,9 +468,8 @@ function spgateway_gateway_init() {
                     $orderNote = "付款方式：條碼<br>";
                     $orderNote .= "取號成功<br>";
                     $orderNote .= "請前往信箱列印繳費單<br>";
+                    $orderNote .= '繳費截止日為：' . $_REQUEST['ExpireDate'] . "<br>";
                     echo $orderNote;
-
-                    $orderNote .= '繳費有效截止日為：' . $_REQUEST['ExpireDate'] . "<br>";
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
