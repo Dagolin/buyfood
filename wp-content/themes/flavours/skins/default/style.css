@@ -13533,6 +13533,7 @@ background: none repeat scroll 0 0 #fff;
 	text-align: center;
 	margin-bottom: 30px;
 	list-style: none;
+	padding-right: 5px;
 }
 /* woocommerce pagination */
 
@@ -14865,7 +14866,7 @@ body table.compare-list .add-to-cart td a {
 }
 
 .best-pro {
-    padding: 0px 0px;
+    padding: 0px 5px;
     position: relative;
     margin-top: 20px;
     padding-bottom: 42px;
