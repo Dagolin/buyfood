@@ -18617,7 +18617,7 @@ button.button.create-account:before {
 }
 
 .clockdate-full {
-	bottom: 50px;
+	bottom: 120px;
 	position: fixed;
 	right: 10px;
 	z-index: 1001;

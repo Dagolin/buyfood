@@ -404,11 +404,11 @@ class WC_Countries {
 		if ( empty( $this->address_formats ) ) {
 
 			// Common formats
-			$postcode_before_city = "{company}\n{name}\n{address_1}\n{address_2}\n{postcode} {city}\n{country}";
+			$postcode_before_city = "{company}\n{vat}\n{name}\n{address_1}\n{address_2}\n{postcode} {city}\n{country}";
 
 			// Define address formats
 			$this->address_formats = apply_filters( 'woocommerce_localisation_address_formats', array(
-				'default' => "{name}\n{company}\n{address_1}\n{address_2}\n{city}\n{state}\n{postcode}\n{country}",
+				'default' => "{name}\n{company}\n{vat}\n{address_1}\n{address_2}\n{city}\n{state}\n{postcode}\n{country}",
 				'AU' => "{name}\n{company}\n{address_1}\n{address_2}\n{city} {state} {postcode}\n{country}",
 				'AT' => $postcode_before_city,
 				'BE' => $postcode_before_city,
@@ -428,7 +428,7 @@ class WC_Countries {
 				'IS' => $postcode_before_city,
 				'IT' => "{company}\n{name}\n{address_1}\n{address_2}\n{postcode}\n{city}\n{state_upper}\n{country}",
 				'JP' => "{postcode}\n{state}{city}{address_1}\n{address_2}\n{company}\n{last_name} {first_name}\n{country}",
-				'TW' => "{company}\n{last_name} {first_name}\n{address_1}\n{address_2}\n{state}, {city} {postcode}\n{country}",
+				'TW' => "{company}\n{vat}\n{last_name} {first_name}\n{address_1}\n{address_2}\n{state}, {city} {postcode}\n{country}",
 				'LI' => $postcode_before_city,
 				'NL' => $postcode_before_city,
 				'NZ' => "{name}\n{company}\n{address_1}\n{address_2}\n{city} {postcode}\n{country}",
@@ -457,6 +457,7 @@ class WC_Countries {
 			'first_name' => '',
 			'last_name'  => '',
 			'company'    => '',
+            'vat'        => '',
 			'address_1'  => '',
 			'address_2'  => '',
 			'city'       => '',
@@ -492,6 +493,7 @@ class WC_Countries {
 			'{last_name}'        => $last_name,
 			'{name}'             => $first_name . ' ' . $last_name,
 			'{company}'          => $company,
+            '{vat}'              => $vat,
 			'{address_1}'        => $address_1,
 			'{address_2}'        => $address_2,
 			'{city}'             => $city,

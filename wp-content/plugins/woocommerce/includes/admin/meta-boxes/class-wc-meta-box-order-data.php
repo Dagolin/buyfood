@@ -51,6 +51,10 @@ class WC_Meta_Box_Order_Data {
 				'label' => __( 'Company', 'woocommerce' ),
 				'show'  => false
 			),
+			'vat' => array(
+				'label' => __( '統一編號', 'woocommerce' ),
+				'show'  => false
+			),
 			'address_1' => array(
 				'label' => __( 'Address 1', 'woocommerce' ),
 				'show'  => false

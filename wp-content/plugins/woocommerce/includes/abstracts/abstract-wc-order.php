@@ -13,6 +13,7 @@
  * @property    string $billing_first_name The billing address first name.
  * @property    string $billing_last_name The billing address last name.
  * @property    string $billing_company The billing address company.
+ * @property    string $billing_vat The billing address company vat.
  * @property    string $billing_address_1 The first line of the billing address.
  * @property    string $billing_address_2 The second line of the billing address.
  * @property    string $billing_city The city of the billing address.
@@ -218,6 +219,7 @@ abstract class WC_Abstract_Order {
 				'first_name' => $this->billing_first_name,
 				'last_name'  => $this->billing_last_name,
 				'company'    => $this->billing_company,
+                'vat'        => $this->billing_vat,
 				'address_1'  => $this->billing_address_1,
 				'address_2'  => $this->billing_address_2,
 				'city'       => $this->billing_city,
@@ -1098,6 +1100,7 @@ abstract class WC_Abstract_Order {
 				'first_name'    => $this->billing_first_name,
 				'last_name'     => $this->billing_last_name,
 				'company'       => $this->billing_company,
+                'vat'           => $this->billing_vat,
 				'address_1'     => $this->billing_address_1,
 				'address_2'     => $this->billing_address_2,
 				'city'          => $this->billing_city,
