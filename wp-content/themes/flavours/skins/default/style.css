@@ -176,7 +176,6 @@ header {
     padding-left: 20px;
     background: #cf0a2c;
     height: 116px;
-    margin-right: 15px;
 	margin-top: -41px;
 }
 .header-container .top-menu {
@@ -3502,6 +3501,7 @@ margin: 0 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	max-width: 216px;
 }
 .products-grid .item .item-inner .item-info .info-inner .item-title a {
 	text-decoration: none;
@@ -15039,7 +15039,7 @@ font-weight:normal;
 
 	.products-grid .item .item-inner .item-info .info-inner .item-title {
 		width: 100%;
-		max-width: 165px;
+		max-width: 152px;
 	}
 	.category-products .products-grid li.item {
 		/*width: 100%;*/
