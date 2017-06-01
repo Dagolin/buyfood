@@ -485,8 +485,7 @@ jQuery('body').bind('touchmove', function() {
 	var offsetNav = jQuery('#header').hasClass('hide-nav') ? 0 : jQuery('.dock-menu').height();
 
 	thisScrollPositionTop = jQuery(this).scrollTop() - offsetNav;
-
-	if (thisScrollPositionTop > offsetTop && thisScrollPositionTop > lastScrollPositionTop) {
+	if (thisScrollPositionTop > offsetTop && thisScrollPositionTop > lastScrollPositionTop + offset) {
 		noNav = true
 	}
 

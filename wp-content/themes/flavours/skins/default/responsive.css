@@ -963,14 +963,11 @@ footer .newsletter-row {
     text-align: center;
     padding-bottom: 0px;
     margin-top: 0px;
-    /* width: 100%; */
-    border-bottom: 1px solid #e5e5e5;
     height: auto;
     line-height: normal;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .header-container .fl-header-right {
