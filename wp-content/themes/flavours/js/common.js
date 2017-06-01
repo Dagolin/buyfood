@@ -475,7 +475,7 @@ jQuery(document).ready(function(){
 var homeMark = '#thm-mart-slideshow';
 var pageMark = '.page-heading';
 var lastScrollPositionTop = 0;
-var offset = 150;
+var offset = 100;
 
 jQuery('body').bind('touchmove', function() {
 	var noNav = false;
