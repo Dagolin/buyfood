@@ -84,6 +84,7 @@ body {
     font-size: 13px;
     background: #f5f5f5;
     line-height: 1.6em;
+	overflow: hidden;
 }
 a {
 	color: #333;
@@ -3501,7 +3502,7 @@ margin: 0 0;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	max-width: 216px;
+	max-width: 100%;
 }
 .products-grid .item .item-inner .item-info .info-inner .item-title a {
 	text-decoration: none;
@@ -12665,7 +12666,6 @@ select#shipping-address-select {
 }
 .products-grid ul {
 	padding: 0;
-	margin: 0 -15px;
 }
 /* new changes css */
 
@@ -15066,7 +15066,7 @@ font-weight:normal;
 
 	.products-grid .item .item-inner .item-info .info-inner .item-title {
 		width: 100%;
-		max-width: 152px;
+		max-width: 100%;
 	}
 	.category-products .products-grid li.item {
 		/*width: 100%;*/
@@ -16294,7 +16294,7 @@ header {
 	}
 	.products-grid .item .item-inner .item-info .info-inner .item-title {
 		width: 100%;
-		max-width: 195px;
+		max-width: 100%;
 	}
 	.wrapper-clockdate {
 		padding: 10px;

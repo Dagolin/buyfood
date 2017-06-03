@@ -451,8 +451,12 @@ class WC_AJAX {
 			// If there was an error adding to the cart, redirect to the product page to show any errors
 			$data = array(
 				'error'       => true,
+                'message'     => WC()->session->get( 'wc_notices' ),
 				'product_url' => apply_filters( 'woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id )
 			);
+
+            // 送出通知後清空資訊
+            WC()->session->set( 'wc_notices', [] );
 
 			wp_send_json( $data );
 

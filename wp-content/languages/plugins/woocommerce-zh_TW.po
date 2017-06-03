@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-05-30 00:27+0800\n"
+"PO-Revision-Date: 2017-06-03 10:22+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3681,7 +3681,7 @@ msgstr "您無法購買 &quot;%s&quot; 的數量，庫存量不足。(還剩 %s 
 
 #: includes/class-wc-cart.php:968
 msgid "You cannot add that amount to the cart &mdash; we have %s in stock and you already have %s in your cart."
-msgstr "您的不能選購這樣的數量 &mdash; 我們的庫存只有 %s 個，但是你下了 %s 個的訂單."
+msgstr "您不能選購這樣的數量 &mdash; 我們的庫存只有 %s 個."
 
 #: includes/class-wc-checkout.php:106
 msgid "Account username"

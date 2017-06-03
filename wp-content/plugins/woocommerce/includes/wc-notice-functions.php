@@ -156,6 +156,11 @@ function wc_print_notice( $message, $notice_type = 'success' ) {
 		$message = apply_filters( 'woocommerce_add_message', $message );
 	}
 
+    // 由於局部變更成 AJAX呼叫，錯誤訊息不在此時顯示，移置add-to-cart.js
+    if ($notice_type === 'error') {
+        return;
+    }
+
 	wc_get_template( "notices/{$notice_type}.php", array(
 		'messages' => array( apply_filters( 'woocommerce_add_' . $notice_type, $message ) )
 	) );

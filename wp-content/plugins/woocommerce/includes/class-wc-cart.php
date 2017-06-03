@@ -893,6 +893,7 @@ class WC_Cart {
 		 * @return string|bool $cart_item_key
 		 */
 		public function add_to_cart( $product_id = 0, $quantity = 1, $variation_id = 0, $variation = array(), $cart_item_data = array() ) {
+
 			// Wrap in try catch so plugins can throw an exception to prevent adding to cart
 			try {
 				$product_id   = absint( $product_id );
