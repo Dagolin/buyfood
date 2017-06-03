@@ -1553,18 +1553,16 @@ ul.top-links1.mega-menu1 {
 #main-menu {
 	display: inline !important;
 }
-#header .mobile-toggle {
-	/* left: 10px; */
-	/* position: absolute; */
-	/* top: 0px; */
-	/* font-size: 21px; */
-	/* z-index: 100; */
-}
+	#header .mobile-toggle {
+		font-size: 13px;
+		line-height: 32pt;
+		color: #333;
+	}
 }
 @media (max-width: 767px) {
 #header .mobile-toggle {
-	font-size: 20px;
-	line-height: 40px;
+	font-size: 13px;
+	line-height: 32pt;
 	color: #333;
 }
 #header .top-links {
