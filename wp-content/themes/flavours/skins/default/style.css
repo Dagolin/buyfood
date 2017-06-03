@@ -520,7 +520,7 @@ ul.currencies_list li a:hover {
 }
 .top-cart-content .product-name {
 	margin: 0;
-	width: 150px;
+	width: 90%;
 	line-height: 1
 }
 .top-cart-content .product-name a {
@@ -16252,6 +16252,7 @@ header {
 
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+
 	.best-pro .new_title {
 		text-align: left;
 		margin-left: 0px;

@@ -961,13 +961,12 @@ footer .newsletter-row {
 #fade{ display: none !important; }
 .logo {
     text-align: center;
-    padding-bottom: 0px;
     margin-top: 0px;
     height: auto;
     line-height: normal;
     padding-bottom: 5px;
-    padding-left: 0px;
-    padding-right: 0px;
+	padding-left: 35px;
+	padding-right: 35px
 }
 
 .header-container .fl-header-right {
