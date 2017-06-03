@@ -15178,7 +15178,7 @@ font-weight:normal;
 }
 .woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering {
 	float: left !important;
-	margin-top: 20px !important;
+	/*margin-top: 20px !important;*/
 	width: auto;
 }
 .products-grid li.item.col-xs-6 {
@@ -16370,7 +16370,7 @@ header {
 
 .woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering {
 float: right !important;
-    margin-top: 10px !important;
+    /*margin-top: 10px !important;*/
     width: 100%;
 }
 .products-grid li.item.col-xs-6 {
