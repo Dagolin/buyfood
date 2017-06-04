@@ -501,28 +501,28 @@ class WC_Cart {
 				/**
 				 * Finally consider any held stock, from pending orders.
 				 */
-				if ( get_option( 'woocommerce_hold_stock_minutes' ) > 0 && ! $_product->backorders_allowed() ) {
-					$order_id   = isset( WC()->session->order_awaiting_payment ) ? absint( WC()->session->order_awaiting_payment ) : 0;
-//					$held_stock = $wpdb->get_var(
-//						$wpdb->prepare( "
-//							SELECT SUM( order_item_meta.meta_value ) AS held_qty
-//							FROM {$wpdb->posts} AS posts
-//							LEFT JOIN {$wpdb->prefix}woocommerce_order_items as order_items ON posts.ID = order_items.order_id
-//							LEFT JOIN {$wpdb->prefix}woocommerce_order_itemmeta as order_item_meta ON order_items.order_item_id = order_item_meta.order_item_id
-//							LEFT JOIN {$wpdb->prefix}woocommerce_order_itemmeta as order_item_meta2 ON order_items.order_item_id = order_item_meta2.order_item_id
-//							WHERE 	order_item_meta.meta_key   = '_qty'
-//							AND 	order_item_meta2.meta_key  = %s AND order_item_meta2.meta_value  = %d
-//							AND 	posts.post_type            IN ( '" . implode( "','", wc_get_order_types() ) . "' )
-//							AND 	posts.post_status          = 'wc-pending'
-//							AND		posts.ID                   != %d;",
-//							$_product->is_type( 'variation' ) && true === $_product->managing_stock() ? '_variation_id' : '_product_id',
-//							$_product->is_type( 'variation' ) && true === $_product->managing_stock() ? $values['variation_id'] : $values['product_id'],
-//							$order_id
-//						)
-//					);
+                // 暫時不保留 Pending (等待付款中) 的訂單庫存
 
-                    // 暫時不保留 Pending (等待付款中) 的訂單庫存
-                    $held_stock = 0;
+//				if ( get_option( 'woocommerce_hold_stock_minutes' ) > 0 && ! $_product->backorders_allowed() ) {
+                if (false) {
+					$order_id   = isset( WC()->session->order_awaiting_payment ) ? absint( WC()->session->order_awaiting_payment ) : 0;
+					$held_stock = $wpdb->get_var(
+						$wpdb->prepare( "
+							SELECT SUM( order_item_meta.meta_value ) AS held_qty
+							FROM {$wpdb->posts} AS posts
+							LEFT JOIN {$wpdb->prefix}woocommerce_order_items as order_items ON posts.ID = order_items.order_id
+							LEFT JOIN {$wpdb->prefix}woocommerce_order_itemmeta as order_item_meta ON order_items.order_item_id = order_item_meta.order_item_id
+							LEFT JOIN {$wpdb->prefix}woocommerce_order_itemmeta as order_item_meta2 ON order_items.order_item_id = order_item_meta2.order_item_id
+							WHERE 	order_item_meta.meta_key   = '_qty'
+							AND 	order_item_meta2.meta_key  = %s AND order_item_meta2.meta_value  = %d
+							AND 	posts.post_type            IN ( '" . implode( "','", wc_get_order_types() ) . "' )
+							AND 	posts.post_status          = 'wc-pending'
+							AND		posts.ID                   != %d;",
+							$_product->is_type( 'variation' ) && true === $_product->managing_stock() ? '_variation_id' : '_product_id',
+							$_product->is_type( 'variation' ) && true === $_product->managing_stock() ? $values['variation_id'] : $values['product_id'],
+							$order_id
+						)
+					);
 
 					$not_enough_stock = false;
 
