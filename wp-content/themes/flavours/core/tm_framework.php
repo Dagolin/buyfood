@@ -104,7 +104,8 @@ function tmFlavours_simple_product_link()
 <!--             href='--><?php //echo esc_url($product->add_to_cart_url()); ?><!--'>-->
 <!--              <span>--><?php //echo esc_html($product->add_to_cart_text()); ?><!-- </span>-->
 <!--          </a>-->
-          <a class="yith-wcqv-button single_add_to_cart_button add_to_cart_button  product_type_simple button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
+          <a class="yith-wcqv-button single_add_to_cart_button add_to_cart_button  product_type_simple button btn-cart"
+             title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
               href='#'>
               <span><?php echo esc_html($product->add_to_cart_text()); ?> </span>
           </a>

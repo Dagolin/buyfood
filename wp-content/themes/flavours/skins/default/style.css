@@ -7638,7 +7638,7 @@ a.button.detail-bnt span {
 	border-bottom: 1px #ddd dotted;
 }
 .product-view .product-shop .add-to-box .btn-cart {
-	background: #ed6663 !important;
+	background: #ed6663;
 	color: #fff !important;
 	font-size: 18px;
 	text-shadow: none;
@@ -13654,7 +13654,7 @@ background: none repeat scroll 0 0 #fff;
 	font-size: 14px;
 	font-weight: bold;
 	text-transform: uppercase;
-	padding: 0px 10px;
+	padding: 0px 5px;
 }
 #yith-quick-view-content .price-box {
 	margin-top: 0px;
@@ -13710,14 +13710,16 @@ background: none repeat scroll 0 0 #fff;
 	text-align: left;
 	text-transform: uppercase;
 }
-.product-view .product-shop .cart .single_add_to_cart_button:before {
+.product-view .product-shop .cart .single_add_to_cart_button:before,
+.add-to-box .add-to-cart .single_add_to_cart_button:before {
 	content: "\f07a";
 	font-family: 'FontAwesome';
 	font-size: 17px;
 	margin-right: 0px;
 }
-.product-view .product-shop .cart .single_add_to_cart_button {
-	background: #fff !important;
+.product-view .product-shop .cart .single_add_to_cart_button,
+.add-to-box .add-to-cart .single_add_to_cart_button {
+	background: #fff;
 	color: #ed6663 !important;
 	font-size: 16px !important;
 	text-shadow: none !important;
@@ -13733,8 +13735,8 @@ background: none repeat scroll 0 0 #fff;
 	box-shadow: none!important;
 	border: 2px solid #cf0a2c !important;
 }
-.product-view .product-shop .cart .single_add_to_cart_button:hover {
-	background: #fff;
+.product-view .product-shop .cart .single_add_to_cart_button:hover,
+.add-to-box .add-to-cart .single_add_to_cart_button:hover {
 	color: #fff !important;
 	-webkit-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
 	-o-transition: all 0.4s cubic-bezier(0.8, 0, 0, 1);
@@ -13802,7 +13804,8 @@ del .amount {
 .product-view .product-shop .product_meta {
 	margin-top: 5px;
 }
-.product-view .product-shop .cart .single_add_to_cart_button:before {
+.product-view .product-shop .cart .single_add_to_cart_button:before,
+.add-to-box .add-to-cart .single_add_to_cart_button:before {
 	content: "\f07a";
 	font-family: 'FontAwesome';
 	font-size: 17px;
