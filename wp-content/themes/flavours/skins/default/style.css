@@ -13642,7 +13642,7 @@ background: none repeat scroll 0 0 #fff;
 #yith-quick-view-modal .cart .single_add_to_cart_button.button:before {
 	content: "\f07a";
 	font-family: 'FontAwesome';
-	font-size: 14px;
+	font-size: 17px;
 	margin-right: 7px;
 }
 
