@@ -56,7 +56,7 @@
 }
 /* fix */
 .owl-carousel .owl-wrapper, .owl-carousel .owl-item {
-	min-width: 150px;
+	min-width: 149px;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	-ms-backface-visibility: hidden;
