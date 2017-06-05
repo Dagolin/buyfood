@@ -4166,6 +4166,9 @@ text-transform: uppercase
 	/* margin: 0px 20px; */
 	width: 100%;
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width:100%;
 }
 /* products page */
 .col-item {
@@ -13756,7 +13759,11 @@ background: none repeat scroll 0 0 #fff;
 	font-weight: bold;
 	color: #000;
 }
+del {
+	vertical-align: middle;
+}
 ins {
+	vertical-align: middle;
 	border: none;
 	text-decoration: none;
 }
