@@ -13752,8 +13752,7 @@ background: none repeat scroll 0 0 #fff;
 	margin-bottom: 4px;
 }
 .price-box {
-	margin: 3px 0;
-	min-height: 21px;
+	min-height: 40px;
 	font-weight: bold;
 	color: #000;
 }
@@ -14582,7 +14581,7 @@ body table.compare-list .add-to-cart td a {
 }
 .home-banner-section .products-grid .item .item-inner .item-info .info-inner .item-title {
 	margin-top: 0px;
-	padding-top: 5px;
+	padding-top: 2px;
 }
 .home-banner-section .products-grid .item .item-inner .item-info .info-inner .item-title h3 {
 	color: #353535;
