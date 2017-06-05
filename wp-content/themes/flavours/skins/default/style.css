@@ -15024,6 +15024,10 @@ font-weight:normal;
 
 /* 32. RESPONSIVE SCREEN */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
+	.logo-brand .new_title, .top-cate .new_title {
+		margin-left: 5px;
+	}
+
 	.best-pro .new_title {
 		text-align: left;
 		margin-left: 0px;
@@ -16261,6 +16265,9 @@ header {
 
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+	.logo-brand .new_title, .top-cate .new_title {
+		margin-left: 5px;
+	}
 
 	.best-pro .new_title {
 		text-align: left;
