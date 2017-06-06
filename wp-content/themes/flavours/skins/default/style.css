@@ -17040,8 +17040,12 @@ button.button span {
 .mini-cart .top-cart-content {
 	right: 0px;
 	left: inherit;
-	min-width: 200px;
+	min-width: 400px;
 }
+
+	ul#cart-sidebar {
+		max-height: 180px;
+	}
 .mini-cart .basket a:first-child:before {
 	font-size: 20px;
 
