@@ -1707,6 +1707,11 @@ if ( !function_exists('wp_new_user_notification') ) :
  *                           string (admin only), 'user', or 'both' (admin and user). Default empty.
  */
 function wp_new_user_notification( $user_id, $deprecated = null, $notify = '' ) {
+    // 強迫只寄給管理者
+    if (in_array($notify, ['both', 'user'])) {
+        $notify = 'admin';
+    }
+
 	if ( $deprecated !== null ) {
 		_deprecated_argument( __FUNCTION__, '4.3.1' );
 	}

@@ -2566,7 +2566,8 @@ function wp_authenticate_user( $userdata ) {
 function my_user_register($user_id) {
         // get user data
         $user_info = get_userdata($user_id);
-        $isSocial = get_user_meta($user_id, 'user_activation_key', true);
+        $isSocial = isset($user_info->user_activation_key) ? true : false;
+
         // 如果是社群網路登入, 不認證
         if ($isSocial) {
             update_user_meta($user_id, 'is_activated', 1);
@@ -2645,16 +2646,4 @@ function custom_login(){
         exit();
     }
 }
-
-add_action( 'init', function()
-{
-    remove_action( 'register_new_user',   'wp_send_new_user_notifications'         );
-    add_action(    'register_new_user',   'wp_custom_send_new_user_notifications' );
-} );
-
-function wp_custom_send_new_user_notifications(  $user_id, $notify = 'admin' )
-{
-    wp_send_new_user_notifications( $user_id, 'admin' );
-}
-
 ?>
