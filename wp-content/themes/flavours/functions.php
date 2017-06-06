@@ -2566,7 +2566,7 @@ function wp_authenticate_user( $userdata ) {
 function my_user_register($user_id) {
         // get user data
         $user_info = get_userdata($user_id);
-        $isSocial = isset($user_info->user_activation_key) ? true : false;
+        $isSocial = isset($user_info->user_activation_key) && !empty($user_info->user_activation_key) ? true : false;
 
         // 如果是社群網路登入, 不認證
         if ($isSocial) {
