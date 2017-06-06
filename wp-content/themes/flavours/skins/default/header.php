@@ -124,22 +124,13 @@ $limitDates = get_limit_product_list(); ?>
         </div>
         <!--row--> 
       </div>
-      <!--container-->
-        <div class="page-title">
-            <h1 class="entry-title">
-                <?php $TmFlavours->tmFlavours_page_title(); ?>
-            </h1>
-        </div>
+
     </div>
-         <?php if(is_product_category()){?>
+         <!--container-->
          <div class="page-title">
-             <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-                            <h1 class="entry-title">
-                                <?php esc_html(woocommerce_page_title()); ?>
-                            </h1>
-                        <?php endif; ?>
-     
-    </div>
-    <?php } ?>
+             <h1 class="entry-title">
+                 <?php $TmFlavours->tmFlavours_page_title(); ?>
+             </h1>
+         </div>
       </div>
       <?php endif; ?>
