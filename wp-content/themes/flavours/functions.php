@@ -2626,4 +2626,28 @@ function login_error_override()
 
 add_filter('login_errors', 'login_error_override');
 
+
+add_action('init','custom_login');
+function custom_login(){
+    global $pagenow;
+    //  URL for the HomePage. You can set this to the URL of any page you wish to redirect to.
+    $blogHomePage = 'my-account';
+    //  Redirect to the Homepage, if if it is login page. Make sure it is not called to logout or for lost password feature
+    if( 'wp-login.php' == $pagenow && $_GET['action']!="logout" && $_GET['action']!="lostpassword") {
+        wp_redirect($blogHomePage);
+        exit();
+    }
+}
+
+add_action( 'init', function()
+{
+    remove_action( 'register_new_user',   'wp_send_new_user_notifications'         );
+    add_action(    'register_new_user',   'wp_custom_send_new_user_notifications' );
+} );
+
+function wp_custom_send_new_user_notifications(  $user_id, $notify = 'admin' )
+{
+    wp_send_new_user_notifications( $user_id, 'admin' );
+}
+
 ?>
