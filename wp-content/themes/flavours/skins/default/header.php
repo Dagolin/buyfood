@@ -124,7 +124,12 @@ $limitDates = get_limit_product_list(); ?>
         </div>
         <!--row--> 
       </div>
-      <!--container--> 
+      <!--container-->
+        <div class="page-title">
+            <h1 class="entry-title">
+                <?php $TmFlavours->tmFlavours_page_title(); ?>
+            </h1>
+        </div>
     </div>
          <?php if(is_product_category()){?>
          <div class="page-title">
