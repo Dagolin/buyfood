@@ -2566,10 +2566,17 @@ function wp_authenticate_user( $userdata ) {
 function my_user_register($user_id) {
         // get user data
         $user_info = get_userdata($user_id);
+        $isSocial = get_user_meta($user_id, 'user_activation_key', true);
+        // 如果是社群網路登入, 不認證
+        if ($isSocial) {
+            update_user_meta($user_id, 'is_activated', 1);
+            return;
+        }
         // create md5 code to verify later
         $code = md5(time());
         // make it into a code to send it to user via email
         $string = array('id'=>$user_id, 'code'=>$code);
+
         // create the activation code and activation status
         update_user_meta($user_id, 'is_activated', 0);
         update_user_meta($user_id, 'activationcode', $code);
