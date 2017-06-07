@@ -17,7 +17,6 @@ global $product;
 
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="price-block">
     <div class="price-box price"> <?php echo $product->get_price_html(); ?></div>
-        
         <?php if($product->is_in_stock()){
             $stock = number_format($product->stock, 0);
 
@@ -26,7 +25,7 @@ global $product;
                 <span>
                     <?php esc_attr_e('熱銷中','flavours');?>
                     <?php if ($stock > 0) {
-                        echo '，目前庫存量 ' . $stock . ' 份';
+                        echo '，' . $product->get_availability()['availability'];
                     }
                     ?>
                 </span>
