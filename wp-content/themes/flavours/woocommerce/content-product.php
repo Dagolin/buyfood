@@ -118,11 +118,14 @@ if ( 0 === $woocommerce_loop['loop'] % $woocommerce_loop['columns'] ) {
                      <input type="hidden" name="add-to-cart" value="<?php echo esc_html($product->id); ?>">
                      <button type="submit"></button>
                  </form>
-                 <!-- add to cart -->
+                 <!-- add to cart
                  <a href="#" class="link-add-cart"
                     onclick="$('#expressShopInf<?php echo esc_html($product->id); ?>').submit();return false;">
                      <span></span>
                  </a>
+                 -->
+
+                     <a href="https://www.buymeat.com.tw/cart/" class="link-add-cart"></a>
 
                 <?php if (isset($yith_wcwl) && is_object($yith_wcwl)) {
 		        $classes = get_option('yith_wcwl_use_button') == 'yes' ? 'class="link-wishlist"' : 'class="link-wishlist"';
