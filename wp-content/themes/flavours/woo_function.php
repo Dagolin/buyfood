@@ -54,7 +54,7 @@ function tmFlavours_related_upsell_products()
 
               <div class="box-additional">
                 <div class="container">
-                <div class="upsell-pro row wow bounceInUp animated">
+                <div class="best-pro slider-items-products container">
                   <div class="slider-items-products">
                     <div class="new_title center">
         <h2>
