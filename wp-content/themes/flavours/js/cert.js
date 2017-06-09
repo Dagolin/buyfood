@@ -71,8 +71,8 @@ jQuery(document).ready(function($) {
 	$('#cert_button').on('click', function(){
 		var phone = $('#billing_phone').val().replace(/[^0-9\.]+/g, '');
 
-		if (phone.length != 10) {
-			alert('請輸入有效連絡電話(十位數, 09xxxxxxxx)，收取認證簡訊');
+		if (phone.length != 10 || phone.substring(0, 2) != '09') {
+			alert('請輸入有效連絡手機號碼(十位數, 09xxxxxxxx)，收取認證簡訊');
 
 			return false;
 		}
