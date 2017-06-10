@@ -2568,6 +2568,13 @@ function my_user_register($user_id) {
         $user_info = get_userdata($user_id);
         $isSocial = isset($user_info->user_activation_key) && !empty($user_info->user_activation_key) ? true : false;
 
+        if (isset($user_info->user_url)
+            && (strpos($user_info->user_url, 'google') !== false
+                || strpos($user_info->user_url, 'facebook') !== false)) {
+            $isSocial = true;
+        }
+    
+
         // 如果是社群網路登入, 不認證
         if ($isSocial) {
             update_user_meta($user_id, 'is_activated', 1);
@@ -2584,7 +2591,7 @@ function my_user_register($user_id) {
         // create the url
         $url = get_site_url(). '/sign-in/?p=' .base64_encode( serialize($string));
         // basically we will edit here to make this nicer
-        $html = '請點選此連結啟用買肉帳號：' . $url;
+        $html = '請點選此連結啟用買肉帳號：' . $url . ' -- >' . json_encode($user_info);
         // send an email out to user
         wc_mail($user_info->user_email, '【買肉找我】帳號認證信', $html);
 }
