@@ -25,6 +25,9 @@ do_action( 'woocommerce_before_account_navigation' );
 
 <nav class="woocommerce-MyAccount-navigation">
 	<ul>
+		<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--cart">
+			<a href="<?php echo wc_get_cart_url(); ?>">購物車</a>
+		</li>
 		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
 			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
