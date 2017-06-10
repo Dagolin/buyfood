@@ -2545,6 +2545,8 @@ if(!function_exists('codeboxr_woocommerce_enqueue_styles')){
 
 // this is just to prevent the user log in automatically after register
 function wc_registration_redirect( $redirect_to ) {
+    global $woocommerce;
+    $woocommerce->cart->persistent_cart_update();
     wp_logout();
     wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
     exit;
@@ -2573,7 +2575,7 @@ function my_user_register($user_id) {
                 || strpos($user_info->user_url, 'facebook') !== false)) {
             $isSocial = true;
         }
-    
+
 
         // 如果是社群網路登入, 不認證
         if ($isSocial) {
@@ -2591,7 +2593,7 @@ function my_user_register($user_id) {
         // create the url
         $url = get_site_url(). '/sign-in/?p=' .base64_encode( serialize($string));
         // basically we will edit here to make this nicer
-        $html = '請點選此連結啟用買肉帳號：' . $url . ' -- >' . json_encode($user_info);
+        $html = '請點選此連結啟用買肉帳號：' . $url;
         // send an email out to user
         wc_mail($user_info->user_email, '【買肉找我】帳號認證信', $html);
 }
