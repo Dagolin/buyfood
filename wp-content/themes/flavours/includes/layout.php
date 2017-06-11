@@ -114,7 +114,7 @@ global $flavours_Options;
         wp_nav_menu(array(
             'theme_location' => 'toplinks',
             'container' => '',
-            'menu_class' => 'top-links1 accordion-menu' . $mcls,
+            'menu_class' => 'top-links1 mobile-menu accordion-menu' . $mcls,
             'before' => '',
             'after' => '',
             'link_before' => '',
