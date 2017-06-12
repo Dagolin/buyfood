@@ -674,7 +674,6 @@ function tmFlavours_page_title() {
 
     $home = esc_html__('Home', 'flavours');
 
-
     if ( ( ! is_home() && ! is_front_page() && ! (is_post_type_archive()) ) || is_paged() ) {
 
         if ( is_home() ) {
@@ -752,13 +751,18 @@ function tmFlavours_page_title() {
         if ( get_query_var( 'paged' ) ) {
             echo htmlspecialchars_decode( ' (' . esc_html__( 'Page', 'flavours' ) . ' ' . get_query_var( 'paged' ) . ')');
         }
-    } else {
+    }  elseif ( is_search() ) {
+
+        echo htmlspecialchars_decode(esc_html__( 'Search results for &ldquo;', 'flavours' ) . get_search_query() . '&rdquo;');
+
+    }else {
         if ( is_home() && !is_front_page() ) {
             if ( ! empty( $home ) ) {
-                  echo htmlspecialchars_decode(single_post_title('', false));
+                echo htmlspecialchars_decode(single_post_title('', false));
             }
         }
     }
+
 }
 
 
