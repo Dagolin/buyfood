@@ -16386,7 +16386,15 @@ float: right !important;
 
 #sort-by {
 	float: right;
+	display: none;
 }
+
+	.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering {
+		float: left !important;
+		/*margin-top: 20px !important;*/
+		width: auto;
+	}
+
 .woocommerce .woocommerce-ordering select.orderby {
 	border: 1px solid #ddd;
 	float: left;
@@ -17031,7 +17039,7 @@ button.button span {
 }
 
 	ul#cart-sidebar {
-		max-height: 180px;
+		max-height: 140px;
 	}
 .mini-cart .basket a:first-child:before {
 	font-size: 20px;
@@ -17220,6 +17228,7 @@ footer .newsletter-row {
 		top : 0;
 		position: fixed;
 	}
+
 
 	.top-cart-contain .mini-cart:hover .top-cart-content {
 		display: block;
