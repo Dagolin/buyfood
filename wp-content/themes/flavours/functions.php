@@ -1147,10 +1147,7 @@ function tmFlavours_breadcrumbs() {
                   <div class="product-details">
                        <div class="access">
                      <a href="<?php echo esc_url(WC()->cart->get_remove_url($cart_item_key)); ?>"
-                        title="<?php esc_attr_e('Remove This Item','flavours') ;?>" onClick="" class="btn-remove1"><?php esc_attr_e('Remove','flavours') ;?></a> <a class="btn-edit" title="<?php esc_attr_e('Edit item','flavours') ;?>"
-                        href="<?php echo esc_url(WC()->cart->get_cart_url()); ?>"><i
-                        class="icon-pencil"></i><span
-                        class="hidden"><?php esc_attr_e('Edit item','flavours') ;?></span></a>
+                        title="<?php esc_attr_e('Remove This Item','flavours') ;?>" onClick="" class="btn-remove1"><?php esc_attr_e('Remove','flavours') ;?></a>
                          </div>
                       <strong><?php echo esc_html($cart_item['quantity']); ?>
                   </strong> x <span class="price"><?php echo htmlspecialchars_decode($product_price); ?></span>
