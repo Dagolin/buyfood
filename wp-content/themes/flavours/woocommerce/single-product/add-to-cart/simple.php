@@ -65,7 +65,7 @@ if (!$product->is_purchasable()) {
             if (modal.length > 0) {
                 if (modal.hasClass('open')) {
                     jQuery('.yith-wcqv-main').animate({
-                        scrollTop: jQuery(".add-to-box").offset().top - 200
+                        scrollTop: jQuery(".add-to-box").offset().top - 50
                     }, 2000);
 
                     document.querySelector('meta[name="viewport"]').content = "initial-scale=0.1";
