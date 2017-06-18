@@ -67,6 +67,9 @@ if (!$product->is_purchasable()) {
                     jQuery('.yith-wcqv-main').animate({
                         scrollTop: jQuery(".add-to-box").offset().top - 200
                     }, 2000);
+
+                    var viewport = document.querySelector('meta[name="viewport"]');
+                    viewport.content = "initial-scale=1";
                 }
             }
         });
