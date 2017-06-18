@@ -58,5 +58,18 @@ if (!$product->is_purchasable()) {
         </div>
     </div>
     <?php do_action('woocommerce_after_add_to_cart_form'); ?>
-
+<script>
+    jQuery(document).ready(function() {
+        jQuery(".quantity select[name='quantity']").change(function () {
+            var modal = jQuery('#yith-quick-view-modal');
+            if (modal.length > 0) {
+                if (modal.hasClass('open')) {
+                    jQuery('.yith-wcqv-main').animate({
+                        scrollTop: jQuery(".add-to-box").offset().top - 200
+                    }, 2000);
+                }
+            }
+        });
+    });
+</script>
 <?php endif; ?>
