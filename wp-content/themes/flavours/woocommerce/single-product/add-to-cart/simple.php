@@ -68,7 +68,7 @@ if (!$product->is_purchasable()) {
                         scrollTop: jQuery(".add-to-box").offset().top - 200
                     }, 2000);
 
-                    document.querySelector('meta[name="viewport"]').content = "initial-scale=1.000000001";
+                    document.querySelector('meta[name="viewport"]').content = "initial-scale=0.1";
                     document.querySelector('meta[name="viewport"]').content = "initial-scale=1";
                 }
             }
