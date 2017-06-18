@@ -68,8 +68,7 @@ if (!$product->is_purchasable()) {
                         scrollTop: jQuery(".add-to-box").offset().top - 200
                     }, 2000);
 
-                    var viewport = document.querySelector('meta[name="viewport"]');
-                    viewport.content = "initial-scale=1";
+                    document.querySelector('meta[name="viewport"]').content = "initial-scale=1";
                 }
             }
         });
