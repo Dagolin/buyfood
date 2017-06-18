@@ -428,8 +428,8 @@ function spgateway_gateway_init() {
 
             if (isset($_REQUEST['PaymentType']) && ($_REQUEST['PaymentType'] == "CREDIT" || $_REQUEST['PaymentType'] == "WEBATM")) {
                 if (in_array($_REQUEST['Status'], array('SUCCESS', 'CUSTOM'))) {
-                    echo "交易成功<br>";
-                    $orderNote = '交易成功';
+                    echo "信用卡交易成功<br>";
+                    $orderNote = '信用卡交易成功';
                 } else {
 //                    isset($order) && $order->remove_order_items();
 //                    isset($order) && $order->update_status('failed');
