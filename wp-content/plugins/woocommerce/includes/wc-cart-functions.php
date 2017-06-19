@@ -115,7 +115,9 @@ function wc_add_to_cart_message( $products, $show_qty = false ) {
 		$message   = sprintf( '<a href="%s" class="button wc-forward">%s</a> %s', esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View Cart', 'woocommerce' ), esc_html( $added_text ) );
 	}
 
-	wc_add_notice( apply_filters( 'wc_add_to_cart_message', $message, $product_id ) );
+    if (strpos($_REQUEST['REQUEST_URI'], 'category') === false) {
+        wc_add_notice( apply_filters( 'wc_add_to_cart_message', $message, $product_id ) );
+    }
 }
 
 /**
