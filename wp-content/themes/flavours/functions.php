@@ -1593,7 +1593,7 @@ if ( ! function_exists( 'mv_limit_start_for_product' ) )
 
         echo '<input type="hidden" name="mv_start_date_meta_field_nonce" value="' . wp_create_nonce() . '">
         <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
-            <input type="text" class="date-picker" style="width:250px;";" name="limit_start_date" placeholder="' . $meta_field_data
+            <input type="text" class="date-time-picker" style="width:250px;";" name="limit_start_date" placeholder="' . $meta_field_data
             . '" value="' . $meta_field_data . '" ></p>';
 
 
@@ -1609,9 +1609,10 @@ if ( ! function_exists( 'mv_limit_end_for_product' ) )
 
         echo '<input type="hidden" name="mv_end_date_meta_field_nonce" value="' . wp_create_nonce() . '">
         <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
-            <input type="text" class="date-picker" style="width:250px;";" name="limit_end_date" placeholder="' . $meta_field_data
+            <input type="text" class="date-time-picker" style="width:250px;";" name="limit_end_date" placeholder="' . $meta_field_data
             . '" value="' . $meta_field_data . '" ></p>';
 
+        echo '<script>jQuery(\'.date-time-picker\').datetimepicker();</script>';
 
     }
 }
@@ -1962,6 +1963,8 @@ function cert_check() {
 }
 
 if ( is_admin() ) {
+    wp_enqueue_script( 'datetimepicker', admin_url() . '/js/jquery.datetimepicker.min.js', array('jquery'), '1.0', true );
+    wp_enqueue_style('datetimepicker', admin_url() . '/css/jquery.datetimepicker.css');
     add_action( 'wp_ajax_cert_check', 'cert_check' );
 }
 
