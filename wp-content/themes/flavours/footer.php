@@ -90,6 +90,10 @@ $TmFlavours = new TmFlavours();?>
     jQuery(document).ready(function($){ 
         
         new UISearch(document.getElementById('form-search'));
+
+        if (jQuery('.category-products').length > 0) {
+            jQuery('.woocommerce-message').addClass('hide');
+        }
     });
 
     </script>
