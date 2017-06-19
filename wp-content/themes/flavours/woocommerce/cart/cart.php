@@ -42,7 +42,7 @@ do_action('woocommerce_before_cart'); ?>
                         <tr class="first last">
                             <td class="a-right last" colspan="50">
                                 <button
-                                    onclick="location.href = '<?php echo esc_url(get_home_url()  . '/product-category/meat/'); ?>'"
+                                    onclick="location.href = '<?php echo esc_url(get_home_url()); ?>'"
                                     class="button btn-continue" title="<?php esc_attr_e('Continue Shopping', 'woocommerce'); ?>" type="button"><span><?php esc_attr_e('Continue Shopping', 'flavours'); ?></span>
                                 </button>
                                 <button type="submit" class="button btn-update" name="update_cart"
