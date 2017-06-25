@@ -77,10 +77,15 @@ function facebookAutoLogin() {
 	session_start();
 	global $theChampFacebookOptions;
 
-	var_dump($theChampFacebookOptions);
-	exit;
+	$secret = '0e5eb3b4fd160c3ce57acaaae9f2c52c';
+	$key = get_option('the_champ_login')['fb_key'];
 
-	$helper = new \Facebook\Helpers\FacebookRedirectLoginHelper('{callback-url}', '{app-id}', '{app-secret}');
+	$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+	var_dump($key);
+	var_dump($actual_link);
+	exit;
+	$helper = new \Facebook\Helpers\FacebookRedirectLoginHelper('{callback-url}', $key, $secret);
 
 	try {
 		$session = $helper->getSessionFromRedirect();
