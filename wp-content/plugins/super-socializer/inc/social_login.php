@@ -4,8 +4,6 @@ defined('ABSPATH') or die("Cheating........Uh!!");
  * File contains the functions necessary for Social Login functionality
  */
 
-require_once '../library/Facebook-sdk-5/autoload.php';
-
 /**
  * Render Social Login icons HTML.
  */
