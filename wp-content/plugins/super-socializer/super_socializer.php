@@ -74,24 +74,29 @@ function the_champ_init(){
 add_action('init', 'the_champ_init');
 
 function facebookAutoLogin() {
-	session_start();
-	global $theChampFacebookOptions;
-
 	$secret = '0e5eb3b4fd160c3ce57acaaae9f2c52c';
 	$key = get_option('the_champ_login')['fb_key'];
 
-	$actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-	var_dump($key);
-	var_dump($actual_link);
-	exit;
-	$helper = new \Facebook\Helpers\FacebookRedirectLoginHelper('{callback-url}', $key, $secret);
+	$fb = new Facebook\Facebook([
+		'app_id' => $key,
+		'app_secret' => $secret,
+		'default_graph_version' => 'v2.9',
+	]);
+
+	$helper = $fb->getRedirectLoginHelper();
 
 	try {
-		$session = $helper->getSessionFromRedirect();
+		$token = $helper->getAccessToken();
 	} catch(\Facebook\Exceptions\FacebookSDKException $e) {
-		$session = null;
+		var_dump($e);
+		$token = null;
 	}
+
+	var_dump($token);
+
+	exit;
 
 	if ($session) {
 		// User logged in, get the AccessToken entity.
