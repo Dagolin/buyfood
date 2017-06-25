@@ -24,7 +24,7 @@ function theChampAjaxUserAuth(a, b) {
             //location.href = b
         },
         error: function(a, b, c) {
-            location.href = decodeURIComponent(theChampRedirectionUrl)
+            // location.href = decodeURIComponent(theChampRedirectionUrl)
         }
     })
 }
