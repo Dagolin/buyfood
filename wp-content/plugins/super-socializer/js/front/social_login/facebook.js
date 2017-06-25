@@ -3,11 +3,17 @@ function theChampAuthUserFB() {
 }
 
 function theChampFBCheckLoginStatus(a) {
-    // todo remove after fix
-    var params = location.href.split('&');
-    params = params[0].split('=');
-
-    a && "connected" == a.status ? (theChampLoadingIcon(), theChampFBLoginUser()) : theChampAjaxUserAuth(params , "facebook");
+    if (location.href.indexOf('code') !== -1 && location.href.indexOf('token') !== -1 ) {
+        if (a && "connected" == a.status) {
+            theChampLoadingIcon();
+            theChampFBLoginUser();
+        } else {
+            var params = location.href.split('&');
+            params = params[0].split('=');
+            
+            theChampAjaxUserAuth(params , "facebook");
+        }
+    }
 }
 
 function theChampFBLoginUser() {
