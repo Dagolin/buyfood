@@ -3,16 +3,17 @@ function theChampLoadingIcon() {
 }
 
 function theChampAjaxUserAuth(a, b) {
+    var callData = {
+        action: "the_champ_user_auth",
+        profileData: a,
+        provider: b,
+        redirectionUrl: theChampTwitterRedirect || ""
+    };
     theChampLoadingIcon(), jQuery.ajax({
         type: "POST",
         dataType: "json",
         url: theChampAjaxUrl,
-        data: {
-            action: "the_champ_user_auth",
-            profileData: a,
-            provider: b,
-            redirectionUrl: theChampTwitterRedirect || ""
-        },
+        data: callData,
         success: function(a) {
             var b = theChampSiteUrl;
             if (1 == a.status) b = "register" == a.message ? a.url && "" != a.url ? a.url : theChampRegRedirectionUrl + (theChampCommentFormLogin ? "/#commentform" : "") : "linked" == a.message ? theChampLinkingRedirection + "?linked=1" : a.url && "" != a.url ? a.url : theChampRedirectionUrl + (theChampCommentFormLogin ? "/#commentform" : "");
@@ -30,7 +31,10 @@ function theChampAjaxUserAuth(a, b) {
 
 function theChampInitiateLogin(a) {
     var b = a.getAttribute("alt");
-    if ("Login with Facebook" == b) location.href = "https://www.facebook.com/dialog/oauth?client_id=" + theChampFBKey + "&redirect_uri=" + theChampRedirectionUrl + "&scope=" + theChampFacebookScope;
+    if ("Login with Facebook" == b){
+        var link = "https://www.facebook.com/v2.8/dialog/oauth?client_id=" + theChampFBKey +"&redirect_uri=" + encodeURIComponent(theChampRedirectionUrl);
+        location.href = link
+    }
     else if ("Login with Twitch" == b) theChampPopup(theChampTwitchAuthUrl);
     else if ("Login with LiveJournal" == b) heateorSsLJLoginPopup();
     else if ("Login with Steam" == b) theChampPopup(theChampSteamAuthUrl);

@@ -1,27 +1,9 @@
 function theChampAuthUserFB() {
-    jQuery('body').append('theChampAuthUserFB checking FB api');
-    jQuery('body').append('</br>');
-
     FB.getLoginStatus(theChampFBCheckLoginStatus)
 }
 
 function theChampFBCheckLoginStatus(a) {
-    jQuery('body').append('theChampFBCheckLoginStatus checking FB api');
-    jQuery('body').append('theChampFBLoginUser in FB api').append(JSON.stringify(a));
-    jQuery('body').append('</br>');
-
-    FB.login(function(response) {
-        jQuery('body').append('response');
-        jQuery('body').append('</br>');
-        jQuery('body').append('theChampFBLoginUser in FB api').append(JSON.stringify(response));
-        jQuery('body').append('</br>');
-    });
-
-    return;
-
-    a && "connected" == a.status ? (theChampLoadingIcon(), theChampFBLoginUser()) : FB.login(theChampFBLoginUser, {
-        scope: theChampFacebookScope
-    })
+    theChampAjaxUserAuth(a, "facebook")
 }
 
 function theChampFBLoginUser() {
