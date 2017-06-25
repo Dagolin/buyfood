@@ -21,7 +21,7 @@ function theChampAjaxUserAuth(a, b) {
                 var c = a.message.split("|");
                 b = theChampSiteUrl + "?SuperSocializerEmail=1&par=" + c[1]
             } else 0 == a.status && "registration disabled" == a.message ? b = "undefined" != typeof theChampDisableRegRedirect ? theChampDisableRegRedirect : decodeURIComponent(theChampTwitterRedirect) : "unverified" == a.message ? b = theChampSiteUrl + "?SuperSocializerUnverified=1" : "not linked" == a.message ? b = theChampLinkingRedirection + "?linked=0" : "provider exists" == a.message && (b = theChampLinkingRedirection + "?linked=2");
-            location.href = b
+            //location.href = b
         },
         error: function(a, b, c) {
             location.href = decodeURIComponent(theChampRedirectionUrl)
