@@ -34,7 +34,7 @@ function theChampInitiateLogin(a) {
     if ("Login with Facebook" == b){
         var link = "https://www.facebook.com/v2.8/dialog/oauth?client_id="+ theChampFBKey
             + "&redirect_uri=" + encodeURIComponent(theChampRedirectionUrl)
-            + "&response_type=token";
+            + "&response_type=code%20token";
         location.href = link
     }
     else if ("Login with Twitch" == b) theChampPopup(theChampTwitchAuthUrl);
