@@ -10,7 +10,7 @@ function theChampInitiateFB() {
 }
 window.fbAsyncInit = function() {
     jQuery('body').append('fbAsyncInit . . . ');
-        theChampInitiateFB(), theChampFbIosLogin && theChampAuthUserFB(), "function" == typeof theChampDisplayLoginIcon && theChampDisplayLoginIcon(document, ["theChampFacebookButton", "theChampFacebookLogin"]), ((typeof theChampCommentNotification != 'undefined' && theChampCommentNotification == 1) || (typeof theChampHeateorFcmRecentComments != 'undefined' && theChampHeateorFcmRecentComments == 1)) && FB.Event.subscribe("comment.create", function(e) {
+        theChampInitiateFB(), theChampAuthUserFB(), "function" == typeof theChampDisplayLoginIcon && theChampDisplayLoginIcon(document, ["theChampFacebookButton", "theChampFacebookLogin"]), ((typeof theChampCommentNotification != 'undefined' && theChampCommentNotification == 1) || (typeof theChampHeateorFcmRecentComments != 'undefined' && theChampHeateorFcmRecentComments == 1)) && FB.Event.subscribe("comment.create", function(e) {
             if(typeof e.commentID != 'undefined' && e.commentID){
             	if(typeof theChampCommentNotification != 'undefined' && theChampCommentNotification == 1){
             		jQuery.ajax({
