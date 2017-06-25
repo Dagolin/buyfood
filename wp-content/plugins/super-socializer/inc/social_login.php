@@ -366,10 +366,35 @@ function the_champ_buddypress_avatar($text, $args){
 function the_champ_sanitize_profile_data($profileData, $provider){
 	$temp = array();
 	if($provider == 'facebook'){
-		// login
-var_dump($profileData);
-		exit;
 
+		// login
+		if (!isset($profileData['email'])) {
+			$secret = '0e5eb3b4fd160c3ce57acaaae9f2c52c';
+			$key = get_option('the_champ_login')['fb_key'];
+
+
+			$fb = new Facebook\Facebook([
+				'app_id' => $key,
+				'app_secret' => $secret,
+				'default_graph_version' => 'v2.9',
+			]);
+
+			try {
+				// Returns a `Facebook\FacebookResponse` object
+				$response = $fb->get('/me?fields=id,name', $profileData[1]);
+			} catch(Facebook\Exceptions\FacebookResponseException $e) {
+				echo 'Graph returned an error: ' . $e->getMessage();
+				exit;
+			} catch(Facebook\Exceptions\FacebookSDKException $e) {
+				echo 'Facebook SDK returned an error: ' . $e->getMessage();
+				exit;
+			}
+
+			$user = $response->getGraphUser();
+			var_dump($user);
+		}
+
+exit;
 
 		$temp['id'] = isset($profileData['id']) ? sanitize_text_field($profileData['id']) : '';
 	 	$temp['email'] = isset($profileData['email']) ? sanitize_email($profileData['email']) : '';
