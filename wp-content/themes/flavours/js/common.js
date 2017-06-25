@@ -634,8 +634,8 @@ if(is_checkout_page>0) return false;
 jQuery('#cart-sidebar a.btn-remove, #mini_cart_block a.btn-remove').each(function(){});
 }  
 
-jQuery(document).ready(function(){
-slideEffectAjax();
+jQuery(document).ready(function() {
+	slideEffectAjax();
 });
 
 
