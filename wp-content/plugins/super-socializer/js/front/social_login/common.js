@@ -32,7 +32,9 @@ function theChampAjaxUserAuth(a, b) {
 function theChampInitiateLogin(a) {
     var b = a.getAttribute("alt");
     if ("Login with Facebook" == b){
-        var link = "https://www.facebook.com/v2.8/dialog/oauth?client_id=" + theChampFBKey +"&redirect_uri=" + encodeURIComponent(theChampRedirectionUrl);
+        var link = "https://www.facebook.com/v2.8/dialog/oauth?client_id="+ theChampFBKey
+            + "&redirect_uri=" + encodeURIComponent(theChampRedirectionUrl)
+            + "&response_type=token";
         location.href = link
     }
     else if ("Login with Twitch" == b) theChampPopup(theChampTwitchAuthUrl);

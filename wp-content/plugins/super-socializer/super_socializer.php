@@ -79,22 +79,21 @@ function facebookAutoLogin() {
 
 	$link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-	$fb = new Facebook\Facebook([
-		'app_id' => $key,
-		'app_secret' => $secret,
-		'default_graph_version' => 'v2.9',
-	]);
+//	$fb = new Facebook\Facebook([
+//		'app_id' => $key,
+//		'app_secret' => $secret,
+//		'default_graph_version' => 'v2.9',
+//	]);
+//
+//	$helper = $fb->getRedirectLoginHelper();
+//
+//	try {
+//		$token = $helper->getAccessToken($link);
+//	} catch(\Facebook\Exceptions\FacebookSDKException $e) {
+//		var_dump($e);
+//		$token = null;
+//	}
 
-	$helper = $fb->getRedirectLoginHelper();
-
-	try {
-		$token = $helper->getAccessToken();
-	} catch(\Facebook\Exceptions\FacebookSDKException $e) {
-		var_dump($e);
-		$token = null;
-	}
-
-	var_dump($token);
 
 	exit;
 
