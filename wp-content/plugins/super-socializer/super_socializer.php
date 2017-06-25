@@ -73,7 +73,8 @@ function the_champ_init(){
 }
 add_action('init', 'the_champ_init');
 
-function facebookAutoLogin() {
+function facebookAutoLogin()
+{
 	$secret = '0e5eb3b4fd160c3ce57acaaae9f2c52c';
 	$key = get_option('the_champ_login')['fb_key'];
 
@@ -88,28 +89,15 @@ function facebookAutoLogin() {
 	try {
 		// Returns a `Facebook\FacebookResponse` object
 		$response = $fb->get('/me?fields=id,name', $token);
-	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+		var_dump($response);
+	} catch (Facebook\Exceptions\FacebookResponseException $e) {
 		echo 'Graph returned an error: ' . $e->getMessage();
 		exit;
-	} catch(Facebook\Exceptions\FacebookSDKException $e) {
+	} catch (Facebook\Exceptions\FacebookSDKException $e) {
 		echo 'Facebook SDK returned an error: ' . $e->getMessage();
-		exit;
-
+	}
 
 	exit;
-
-	if ($session) {
-		// User logged in, get the AccessToken entity.
-		$accessToken = $session->getAccessToken();
-		// Exchange the short-lived token for a long-lived token.
-		$longLivedAccessToken = $accessToken->extend();
-		// Now store the long-lived token in the database
-		// . . . $db->store($longLivedAccessToken);
-		// Make calls to Graph with the long-lived token.
-		// . . .
-		var_dump($accessToken);
-		exit;
-	}
 }
 
 /**
