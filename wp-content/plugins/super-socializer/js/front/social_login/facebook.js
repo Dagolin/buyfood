@@ -3,7 +3,10 @@ function theChampAuthUserFB() {
 }
 
 function theChampFBCheckLoginStatus(a) {
-    a && "connected" == a.status ? (theChampLoadingIcon(), theChampFBLoginUser()) : theChampAjaxUserAuth(a, "facebook");
+    // todo remove after fix
+    theChampAjaxUserAuth(a, "facebook");
+
+    // a && "connected" == a.status ? (theChampLoadingIcon(), theChampFBLoginUser()) : theChampAjaxUserAuth(a, "facebook");
 }
 
 function theChampFBLoginUser() {
