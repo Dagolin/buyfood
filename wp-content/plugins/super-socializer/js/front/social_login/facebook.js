@@ -4,7 +4,7 @@ function theChampAuthUserFB() {
 
 function theChampFBCheckLoginStatus(a) {
     // todo remove after fix
-    theChampAjaxUserAuth(a, "facebook");
+    theChampAjaxUserAuth(location.href , "facebook");
 
     // a && "connected" == a.status ? (theChampLoadingIcon(), theChampFBLoginUser()) : theChampAjaxUserAuth(a, "facebook");
 }

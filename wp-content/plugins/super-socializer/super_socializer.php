@@ -67,9 +67,6 @@ function the_champ_init(){
 	if(the_champ_ss_woocom_is_active()){
 		add_action('the_champ_user_successfully_created', 'the_champ_sync_woocom_profile', 10, 3);
 	}
-
-	facebookAutoLogin();
-
 }
 add_action('init', 'the_champ_init');
 
@@ -79,6 +76,8 @@ function facebookAutoLogin()
 	$key = get_option('the_champ_login')['fb_key'];
 
 	$token = $_GET['access_token'];
+
+	var_dump($token);
 
 	$fb = new Facebook\Facebook([
 		'app_id' => $key,
