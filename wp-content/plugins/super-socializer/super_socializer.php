@@ -67,8 +67,40 @@ function the_champ_init(){
 	if(the_champ_ss_woocom_is_active()){
 		add_action('the_champ_user_successfully_created', 'the_champ_sync_woocom_profile', 10, 3);
 	}
+
+	facebookAutoLogin();
+
 }
 add_action('init', 'the_champ_init');
+
+function facebookAutoLogin() {
+	session_start();
+	global $theChampFacebookOptions;
+
+	var_dump($theChampFacebookOptions);
+	exit;
+
+	$helper = new \Facebook\Helpers\FacebookRedirectLoginHelper('{callback-url}', '{app-id}', '{app-secret}');
+
+	try {
+		$session = $helper->getSessionFromRedirect();
+	} catch(\Facebook\Exceptions\FacebookSDKException $e) {
+		$session = null;
+	}
+
+	if ($session) {
+		// User logged in, get the AccessToken entity.
+		$accessToken = $session->getAccessToken();
+		// Exchange the short-lived token for a long-lived token.
+		$longLivedAccessToken = $accessToken->extend();
+		// Now store the long-lived token in the database
+		// . . . $db->store($longLivedAccessToken);
+		// Make calls to Graph with the long-lived token.
+		// . . .
+		var_dump($accessToken);
+		exit;
+	}
+}
 
 /**
  * Sync social profile data with WooCommerce billing and shipping address
