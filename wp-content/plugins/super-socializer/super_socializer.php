@@ -77,22 +77,23 @@ function facebookAutoLogin() {
 	$secret = '0e5eb3b4fd160c3ce57acaaae9f2c52c';
 	$key = get_option('the_champ_login')['fb_key'];
 
-	$link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$token = $_GET['access_token'];
 
-//	$fb = new Facebook\Facebook([
-//		'app_id' => $key,
-//		'app_secret' => $secret,
-//		'default_graph_version' => 'v2.9',
-//	]);
-//
-//	$helper = $fb->getRedirectLoginHelper();
-//
-//	try {
-//		$token = $helper->getAccessToken($link);
-//	} catch(\Facebook\Exceptions\FacebookSDKException $e) {
-//		var_dump($e);
-//		$token = null;
-//	}
+	$fb = new Facebook\Facebook([
+		'app_id' => $key,
+		'app_secret' => $secret,
+		'default_graph_version' => 'v2.9',
+	]);
+
+	try {
+		// Returns a `Facebook\FacebookResponse` object
+		$response = $fb->get('/me?fields=id,name', $token);
+	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+		echo 'Graph returned an error: ' . $e->getMessage();
+		exit;
+	} catch(Facebook\Exceptions\FacebookSDKException $e) {
+		echo 'Facebook SDK returned an error: ' . $e->getMessage();
+		exit;
 
 
 	exit;
