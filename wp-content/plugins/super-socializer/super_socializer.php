@@ -70,35 +70,6 @@ function the_champ_init(){
 }
 add_action('init', 'the_champ_init');
 
-function facebookAutoLogin()
-{
-	$secret = '0e5eb3b4fd160c3ce57acaaae9f2c52c';
-	$key = get_option('the_champ_login')['fb_key'];
-
-	$token = $_GET['access_token'];
-
-	var_dump($token);
-
-	$fb = new Facebook\Facebook([
-		'app_id' => $key,
-		'app_secret' => $secret,
-		'default_graph_version' => 'v2.9',
-	]);
-
-	try {
-		// Returns a `Facebook\FacebookResponse` object
-		$response = $fb->get('/me?fields=id,name', $token);
-		var_dump($response);
-	} catch (Facebook\Exceptions\FacebookResponseException $e) {
-		echo 'Graph returned an error: ' . $e->getMessage();
-		exit;
-	} catch (Facebook\Exceptions\FacebookSDKException $e) {
-		echo 'Facebook SDK returned an error: ' . $e->getMessage();
-	}
-
-	exit;
-}
-
 /**
  * Sync social profile data with WooCommerce billing and shipping address
  */

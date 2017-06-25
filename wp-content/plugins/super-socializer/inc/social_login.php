@@ -381,7 +381,7 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 
 			try {
 				// Returns a `Facebook\FacebookResponse` object
-				$response = $fb->get('/me?fields=id,name', $profileData[1]);
+				$response = $fb->get('/me?fields=id,name,email', $profileData[1]);
 			} catch(Facebook\Exceptions\FacebookResponseException $e) {
 				echo 'Graph returned an error: ' . $e->getMessage();
 				exit;
@@ -390,11 +390,9 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 				exit;
 			}
 
-			$user = $response->getGraphUser();
-			var_dump($user);
+			$profileData = $response->getGraphUser();
+			$profileData['username'] = isset($profileData['name']) ? $profileData['name'] : '';
 		}
-
-exit;
 
 		$temp['id'] = isset($profileData['id']) ? sanitize_text_field($profileData['id']) : '';
 	 	$temp['email'] = isset($profileData['email']) ? sanitize_email($profileData['email']) : '';
