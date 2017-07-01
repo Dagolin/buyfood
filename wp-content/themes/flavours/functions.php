@@ -2547,13 +2547,9 @@ if(!function_exists('codeboxr_woocommerce_enqueue_styles')){
 }
 
 
-// this is just to prevent the user log in automatically after register
 function wc_registration_redirect( $redirect_to ) {
     global $woocommerce;
     $woocommerce->cart->persistent_cart_update();
-    wp_logout();
-    wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
-    exit;
 }
 // when user login, we will check whether this guy email is verify
 function wp_authenticate_user( $userdata ) {
@@ -2572,6 +2568,7 @@ function wp_authenticate_user( $userdata ) {
 function my_user_register($user_id) {
         // get user data
         $user_info = get_userdata($user_id);
+
         $isSocial = isset($user_info->user_activation_key) && !empty($user_info->user_activation_key) ? true : false;
 
         if (isset($user_info->user_url)
@@ -2579,7 +2576,6 @@ function my_user_register($user_id) {
                 || strpos($user_info->user_url, 'facebook') !== false)) {
             $isSocial = true;
         }
-
 
         // 如果是社群網路登入, 不認證
         if ($isSocial) {
@@ -2600,6 +2596,11 @@ function my_user_register($user_id) {
         $html = '請點選此連結啟用買肉帳號：' . $url;
         // send an email out to user
         wc_mail($user_info->user_email, '【買肉找我】帳號認證信', $html);
+
+        // this is just to prevent the user log in automatically after register
+        wp_logout();
+        wp_redirect( '/%E6%AD%A1%E8%BF%8E/');
+        exit;
 }
 
 // we need this to handle all the getty hacks i made
