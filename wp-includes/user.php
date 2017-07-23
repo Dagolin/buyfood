@@ -139,7 +139,7 @@ function wp_authenticate_username_password($user, $username, $password) {
 
 	if ( !$user ) {
 		return new WP_Error( 'invalid_username',
-			__( '<strong>錯誤</strong>: 無效的使用者名稱。' ) .
+			__( '<strong>ERROR</strong>: Invalid username.' ) .
 			' <a href="' . wp_lostpassword_url() . '">' .
 			__( 'Lost your password?' ) .
 			'</a>'
