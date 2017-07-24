@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				
 			</p>
 			<p class="woocommerce-LostPassword lost_password">
-				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Forget password?', 'woocommerce' ); ?></a>
+				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( '忘記密碼？', 'woocommerce' ); ?></a>
 			</p>
 
 			<?php do_action( 'woocommerce_login_form_end' ); ?>

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-06-20 20:09+0800\n"
+"PO-Revision-Date: 2017-07-24 23:55+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2075,7 +2075,7 @@ msgstr "防垃圾留言"
 
 #: templates/myaccount/form-lost-password.php:30
 msgid "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email."
-msgstr "忘記您的密嗎？請輸入您的使用者名稱或註冊的電子郵件。您將會在電子郵件信箱中收到重設密碼的連結。"
+msgstr "忘記您的密碼？請輸入您的使用者名稱或註冊的電子郵件。您將會在電子郵件信箱中收到重設密碼的連結。"
 
 #: templates/myaccount/form-lost-password.php:36
 msgid "Enter a new password below."
