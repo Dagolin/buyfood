@@ -2657,8 +2657,9 @@ function custom_login(){
 
     //  URL for the HomePage. You can set this to the URL of any page you wish to redirect to.
     $blogHomePage = 'my-account';
+    $redirectPath = isset($_GET['redirect_to']) ? $_GET['redirect_to'] : $_POST['redirect_to'];
 
-    $isAdminSite = strpos($_GET['redirect_to'], 'wp-admin') || strpos($_GET['redirect_to'], 'admin');
+    $isAdminSite = strpos($redirectPath, 'wp-admin') || strpos($redirectPath, 'admin');
     //  Redirect to the Homepage, if if it is login page. Make sure it is not called to logout or for lost password feature
     if( 'wp-login.php' == $pagenow && $_GET['action']!="logout" && $_GET['action']!="lostpassword" && !$isAdminSite) {
         wp_redirect($blogHomePage);
@@ -2666,3 +2667,4 @@ function custom_login(){
     }
 }
 ?>
+
