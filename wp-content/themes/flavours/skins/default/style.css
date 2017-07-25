@@ -12709,9 +12709,9 @@ select#shipping-address-select {
 	border-radius: 0px;
 }
 .block.woocommerce.widget_product_search {
-	padding-bottom: 0px;
-	display: inline-block;
-	border: none;
+	/*padding-bottom: 0px;*/
+	/*display: inline-block;*/
+	/*border: none;*/
 }
 .block.widget_text {
 	border: none;
@@ -13055,7 +13055,7 @@ margin-bottom: 8px !important;
 	font-size: 12px;
 	font-weight: normal;
 	letter-spacing: 1px;
-	float: right;
+	/*float: right;*/
 }
 .woocommerce-product-search input.search-field {
 	background: none repeat scroll 0 0 #fff !important;
