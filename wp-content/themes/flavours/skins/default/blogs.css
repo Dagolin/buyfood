@@ -3665,7 +3665,7 @@ body.attachment {
 .sidebar aside {
 	background: #fff;
 	border: 1px #e8e8e8 solid;
-	padding: 0 15px 15px !important;
+	padding: 0 15px 50px !important;
 }
 .blog-wrapper .sidebar aside.widget_search {
 	background: inherit;
