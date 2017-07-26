@@ -13,6 +13,10 @@ License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2
 if ( ! defined( 'WP_LOAD_IMPORTERS' ) )
 	return;
 
+if ( !is_admin() ) {
+	return;
+}
+
 /** Display verbose errors */
 define( 'IMPORT_DEBUG', false );
 
