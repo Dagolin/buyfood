@@ -23,6 +23,12 @@ jQuery(document).ready(function($) {
 		'zipcodeName'  : 'shipping_postcode_temp'   // 預設值為 zipcode
 	});
 
+	$('#twzipcode3').twzipcode({
+		'countyName'   : 'wcmca_shipping_state_temp',   // 預設值為 county
+		'districtName' : 'wcmca_shipping_city_temp', // 預設值為 district
+		'zipcodeName'  : 'wcmca_shipping_postcode_temp'   // 預設值為 zipcode
+	});
+
 	var oldstate = $('#billing_state_field > #billing_state').val();
 	$('#billing_state_field > #billing_state').replaceWith($('select[name=billing_state_temp]'));
 	$('select[name=billing_state_temp]').attr('name', 'billing_state');
@@ -42,6 +48,7 @@ jQuery(document).ready(function($) {
 	$('#billing_postcode_field > #billing_postcode').replaceWith($('input[name=billing_postcode_temp]'));
 	$('input[name=billing_postcode_temp]').attr('name', 'billing_postcode');
 
+	// 更換 Shipping 的下拉選單
 	$('#shipping_city_field > #shipping_city').replaceWith($('select[name=shipping_city_temp]'));
 	$('select[name=shipping_city_temp]').attr('name', 'shipping_city');
 
@@ -50,6 +57,16 @@ jQuery(document).ready(function($) {
 
 	$('#shipping_postcode_field > #shipping_postcode').replaceWith($('input[name=shipping_postcode_temp]'));
 	$('input[name=shipping_postcode_temp]').attr('name', 'shipping_postcode');
+
+	// 更換新增宅配的下拉選單
+	$('#wcmca_shipping_state_field > #wcmca_shipping_state').replaceWith($('select[name=wcmca_shipping_state_temp]'));
+	$('select[name=wcmca_shipping_state_temp]').attr('name', 'wcmca_shipping_state').addClass('input-text wcmca_input_field');
+
+	$('#wcmca_shipping_city_field > #wcmca_shipping_city').replaceWith($('select[name=wcmca_shipping_city_temp]'));
+	$('select[name=wcmca_shipping_city_temp]').attr('name', 'wcmca_shipping_city').addClass('input-text wcmca_input_field');
+
+	$('#wcmca_shipping_postcode_field > #wcmca_shipping_postcode').replaceWith($('input[name=wcmca_shipping_postcode_temp]'));
+	$('input[name=wcmca_shipping_postcode_temp]').attr('name', 'wcmca_shipping_postcode').addClass('input-text wcmca_input_field');
 
 	$('#billing_cert').val('');
 	$('#billing_phone_hidden').val($('#billing_phone').val());

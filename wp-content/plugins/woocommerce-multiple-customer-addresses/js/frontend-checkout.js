@@ -89,7 +89,7 @@ function wcmca_reset_checkout_input_text_fields(type)
 function wcmca_fill_form_fields(data, formType) //billing || shipping
 {
 	var result =  JSON.parse(data);
-	
+
 	/*if(formType == 'shipping')
 		jQuery('#ship-to-different-address-checkbox').prop('checked',true);*/
 	
@@ -106,10 +106,14 @@ function wcmca_fill_form_fields(data, formType) //billing || shipping
 			else if( value !== 'undefined' && typeof value.constructor !== 'Array' && jQuery("#"+element_name+'_field input').first().attr('type') == 'radio')
 			{
 				jQuery("#"+element_name+'_'+value).prop('checked', 'checked');
-			}
-			//Text and select
-			else
-			{
+			} else if (element_name == 'shipping_state') {
+				// shipping state
+				jQuery('select[name=shipping_state]').val(value).change();
+			} else if (element_name == 'shipping_city'){
+				// city
+				jQuery('select[name=shipping_city]').val(value).change();
+			} else {
+				//Text and select
 				jQuery('#'+element_name).val(value);
 				try{
 					var $generic_select2 = jQuery('#'+element_name).select2();

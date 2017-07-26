@@ -116,6 +116,7 @@ $limitOverlayTemplate = isset($flavours_Options['countdown_overlay_template']) ?
 </div>
 <div id="twzipcode" class="hide"></div>
 <div id="twzipcode2" class="hide"></div>
+<div id="twzipcode3" class="hide"></div>
 <?php if ($isLimitOverlayEnable) : ?>
     <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'/>
 

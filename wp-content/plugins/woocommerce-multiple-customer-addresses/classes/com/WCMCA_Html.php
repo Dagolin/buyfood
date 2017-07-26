@@ -257,14 +257,7 @@ class WCMCA_Html
 						$was_prev_field_first_row = false;
 						foreach($address_fields as $field_name => $address_field)
 						{
-							if($field_name == 'billing_state' || $field_name == 'shipping_state' 
-								|| (isset($address_field['type']) && !in_array($address_field['type'],$this->allowed_field_type)) || 
-								(isset($address_field['enabled']) && !$address_field['enabled']))
-								{
-									//wcmca_var_dump($address_field['type']);
-									continue;
-								}
-							else if($field_name == 'billing_country' || $field_name == 'shipping_country')
+							if($field_name == 'billing_country' || $field_name == 'shipping_country')
 							{
 								$was_prev_field_first_row = $was_prev_field_last_row = false;
 								?>
