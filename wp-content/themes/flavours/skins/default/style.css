@@ -8954,7 +8954,6 @@ input.input-text, select, textarea {
 	border: 1px #ddd solid;
 }
 input#coupon_code {
-	margin: 8px 0;
 	width: 100%;
 }
 button.button.coupon:before {

@@ -78,7 +78,7 @@ global $flavours_Options;
     function custom_override_checkout_fields( $fields ) {
         $fields['billing']['billing_cert'] = array(
             'label'     => __('認證碼', 'woocommerce'),
-            'placeholder'   => _x('請輸入簡訊內四位數認證碼', 'placeholder', 'woocommerce'),
+            'placeholder'   => _x('四位數認證碼', 'placeholder', 'woocommerce'),
             'class'     => array('form-row-first'),
             'clear'     => true,
             'default'   => '',

@@ -32,6 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							if (!empty($method->get_title())) {
 								echo '<option value="' . esc_attr( $current_method ) . '" ' . selected( $method_id == $current_method, true, false ) . '>' . esc_html( $method->get_title() ) . '</option>';
+
 							}
 
 							if ( $method_id == $current_method ) {
