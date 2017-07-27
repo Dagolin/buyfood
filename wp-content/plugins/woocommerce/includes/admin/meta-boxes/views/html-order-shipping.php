@@ -30,7 +30,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							$method_id = isset( $item['method_id'] ) ? $item['method_id'] : '';
 							$current_method = ( 0 === strpos( $method_id, $method->id ) ) ? $method_id : $method->id;
 
-							echo '<option value="' . esc_attr( $current_method ) . '" ' . selected( $method_id == $current_method, true, false ) . '>' . esc_html( $method->get_title() ) . '</option>';
+							if (!empty($method->get_title())) {
+								echo '<option value="' . esc_attr( $current_method ) . '" ' . selected( $method_id == $current_method, true, false ) . '>' . esc_html( $method->get_title() ) . '</option>';
+							}
 
 							if ( $method_id == $current_method ) {
 								$found_method = true;
