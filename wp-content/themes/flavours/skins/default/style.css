@@ -10292,8 +10292,6 @@ footer a {
 footer .footer-inner {
 	margin: auto;
 	overflow: hidden;
-	background:url(../../../../uploads/2016/12/footer-img.png) no-repeat bottom center
-
 }
 footer .footer-inner h3 {
 	color: #3D4C4F;
@@ -18562,7 +18560,11 @@ ol#compare-items li a.product-name {
 }
 }
  @media (min-width: 1120px) {
-
+	 footer .footer-inner {
+		 margin: auto;
+		 overflow: hidden;
+		 background:url(../../../../uploads/2016/12/footer-img.png) no-repeat bottom center
+	 }
 	 header {
 		 top : 0;
 		 position: fixed;
