@@ -211,7 +211,7 @@ if (!class_exists('RP_WCDPD')) {
             $price_to_display = $this->wc_version_gte('2.1') ? wc_price($price) : woocommerce_price($price);
             $original_price_to_display = $this->wc_version_gte('2.1') ? wc_price($cart_item['rp_wcdpd']['original_price']) : woocommerce_price($cart_item['rp_wcdpd']['original_price']);
 
-            $item_price = '<span class="rp_wcdpd_cart_price"><del>' . $original_price_to_display . '</del> <ins>' . $price_to_display . '</ins></span>';
+            $item_price = '<span class="rp_wcdpd_cart_price"><del>' . $original_price_to_display . '</del> </br> <ins>' . $price_to_display . '</ins></span>';
 
             return $item_price;
         }
