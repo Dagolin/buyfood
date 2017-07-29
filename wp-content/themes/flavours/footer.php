@@ -109,10 +109,15 @@ global $flavours_Options;
 
 $isLimitOverlayEnable = isset($flavours_Options['enable_home_countdown_overlay']) ? $flavours_Options['enable_home_countdown_overlay'] : false;
 $limitOverlayTemplate = isset($flavours_Options['countdown_overlay_template']) ? $flavours_Options['countdown_overlay_template'] : '%h : %i : %s';
+$startDate = empty($limitDates['startDate']) ? '' : $limitDates['startDate'];
+$startDate .= strlen($startDate) == 16 ? ':00' : '';
+
+$endDate = empty($limitDates['endDate']) ? '' : $limitDates['endDate'] . ':00';
+$endDate .= strlen($endDate) == 16 ? ':00' : '';
 ?>
 <div>
-    <input type="hidden" name="product_start_date" id="product_start_date" value="<?php echo $limitDates['startDate']; ?>"/>
-    <input type="hidden" name="product_end_date" id="product_end_date" value="<?php echo $limitDates['endDate']; ?>"/>
+    <input type="hidden" name="product_start_date" id="product_start_date" value="<?php echo $startDate; ?>"/>
+    <input type="hidden" name="product_end_date" id="product_end_date" value="<?php echo $endDate; ?>"/>
 </div>
 <div id="twzipcode" class="hide"></div>
 <div id="twzipcode2" class="hide"></div>

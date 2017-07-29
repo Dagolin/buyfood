@@ -10,10 +10,13 @@ jQuery(document).ready(function($) {
     var startDate;
     var endDate;
     // in product page
-	if ($('#meta_start_date').val() !== '' && $('#meta_end_date').val() !== '') {
+	if ($('#meta_start_date').val() !== ''
+        && $('#meta_end_date').val() !== ''
+        && $('#meta_start_date').length > 0
+        && $('#meta_end_date').length > 0) {
 
-        startDate = Date.parse($('#meta_start_date').val());
-        endDate = Date.parse($('#meta_end_date').val());
+        startDate = new Date($('#meta_start_date').val().replace(' ', 'T'));
+        endDate = new Date($('#meta_end_date').val().replace(' ', 'T'));
 
 	    if (now > startDate && now < endDate) {
             $('div#clock').countdown($('#meta_end_date').val())
@@ -35,10 +38,14 @@ jQuery(document).ready(function($) {
     $('div.clockdate-full').hide();
     $('div.clockdate-full-mobile').hide();
 
-	if ($('#product_start_date').val() !== '' && $('#product_end_date').val() !== ''){
+	if ($('#product_start_date').val() !== ''
+        && $('#product_end_date').val() !== ''
+        && $('#product_start_date').length > 0
+        && $('#product_end_date').length > 0){
 
-        startDate = Date.parse($('#product_start_date').val());
-        endDate = Date.parse($('#product_end_date').val());
+        startDate = new Date($('#product_start_date').val().replace(' ', 'T'));
+        endDate = new Date($('#product_end_date').val().replace(' ', 'T'));
+
         if (now > startDate && now < endDate) {
 
             $('div.clockdate-full').css('display', '');

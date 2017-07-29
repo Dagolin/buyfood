@@ -2047,12 +2047,20 @@ function get_product_meta_start_date()
     $theid = get_the_ID();
     $startDateTemp = get_post_meta($theid, 'limit_start_date', true);
 
+    if (strlen($startDateTemp) == 16) {
+        $startDateTemp .= ':00';
+    }
+
     return $startDateTemp;
 }
 
 function get_product_meta_end_date(){
     $theid = get_the_ID();
     $endDateTemp = get_post_meta($theid, 'limit_end_date', true);
+
+    if (strlen($endDateTemp) == 16) {
+        $endDateTemp .= ':00';
+    }
 
     return $endDateTemp;
 }
