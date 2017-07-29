@@ -95,8 +95,8 @@ class InfiniteScrollWoocommerce {
 		$suffix = ( WP_DEBUG ) ? '.dev' : '.dev';
         wp_register_script('js-plugin-isw', $this->url . 'include/js/jquery.infinite-scroll'.$suffix.'.js', array('jquery'), false, true);
 		wp_register_script('js-init-isw', $this->url . 'include/js/custom.js', array('jquery'), false, true);
-		wp_register_style('ias-animate-css', $this->url . 'include/css/animate.min.css');
-		wp_register_style('ias-frontend-style', $this->url . 'include/css/style.css');
+		wp_register_style('ias-animate-css', $this->url . 'include/css/animate.min.css', array(), '');
+		wp_register_style('ias-frontend-style', $this->url . 'include/css/style.css', array(), '');
 		//wp_register_style('ias-frontend-custom-style', $this->url . 'include/css/style.php');
     }
 	public function load_frontend_assets() {
