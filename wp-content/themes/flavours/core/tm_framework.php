@@ -89,8 +89,8 @@ function tmFlavours_simple_product_link()
           if ($now >= $startDateTime && $now <= $endDateTime)
           {
               ?>
-              <a class="single_add_to_cart_button add_to_cart_button  product_type_simple ajax_add_to_cart button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
-                 href='<?php echo esc_url($product->add_to_cart_url()); ?>'>
+              <a class="yith-wcqv-button single_add_to_cart_button add_to_cart_button product_type_simple ajax_add_to_cart button btn-cart" title='<?php echo esc_html($product->add_to_cart_text()); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
+                 href='#'>
                   <span><?php echo esc_html($product->add_to_cart_text()); ?> </span>
               </a>
           <?php } else { ?>
