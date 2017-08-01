@@ -826,6 +826,13 @@ if (!class_exists('Redux_Framework_sample_config')) {
                 'title' => esc_html__('General Settings', 'flavours'),
                 'fields' => array(
                     array(
+                        'id' => 'brand_logo_text',
+                        'type' => 'text',
+                        'title' => esc_html__('Logo 區標題', 'flavours'),
+                        'subtitle' => '',
+                        'default' => 'Brand Logo',
+                    ),
+                    array(
                         'id'       => 'enable_brand_logo',
                         'type'     => 'switch',
                         'title'    => __( 'Enable Company Logo Uploads', 'flavours' ),

@@ -763,7 +763,7 @@ function tmFlavours_footer_brand_logo()
     if (isset($flavours_Options['enable_brand_logo']) && $flavours_Options['enable_brand_logo'] && !empty($flavours_Options['all-company-logos'])) : ?>
     <div class="logo-brand col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <div class="new_title">
-      <h2>Brand Logo</h2>
+      <h2><? echo $flavours_Options['brand_logo_text'];?></h2>
     </div>
     <div class="slider-items-products">
       <div id="brand-slider" class="product-flexslider hidden-buttons">
