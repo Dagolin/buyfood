@@ -13591,8 +13591,8 @@ background: none repeat scroll 0 0 #fff;
 	display: none;
 }
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
-	width: 52% !important;
-	float: right;
+	width: 100% !important;
+	float: left;
 	margin-bottom: 2em;
 }
 #yith-quick-view-content div.summary {
@@ -17301,8 +17301,8 @@ footer .newsletter-row {
 	margin-right: 22px;
 }
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
-	float: left;
-	width: 100% !important;
+	float: right;
+	width: 52% !important;
 }
 #yith-quick-view-modal {
 	position: fixed !important;
