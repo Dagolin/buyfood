@@ -69,7 +69,7 @@ if ((!is_front_page() && !(is_post_type_archive() && get_option('page_on_front')
     } elseif (is_tax('product_tag')) {
 
         $queried_object = $wp_query->get_queried_object();
-        echo htmlspecialchars_decode($prepend) . $before . __('Products tagged &ldquo;', 'woocommerce') . $queried_object->name . '&rdquo;' . $after;
+        echo htmlspecialchars_decode($prepend) . $before . __('商品標籤 &ldquo;', 'woocommerce') . $queried_object->name . '&rdquo;' . $after;
 
     } elseif (is_day()) {
 
