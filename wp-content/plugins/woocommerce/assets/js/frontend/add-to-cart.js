@@ -13,6 +13,7 @@ jQuery( function( $ ) {
 
 		// AJAX add to cart request
 		var $thisbutton = $( this );
+		console.log($thisbutton.data());
 
 		if ( $thisbutton.is( '.ajax_add_to_cart' ) ) {
 

@@ -27,10 +27,12 @@ jQuery(document).ready(function($) {
                 .on('finish.countdown', function (event) {
                     $(this).hide();
                     $('.add-to-box').hide();
+                    $('.availability').hide();
                     $('#outofdate').show();
                 });
         } else {
             $('.add-to-box').hide();
+            $('.availability').hide();
             $('#outofdate').show();
         }
 	}
