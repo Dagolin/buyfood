@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-07-28 22:00+0800\n"
+"PO-Revision-Date: 2017-08-02 20:00+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3912,7 +3912,7 @@ msgstr "此優惠券的最低消費額爲 %s."
 
 #: includes/class-wc-coupon.php:831
 msgid "The maximum spend for this coupon is %s."
-msgstr "此一優惠券的最低消費額為 %s"
+msgstr "此一優惠券的最高消費額為 %s"
 
 #: includes/class-wc-coupon.php:834
 msgid "Sorry, this coupon is not applicable to your cart contents."
