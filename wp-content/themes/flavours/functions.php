@@ -1290,12 +1290,11 @@ function tmFlavours_woocommerce_product_add_to_cart_text() {
        break;
        case 'variable':
         ?>
-    <button class="button btn-cart"  title='<?php esc_attr_e("了解更多",'flavours'); ?>'
-       onClick='window.location.assign("<?php echo esc_js(get_permalink($product_id)); ?>")'>
-    <span>
-    <?php esc_attr_e('了解更多', 'flavours'); ?>
-    </span>
-    </button>
+    <a class="yith-wcqv-button single_add_to_cart_button add_to_cart_button  product_type_simple button btn-cart"
+       title='<?php esc_attr_e('了解更多', 'flavours'); ?>' data-quantity="1" data-product_id="<?php echo esc_attr($product->id); ?>"
+       href='#'>
+               <span><?php esc_attr_e('了解更多', 'flavours'); ?></span>
+           </a>
     <?php
        break;
        default:
