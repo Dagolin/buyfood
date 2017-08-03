@@ -24,7 +24,7 @@ global $product;
             <p class="availability in-stock">
                 <span>
                     <?php esc_attr_e('熱銷中','flavours');?>
-                    <?php if ($stock > 0) {
+                    <?php if ($stock > 0 && !empty($product->get_availability()['availability'])) {
                         echo '，' . $product->get_availability()['availability'];
                     }
                     ?>
