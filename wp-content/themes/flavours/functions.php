@@ -2673,4 +2673,11 @@ function custom_login(){
         exit();
     }
 }
+
+function sww_remove_wc_currency_symbols( $currency_symbol, $currency ) {
+    $currency_symbol = '元';
+    return $currency_symbol;
+}
+
+add_filter('woocommerce_currency_symbol', 'sww_remove_wc_currency_symbols', 10, 2);
 ?>
