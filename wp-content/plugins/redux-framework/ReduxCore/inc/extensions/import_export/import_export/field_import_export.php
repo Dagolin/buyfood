@@ -88,14 +88,14 @@
 
                 // $this->field['type'] && $this->field['id'] is sanitized in the ReduxFramework class, no need to re-sanitize it.
                 ?>
-                    <h4><?php esc_html_e( 'Import Options', 'redux-framework' ); ?></h4>
+                    <h4><?php esc_html_e( '匯入', 'redux-framework' ); ?></h4>
 
                     <p>
                         <a href="javascript:void(0);" id="redux-import-code-button" class="button-secondary">
-                            <?php esc_html_e( 'Import from File', 'redux-framework' ); ?>
+                            <?php esc_html_e( '從檔案匯入', 'redux-framework' ); ?>
                         </a> 
                         <a href="javascript:void(0);" id="redux-import-link-button" class="button-secondary">
-                            <?php esc_html_e( 'Import from URL', 'redux-framework' ) ?>
+                            <?php esc_html_e( '從 URL 匯入', 'redux-framework' ) ?>
                         </a>
                     </p>
 
@@ -113,15 +113,15 @@
                         <textarea class="large-text noUpdate" id="import-link-value" name="<?php echo $this->parent->args['opt_name'] ?>[import_link]" rows="2"></textarea>
                     </div>
 
-                    <p id="redux-import-action"><input type="submit" id="redux-import" name="import" class="button-primary" value="<?php esc_html_e( 'Import', 'redux-framework' ) ?>">&nbsp;&nbsp;<span><?php echo esc_html( apply_filters( 'redux-import-warning', __( 'WARNING! This will overwrite all existing option values, please proceed with caution!', 'redux-framework' ) ) ) ?></span></p>
+                    <p id="redux-import-action"><input type="submit" id="redux-import" name="import" class="button-primary" value="<?php esc_html_e( 'Import', 'redux-framework' ) ?>">&nbsp;&nbsp;<span><?php echo esc_html( apply_filters( 'redux-import-warning', __( '請小心！這會覆蓋掉目前的樣板設定', 'redux-framework' ) ) ) ?></span></p>
 
                     <div class="hr"/>
                     <div class="inner"><span>&nbsp;</span></div></div>
-                    <h4><?php esc_html_e( 'Export Options', 'redux-framework' ) ?></h4>
+                    <h4><?php esc_html_e( '匯出', 'redux-framework' ) ?></h4>
 
                     <div class="redux-section-desc">
                         <p class="description">
-                            <?php echo esc_html( apply_filters( 'redux-backup-description', __( 'Here you can copy/download your current option settings. Keep this safe as you can use it as a backup should anything go wrong, or you can use it to restore your settings on this site (or any other site).', 'redux-framework' ) ) ) ?>
+                            <?php echo esc_html( apply_filters( 'redux-backup-description', __( '複製或下載您目前的設定', 'redux-framework' ) ) ) ?>
                         </p>
                     </div>
                 <?php
@@ -129,9 +129,9 @@
                 $link = esc_url( admin_url( 'admin-ajax.php?action=redux_download_options-' . $this->parent->args['opt_name'] . '&secret=' . $secret ) );
                 ?>
                     <p>
-                        <a href="javascript:void(0);" id="redux-export-code-copy" class="button-secondary"><?php esc_html_e( 'Copy Data', 'redux-framework' ) ?></a>
-                        <a href="<?php echo $link; ?>" id="redux-export-code-dl" class="button-primary"><?php esc_html_e( 'Download Data File', 'redux-framework' ) ?></a>
-                        <a href="javascript:void(0);" id="redux-export-link" class="button-secondary"><?php esc_html_e( 'Copy Export URL', 'redux-framework' ) ?></a>
+                        <a href="javascript:void(0);" id="redux-export-code-copy" class="button-secondary"><?php esc_html_e( '複製資料', 'redux-framework' ) ?></a>
+                        <a href="<?php echo $link; ?>" id="redux-export-code-dl" class="button-primary"><?php esc_html_e( '匯出', 'redux-framework' ) ?></a>
+                        <a href="javascript:void(0);" id="redux-export-link" class="button-secondary"><?php esc_html_e( '取得匯出用 URL', 'redux-framework' ) ?></a>
                     </p>
 
                     <p></p>

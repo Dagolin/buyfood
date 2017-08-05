@@ -238,7 +238,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             // Edgesettings: Home Page Settings Tab
             $this->sections[] = array(
                 'title' => esc_html__('Home Settings', 'flavours'),
-                'desc' => esc_html__('Home page settings ', 'flavours'),
+                'desc' => esc_html__('Home page settings', 'flavours'),
                 'icon' => 'el-icon-home',
                 // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                 'fields' => array(
@@ -248,7 +248,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'type' => 'image_select',
                         'compiler' => true,
                         'title' => esc_html__('Theme Variation', 'flavours'),
-                        'subtitle' => esc_html__('Select the variation you want to apply on your store.', 'aspire'),
+                        'subtitle' => esc_html__('設定您的首頁風格(目前僅支援蔬菜風)', 'aspire'),
                         'options' => array(
                             'default' => array(
                                 'title' => esc_html__('Default', 'flavours'),
@@ -276,7 +276,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     array(
                         'id' => 'home-page-slider',
                         'type' => 'slides',
-                        'title' => esc_html__('Home Slider Uploads', 'flavours'),
+                        'title' => esc_html__('首頁大 Banner', 'flavours'),
                         'required' => array('enable_home_gallery', '=', '1'),
                         'subtitle' => esc_html__('倒數計時區塊 <div id=\'bannerclock\'></div>', 'flavours'),
                         'placeholder' => array(
@@ -842,8 +842,8 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     array(
                         'id' => 'all-company-logos',
                         'type' => 'slides',
-                        'title' => __('Company Logo Uploads', 'flavours'),
-                        'subtitle' => __('Unlimited Logo uploads with drag and drop sortings.', 'flavours'),
+                        'title' => __('公司Logo', 'flavours'),
+                        'subtitle' => __('新增並設定公司 Logo，拖曳決定順序', 'flavours'),
                         'placeholder' => array(
                             'title' => __('This is a title', 'flavours'),
                             'description' => __('Description Here', 'flavours'),
@@ -867,16 +867,16 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id'       => 'enable_testimonial',
                         'type'     => 'switch',
                         'required' => array(array('theme_layout', '=', 'default')),
-                        'title'    => esc_html__( 'Enable Testimonial ', 'Flavours' ),
-                        'subtitle' => esc_html__( 'You can enable/disable Testimonial Uploads', 'Flavours' ),
+                        'title'    => esc_html__( 'Enable Testimonial', 'Flavours' ),
+                        'subtitle' => esc_html__( '是否顯示消費心得', 'Flavours' ),
                         'default' => '0'
                     ),
                     array(
                         'id' => 'all_testimonial',
                         'type' => 'slides',
                         'required' => array('enable_testimonial', '=', '1'),
-                        'title' => esc_html__('Add Testimonial here', 'Flavours'),
-                        'subtitle' => esc_html__('Unlimited testimonial.', 'Flavours'),
+                        'title' => esc_html__('新增消費心得', 'Flavours'),
+                        'subtitle' => esc_html__('消費心得', 'Flavours'),
                         'placeholder' => array(
                             'title' => esc_html__('This is a title', 'Flavours'),
                             'description' => esc_html__('Description Here', 'Flavours'),
@@ -887,7 +887,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id' => 'back_to_top',
                         'type' => 'switch',
                         'title' => esc_html__('Back To Top Button', 'flavours'),
-                        'subtitle' => esc_html__('Toggle whether or not to enable a back to top button on your pages.', 'flavours'),
+                        'subtitle' => esc_html__('右下方的三角形回到上方按鈕', 'flavours'),
                         'default' => true,
                     ),
 
@@ -1093,7 +1093,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id' => 'opt-color-footer',
                         'type' => 'color',
                         'title' => esc_html__('Footer Background Color', 'flavours'),
-                        'subtitle' => esc_html__('Pick a background color for the footer.', 'flavours'),
+                        'subtitle' => esc_html__('Footer 背景顏色(預設為透明).', 'flavours'),
                         'validate' => 'color',
                         'transparent' => false,
                         'mode' => 'background',
@@ -1124,26 +1124,26 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $this->sections[] = array(
                 'icon' => 'el-icon-file-alt',
                 'title' => esc_html__('Header', 'flavours'),
-                'heading' => esc_html__('All header related options are listed here.', 'flavours'),
+                'heading' => esc_html__('All header related options are listed here', 'flavours'),
                 'desc' => esc_html__('', 'flavours'),
                 'fields' => array(
                     array(
                         'id' => 'enable_header_currency',
                         'type' => 'switch',
                         'title' => esc_html__('Show Currency HTML', 'flavours'),
-                        'subtitle' => esc_html__('You can show Currency in the header.', 'flavours')
+                        'subtitle' => esc_html__('You can show Currency in the header', 'flavours')
                     ),
                     array(
                         'id' => 'enable_header_language',
                         'type' => 'switch',
                         'title' => esc_html__('Show Language HTML', 'flavours'),
-                        'subtitle' => esc_html__('You can show Language in the header.', 'flavours')
+                        'subtitle' => esc_html__('You can show Language in the header', 'flavours')
                     ),
                     array(
                         'id' => 'header_use_imagelogo',
                         'type' => 'checkbox',
-                        'title' => esc_html__('Use Image for Logo?', 'flavours'),
-                        'subtitle' => esc_html__('If left unchecked, plain text will be used instead (generated from site name).', 'flavours'),
+                        'title' => esc_html__('Use Image for Logo', 'flavours'),
+                        'subtitle' => esc_html__('如果沒勾選，將會用站台名稱文字顯示.', 'flavours'),
                         'desc' => esc_html__('', 'flavours'),
                         'default' => '1'
                     ),
@@ -1153,14 +1153,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'required' => array('header_use_imagelogo', '=', '1'),
                         'title' => esc_html__('Logo Upload', 'flavours'),
                         'desc' => esc_html__('', 'flavours'),
-                        'subtitle' => esc_html__('Upload your logo here and enter the height of it below', 'flavours'),
+                        'subtitle' => esc_html__('上傳 Logo 圖 (建議用透明圖)', 'flavours'),
                     ),
                     array(
                         'id' => 'header_logo_height',
                         'type' => 'text',
                         'required' => array('header_use_imagelogo', '=', '1'),
                         'title' => esc_html__('Logo Height', 'flavours'),
-                        'subtitle' => esc_html__('Don\'t include "px" in the string. e.g. 30', 'flavours'),
+                        'subtitle' => esc_html__('請勿加單位, 預設96', 'flavours'),
                         'desc' => '',
                         'validate' => 'numeric'
                     ),
@@ -1169,7 +1169,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'type' => 'text',
                         'required' => array('header_use_imagelogo', '=', '1'),
                         'title' => esc_html__('Logo Width', 'flavours'),
-                        'subtitle' => esc_html__('Don\'t include "px" in the string. e.g. 30', 'flavours'),
+                        'subtitle' => esc_html__('請勿加單位, 預設174', 'flavours'),
                         'desc' => '',
                         'validate' => 'numeric'
                     ),
@@ -1226,7 +1226,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $this->sections[] = array(
                 'icon' => 'el el-website icon',
                 'title' => esc_html__('Menu', 'flavours'),
-                'heading' => esc_html__('All Menu related options are listed here.', 'flavours'),
+                'heading' => esc_html__('All Menu related options are listed here', 'flavours'),
                 'desc' => esc_html__('', 'flavours'),
                 'fields' => array(
                     array(
@@ -1240,7 +1240,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id'       => 'login_button_pos',
                         'type'     => 'radio',
                         'title'    => esc_html__('Show Login/sign and logout link', 'flavours'),
-                        'desc'     => esc_html__('Please Select any option from above.', 'flavours'),
+                        'desc'     => esc_html__('Please Select any option from above', 'flavours'),
                         //Must provide key => value pairs for radio options
                         'options'  => array(
                             'none' => 'None',
@@ -1256,7 +1256,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
             $this->sections[] = array(
                 'icon' => 'el-icon-file-alt',
                 'title' => esc_html__('Footer', 'flavours'),
-                'heading' => esc_html__('All footer related options are listed here.', 'flavours'),
+                'heading' => esc_html__('All footer related options are listed here', 'flavours'),
                 'desc' => esc_html__('', 'flavours'),
                 'fields' => array(
                     array(
@@ -1286,7 +1286,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                     array(
                         'id' => 'bottom-footer-text',
                         'type' => 'editor',
-                        'title' => esc_html__('Bottom Footer Text', 'flavours'),
+                        'title' => esc_html__('Footer 文字', 'flavours'),
                         'subtitle' => esc_html__('You can use the following shortcodes in your footer text: [wp-url] [site-url] [theme-url] [login-url] [logout-url] [site-title] [site-tagline] [current-year]', 'flavours'),
                         'default' => esc_html__('Powered by ThemesMartGroup', 'flavours'),
                     ),
@@ -1441,14 +1441,14 @@ if (!class_exists('Redux_Framework_sample_config')) {
 
             $this->sections[] = array(
                 'title' => esc_html__('Import / Export', 'flavours'),
-                'desc' => esc_html__('Import and Export your Redux Framework settings from file, text or URL.', 'flavours'),
+                'desc' => esc_html__('Import and Export your Redux Framework settings from file, text or URL', 'flavours'),
                 'icon' => 'el-icon-refresh',
                 'fields' => array(
                     array(
                         'id' => 'opt-import-export',
                         'type' => 'import_export',
-                        'title' => 'Import Export',
-                        'subtitle' => 'Save and restore your Redux options',
+                        'title' => '匯入 / 匯出',
+                        'subtitle' => '匯入匯出您的 Flavours 樣板設定',
                         'full_width' => false,
                     ),
                 ),

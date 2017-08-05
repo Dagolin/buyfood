@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-06-12 20:48+0800\n"
+"PO-Revision-Date: 2017-08-05 21:18+0800\n"
 "Language-Team: \n"
 "X-Generator: Poedit 1.8.10\n"
 "Last-Translator: \n"
@@ -745,19 +745,19 @@ msgid "You can enable/disable Home page offer Banners"
 msgstr "啟用首頁小Banner 區 (六塊圖)"
 
 msgid "Home offer Banner 1"
-msgstr ""
+msgstr "首頁小 Banner 1"
 
 msgid "Upload offer banner to appear on  home page"
-msgstr ""
+msgstr "首頁的小 Banner"
 
 msgid "Home offer Banner-1 URL"
-msgstr ""
+msgstr "首頁小 Banner 1 超連結"
 
 msgid "URL for the offer banner"
-msgstr ""
+msgstr "超連結"
 
 msgid "Home offer Banner-1 Small Text"
-msgstr ""
+msgstr "首頁小 Banner 1 文字"
 
 msgid "Text on the offer banner"
 msgstr ""
@@ -766,10 +766,10 @@ msgid "Home offer Banner-1 Big Text"
 msgstr ""
 
 msgid "Home offer Banner 2"
-msgstr ""
+msgstr "首頁小 Banner 2"
 
 msgid "Home offer Banner-2 URL"
-msgstr ""
+msgstr "首頁小 Banner 2 超連結"
 
 msgid "Home offer Banner-2 Small Text"
 msgstr ""
@@ -778,10 +778,10 @@ msgid "Home offer Banner-2 Big Text"
 msgstr ""
 
 msgid "Home offer Banner 3"
-msgstr ""
+msgstr "首頁小 Banner 3"
 
 msgid "Home offer Banner-3 URL"
-msgstr ""
+msgstr "首頁小 Banner 3 超連結"
 
 msgid "Home offer Banner-3 Small Text"
 msgstr ""
@@ -790,10 +790,10 @@ msgid "Home offer Banner-3 Big Text"
 msgstr ""
 
 msgid "Home offer Banner 4"
-msgstr ""
+msgstr "首頁小 Banner 4"
 
 msgid "Home offer Banner-4 URL"
-msgstr ""
+msgstr "首頁小 Banner 4超連結"
 
 msgid "Home offer Banner 5"
 msgstr ""
@@ -895,7 +895,7 @@ msgid "Enable Company Logo Uploads"
 msgstr "顯示公司Logo"
 
 msgid "You can enable/disable Company Logo Uploads"
-msgstr ""
+msgstr "啟用或停用公司 Logo 區塊"
 
 msgid "Unlimited slide uploads with drag and drop sortings."
 msgstr ""
@@ -913,10 +913,10 @@ msgid "Styling Options"
 msgstr "風格設定"
 
 msgid "Use animation effect"
-msgstr ""
+msgstr "啟用震動動畫(畫面一開始會從下方滑入)"
 
 msgid "Set Body Background"
-msgstr ""
+msgstr "背景顏色"
 
 msgid "Body Background"
 msgstr ""
@@ -925,7 +925,7 @@ msgid "Body background with image, color, etc"
 msgstr ""
 
 msgid "Footer Background Color"
-msgstr ""
+msgstr "Footer 背景顏色"
 
 msgid "Pick a background color for the footer"
 msgstr ""
@@ -946,13 +946,13 @@ msgid "Show Currency HTML"
 msgstr "Header 顯示金額選單"
 
 msgid "You can show Currency in the header"
-msgstr ""
+msgstr "顯示金額選單"
 
 msgid "Show Language HTML"
 msgstr "Header 顯示語言選單"
 
 msgid "You can show Language in the header"
-msgstr ""
+msgstr "顯示語言選單"
 
 msgid "Use Image for Logo"
 msgstr "是否使用圖片Logo?"
@@ -989,7 +989,7 @@ msgid "All Menu related options are listed here"
 msgstr "主選單相關設定"
 
 msgid "Show Menu Arrow"
-msgstr ""
+msgstr "選單中顯示箭頭符號"
 
 msgid "Show arrow in menu"
 msgstr ""
@@ -998,7 +998,7 @@ msgid "Show Login/sign and logout link"
 msgstr "顯示登入登出連結"
 
 msgid "Please Select any option from above"
-msgstr ""
+msgstr "請任選一個"
 
 msgid "All footer related options are listed here"
 msgstr "Footer 相關設定"
@@ -1153,19 +1153,19 @@ msgid "Footer Text"
 msgstr "Footer 文字"
 
 msgid "Show Info Banners"
-msgstr ""
+msgstr "顯示最下方四個小文字區塊"
 
 msgid "Shipping Banner Text"
-msgstr ""
+msgstr "小文字區塊1"
 
 msgid "Customer Support Banner Text"
-msgstr ""
+msgstr "小文字區塊2"
 
 msgid "Warrant/Gaurantee Banner Text"
-msgstr ""
+msgstr "小文字區塊3"
 
 msgid "Return service Banner Text"
-msgstr ""
+msgstr "小文字區塊4"
 
 msgid "Footer"
 msgstr ""
