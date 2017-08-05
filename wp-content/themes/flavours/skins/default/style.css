@@ -15418,7 +15418,7 @@ footer address {
 	margin: auto;
 }
 .bx-viewport {
-	height: 340px !important;
+	/*height: 340px !important;*/
 	width: 95% !important;
 }
 .bxslider li {
@@ -16587,7 +16587,7 @@ footer .coppyright {
 	margin: auto;
 }
 .bx-viewport {
-	height: 340px !important;
+	/*height: 340px !important;*/
 	width: 95% !important;
 }
 .bxslider li {
