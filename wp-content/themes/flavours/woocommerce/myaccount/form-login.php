@@ -111,6 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="woocomerce-FormRow form-row">
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
+				<div id="pass-error" class="hide">密碼應該至少有 7 個字元。要更複雜的話請大小寫、數字及特殊符號像是 ! " ? $ % ^ 都要使用 & ).</div>
 			</p>
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
