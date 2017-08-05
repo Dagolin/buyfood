@@ -867,15 +867,15 @@ if (!class_exists('Redux_Framework_sample_config')) {
                         'id'       => 'enable_testimonial',
                         'type'     => 'switch',
                         'required' => array(array('theme_layout', '=', 'default')),
-                        'title'    => esc_html__( 'Enable Testimonial', 'Flavours' ),
-                        'subtitle' => esc_html__( '是否顯示消費心得', 'Flavours' ),
+                        'title'    => esc_html__( '顯示消費心得', 'Flavours' ),
+                        'subtitle' => esc_html__( '是否顯示消費心得區塊', 'Flavours' ),
                         'default' => '0'
                     ),
                     array(
                         'id' => 'all_testimonial',
                         'type' => 'slides',
                         'required' => array('enable_testimonial', '=', '1'),
-                        'title' => esc_html__('新增消費心得', 'Flavours'),
+                        'title' => esc_html__('消費心得', 'Flavours'),
                         'subtitle' => esc_html__('消費心得', 'Flavours'),
                         'placeholder' => array(
                             'title' => esc_html__('This is a title', 'Flavours'),
